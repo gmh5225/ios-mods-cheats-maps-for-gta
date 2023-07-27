@@ -9,21 +9,46 @@
 /* Begin PBXBuildFile section */
 		2C2A20512A7170E1002A6D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20502A7170E1002A6D3C /* AppDelegate.swift */; };
 		2C2A20532A7170E1002A6D3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20522A7170E1002A6D3C /* SceneDelegate.swift */; };
-		2C2A20552A7170E1002A6D3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20542A7170E1002A6D3C /* ViewController.swift */; };
-		2C2A20582A7170E1002A6D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A20562A7170E1002A6D3C /* Main.storyboard */; };
 		2C2A205A2A7170E3002A6D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A20592A7170E3002A6D3C /* Assets.xcassets */; };
 		2C2A205D2A7170E3002A6D3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A205B2A7170E3002A6D3C /* LaunchScreen.storyboard */; };
+		2C2A20682A717FA2002A6D3C /* ApplicationFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20672A717FA2002A6D3C /* ApplicationFlowCoordinator.swift */; };
+		2C2A206C2A727DEB002A6D3C /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 2C2A206B2A727DEB002A6D3C /* Swinject */; };
+		2C2A206F2A727E88002A6D3C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C2A206E2A727E88002A6D3C /* RealmSwift */; };
+		2C2A20712A7282D8002A6D3C /* ApplicationFlowAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20702A7282D8002A6D3C /* ApplicationFlowAssembly.swift */; };
+		2C2A20732A7285AA002A6D3C /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20722A7285AA002A6D3C /* MainFlowCoordinator.swift */; };
+		2C2A20762A7286EC002A6D3C /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20752A7286EC002A6D3C /* FlowCoordinator.swift */; };
+		2C2A20782A7287AA002A6D3C /* MainFlowAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20772A7287AA002A6D3C /* MainFlowAssembly.swift */; };
+		2C2A207B2A729267002A6D3C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A207A2A729267002A6D3C /* MainViewController.swift */; };
+		2C2A207D2A729270002A6D3C /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A207C2A729270002A6D3C /* MainViewModel.swift */; };
+		2C2A207F2A72927E002A6D3C /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A207E2A72927E002A6D3C /* MainModel.swift */; };
+		2C2A20812A729337002A6D3C /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20802A729337002A6D3C /* NiblessViewController.swift */; };
+		2C2A20852A729D5D002A6D3C /* Resolver+Autoresolve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20842A729D5D002A6D3C /* Resolver+Autoresolve.swift */; };
+		2C2A208A2A72A530002A6D3C /* Realm+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20892A72A530002A6D3C /* Realm+Utilities.swift */; };
+		2C2A208C2A72A5A7002A6D3C /* KeyValueStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A208B2A72A5A7002A6D3C /* KeyValueStorage.swift */; };
+		2C2A208E2A72A64B002A6D3C /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A208D2A72A64B002A6D3C /* KeychainStorage.swift */; };
+		2C2A20912A72A8A9002A6D3C /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 2C2A20902A72A8A9002A6D3C /* KeychainAccess */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C2A204D2A7170E1002A6D3C /* GTA Modes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GTA Modes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C2A204D2A7170E1002A6D3C /* GTAModes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTAModes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2A20502A7170E1002A6D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C2A20522A7170E1002A6D3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2C2A20542A7170E1002A6D3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2C2A20572A7170E1002A6D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C2A20592A7170E3002A6D3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C2A205C2A7170E3002A6D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C2A205E2A7170E3002A6D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C2A20672A717FA2002A6D3C /* ApplicationFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFlowCoordinator.swift; sourceTree = "<group>"; };
+		2C2A20702A7282D8002A6D3C /* ApplicationFlowAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFlowAssembly.swift; sourceTree = "<group>"; };
+		2C2A20722A7285AA002A6D3C /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
+		2C2A20752A7286EC002A6D3C /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		2C2A20772A7287AA002A6D3C /* MainFlowAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowAssembly.swift; sourceTree = "<group>"; };
+		2C2A207A2A729267002A6D3C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2C2A207C2A729270002A6D3C /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		2C2A207E2A72927E002A6D3C /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		2C2A20802A729337002A6D3C /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
+		2C2A20842A729D5D002A6D3C /* Resolver+Autoresolve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Autoresolve.swift"; sourceTree = "<group>"; };
+		2C2A20892A72A530002A6D3C /* Realm+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Utilities.swift"; sourceTree = "<group>"; };
+		2C2A208B2A72A5A7002A6D3C /* KeyValueStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStorage.swift; sourceTree = "<group>"; };
+		2C2A208D2A72A64B002A6D3C /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C2A206F2A727E88002A6D3C /* RealmSwift in Frameworks */,
+				2C2A206C2A727DEB002A6D3C /* Swinject in Frameworks */,
+				2C2A20912A72A8A9002A6D3C /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,7 +68,7 @@
 		2C2A20442A7170E1002A6D3C = {
 			isa = PBXGroup;
 			children = (
-				2C2A204F2A7170E1002A6D3C /* GTA Modes */,
+				2C2A204F2A7170E1002A6D3C /* GTAModes */,
 				2C2A204E2A7170E1002A6D3C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,31 +76,98 @@
 		2C2A204E2A7170E1002A6D3C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C2A204D2A7170E1002A6D3C /* GTA Modes.app */,
+				2C2A204D2A7170E1002A6D3C /* GTAModes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2C2A204F2A7170E1002A6D3C /* GTA Modes */ = {
+		2C2A204F2A7170E1002A6D3C /* GTAModes */ = {
 			isa = PBXGroup;
 			children = (
 				2C2A20502A7170E1002A6D3C /* AppDelegate.swift */,
 				2C2A20522A7170E1002A6D3C /* SceneDelegate.swift */,
-				2C2A20542A7170E1002A6D3C /* ViewController.swift */,
-				2C2A20562A7170E1002A6D3C /* Main.storyboard */,
+				2C2A20642A717EA4002A6D3C /* Flows */,
+				2C2A20652A717EF7002A6D3C /* Services */,
+				2C2A20742A7286D4002A6D3C /* Common */,
+				2C2A20662A717F13002A6D3C /* Resources */,
+			);
+			path = GTAModes;
+			sourceTree = "<group>";
+		};
+		2C2A20642A717EA4002A6D3C /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A20672A717FA2002A6D3C /* ApplicationFlowCoordinator.swift */,
+				2C2A20702A7282D8002A6D3C /* ApplicationFlowAssembly.swift */,
+				2C2A20692A717FE9002A6D3C /* MainFlow */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		2C2A20652A717EF7002A6D3C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A20862A72A3C6002A6D3C /* DataBase */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2C2A20662A717F13002A6D3C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A205E2A7170E3002A6D3C /* Info.plist */,
 				2C2A20592A7170E3002A6D3C /* Assets.xcassets */,
 				2C2A205B2A7170E3002A6D3C /* LaunchScreen.storyboard */,
-				2C2A205E2A7170E3002A6D3C /* Info.plist */,
 			);
-			path = "GTA Modes";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2C2A20692A717FE9002A6D3C /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A20792A72907B002A6D3C /* MainView */,
+				2C2A20722A7285AA002A6D3C /* MainFlowCoordinator.swift */,
+				2C2A20772A7287AA002A6D3C /* MainFlowAssembly.swift */,
+			);
+			path = MainFlow;
+			sourceTree = "<group>";
+		};
+		2C2A20742A7286D4002A6D3C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A20752A7286EC002A6D3C /* FlowCoordinator.swift */,
+				2C2A20802A729337002A6D3C /* NiblessViewController.swift */,
+				2C2A20842A729D5D002A6D3C /* Resolver+Autoresolve.swift */,
+				2C2A208B2A72A5A7002A6D3C /* KeyValueStorage.swift */,
+				2C2A208D2A72A64B002A6D3C /* KeychainStorage.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2C2A20792A72907B002A6D3C /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A207A2A729267002A6D3C /* MainViewController.swift */,
+				2C2A207C2A729270002A6D3C /* MainViewModel.swift */,
+				2C2A207E2A72927E002A6D3C /* MainModel.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		2C2A20862A72A3C6002A6D3C /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A20892A72A530002A6D3C /* Realm+Utilities.swift */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2C2A204C2A7170E1002A6D3C /* GTA Modes */ = {
+		2C2A204C2A7170E1002A6D3C /* GTAModes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2C2A20612A7170E3002A6D3C /* Build configuration list for PBXNativeTarget "GTA Modes" */;
+			buildConfigurationList = 2C2A20612A7170E3002A6D3C /* Build configuration list for PBXNativeTarget "GTAModes" */;
 			buildPhases = (
 				2C2A20492A7170E1002A6D3C /* Sources */,
 				2C2A204A2A7170E1002A6D3C /* Frameworks */,
@@ -82,9 +177,14 @@
 			);
 			dependencies = (
 			);
-			name = "GTA Modes";
+			name = GTAModes;
+			packageProductDependencies = (
+				2C2A206B2A727DEB002A6D3C /* Swinject */,
+				2C2A206E2A727E88002A6D3C /* RealmSwift */,
+				2C2A20902A72A8A9002A6D3C /* KeychainAccess */,
+			);
 			productName = "GTA Modes";
-			productReference = 2C2A204D2A7170E1002A6D3C /* GTA Modes.app */;
+			productReference = 2C2A204D2A7170E1002A6D3C /* GTAModes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +202,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2C2A20482A7170E1002A6D3C /* Build configuration list for PBXProject "GTA Modes" */;
+			buildConfigurationList = 2C2A20482A7170E1002A6D3C /* Build configuration list for PBXProject "GTAModes" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,11 +211,16 @@
 				Base,
 			);
 			mainGroup = 2C2A20442A7170E1002A6D3C;
+			packageReferences = (
+				2C2A206A2A727DEB002A6D3C /* XCRemoteSwiftPackageReference "Swinject" */,
+				2C2A206D2A727E88002A6D3C /* XCRemoteSwiftPackageReference "realm-swift" */,
+				2C2A208F2A72A8A9002A6D3C /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = 2C2A204E2A7170E1002A6D3C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2C2A204C2A7170E1002A6D3C /* GTA Modes */,
+				2C2A204C2A7170E1002A6D3C /* GTAModes */,
 			);
 		};
 /* End PBXProject section */
@@ -127,7 +232,6 @@
 			files = (
 				2C2A205D2A7170E3002A6D3C /* LaunchScreen.storyboard in Resources */,
 				2C2A205A2A7170E3002A6D3C /* Assets.xcassets in Resources */,
-				2C2A20582A7170E1002A6D3C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +242,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C2A20552A7170E1002A6D3C /* ViewController.swift in Sources */,
+				2C2A20712A7282D8002A6D3C /* ApplicationFlowAssembly.swift in Sources */,
+				2C2A208E2A72A64B002A6D3C /* KeychainStorage.swift in Sources */,
+				2C2A20682A717FA2002A6D3C /* ApplicationFlowCoordinator.swift in Sources */,
+				2C2A20782A7287AA002A6D3C /* MainFlowAssembly.swift in Sources */,
+				2C2A20762A7286EC002A6D3C /* FlowCoordinator.swift in Sources */,
 				2C2A20512A7170E1002A6D3C /* AppDelegate.swift in Sources */,
+				2C2A208C2A72A5A7002A6D3C /* KeyValueStorage.swift in Sources */,
+				2C2A20732A7285AA002A6D3C /* MainFlowCoordinator.swift in Sources */,
 				2C2A20532A7170E1002A6D3C /* SceneDelegate.swift in Sources */,
+				2C2A208A2A72A530002A6D3C /* Realm+Utilities.swift in Sources */,
+				2C2A20812A729337002A6D3C /* NiblessViewController.swift in Sources */,
+				2C2A207B2A729267002A6D3C /* MainViewController.swift in Sources */,
+				2C2A207F2A72927E002A6D3C /* MainModel.swift in Sources */,
+				2C2A207D2A729270002A6D3C /* MainViewModel.swift in Sources */,
+				2C2A20852A729D5D002A6D3C /* Resolver+Autoresolve.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2C2A20562A7170E1002A6D3C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2C2A20572A7170E1002A6D3C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2C2A205B2A7170E3002A6D3C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -289,12 +397,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3QJ8VC6L4J;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "GTA Modes/Info.plist";
+				INFOPLIST_FILE = GTAModes/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,12 +427,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3QJ8VC6L4J;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "GTA Modes/Info.plist";
+				INFOPLIST_FILE = GTAModes/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,7 +451,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2C2A20482A7170E1002A6D3C /* Build configuration list for PBXProject "GTA Modes" */ = {
+		2C2A20482A7170E1002A6D3C /* Build configuration list for PBXProject "GTAModes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2C2A205F2A7170E3002A6D3C /* Debug */,
@@ -348,7 +460,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2C2A20612A7170E3002A6D3C /* Build configuration list for PBXNativeTarget "GTA Modes" */ = {
+		2C2A20612A7170E3002A6D3C /* Build configuration list for PBXNativeTarget "GTAModes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2C2A20622A7170E3002A6D3C /* Debug */,
@@ -358,6 +470,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2C2A206A2A727DEB002A6D3C /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		2C2A206D2A727E88002A6D3C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		2C2A208F2A72A8A9002A6D3C /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C2A206B2A727DEB002A6D3C /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C2A206A2A727DEB002A6D3C /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		2C2A206E2A727E88002A6D3C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C2A206D2A727E88002A6D3C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		2C2A20902A72A8A9002A6D3C /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C2A208F2A72A8A9002A6D3C /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2C2A20452A7170E1002A6D3C /* Project object */;
 }
