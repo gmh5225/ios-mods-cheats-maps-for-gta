@@ -15,6 +15,12 @@ protocol MainModelNavigationHandler: AnyObject {
 
 final class MainModel {
     
+    let menuItems: [MainCellData] = [
+        .init(title: "Cheats", imageUrl: "mainCell1"),
+        .init(title: "Checklist", imageUrl: "mainCell2"),
+        .init(title: "Map", imageUrl: "mainCell3")
+    ]
+    
     private let navigationHandler: MainModelNavigationHandler
     
     init(
@@ -23,5 +29,10 @@ final class MainModel {
         self.navigationHandler = navigationHandler
     }
     
+    public func selectedItems(index: Int) {
+        if index == 0 {
+            navigationHandler.mainModelDidRequestToGameSelection(self)
+        }
+    }
     
 }

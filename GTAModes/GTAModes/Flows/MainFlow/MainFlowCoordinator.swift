@@ -23,8 +23,7 @@ final class MainFlowCoordinator: NSObject, FlowCoordinator {
 
     func createFlow() -> UIViewController {
         let model = MainModel(navigationHandler: self as MainModelNavigationHandler)
-        let viewModel = MainViewModel(model: model)
-        let controller = MainViewController(viewModel: viewModel)
+        let controller = MainViewController(model: model)
         rootViewController = controller
         
         return controller
@@ -35,7 +34,20 @@ final class MainFlowCoordinator: NSObject, FlowCoordinator {
 extension MainFlowCoordinator: MainModelNavigationHandler {
     
     func mainModelDidRequestToGameSelection(_ model: MainModel) {
-        print("go to game selection")
+        let model = GSModel(navigationHandler: self as GSModelNavigationHandler)
+        let controller = GSViewController(model: model)
+        
+        rootViewController?.navigationController?.present(controller, animated: true)
     }
+    
+}
+
+extension MainFlowCoordinator: GSModelNavigationHandler {
+    func gsModelDidRequestToGameSelection(_ model: MainModel) {
+        print("sss")
+    }
+    
+    
+    
     
 }

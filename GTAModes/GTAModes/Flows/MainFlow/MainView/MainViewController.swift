@@ -9,18 +9,54 @@ import UIKit
 
 class MainViewController: NiblessViewController {
     
-    private let viewModel: MainViewModel
+    private let model: MainModel
     
-    init(viewModel: MainViewModel) {
-      self.viewModel = viewModel
-      
-      super.init()
+    private let tableView = UITableView(frame: .zero)
+    
+    init(model: MainModel) {
+        self.model = model
+        
+        super.init()
     }
     
     override func viewDidLoad() {
-      super.viewDidLoad()
+        super.viewDidLoad()
+        
+        setupView()
+    }
     
-        view.backgroundColor = .yellow
+    private func setupView() {
+        navigationItem.title = ""
+        view.backgroundColor = .black
+        view.addSubview(tableView)
+        tableView.backgroundColor = .clear
+        tableView.pinEdges(to: view)
+        tableView.registerReusableCell(cellType: MainTableViewCell.self)
+        tableView.rowHeight = 228.0
+        tableView.delegate = self
+        tableView.dataSource = self
+//        tableView.separatorStyle = .none
+//        tableView.allowsSelection = true
+    }
+    
+}
+
+extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell: MainTableViewCell = tableView.dequeueReusableCell(indexPath)
+        cell.configure(model.menuItems[indexPath.row])
+        cell.backgroundColor = .clear
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        model.menuItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        model.selectedItems(index: indexPath.row)
     }
     
 }

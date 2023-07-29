@@ -19,14 +19,15 @@
 		2C2A20762A7286EC002A6D3C /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20752A7286EC002A6D3C /* FlowCoordinator.swift */; };
 		2C2A20782A7287AA002A6D3C /* MainFlowAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20772A7287AA002A6D3C /* MainFlowAssembly.swift */; };
 		2C2A207B2A729267002A6D3C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A207A2A729267002A6D3C /* MainViewController.swift */; };
-		2C2A207D2A729270002A6D3C /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A207C2A729270002A6D3C /* MainViewModel.swift */; };
 		2C2A207F2A72927E002A6D3C /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A207E2A72927E002A6D3C /* MainModel.swift */; };
 		2C2A20812A729337002A6D3C /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20802A729337002A6D3C /* NiblessViewController.swift */; };
-		2C2A20852A729D5D002A6D3C /* Resolver+Autoresolve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20842A729D5D002A6D3C /* Resolver+Autoresolve.swift */; };
 		2C2A208A2A72A530002A6D3C /* Realm+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20892A72A530002A6D3C /* Realm+Utilities.swift */; };
-		2C2A208C2A72A5A7002A6D3C /* KeyValueStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A208B2A72A5A7002A6D3C /* KeyValueStorage.swift */; };
-		2C2A208E2A72A64B002A6D3C /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A208D2A72A64B002A6D3C /* KeychainStorage.swift */; };
 		2C2A20912A72A8A9002A6D3C /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 2C2A20902A72A8A9002A6D3C /* KeychainAccess */; };
+		2C2A20B72A7551E8002A6D3C /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20B62A7551E8002A6D3C /* MainTableViewCell.swift */; };
+		2C2A20B92A7556BF002A6D3C /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20B82A7556BF002A6D3C /* Reusable.swift */; };
+		2C2A20BB2A755AFA002A6D3C /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20BA2A755AFA002A6D3C /* Autolayout.swift */; };
+		2C2A20BE2A756AD4002A6D3C /* GSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20BD2A756AD4002A6D3C /* GSViewController.swift */; };
+		2C2A20C02A756AE0002A6D3C /* GSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20BF2A756AE0002A6D3C /* GSModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,13 +43,14 @@
 		2C2A20752A7286EC002A6D3C /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		2C2A20772A7287AA002A6D3C /* MainFlowAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowAssembly.swift; sourceTree = "<group>"; };
 		2C2A207A2A729267002A6D3C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		2C2A207C2A729270002A6D3C /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		2C2A207E2A72927E002A6D3C /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		2C2A20802A729337002A6D3C /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
-		2C2A20842A729D5D002A6D3C /* Resolver+Autoresolve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Autoresolve.swift"; sourceTree = "<group>"; };
 		2C2A20892A72A530002A6D3C /* Realm+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Utilities.swift"; sourceTree = "<group>"; };
-		2C2A208B2A72A5A7002A6D3C /* KeyValueStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStorage.swift; sourceTree = "<group>"; };
-		2C2A208D2A72A64B002A6D3C /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
+		2C2A20B62A7551E8002A6D3C /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		2C2A20B82A7556BF002A6D3C /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		2C2A20BA2A755AFA002A6D3C /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
+		2C2A20BD2A756AD4002A6D3C /* GSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSViewController.swift; sourceTree = "<group>"; };
+		2C2A20BF2A756AE0002A6D3C /* GSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		2C2A20692A717FE9002A6D3C /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
+				2C2A20BC2A756AB3002A6D3C /* GameSelection */,
 				2C2A20792A72907B002A6D3C /* MainView */,
 				2C2A20722A7285AA002A6D3C /* MainFlowCoordinator.swift */,
 				2C2A20772A7287AA002A6D3C /* MainFlowAssembly.swift */,
@@ -135,11 +138,11 @@
 		2C2A20742A7286D4002A6D3C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2C2A20B32A755153002A6D3C /* UI */,
 				2C2A20752A7286EC002A6D3C /* FlowCoordinator.swift */,
 				2C2A20802A729337002A6D3C /* NiblessViewController.swift */,
-				2C2A20842A729D5D002A6D3C /* Resolver+Autoresolve.swift */,
-				2C2A208B2A72A5A7002A6D3C /* KeyValueStorage.swift */,
-				2C2A208D2A72A64B002A6D3C /* KeychainStorage.swift */,
+				2C2A20BA2A755AFA002A6D3C /* Autolayout.swift */,
+				2C2A20B82A7556BF002A6D3C /* Reusable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -148,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				2C2A207A2A729267002A6D3C /* MainViewController.swift */,
-				2C2A207C2A729270002A6D3C /* MainViewModel.swift */,
 				2C2A207E2A72927E002A6D3C /* MainModel.swift */,
 			);
 			path = MainView;
@@ -160,6 +162,39 @@
 				2C2A20892A72A530002A6D3C /* Realm+Utilities.swift */,
 			);
 			path = DataBase;
+			sourceTree = "<group>";
+		};
+		2C2A20B32A755153002A6D3C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A20B42A755158002A6D3C /* Cells */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2C2A20B42A755158002A6D3C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A20B52A7551B4002A6D3C /* MainTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2C2A20B52A7551B4002A6D3C /* MainTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A20B62A7551E8002A6D3C /* MainTableViewCell.swift */,
+			);
+			path = MainTableViewCell;
+			sourceTree = "<group>";
+		};
+		2C2A20BC2A756AB3002A6D3C /* GameSelection */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A20BD2A756AD4002A6D3C /* GSViewController.swift */,
+				2C2A20BF2A756AE0002A6D3C /* GSModel.swift */,
+			);
+			path = GameSelection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,21 +277,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C2A20B72A7551E8002A6D3C /* MainTableViewCell.swift in Sources */,
 				2C2A20712A7282D8002A6D3C /* ApplicationFlowAssembly.swift in Sources */,
-				2C2A208E2A72A64B002A6D3C /* KeychainStorage.swift in Sources */,
 				2C2A20682A717FA2002A6D3C /* ApplicationFlowCoordinator.swift in Sources */,
 				2C2A20782A7287AA002A6D3C /* MainFlowAssembly.swift in Sources */,
 				2C2A20762A7286EC002A6D3C /* FlowCoordinator.swift in Sources */,
 				2C2A20512A7170E1002A6D3C /* AppDelegate.swift in Sources */,
-				2C2A208C2A72A5A7002A6D3C /* KeyValueStorage.swift in Sources */,
+				2C2A20B92A7556BF002A6D3C /* Reusable.swift in Sources */,
 				2C2A20732A7285AA002A6D3C /* MainFlowCoordinator.swift in Sources */,
 				2C2A20532A7170E1002A6D3C /* SceneDelegate.swift in Sources */,
 				2C2A208A2A72A530002A6D3C /* Realm+Utilities.swift in Sources */,
+				2C2A20BE2A756AD4002A6D3C /* GSViewController.swift in Sources */,
 				2C2A20812A729337002A6D3C /* NiblessViewController.swift in Sources */,
+				2C2A20BB2A755AFA002A6D3C /* Autolayout.swift in Sources */,
 				2C2A207B2A729267002A6D3C /* MainViewController.swift in Sources */,
+				2C2A20C02A756AE0002A6D3C /* GSModel.swift in Sources */,
 				2C2A207F2A72927E002A6D3C /* MainModel.swift in Sources */,
-				2C2A207D2A729270002A6D3C /* MainViewModel.swift in Sources */,
-				2C2A20852A729D5D002A6D3C /* Resolver+Autoresolve.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

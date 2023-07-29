@@ -7,20 +7,20 @@
 
 import Foundation
 import Swinject
-
-final class MainFlowAssembly: Assembly {
-    
-    func assemble(container: Container) {
-      container.register(
-        MainViewController.self
-      ) { (_, navigationHandler: MainModelNavigationHandler) in
-        let model = MainModel(
-          navigationHandler: navigationHandler
-        )
-        let viewModel = MainViewModel(model: model)
-        
-        return MainViewController(viewModel: viewModel)
-      }.inObjectScope(.transient)
-    }
-    
-}
+//
+//final class MainFlowAssembly: Assembly {
+//    
+//    func assemble(container: Container) {
+//      container.register(
+//        MainViewController.self
+//      ) { (_, navigationHandler: MainModelNavigationHandler) in
+//        let model = MainModel(
+//          navigationHandler: navigationHandler
+//        )
+//        let viewModel = MainViewModel(model: model)
+//        
+//        return MainViewController(viewModel: viewModel)
+//      }.inObjectScope(.transient)
+//    }
+//    
+//}
