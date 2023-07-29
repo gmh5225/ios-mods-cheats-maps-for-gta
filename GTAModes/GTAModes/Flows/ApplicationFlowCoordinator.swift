@@ -17,7 +17,7 @@ final class ApplicationFlowCoordinator: NSObject {
     override init() {
         super.init()
         
-        initializeDependencies()
+//        initializeDependencies()
     }
     
     func start(with launchViewController: UIViewController?, on window: UIWindow) {
@@ -39,20 +39,12 @@ final class ApplicationFlowCoordinator: NSObject {
     }
     
     func presentMainFlow() {
-        let flowCoordinator: MainFlowCoordinator = container.autoresolve(
-            argument: self as MainModelNavigationHandler
-        )
+        let flowCoordinator = MainFlowCoordinator()
         
         let controller = flowCoordinator.createFlow()
         let navigation = UINavigationController(rootViewController: controller)
         
         setWindowRootViewController(with: navigation)
-    }
-    
-    private func initializeDependencies() {
-        container = Container {
-            ApplicationFlowsAssembly().assemble(container: $0)
-        }
     }
     
 }

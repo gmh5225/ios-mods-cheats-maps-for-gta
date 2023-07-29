@@ -17,24 +17,14 @@ final class MainFlowCoordinator: NSObject, FlowCoordinator {
     
     private var container: Container!
     
-    init(container: Container) {
-        self.container = Container(parent: container) {
-            MainFlowAssembly().assemble(container: $0)
-        }
-        
+    override init() {
         super.init()
     }
-    
-    private func createContainer() {
-        container = Container()
-        
-        MainFlowAssembly().assemble(container: container)
-    }
-    
+
     func createFlow() -> UIViewController {
-        let controller: MainViewController = container.autoresolve(
-            argument: self as MainModelNavigationHandler
-        )
+        let model = MainModel(navigationHandler: self as MainModelNavigationHandler)
+        let viewModel = MainViewModel(model: model)
+        let controller = MainViewController(viewModel: viewModel)
         rootViewController = controller
         
         return controller

@@ -34,6 +34,38 @@
             endingLineNumber = "42"
             landmarkName = "presentMainFlow()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9B302579-9510-4888-83EB-85CC400D1275 - c7eb776ed0688da5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.ApplicationFlowCoordinator.presentMainFlow() -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/ApplicationFlowCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "9B302579-9510-4888-83EB-85CC400D1275 - c7eb776ed0688da5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.ApplicationFlowCoordinator.presentMainFlow() -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/ApplicationFlowCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,10 +94,42 @@
             filePath = "GTAModes/Flows/ApplicationFlowCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "presentMainFlow()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C6154A8E-1DF0-410C-A27F-0079674E7C84 - c7eb776ed0688d7e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.ApplicationFlowCoordinator.presentMainFlow() -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/ApplicationFlowCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "560">
+               </Location>
+               <Location
+                  uuid = "C6154A8E-1DF0-410C-A27F-0079674E7C84 - c7eb776ed0688d38"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.ApplicationFlowCoordinator.presentMainFlow() -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/ApplicationFlowCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
