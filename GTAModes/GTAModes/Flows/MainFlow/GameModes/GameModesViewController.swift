@@ -1,19 +1,19 @@
 //
-//  GSViewController.swift
+//  GameModesViewController.swift
 //  GTAModes
 //
-//  Created by Максим Педько on 29.07.2023.
+//  Created by Максим Педько on 30.07.2023.
 //
 
 import UIKit
 
-class GSViewController: NiblessViewController {
+class GameModesViewController: NiblessViewController {
     
-    private let model: GSModel
+    private let model: GameModesModel
     
     private let tableView = UITableView(frame: .zero)
     
-    init(model: GSModel) {
+    init(model: GameModesModel) {
         self.model = model
         
         super.init()
@@ -39,7 +39,7 @@ class GSViewController: NiblessViewController {
     
 }
 
-extension GSViewController: UITableViewDataSource {
+extension GameModesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

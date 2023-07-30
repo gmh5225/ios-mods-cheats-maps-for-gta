@@ -40,6 +40,15 @@ extension MainFlowCoordinator: MainModelNavigationHandler {
         rootViewController?.navigationController?.present(controller, animated: true)
     }
     
+    func mainModelDidRequestToChecklist(_ model: MainModel) {
+        let model = ChecklistModel(navigationHandler: self as ChecklistModelNavigationHandler)
+        let controller = ChecklistViewController(model: model)
+        
+        rootViewController?.navigationController?.present(controller, animated: true)
+    }
+    
+    
+    
 }
 
 extension MainFlowCoordinator: GSModelNavigationHandler {
@@ -47,7 +56,14 @@ extension MainFlowCoordinator: GSModelNavigationHandler {
         print("sss")
     }
     
+}
+
+extension MainFlowCoordinator: ChecklistModelNavigationHandler {
     
-    
+    func checklistModelDidRequestToGameSelection(_ model: MainModel) {
+        print("sss")
+    }
     
 }
+
+

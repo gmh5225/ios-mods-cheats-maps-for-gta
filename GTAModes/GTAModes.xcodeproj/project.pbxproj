@@ -28,6 +28,12 @@
 		2C2A20BB2A755AFA002A6D3C /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20BA2A755AFA002A6D3C /* Autolayout.swift */; };
 		2C2A20BE2A756AD4002A6D3C /* GSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20BD2A756AD4002A6D3C /* GSViewController.swift */; };
 		2C2A20C02A756AE0002A6D3C /* GSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20BF2A756AE0002A6D3C /* GSModel.swift */; };
+		2C45A5372A76A7550023B3A8 /* GameModesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5362A76A7550023B3A8 /* GameModesViewController.swift */; };
+		2C45A5392A76A7620023B3A8 /* GameModesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5382A76A7620023B3A8 /* GameModesModel.swift */; };
+		2C45A53B2A76A7780023B3A8 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A53A2A76A7780023B3A8 /* ChecklistViewController.swift */; };
+		2C45A53D2A76A7800023B3A8 /* ChecklistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A53C2A76A7800023B3A8 /* ChecklistModel.swift */; };
+		2C45A5402A76A7A50023B3A8 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A53F2A76A7A50023B3A8 /* FilterViewController.swift */; };
+		2C45A5432A771A050023B3A8 /* ChecklistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5422A771A050023B3A8 /* ChecklistCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +57,12 @@
 		2C2A20BA2A755AFA002A6D3C /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
 		2C2A20BD2A756AD4002A6D3C /* GSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSViewController.swift; sourceTree = "<group>"; };
 		2C2A20BF2A756AE0002A6D3C /* GSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSModel.swift; sourceTree = "<group>"; };
+		2C45A5362A76A7550023B3A8 /* GameModesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesViewController.swift; sourceTree = "<group>"; };
+		2C45A5382A76A7620023B3A8 /* GameModesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesModel.swift; sourceTree = "<group>"; };
+		2C45A53A2A76A7780023B3A8 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
+		2C45A53C2A76A7800023B3A8 /* ChecklistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistModel.swift; sourceTree = "<group>"; };
+		2C45A53F2A76A7A50023B3A8 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		2C45A5422A771A050023B3A8 /* ChecklistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +139,9 @@
 		2C2A20692A717FE9002A6D3C /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
+				2C45A5342A76A7200023B3A8 /* Map */,
+				2C45A5332A76A6880023B3A8 /* Checklist */,
+				2C45A5322A76A65D0023B3A8 /* GameModes */,
 				2C2A20BC2A756AB3002A6D3C /* GameSelection */,
 				2C2A20792A72907B002A6D3C /* MainView */,
 				2C2A20722A7285AA002A6D3C /* MainFlowCoordinator.swift */,
@@ -167,6 +182,7 @@
 		2C2A20B32A755153002A6D3C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2C45A53E2A76A78D0023B3A8 /* Filters */,
 				2C2A20B42A755158002A6D3C /* Cells */,
 			);
 			path = UI;
@@ -195,6 +211,48 @@
 				2C2A20BF2A756AE0002A6D3C /* GSModel.swift */,
 			);
 			path = GameSelection;
+			sourceTree = "<group>";
+		};
+		2C45A5322A76A65D0023B3A8 /* GameModes */ = {
+			isa = PBXGroup;
+			children = (
+				2C45A5362A76A7550023B3A8 /* GameModesViewController.swift */,
+				2C45A5382A76A7620023B3A8 /* GameModesModel.swift */,
+			);
+			path = GameModes;
+			sourceTree = "<group>";
+		};
+		2C45A5332A76A6880023B3A8 /* Checklist */ = {
+			isa = PBXGroup;
+			children = (
+				2C45A5412A7719ED0023B3A8 /* Cell */,
+				2C45A53A2A76A7780023B3A8 /* ChecklistViewController.swift */,
+				2C45A53C2A76A7800023B3A8 /* ChecklistModel.swift */,
+			);
+			path = Checklist;
+			sourceTree = "<group>";
+		};
+		2C45A5342A76A7200023B3A8 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		2C45A53E2A76A78D0023B3A8 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				2C45A53F2A76A7A50023B3A8 /* FilterViewController.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		2C45A5412A7719ED0023B3A8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C45A5422A771A050023B3A8 /* ChecklistCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,10 +335,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C45A5402A76A7A50023B3A8 /* FilterViewController.swift in Sources */,
+				2C45A5392A76A7620023B3A8 /* GameModesModel.swift in Sources */,
 				2C2A20B72A7551E8002A6D3C /* MainTableViewCell.swift in Sources */,
 				2C2A20712A7282D8002A6D3C /* ApplicationFlowAssembly.swift in Sources */,
+				2C45A5432A771A050023B3A8 /* ChecklistCell.swift in Sources */,
 				2C2A20682A717FA2002A6D3C /* ApplicationFlowCoordinator.swift in Sources */,
+				2C45A5372A76A7550023B3A8 /* GameModesViewController.swift in Sources */,
 				2C2A20782A7287AA002A6D3C /* MainFlowAssembly.swift in Sources */,
+				2C45A53D2A76A7800023B3A8 /* ChecklistModel.swift in Sources */,
 				2C2A20762A7286EC002A6D3C /* FlowCoordinator.swift in Sources */,
 				2C2A20512A7170E1002A6D3C /* AppDelegate.swift in Sources */,
 				2C2A20B92A7556BF002A6D3C /* Reusable.swift in Sources */,
@@ -288,6 +351,7 @@
 				2C2A20532A7170E1002A6D3C /* SceneDelegate.swift in Sources */,
 				2C2A208A2A72A530002A6D3C /* Realm+Utilities.swift in Sources */,
 				2C2A20BE2A756AD4002A6D3C /* GSViewController.swift in Sources */,
+				2C45A53B2A76A7780023B3A8 /* ChecklistViewController.swift in Sources */,
 				2C2A20812A729337002A6D3C /* NiblessViewController.swift in Sources */,
 				2C2A20BB2A755AFA002A6D3C /* Autolayout.swift in Sources */,
 				2C2A207B2A729267002A6D3C /* MainViewController.swift in Sources */,

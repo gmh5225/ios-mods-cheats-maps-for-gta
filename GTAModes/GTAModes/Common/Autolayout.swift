@@ -369,5 +369,13 @@ extension UIView {
     
     return self
   }
+    
+    @discardableResult
+    public func withBorder(width: CGFloat = 1.0, color: UIColor = (UIColor(named: "checkCellBlue")?.withAlphaComponent(0.4))!) -> Self {
+      layer.borderWidth = width
+      layer.borderColor = color.cgColor
+      
+      return self
+    }
   
 }

@@ -1,19 +1,19 @@
 //
-//  GSViewController.swift
+//  ChecklistViewController.swift
 //  GTAModes
 //
-//  Created by Максим Педько on 29.07.2023.
+//  Created by Максим Педько on 30.07.2023.
 //
 
 import UIKit
 
-class GSViewController: NiblessViewController {
+class ChecklistViewController: NiblessViewController {
     
-    private let model: GSModel
+    private let model: ChecklistModel
     
     private let tableView = UITableView(frame: .zero)
     
-    init(model: GSModel) {
+    init(model: ChecklistModel) {
         self.model = model
         
         super.init()
@@ -31,21 +31,22 @@ class GSViewController: NiblessViewController {
         view.addSubview(tableView)
         tableView.backgroundColor = .clear
         tableView.pinEdges(to: view)
-        tableView.registerReusableCell(cellType: MainTableViewCell.self)
-        tableView.rowHeight = 228.0
+        tableView.registerReusableCell(cellType: ChecklistCell.self)
+        tableView.rowHeight = 82.0
         tableView.dataSource = self
         tableView.separatorStyle = .none
     }
     
 }
 
-extension GSViewController: UITableViewDataSource {
+extension ChecklistViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: MainTableViewCell = tableView.dequeueReusableCell(indexPath)
+        let cell: ChecklistCell = tableView.dequeueReusableCell(indexPath)
         cell.configure(model.menuItems[indexPath.row])
         cell.backgroundColor = .clear
+        
         return cell
     }
     
@@ -54,3 +55,4 @@ extension GSViewController: UITableViewDataSource {
     }
     
 }
+

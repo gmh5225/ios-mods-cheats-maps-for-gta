@@ -10,7 +10,8 @@ import Foundation
 protocol MainModelNavigationHandler: AnyObject {
 
   func mainModelDidRequestToGameSelection(_ model: MainModel)
-
+    func mainModelDidRequestToChecklist(_ model: MainModel)
+    
 }
 
 final class MainModel {
@@ -32,6 +33,10 @@ final class MainModel {
     public func selectedItems(index: Int) {
         if index == 0 {
             navigationHandler.mainModelDidRequestToGameSelection(self)
+        }
+        
+        if index == 1 {
+            navigationHandler.mainModelDidRequestToChecklist(self)
         }
     }
     

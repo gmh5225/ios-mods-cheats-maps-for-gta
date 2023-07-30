@@ -48,12 +48,3 @@ final class ApplicationFlowCoordinator: NSObject {
     }
     
 }
-
-extension ApplicationFlowCoordinator: MainModelNavigationHandler {
-    
-    func mainModelDidRequestToGameSelection(_ model: MainModel) {
-        print("fff")
-    }
-    
-    
-}
