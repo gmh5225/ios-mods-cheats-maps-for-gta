@@ -27,7 +27,6 @@ class MainViewController: NiblessViewController {
     
     private func setupView() {
         navigationItem.title = ""
-        view.backgroundColor = .black
         view.addSubview(tableView)
         tableView.backgroundColor = .clear
         tableView.pinEdges(to: view)
@@ -35,8 +34,6 @@ class MainViewController: NiblessViewController {
         tableView.rowHeight = 228.0
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.separatorStyle = .none
-//        tableView.allowsSelection = true
     }
     
 }
@@ -46,7 +43,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: MainTableViewCell = tableView.dequeueReusableCell(indexPath)
-        cell.configure(model.menuItems[indexPath.row])
+        cell.configure(model.menuItems[indexPath.row], fontSize: 30.0)
         cell.backgroundColor = .clear
         return cell
     }

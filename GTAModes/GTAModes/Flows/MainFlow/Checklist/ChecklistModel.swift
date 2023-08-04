@@ -9,7 +9,8 @@ import Foundation
 
 protocol ChecklistModelNavigationHandler: AnyObject {
 
-  func checklistModelDidRequestToGameSelection(_ model: MainModel)
+  func checklistModelDidRequestToBack(_ model: ChecklistModel)
+  func checklistModelDidRequestToFilter(_ model: ChecklistModel)
 
 }
 
@@ -30,6 +31,13 @@ final class ChecklistModel {
         self.navigationHandler = navigationHandler
     }
     
+    func backActionProceed() {
+        
+    }
+    
+    func filterActionProceed() {
+        navigationHandler.checklistModelDidRequestToFilter(self)
+    }
     
 }
 

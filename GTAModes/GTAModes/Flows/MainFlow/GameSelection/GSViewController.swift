@@ -44,7 +44,7 @@ extension GSViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: MainTableViewCell = tableView.dequeueReusableCell(indexPath)
-        cell.configure(model.menuItems[indexPath.row])
+        cell.configure(model.menuItems[indexPath.row], fontSize: 24.0)
         cell.backgroundColor = .clear
         return cell
     }

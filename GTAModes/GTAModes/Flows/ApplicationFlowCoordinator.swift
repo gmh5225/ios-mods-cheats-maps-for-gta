@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import Swinject
 import UIKit
 
 final class ApplicationFlowCoordinator: NSObject {
     
     private(set) var window: UIWindow!
-    private(set) var container: Container!
+//    private(set) var container: Container!
     
     override init() {
         super.init()
@@ -43,7 +42,7 @@ final class ApplicationFlowCoordinator: NSObject {
         
         let controller = flowCoordinator.createFlow()
         let navigation = UINavigationController(rootViewController: controller)
-        
+        navigation.setNavigationBarHidden(true, animated: false)
         setWindowRootViewController(with: navigation)
     }
     

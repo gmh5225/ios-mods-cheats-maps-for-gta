@@ -10,9 +10,8 @@ import UIKit
 class GameModesViewController: NiblessViewController {
     
     private let model: GameModesModel
-    
     private let tableView = UITableView(frame: .zero)
-    
+
     init(model: GameModesModel) {
         self.model = model
         
@@ -44,7 +43,7 @@ extension GameModesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: MainTableViewCell = tableView.dequeueReusableCell(indexPath)
-        cell.configure(model.menuItems[indexPath.row])
+        cell.configure(model.menuItems[indexPath.row], fontSize: 30.0)
         cell.backgroundColor = .clear
         return cell
     }

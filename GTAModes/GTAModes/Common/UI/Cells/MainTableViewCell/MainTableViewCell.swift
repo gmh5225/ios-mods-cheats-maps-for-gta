@@ -33,10 +33,10 @@ final class MainTableViewCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(_ value: MainCellData) {
+    public func configure(_ value: MainCellData, fontSize: CGFloat) {
         titleLabel.text = value.title.uppercased()
         backgroundImageView.image = UIImage(named: value.imageUrl)
-        titleLabel.font = UIFont(name: "Inter-Bold", size: 30)
+        titleLabel.font = UIFont(name: "Inter-Bold", size: fontSize)
         titleLabel.textColor = .white
         
     }
@@ -68,6 +68,13 @@ final class MainTableViewCell: UITableViewCell, Reusable {
             $0.trailing.equal(to: backgroundImageView.trailingAnchor)
             $0.height.equal(to: 60.0)
         }
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.alpha = 0.5
+        blurEffectView.frame = bottomBlackView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        bottomBlackView.addSubview(blurEffectView)
+        
         bottomBlackView.backgroundColor = UIColor(named: "mainBlackColor")?.withAlphaComponent(0.5)
         
         bottomBlackView.addSubview(titleLabel)

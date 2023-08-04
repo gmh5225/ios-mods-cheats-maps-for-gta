@@ -9,10 +9,7 @@
 /* Begin PBXBuildFile section */
 		2C2A20512A7170E1002A6D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20502A7170E1002A6D3C /* AppDelegate.swift */; };
 		2C2A20532A7170E1002A6D3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20522A7170E1002A6D3C /* SceneDelegate.swift */; };
-		2C2A205A2A7170E3002A6D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A20592A7170E3002A6D3C /* Assets.xcassets */; };
-		2C2A205D2A7170E3002A6D3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A205B2A7170E3002A6D3C /* LaunchScreen.storyboard */; };
 		2C2A20682A717FA2002A6D3C /* ApplicationFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20672A717FA2002A6D3C /* ApplicationFlowCoordinator.swift */; };
-		2C2A206C2A727DEB002A6D3C /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 2C2A206B2A727DEB002A6D3C /* Swinject */; };
 		2C2A206F2A727E88002A6D3C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C2A206E2A727E88002A6D3C /* RealmSwift */; };
 		2C2A20712A7282D8002A6D3C /* ApplicationFlowAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20702A7282D8002A6D3C /* ApplicationFlowAssembly.swift */; };
 		2C2A20732A7285AA002A6D3C /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20722A7285AA002A6D3C /* MainFlowCoordinator.swift */; };
@@ -22,18 +19,28 @@
 		2C2A207F2A72927E002A6D3C /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A207E2A72927E002A6D3C /* MainModel.swift */; };
 		2C2A20812A729337002A6D3C /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20802A729337002A6D3C /* NiblessViewController.swift */; };
 		2C2A208A2A72A530002A6D3C /* Realm+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20892A72A530002A6D3C /* Realm+Utilities.swift */; };
-		2C2A20912A72A8A9002A6D3C /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 2C2A20902A72A8A9002A6D3C /* KeychainAccess */; };
 		2C2A20B72A7551E8002A6D3C /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20B62A7551E8002A6D3C /* MainTableViewCell.swift */; };
 		2C2A20B92A7556BF002A6D3C /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20B82A7556BF002A6D3C /* Reusable.swift */; };
 		2C2A20BB2A755AFA002A6D3C /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20BA2A755AFA002A6D3C /* Autolayout.swift */; };
 		2C2A20BE2A756AD4002A6D3C /* GSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20BD2A756AD4002A6D3C /* GSViewController.swift */; };
 		2C2A20C02A756AE0002A6D3C /* GSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20BF2A756AE0002A6D3C /* GSModel.swift */; };
+		2C3C53282A7BB01300D019A1 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CBFE44B2A77CEDA00A50257 /* Inter-Bold.ttf */; };
+		2C3C53292A7BB01F00D019A1 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CBFE44C2A77CEDA00A50257 /* Inter-Regular.ttf */; };
 		2C45A5372A76A7550023B3A8 /* GameModesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5362A76A7550023B3A8 /* GameModesViewController.swift */; };
 		2C45A5392A76A7620023B3A8 /* GameModesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5382A76A7620023B3A8 /* GameModesModel.swift */; };
 		2C45A53B2A76A7780023B3A8 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A53A2A76A7780023B3A8 /* ChecklistViewController.swift */; };
 		2C45A53D2A76A7800023B3A8 /* ChecklistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A53C2A76A7800023B3A8 /* ChecklistModel.swift */; };
 		2C45A5402A76A7A50023B3A8 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A53F2A76A7A50023B3A8 /* FilterViewController.swift */; };
 		2C45A5432A771A050023B3A8 /* ChecklistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5422A771A050023B3A8 /* ChecklistCell.swift */; };
+		2C7F39F42A7BF09800F575F7 /* GameModesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */; };
+		2C7F39F62A7BF0BF00F575F7 /* GameModesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F39F52A7BF0BF00F575F7 /* GameModesTableViewCell.swift */; };
+		2CBF47222A79151300A50257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A205B2A7170E3002A6D3C /* LaunchScreen.storyboard */; };
+		2CBF47242A79153200A50257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A20592A7170E3002A6D3C /* Assets.xcassets */; };
+		2CBFE4552A77E28400A50257 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE4542A77E28400A50257 /* FilterTableViewCell.swift */; };
+		2CBFE4572A77E38600A50257 /* PanPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE4562A77E38600A50257 /* PanPresentationController.swift */; };
+		2CBFE4592A77ECA200A50257 /* PanPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE4582A77ECA200A50257 /* PanPresentationManager.swift */; };
+		2CBFE45B2A79080D00A50257 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE45A2A79080D00A50257 /* MapViewController.swift */; };
+		2CBFE45D2A79081800A50257 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE45C2A79081800A50257 /* MapModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +48,6 @@
 		2C2A20502A7170E1002A6D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C2A20522A7170E1002A6D3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2C2A20592A7170E3002A6D3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2C2A205C2A7170E3002A6D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C2A205E2A7170E3002A6D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C2A20672A717FA2002A6D3C /* ApplicationFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFlowCoordinator.swift; sourceTree = "<group>"; };
 		2C2A20702A7282D8002A6D3C /* ApplicationFlowAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFlowAssembly.swift; sourceTree = "<group>"; };
@@ -63,6 +69,24 @@
 		2C45A53C2A76A7800023B3A8 /* ChecklistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistModel.swift; sourceTree = "<group>"; };
 		2C45A53F2A76A7A50023B3A8 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		2C45A5422A771A050023B3A8 /* ChecklistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistCell.swift; sourceTree = "<group>"; };
+		2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesHeaderView.swift; sourceTree = "<group>"; };
+		2C7F39F52A7BF0BF00F575F7 /* GameModesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesTableViewCell.swift; sourceTree = "<group>"; };
+		2CBFE4442A77BDD400A50257 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		2CBFE4472A77BE0200A50257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2CBFE4492A77CEDA00A50257 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
+		2CBFE44A2A77CEDA00A50257 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		2CBFE44B2A77CEDA00A50257 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		2CBFE44C2A77CEDA00A50257 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		2CBFE44D2A77CEDA00A50257 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		2CBFE44E2A77CEDA00A50257 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		2CBFE44F2A77CEDA00A50257 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		2CBFE4502A77CEDA00A50257 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		2CBFE4512A77CEDA00A50257 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		2CBFE4542A77E28400A50257 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		2CBFE4562A77E38600A50257 /* PanPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanPresentationController.swift; sourceTree = "<group>"; };
+		2CBFE4582A77ECA200A50257 /* PanPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanPresentationManager.swift; sourceTree = "<group>"; };
+		2CBFE45A2A79080D00A50257 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2CBFE45C2A79081800A50257 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +95,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2A206F2A727E88002A6D3C /* RealmSwift in Frameworks */,
-				2C2A206C2A727DEB002A6D3C /* Swinject in Frameworks */,
-				2C2A20912A72A8A9002A6D3C /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,9 +151,11 @@
 		2C2A20662A717F13002A6D3C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CBFE4482A77CE6A00A50257 /* Fonts */,
 				2C2A205E2A7170E3002A6D3C /* Info.plist */,
 				2C2A20592A7170E3002A6D3C /* Assets.xcassets */,
 				2C2A205B2A7170E3002A6D3C /* LaunchScreen.storyboard */,
+				2CBFE4442A77BDD400A50257 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -158,6 +182,8 @@
 				2C2A20802A729337002A6D3C /* NiblessViewController.swift */,
 				2C2A20BA2A755AFA002A6D3C /* Autolayout.swift */,
 				2C2A20B82A7556BF002A6D3C /* Reusable.swift */,
+				2CBFE4562A77E38600A50257 /* PanPresentationController.swift */,
+				2CBFE4582A77ECA200A50257 /* PanPresentationManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -216,6 +242,7 @@
 		2C45A5322A76A65D0023B3A8 /* GameModes */ = {
 			isa = PBXGroup;
 			children = (
+				2C7F39F02A7BF05D00F575F7 /* Views */,
 				2C45A5362A76A7550023B3A8 /* GameModesViewController.swift */,
 				2C45A5382A76A7620023B3A8 /* GameModesModel.swift */,
 			);
@@ -235,6 +262,8 @@
 		2C45A5342A76A7200023B3A8 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				2CBFE45A2A79080D00A50257 /* MapViewController.swift */,
+				2CBFE45C2A79081800A50257 /* MapModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -243,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				2C45A53F2A76A7A50023B3A8 /* FilterViewController.swift */,
+				2CBFE4542A77E28400A50257 /* FilterTableViewCell.swift */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -253,6 +283,47 @@
 				2C45A5422A771A050023B3A8 /* ChecklistCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2C7F39F02A7BF05D00F575F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2C7F39F22A7BF07200F575F7 /* Header */,
+				2C7F39F12A7BF06A00F575F7 /* Cell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2C7F39F12A7BF06A00F575F7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C7F39F52A7BF0BF00F575F7 /* GameModesTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2C7F39F22A7BF07200F575F7 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		2CBFE4482A77CE6A00A50257 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2CBFE44A2A77CEDA00A50257 /* Inter-Black.ttf */,
+				2CBFE44B2A77CEDA00A50257 /* Inter-Bold.ttf */,
+				2CBFE44D2A77CEDA00A50257 /* Inter-ExtraBold.ttf */,
+				2CBFE44E2A77CEDA00A50257 /* Inter-ExtraLight.ttf */,
+				2CBFE44F2A77CEDA00A50257 /* Inter-Light.ttf */,
+				2CBFE4502A77CEDA00A50257 /* Inter-Medium.ttf */,
+				2CBFE44C2A77CEDA00A50257 /* Inter-Regular.ttf */,
+				2CBFE4512A77CEDA00A50257 /* Inter-SemiBold.ttf */,
+				2CBFE4492A77CEDA00A50257 /* Inter-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,9 +343,7 @@
 			);
 			name = GTAModes;
 			packageProductDependencies = (
-				2C2A206B2A727DEB002A6D3C /* Swinject */,
 				2C2A206E2A727E88002A6D3C /* RealmSwift */,
-				2C2A20902A72A8A9002A6D3C /* KeychainAccess */,
 			);
 			productName = "GTA Modes";
 			productReference = 2C2A204D2A7170E1002A6D3C /* GTAModes.app */;
@@ -305,9 +374,7 @@
 			);
 			mainGroup = 2C2A20442A7170E1002A6D3C;
 			packageReferences = (
-				2C2A206A2A727DEB002A6D3C /* XCRemoteSwiftPackageReference "Swinject" */,
 				2C2A206D2A727E88002A6D3C /* XCRemoteSwiftPackageReference "realm-swift" */,
-				2C2A208F2A72A8A9002A6D3C /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 2C2A204E2A7170E1002A6D3C /* Products */;
 			projectDirPath = "";
@@ -323,8 +390,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C2A205D2A7170E3002A6D3C /* LaunchScreen.storyboard in Resources */,
-				2C2A205A2A7170E3002A6D3C /* Assets.xcassets in Resources */,
+				2C3C53292A7BB01F00D019A1 /* Inter-Regular.ttf in Resources */,
+				2C3C53282A7BB01300D019A1 /* Inter-Bold.ttf in Resources */,
+				2CBF47242A79153200A50257 /* Assets.xcassets in Resources */,
+				2CBF47222A79151300A50257 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CBFE4552A77E28400A50257 /* FilterTableViewCell.swift in Sources */,
 				2C45A5402A76A7A50023B3A8 /* FilterViewController.swift in Sources */,
 				2C45A5392A76A7620023B3A8 /* GameModesModel.swift in Sources */,
 				2C2A20B72A7551E8002A6D3C /* MainTableViewCell.swift in Sources */,
@@ -344,16 +414,22 @@
 				2C45A5372A76A7550023B3A8 /* GameModesViewController.swift in Sources */,
 				2C2A20782A7287AA002A6D3C /* MainFlowAssembly.swift in Sources */,
 				2C45A53D2A76A7800023B3A8 /* ChecklistModel.swift in Sources */,
+				2C7F39F42A7BF09800F575F7 /* GameModesHeaderView.swift in Sources */,
 				2C2A20762A7286EC002A6D3C /* FlowCoordinator.swift in Sources */,
 				2C2A20512A7170E1002A6D3C /* AppDelegate.swift in Sources */,
 				2C2A20B92A7556BF002A6D3C /* Reusable.swift in Sources */,
 				2C2A20732A7285AA002A6D3C /* MainFlowCoordinator.swift in Sources */,
 				2C2A20532A7170E1002A6D3C /* SceneDelegate.swift in Sources */,
 				2C2A208A2A72A530002A6D3C /* Realm+Utilities.swift in Sources */,
+				2C7F39F62A7BF0BF00F575F7 /* GameModesTableViewCell.swift in Sources */,
 				2C2A20BE2A756AD4002A6D3C /* GSViewController.swift in Sources */,
+				2CBFE4572A77E38600A50257 /* PanPresentationController.swift in Sources */,
 				2C45A53B2A76A7780023B3A8 /* ChecklistViewController.swift in Sources */,
+				2CBFE45D2A79081800A50257 /* MapModel.swift in Sources */,
+				2CBFE45B2A79080D00A50257 /* MapViewController.swift in Sources */,
 				2C2A20812A729337002A6D3C /* NiblessViewController.swift in Sources */,
 				2C2A20BB2A755AFA002A6D3C /* Autolayout.swift in Sources */,
+				2CBFE4592A77ECA200A50257 /* PanPresentationManager.swift in Sources */,
 				2C2A207B2A729267002A6D3C /* MainViewController.swift in Sources */,
 				2C2A20C02A756AE0002A6D3C /* GSModel.swift in Sources */,
 				2C2A207F2A72927E002A6D3C /* MainModel.swift in Sources */,
@@ -366,7 +442,7 @@
 		2C2A205B2A7170E3002A6D3C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2C2A205C2A7170E3002A6D3C /* Base */,
+				2CBFE4472A77BE0200A50257 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -495,7 +571,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3QJ8VC6L4J;
+				DEVELOPMENT_TEAM = DGJ3W6HX98;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GTAModes/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -525,7 +601,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3QJ8VC6L4J;
+				DEVELOPMENT_TEAM = DGJ3W6HX98;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GTAModes/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -572,14 +648,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2C2A206A2A727DEB002A6D3C /* XCRemoteSwiftPackageReference "Swinject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		2C2A206D2A727E88002A6D3C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -588,31 +656,13 @@
 				kind = branch;
 			};
 		};
-		2C2A208F2A72A8A9002A6D3C /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2C2A206B2A727DEB002A6D3C /* Swinject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2C2A206A2A727DEB002A6D3C /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
-		};
 		2C2A206E2A727E88002A6D3C /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2C2A206D2A727E88002A6D3C /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
-		};
-		2C2A20902A72A8A9002A6D3C /* KeychainAccess */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2C2A208F2A72A8A9002A6D3C /* XCRemoteSwiftPackageReference "KeychainAccess" */;
-			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
