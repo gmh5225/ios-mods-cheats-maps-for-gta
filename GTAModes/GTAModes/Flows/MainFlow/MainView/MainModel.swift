@@ -8,9 +8,9 @@
 import Foundation
 
 protocol MainModelNavigationHandler: AnyObject {
-
-  func mainModelDidRequestToGameSelection(_ model: MainModel)
-  func mainModelDidRequestToChecklist(_ model: MainModel)
+    
+    func mainModelDidRequestToGameSelection(_ model: MainModel)
+    func mainModelDidRequestToChecklist(_ model: MainModel)
     func mainModelDidRequestToMap(_ model: MainModel)
     
 }

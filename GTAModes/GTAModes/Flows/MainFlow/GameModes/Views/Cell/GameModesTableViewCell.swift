@@ -85,7 +85,7 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         
         containerView.addSubview(contentModeView)
         contentModeView.layout {
-            $0.leading.equal(to: containerView.leadingAnchor)
+            $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 4.0)
             $0.trailing.greaterThanOrEqual(to: containerView.leadingAnchor)
             $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -12.0)
             $0.height.equal(to: 24.0)
@@ -109,21 +109,23 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
             let imageView = UIImageView(image: UIImage(named: image))
             imageView.contentMode = .scaleAspectFit
             imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
-            imageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
+            imageView.layout {
+                $0.height.equal(to: 20.0)
+                $0.width.equal(to: 20.0)
+            }
             
             stackView.addArrangedSubview(imageView)
         }
         
-        // Add the stack view to the main view
         contentModeView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(v)
+        containerView.addSubview(stackView)
         stackView.layout {
-            $0.leading.equal(to: containerView.leadingAnchor)
-            $0.trailing.greaterThanOrEqual(to: containerView.leadingAnchor)
+            $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 4.0)
+            $0.trailing.greaterThanOrEqual(to: containerView.leadingAnchor, offsetBy: -4.0)
             $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -12.0)
             $0.height.equal(to: 24.0)
+        }
     }
     
 }

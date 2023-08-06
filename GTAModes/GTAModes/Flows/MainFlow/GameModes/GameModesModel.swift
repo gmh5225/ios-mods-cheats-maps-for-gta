@@ -9,17 +9,17 @@ import Foundation
 
 protocol GameModesModelNavigationHandler: AnyObject {
 
-  func GameModesModelDidRequestToGameSelection(_ model: MainModel)
-
+  func gameModesModelDidRequestToGameSelection(_ model: GameModesModel)
+    func gameModesModelDidRequestToFilter(_ model: GameModesModel)
 }
 
 final class GameModesModel {
     
-    let menuItems: [MainCellData] = [
-        .init(title: "Version 6", imageUrl: "V6"),
-        .init(title: "Version 5", imageUrl: "V5"),
-        .init(title: "Version VC", imageUrl: "VVC"),
-        .init(title: "Version SA", imageUrl: "VSA")
+    let dataItems: [GameModesData] = [
+        .init(
+            title: "The Good Husband",
+            imageNames: ["s_circle", "s_r1", "s_l2", "s_up", "s_cross", "s_left"],
+            isFavorite: Bool.random())
     ]
     
     private let navigationHandler: GameModesModelNavigationHandler
@@ -28,6 +28,14 @@ final class GameModesModel {
         navigationHandler: GameModesModelNavigationHandler
     ) {
         self.navigationHandler = navigationHandler
+    }
+    
+    func backActionProceed() {
+        
+    }
+    
+    func filterActionProceed() {
+        navigationHandler.gameModesModelDidRequestToFilter(self)
     }
     
     

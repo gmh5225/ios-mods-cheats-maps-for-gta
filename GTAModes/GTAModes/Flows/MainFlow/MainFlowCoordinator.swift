@@ -54,10 +54,14 @@ extension MainFlowCoordinator: MainModelNavigationHandler {
 }
 
 extension MainFlowCoordinator: GSModelNavigationHandler {
-    func gsModelDidRequestToGameSelection(_ model: MainModel) {
-        print("sss")
-    }
     
+    func gsModelDidRequestToGameModes(_ model: GSModel) {
+        let model = GameModesModel(navigationHandler: self as GameModesModelNavigationHandler)
+        let controller = GameModesViewController(model: model)
+        presentedViewController = controller
+        rootViewController?.navigationController?.pushViewController(controller, animated: true)
+    }
+
 }
 
 extension MainFlowCoordinator: ChecklistModelNavigationHandler {
@@ -80,4 +84,22 @@ extension MainFlowCoordinator: ChecklistModelNavigationHandler {
     
 }
 
-
+extension MainFlowCoordinator: GameModesModelNavigationHandler {
+    
+    func gameModesModelDidRequestToGameSelection(_ model: GameModesModel) {
+        print("sss")
+    }
+    
+    func gameModesModelDidRequestToFilter(_ model: GameModesModel) {
+        let controller = FilterViewController(
+            filterData: [
+                .init(title: "Text", isCheck: Bool.random()),
+                .init(title: "SOME", isCheck: Bool.random())
+            ]
+        )
+        
+        presentedViewController?.presentPan(controller)
+        panPresentedViewController = controller
+    }
+    
+}

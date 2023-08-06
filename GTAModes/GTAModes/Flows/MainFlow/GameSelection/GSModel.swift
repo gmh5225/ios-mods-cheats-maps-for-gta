@@ -9,7 +9,7 @@ import Foundation
 
 protocol GSModelNavigationHandler: AnyObject {
 
-  func gsModelDidRequestToGameSelection(_ model: MainModel)
+  func gsModelDidRequestToGameModes(_ model: GSModel)
 
 }
 
@@ -30,6 +30,13 @@ final class GSModel {
         self.navigationHandler = navigationHandler
     }
     
+    public func selectedItems(index: Int) {
+        if index == 0 {
+            navigationHandler.gsModelDidRequestToGameModes(self)
+        }
+        
+       
+    }
     
 }
 

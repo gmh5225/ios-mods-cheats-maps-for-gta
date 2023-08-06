@@ -34,12 +34,13 @@ class GSViewController: NiblessViewController {
         tableView.registerReusableCell(cellType: MainTableViewCell.self)
         tableView.rowHeight = 228.0
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.separatorStyle = .none
     }
     
 }
 
-extension GSViewController: UITableViewDataSource {
+extension GSViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -51,6 +52,10 @@ extension GSViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         model.menuItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        model.selectedItems(index: indexPath.row)
     }
     
 }
