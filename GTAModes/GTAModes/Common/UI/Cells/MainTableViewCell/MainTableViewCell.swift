@@ -36,9 +36,9 @@ final class MainTableViewCell: UITableViewCell, Reusable {
     public func configure(_ value: MainCellData, fontSize: CGFloat) {
         titleLabel.text = value.title.uppercased()
         backgroundImageView.image = UIImage(named: value.imageUrl)
+        backgroundImageView.contentMode = .scaleAspectFill
         titleLabel.font = UIFont(name: "Inter-Bold", size: fontSize)
         titleLabel.textColor = .white
-        
     }
     
     private func setupLayout() {
@@ -93,7 +93,6 @@ final class MainTableViewCell: UITableViewCell, Reusable {
             $0.width.equal(to: 30.0)
         }
         rightImageView.image = UIImage(named: "rightIcon")
-        
         containerView.bringSubviewToFront(bottomBlackView)
     }
     

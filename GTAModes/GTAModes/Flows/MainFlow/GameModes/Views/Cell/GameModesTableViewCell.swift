@@ -69,34 +69,37 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         
         containerView.addSubview(favoriteImage)
         favoriteImage.layout {
-            $0.trailing.equal(to: containerView.trailingAnchor, offsetBy: -4.0)
-            $0.top.equal(to: containerView.topAnchor, offsetBy: 12.0)
-            $0.height.equal(to: 36.0)
-            $0.width.equal(to: 36.0)
+            $0.trailing.equal(to: containerView.trailingAnchor, offsetBy: -8.0)
+            $0.top.equal(to: containerView.topAnchor, offsetBy: 8.0)
+            $0.height.equal(to: 28.0)
+            $0.width.equal(to: 28.0)
         }
         favoriteImage.image = UIImage(named: "favoriteNoIcon")
         
         containerView.addSubview(titleLabel)
         titleLabel.layout {
-            $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 4.0)
-            $0.trailing.greaterThanOrEqual(to: favoriteImage.leadingAnchor, offsetBy: -4.0)
+            $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
+            $0.trailing.greaterThanOrEqual(to: favoriteImage.leadingAnchor, offsetBy: -8.0)
             $0.top.equal(to: containerView.topAnchor, offsetBy: 12.0)
         }
         
         containerView.addSubview(contentModeView)
         contentModeView.layout {
-            $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 4.0)
-            $0.trailing.greaterThanOrEqual(to: containerView.leadingAnchor)
-            $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -12.0)
+            $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
+            $0.trailing.lessThanOrEqual(to: containerView.trailingAnchor, offsetBy: -8.0)
+            $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -16.0)
             $0.height.equal(to: 24.0)
         }
         
         contentModeView.addSubview(modeTitleLabel)
         modeTitleLabel.layout {
-            $0.leading.equal(to: contentModeView.leadingAnchor, offsetBy: 4.0)
-            $0.trailing.equal(to: contentModeView.trailingAnchor, offsetBy: -4.0)
+            $0.leading.equal(to: contentModeView.leadingAnchor, offsetBy: 8.0)
+            $0.trailing.equal(to: contentModeView.trailingAnchor, offsetBy: -8.0)
             $0.centerY.equal(to: contentModeView.centerYAnchor)
         }
+        contentModeView.withCornerRadius(4.0)
+        contentModeView.withBorder(width: 1.0, color: UIColor(named: "blueLight")!)
+        contentModeView.backgroundColor = UIColor(named: "blueLight")?.withAlphaComponent(0.1)
     }
     
     private func addImages(_ imagesName: [String]) {
@@ -121,9 +124,9 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(stackView)
         stackView.layout {
-            $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 4.0)
-            $0.trailing.greaterThanOrEqual(to: containerView.leadingAnchor, offsetBy: -4.0)
-            $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -12.0)
+            $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
+            $0.trailing.greaterThanOrEqual(to: containerView.leadingAnchor, offsetBy: -8.0)
+            $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -16.0)
             $0.height.equal(to: 24.0)
         }
     }

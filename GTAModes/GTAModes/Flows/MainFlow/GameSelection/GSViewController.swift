@@ -22,7 +22,21 @@ class GSViewController: NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBackToMenuButton()
+        customizeNavigationBar("Cheats")
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     private func setupView() {
@@ -32,10 +46,15 @@ class GSViewController: NiblessViewController {
         tableView.backgroundColor = .clear
         tableView.pinEdges(to: view)
         tableView.registerReusableCell(cellType: MainTableViewCell.self)
-        tableView.rowHeight = 228.0
+        tableView.rowHeight = 160.0
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
+    }
+    
+    @objc
+    override func leftBarButtonTapped() {
+        model.backActionProceed()
     }
     
 }

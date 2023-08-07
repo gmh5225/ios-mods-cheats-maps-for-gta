@@ -41,6 +41,7 @@
 		2CBFE4592A77ECA200A50257 /* PanPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE4582A77ECA200A50257 /* PanPresentationManager.swift */; };
 		2CBFE45B2A79080D00A50257 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE45A2A79080D00A50257 /* MapViewController.swift */; };
 		2CBFE45D2A79081800A50257 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE45C2A79081800A50257 /* MapModel.swift */; };
+		2CDEBEDE2A80F1DD00F976A3 /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDEBEDD2A80F1DD00F976A3 /* SwiftyDropbox */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2A206F2A727E88002A6D3C /* RealmSwift in Frameworks */,
+				2CDEBEDE2A80F1DD00F976A3 /* SwiftyDropbox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +346,7 @@
 			name = GTAModes;
 			packageProductDependencies = (
 				2C2A206E2A727E88002A6D3C /* RealmSwift */,
+				2CDEBEDD2A80F1DD00F976A3 /* SwiftyDropbox */,
 			);
 			productName = "GTA Modes";
 			productReference = 2C2A204D2A7170E1002A6D3C /* GTAModes.app */;
@@ -375,6 +378,7 @@
 			mainGroup = 2C2A20442A7170E1002A6D3C;
 			packageReferences = (
 				2C2A206D2A727E88002A6D3C /* XCRemoteSwiftPackageReference "realm-swift" */,
+				2CDEBEDC2A80F1DD00F976A3 /* XCRemoteSwiftPackageReference "SwiftyDropbox" */,
 			);
 			productRefGroup = 2C2A204E2A7170E1002A6D3C /* Products */;
 			projectDirPath = "";
@@ -656,6 +660,14 @@
 				kind = branch;
 			};
 		};
+		2CDEBEDC2A80F1DD00F976A3 /* XCRemoteSwiftPackageReference "SwiftyDropbox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dropbox/SwiftyDropbox";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -663,6 +675,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C2A206D2A727E88002A6D3C /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		2CDEBEDD2A80F1DD00F976A3 /* SwiftyDropbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CDEBEDC2A80F1DD00F976A3 /* XCRemoteSwiftPackageReference "SwiftyDropbox" */;
+			productName = SwiftyDropbox;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

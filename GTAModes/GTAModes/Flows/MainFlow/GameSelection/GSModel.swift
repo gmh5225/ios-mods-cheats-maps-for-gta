@@ -8,9 +8,10 @@
 import Foundation
 
 protocol GSModelNavigationHandler: AnyObject {
-
-  func gsModelDidRequestToGameModes(_ model: GSModel)
-
+    
+    func gsModelDidRequestToGameModes(_ model: GSModel)
+    func gsModelDidRequestToBack(_ model: GSModel)
+    
 }
 
 final class GSModel {
@@ -34,8 +35,10 @@ final class GSModel {
         if index == 0 {
             navigationHandler.gsModelDidRequestToGameModes(self)
         }
-        
-       
+    }
+    
+    public func backActionProceed() {
+        navigationHandler.gsModelDidRequestToBack(self)
     }
     
 }

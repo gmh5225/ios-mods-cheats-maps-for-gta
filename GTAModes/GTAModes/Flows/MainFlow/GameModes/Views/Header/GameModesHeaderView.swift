@@ -51,6 +51,10 @@ final class GameModesHeaderView: UITableViewHeaderFooterView, Reusable {
             button.translatesAutoresizingMaskIntoConstraints = false
             button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             stackView.addArrangedSubview(button)
+            if imageName == "sony" {
+                button.backgroundColor = UIColor(named: "blueColor")?.withAlphaComponent(0.4)
+                selectedButton = button
+            }
             button.layout {
                 $0.height.equal(to: 79.0)
                 $0.width.equal(to: 79.0)

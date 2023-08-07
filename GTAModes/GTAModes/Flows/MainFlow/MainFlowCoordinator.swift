@@ -34,12 +34,14 @@ extension MainFlowCoordinator: MainModelNavigationHandler {
     
     func mainModelDidRequestToMap(_ model: MainModel) {
         let controller = MapViewController()
+        presentedViewController = controller
         rootViewController?.navigationController?.pushViewController(controller, animated: true)
     }
     
     func mainModelDidRequestToGameSelection(_ model: MainModel) {
         let model = GSModel(navigationHandler: self as GSModelNavigationHandler)
         let controller = GSViewController(model: model)
+        presentedViewController = controller
         
         rootViewController?.navigationController?.pushViewController(controller, animated: true)
     }
@@ -54,12 +56,15 @@ extension MainFlowCoordinator: MainModelNavigationHandler {
 }
 
 extension MainFlowCoordinator: GSModelNavigationHandler {
+    func gsModelDidRequestToBack(_ model: GSModel) {
+        presentedViewController?.navigationController?.popViewController(animated: true)
+    }
+    
     
     func gsModelDidRequestToGameModes(_ model: GSModel) {
         let model = GameModesModel(navigationHandler: self as GameModesModelNavigationHandler)
         let controller = GameModesViewController(model: model)
-        presentedViewController = controller
-        rootViewController?.navigationController?.pushViewController(controller, animated: true)
+        presentedViewController?.navigationController?.pushViewController(controller, animated: true)
     }
 
 }
@@ -67,7 +72,7 @@ extension MainFlowCoordinator: GSModelNavigationHandler {
 extension MainFlowCoordinator: ChecklistModelNavigationHandler {
     
     func checklistModelDidRequestToBack(_ model: ChecklistModel) {
-        print("sss")
+        presentedViewController?.navigationController?.popViewController(animated: true)
     }
     
     func checklistModelDidRequestToFilter(_ model: ChecklistModel) {
@@ -75,11 +80,16 @@ extension MainFlowCoordinator: ChecklistModelNavigationHandler {
             filterData: [
                 .init(title: "Text", isCheck: Bool.random()),
                 .init(title: "SOME", isCheck: Bool.random())
-            ]
+            ],
+            navigationHandler: self as FilterNavigationHandler
         )
         
         presentedViewController?.presentPan(controller)
         panPresentedViewController = controller
+    }
+    
+    func gameModesModelDidRequestToBack(_ model: GameModesModel) {
+        presentedViewController?.navigationController?.popViewController(animated: true)
     }
     
 }
@@ -95,11 +105,20 @@ extension MainFlowCoordinator: GameModesModelNavigationHandler {
             filterData: [
                 .init(title: "Text", isCheck: Bool.random()),
                 .init(title: "SOME", isCheck: Bool.random())
-            ]
+            ],
+            navigationHandler: self as FilterNavigationHandler
         )
         
         presentedViewController?.presentPan(controller)
         panPresentedViewController = controller
+    }
+    
+}
+
+extension MainFlowCoordinator: FilterNavigationHandler {
+    
+    func filterDidRequestToClose() {
+        panPresentedViewController?.dismiss(animated: true)
     }
     
 }

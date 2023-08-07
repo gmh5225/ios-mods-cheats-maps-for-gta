@@ -11,7 +11,8 @@ class GameModesViewController: NiblessViewController {
     
     private let model: GameModesModel
     private let tableView = UITableView(frame: .zero, style: .grouped)
-
+    private var searchController: UISearchController = UISearchController(searchResultsController: nil)
+    
     init(model: GameModesModel) {
         self.model = model
         
@@ -21,9 +22,10 @@ class GameModesViewController: NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureSearchController()
         setupView()
         setupBackButton()
-        customizeNavigationBar()
+        customizeNavigationBar("some game")
         setupFilterButton()
     }
     
@@ -36,7 +38,7 @@ class GameModesViewController: NiblessViewController {
         tableView.pinEdges(to: view)
         tableView.registerReusableCell(cellType: GameModesTableViewCell.self)
         tableView.registerReusableHeaderFooterView(viewType: GameModesHeaderView.self)
-        tableView.rowHeight = 105.0
+        tableView.rowHeight = 96.0
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
@@ -54,47 +56,28 @@ class GameModesViewController: NiblessViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    private func setupBackButton() {
-        let image = UIImage(named: "backIcon")
-        let button = UIButton(type: .custom)
-        button.setImage(image, for: .normal)
-        button.setTitle(title, for: .normal)
-        button.addTarget(self, action: #selector(leftBarButtonTapped), for: .touchUpInside)
-        let barButtonItem = UIBarButtonItem(customView: button)
-        navigationItem.leftBarButtonItem = barButtonItem
-    }
-    
-    func customizeNavigationBar() {
-        let titleLabel = UILabel()
-        titleLabel.text = "Checklist"
-        titleLabel.font = UIFont(name: "Inter-Bold", size: 30)
-        titleLabel.textColor = .white
-        let titleView = UIView()
-        titleView.addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleView.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.layout {
-            $0.trailing.equal(to: titleView.trailingAnchor)
-            $0.centerY.equal(to: titleView.centerYAnchor)
-        }
-        navigationItem.titleView = titleView
+    private func configureSearchController() {
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.placeholder = "Search here"
+        searchController.searchBar.searchTextField.backgroundColor = UIColor(named: "checkCellBlue")?.withAlphaComponent(0.4)
+        searchController.searchBar.searchTextField.textColor = .white
+        searchController.searchBar.searchTextField.tintColor = .white
+        searchController.searchBar.barStyle = .default
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
     }
     
     @objc
-    private func leftBarButtonTapped() {
+    override func leftBarButtonTapped() {
         model.backActionProceed()
     }
     
-    private func setupFilterButton() {
-        let filterButton = UIButton()
-        filterButton.setImage(UIImage(named: "filterIcon"), for: .normal)
-        filterButton.addTarget(self, action: #selector(filterButtonAction), for: .touchUpInside)
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: filterButton)
-    }
-    
     @objc
-    private func filterButtonAction() {
+    override func filterButtonAction() {
         model.filterActionProceed()
     }
     
@@ -117,12 +100,27 @@ extension GameModesViewController: UITableViewDataSource {
 }
 
 extension GameModesViewController: UITableViewDelegate {
-  
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let headerView = tableView.dequeueReusableHeaderFooterView(viewType: GameModesHeaderView.self)
-//    headerView?.setTitle(viewModel.title)
     
-    return headerView
-  }
-  
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(viewType: GameModesHeaderView.self)
+        //    headerView?.setTitle(viewModel.title)
+        
+        return headerView
+    }
+    
 }
+
+extension GameModesViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchBarText = searchController.searchBar.text else { return }
+        
+        print(searchBarText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        //    viewModel.cancelSearch()
+    }
+    
+}
+

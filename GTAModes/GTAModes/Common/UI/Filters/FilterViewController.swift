@@ -49,16 +49,22 @@ public class PanDragIndicator: NiblessView {
     }
 }
 
+protocol FilterNavigationHandler: AnyObject {
+    
+    func filterDidRequestToClose()
+}
+
 final class FilterViewController: NiblessFilterViewController {
     
     private let filterData: [FilterData]
     private let tableView = UITableView(frame: .zero)
     private let titleLabel = UILabel()
     private let closeButton = UIButton()
+    private let navigationHandler: FilterNavigationHandler
     
-    public init(filterData: [FilterData]) {
+    public init(filterData: [FilterData], navigationHandler: FilterNavigationHandler) {
         self.filterData = filterData
-        
+        self.navigationHandler = navigationHandler
         super.init()
     }
     
@@ -109,7 +115,7 @@ final class FilterViewController: NiblessFilterViewController {
     
     @objc
     func closeAction() {
-        
+        navigationHandler.filterDidRequestToClose()
     }
     
 }

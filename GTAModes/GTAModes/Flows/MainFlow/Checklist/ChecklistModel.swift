@@ -32,7 +32,7 @@ final class ChecklistModel {
     }
     
     func backActionProceed() {
-        
+        navigationHandler.checklistModelDidRequestToBack(self)
     }
     
     func filterActionProceed() {
