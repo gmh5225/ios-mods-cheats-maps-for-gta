@@ -33,7 +33,7 @@ final class MainFlowCoordinator: NSObject, FlowCoordinator {
 extension MainFlowCoordinator: MainModelNavigationHandler {
     
     func mainModelDidRequestToMap(_ model: MainModel) {
-        let controller = MapViewController()
+        let controller = MapViewController(navigationHandler: self as MapNavigationHandler)
         presentedViewController = controller
         rootViewController?.navigationController?.pushViewController(controller, animated: true)
     }
@@ -121,4 +121,11 @@ extension MainFlowCoordinator: FilterNavigationHandler {
         panPresentedViewController?.dismiss(animated: true)
     }
     
+}
+
+extension MainFlowCoordinator: MapNavigationHandler {
+    
+    func mapDidRequestToBack() {
+        presentedViewController?.navigationController?.popViewController(animated: true)
+    }
 }

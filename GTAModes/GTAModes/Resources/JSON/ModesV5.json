@@ -1,0 +1,76 @@
+{
+    "data": [
+        {
+            "versionMode": "5",
+            "title": "Get some value",
+            "type": "sony",
+            "combs": ["up", "down", "left", "right", "square", "circle", "triangle", "cross", "r1", "r2", "l1", "l2"]
+        },
+        {
+            "versionMode": "6",
+            "title": "Get some value",
+            "type": "sony",
+            "combs": ["LIQUOR or Cell Phone: 1-999-547861"]
+        },
+        {
+            "versionMode": "vc",
+            "title": "Get some value",
+            "type": "xbox",
+            "combs": ["up", "down", "left", "right", "X", "Y", "A", "B", "rb", "rt", "lb", "lt"]
+        },
+        {
+            "versionMode": "sa",
+            "title": "Get some value",
+            "type": "pc",
+            "combs": ["SLOWMO or Cell: 1-999-756-966"]
+        },
+        {
+            "versionMode": "5",
+            "title": "Get some value",
+            "type": "sony",
+            "combs": ["up", "down", "left", "right", "square", "circle", "triangle", "cross", "r1", "r2", "l1", "l2"]
+        },
+        {
+            "versionMode": "6",
+            "title": "Get some value",
+            "type": "sony",
+            "combs": ["LIQUOR or Cell Phone: 1-999-547861"]
+        },
+        {
+            "versionMode": "vc",
+            "title": "Get some value",
+            "type": "xbox",
+            "combs": ["up", "down", "left", "right", "X", "Y", "A", "B", "rb", "rt", "lb", "lt"]
+        },
+        {
+            "versionMode": "sa",
+            "title": "Get some value",
+            "type": "pc",
+            "combs": ["SLOWMO or Cell: 1-999-756-966"]
+        },
+        {
+            "versionMode": "5",
+            "title": "Get some value",
+            "type": "sony",
+            "combs": ["up", "down", "left", "right", "square", "circle", "triangle", "cross", "r1", "r2", "l1", "l2"]
+        },
+        {
+            "versionMode": "6",
+            "title": "Get some value",
+            "type": "sony",
+            "combs": ["LIQUOR or Cell Phone: 1-999-547861"]
+        },
+        {
+            "versionMode": "vc",
+            "title": "Get some value",
+            "type": "xbox",
+            "combs": ["up", "down", "left", "right", "X", "Y", "A", "B", "rb", "rt", "lb", "lt"]
+        },
+        {
+            "versionMode": "sa",
+            "title": "Get some value",
+            "type": "pc",
+            "combs": ["SLOWMO or Cell: 1-999-756-966"]
+        }
+    ]
+}

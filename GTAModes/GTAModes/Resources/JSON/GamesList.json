@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "title": "Version 6",
+            "type": "6",
+            "imagePath": "/folder/someUrl.com.jpeg"
+        },
+        {
+            "title": "Version 5",
+            "type": "5",
+            "imagePath": "folder/someUrl.com.jpeg"
+        },
+        {
+            "title": "Version VC",
+            "type": "vc",
+            "imagePath": "/folder/someUrl.com.jpeg"
+        },
+        {
+            "title": "Version SA",
+            "type": "sa",
+            "imagePath": "/folder/someUrl.com.jpeg"
+        }
+    ]
+}

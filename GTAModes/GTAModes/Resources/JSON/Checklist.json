@@ -1,0 +1,51 @@
+{
+    "data": [
+        {
+            "title": "Prologue",
+            "type": "mandatoryMission",
+            "filterTitle": "someFilterText"
+        },
+        {
+            "title": "Franklin & Lamar",
+            "type": "branchingChoiceHeist",
+            "filterTitle": "someFilterText"
+        },
+        {
+            "title": "Repossession2",
+            "type": "mandatoryMission",
+            "filterTitle": "someFilterText"
+        },
+        {
+            "title": "Prologue2",
+            "type": "mandatoryMission",
+            "filterTitle": "someFilterText"
+        },
+        {
+            "title": "Franklin & Lamar2",
+            "type": "branchingChoiceHeist",
+            "filterTitle": "someFilterText"
+        },
+        {
+            "title": "Repossession3",
+            "type": "mandatoryMission",
+            "filterTitle": "someFilterText"
+        },
+        {
+            "title": "Prologue5",
+            "type": "mandatoryMission",
+            "filterTitle": "someFilterText"
+        },
+        {
+            "title": "Franklin & Lamar4",
+            "type": "branchingChoiceHeist",
+            "filterTitle": "someFilterText"
+        },
+        {
+            "title": "Repossession4",
+            "type": "mandatoryMission",
+            "filterTitle": "someFilterText"
+        }
+        
+    ]
+}
+
