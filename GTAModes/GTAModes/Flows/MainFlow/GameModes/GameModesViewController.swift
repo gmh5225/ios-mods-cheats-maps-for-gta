@@ -11,12 +11,21 @@ class GameModesViewController: NiblessViewController {
     
     private let model: GameModesModel
     private let tableView = UITableView(frame: .zero, style: .grouped)
+    private let customNavigation: CustomNavigationView
     private var searchController: UISearchController = UISearchController(searchResultsController: nil)
     
     init(model: GameModesModel) {
         self.model = model
+        self.customNavigation = CustomNavigationView(.gameModes)
         
         super.init()
+
+        customNavigation.leftButtonAction = { [weak self] in
+            self?.model.backActionProceed()
+        }
+        customNavigation.rightButtonAction = { [weak self] in
+            self?.model.filterActionProceed()
+        }
     }
     
     override func viewDidLoad() {
@@ -24,36 +33,32 @@ class GameModesViewController: NiblessViewController {
         
         configureSearchController()
         setupView()
-        setupBackButton()
-        customizeNavigationBar("some game")
-        setupFilterButton()
+
     }
     
     private func setupView() {
-        navigationItem.title = ""
-        view.backgroundColor = .black
+        view.addSubview(customNavigation)
+        customNavigation.layout {
+            $0.top.equal(to: view.safeAreaLayoutGuide.topAnchor)
+            $0.leading.equal(to: view.leadingAnchor, offsetBy: 20.0)
+            $0.trailing.equal(to: view.trailingAnchor, offsetBy: -20.0)
+            $0.height.equal(to: 36.0)
+        }
         view.addSubview(tableView)
         tableView.backgroundColor = .clear
+        tableView.layout {
+            $0.top.equal(to: customNavigation.bottomAnchor, offsetBy: 40.0)
+            $0.leading.equal(to: view.leadingAnchor)
+            $0.trailing.equal(to: view.trailingAnchor)
+            $0.bottom.equal(to: view.bottomAnchor)
+        }
         tableView.sectionHeaderHeight = 140.0
-        tableView.pinEdges(to: view)
         tableView.registerReusableCell(cellType: GameModesTableViewCell.self)
         tableView.registerReusableHeaderFooterView(viewType: GameModesHeaderView.self)
         tableView.rowHeight = 96.0
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     private func configureSearchController() {
@@ -69,16 +74,6 @@ class GameModesViewController: NiblessViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
-    }
-    
-    @objc
-    override func leftBarButtonTapped() {
-        model.backActionProceed()
-    }
-    
-    @objc
-    override func filterButtonAction() {
-        model.filterActionProceed()
     }
     
 }

@@ -78,18 +78,25 @@ final class DBManager : NSObject {
         }
     
     func fetchGTA5Modes() {
-        self.client?.files.download(path:  DBKeys.Path.gta5_modes.rawValue).response(completionHandler: { responce, error in
-            if let responce = responce {
-                print("responce.1")
-//                completion(responce.1)
-            } else {
-                print("responce.0")
+        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+            guard let self = self else { return }
+            
+            if validator {
+                self.client?.files.download(path:  DBKeys.Path.gta5_modes.rawValue).response(completionHandler: { responce, error in
+                    if let responce = responce {
+                        print("responce.1")
+        //                completion(responce.1)
+                    } else {
+                        print(error?.description)
 
+                    }
+                })
+            } else {
+                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
+//                completion(tempError)
             }
-        })
-//        getFileUrl(path: DBKeys.Path.gta5_modes.rawValue) { value in
-//            print(value)
-//        }
+        }
+
     }
     
     func getImageUrl(img: String, completion: @escaping (String?) -> ()){

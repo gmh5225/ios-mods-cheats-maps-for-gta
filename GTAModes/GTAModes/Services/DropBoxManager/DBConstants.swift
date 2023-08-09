@@ -11,6 +11,6 @@ struct DBKeys {
     static let apiLink = "https://api.dropboxapi.com/oauth2/token"
 
     enum Path: String {
-        case gta5_modes = "Mods, cheats, maps for GTA/Cheats/GTA5/cheats_GTA5.json"
+        case gta5_modes = "/Cheats/GTA5/cheats_GTA5.json"
     }
 }
