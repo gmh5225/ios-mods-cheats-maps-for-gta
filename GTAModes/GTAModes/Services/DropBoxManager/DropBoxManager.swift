@@ -39,61 +39,37 @@ final class DBManager : NSObject {
     func setupDropBox() {
             clearAllThings()
             
-            guard let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String else {
+            if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
+                fetchGTA5Modes()
+            } else {
                 print("start resetting token operation")
                 reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
                     guard let self = self else { return }
                     if let rToken = refresh_token {
                         print(rToken)
                         self.defaults.setValue(rToken, forKey: DBKeys.RefreshTokenSaveVar)
-                        self.validateAccessToken(token: DBKeys.refresh_token) { validator2 in
-                                       
-                                    }
                     }
+                    
+                    fetchGTA5Modes()
                 }
-                self.validateAccessToken(token: DBKeys.refresh_token) { validator2 in
-                                
-                            }
                 
-                return
             }
-            
-            print("\(refresh) add to ---> refresh_token")
-            validateAccessToken(token: refresh) { [weak self] validator in
-                guard let self = self else { return }
-                self.fetchData(validate: validator)
-            }
-        }
-    
-    func fetchNutritions(_ completion: @escaping (Error?) -> Void) {
-        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
-                guard let self = self else { return }
-                if validator {
-                    self.featchNutritionItems(completion)
-                } else {
-                    let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
-                    completion(tempError)
-                }
-            }
-        }
+    }
     
     func fetchGTA5Modes() {
         validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path:  DBKeys.Path.gta5_modes.rawValue).response(completionHandler: { responce, error in
-                    if let responce = responce {
-                        print("responce.1")
-        //                completion(responce.1)
+                self.client?.files.download(path: DBKeys.Path.gta5_modes.rawValue).response(completionHandler: { responce, error in
+                    if let data = responce?.1 {
+                        print(String(decoding: data, as: UTF8.self)) //JSON string exists
                     } else {
                         print(error?.description)
-
                     }
                 })
             } else {
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
-//                completion(tempError)
             }
         }
 
