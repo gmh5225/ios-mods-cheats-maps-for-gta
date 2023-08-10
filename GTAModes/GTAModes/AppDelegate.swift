@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         DBManager().setupDropBox()
         DBManager().fetchGTA5Modes()
+//        CheatManager().getCheats()
         applicationFlowCoordinator = ApplicationFlowCoordinator()
         
         return true

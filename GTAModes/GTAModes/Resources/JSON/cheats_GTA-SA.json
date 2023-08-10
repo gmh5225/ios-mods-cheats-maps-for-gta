@@ -1,0 +1,760 @@
+{
+  "GTA_San_Andreas": {
+    "PS": [
+      {
+        "name": "Full Health, Armor, And $250,000",
+        "code": ["R1", "R2", "L1", "X", "LEFT", "DOWN", "RIGHT", "UP", "LEFT", "DOWN", "RIGHT", "UP"],
+        "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+        "name": "Infinite Ammo",
+        "code": ["L1", "R1", "SQUARE", "R1", "LEFT", "R2", "R1", "LEFT", "SQUARE", "DOWN", "L1", "L1"],
+        "filterTitle": "Weapon Cheat Codes List"
+      },
+      {
+        "name": "Infinite Health",
+        "code": ["DOWN", "X", "RIGHT", "LEFT", "RIGHT", "R1", "RIGHT", "DOWN", "UP", "TRIANGLE"],
+        "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+        "name": "Weapons 1",
+        "code": ["R1", "R2", "L1", "R2", "LEFT", "DOWN", "RIGHT", "UP", "LEFT", "DOWN", "RIGHT", "UP"],
+        "filterTitle": "Weapon Cheat Codes List"
+      },
+      {
+        "name": "Weapons 2",
+        "code": ["R1", "R2", "L1", "R2", "LEFT", "DOWN", "RIGHT", "UP", "LEFT", "DOWN", "DOWN", "LEFT"],
+        "filterTitle": "Weapon Cheat Codes List"
+      },
+      {
+        "name": "Weapons 3",
+        "code": ["R1", "R2", "L1", "R2", "LEFT", "DOWN", "RIGHT", "UP", "LEFT", "DOWN", "DOWN", "DOWN"],
+        "filterTitle": "Weapon Cheat Codes List"
+      },
+      {
+        "name": "Lower Wanted Level",
+        "code": ["R1", "R1", "CIRCLE", "R2", "UP", "DOWN", "UP", "DOWN", "UP", "DOWN"],
+        "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+        "name": "Raise Wanted Level",
+        "code": ["R1", "R1", "CIRCLE", "R2", "LEFT", "RIGHT", "LEFT", "RIGHT", "LEFT", "RIGHT"],
+        "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+        "name": "Lock Wanted Level",
+        "code": ["CIRCLE", "RIGHT", "CIRCLE", "RIGHT", "LEFT", "SQUARE", "TRIANGLE", "UP"],
+        "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+        "name": "Maximum Wanted Level",
+        "code": ["CIRCLE", "RIGHT", "CIRCLE", "RIGHT", "LEFT", "SQUARE", "X", "DOWN"],
+        "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+        "name": "Pedestrian Riot",
+        "code": ["DOWN", "LEFT", "UP", "LEFT", "X", "R2", "R1", "L2", "L"],
+        "filterTitle": "Other"
+      },
+      {
+        "name": "Chaos Mode",
+        "code": ["L2", "RIGHT", "L1", "TRIANGLE", "RIGHT", "RIGHT", "R1", "L1", "RIGHT", "L1", "L1", "L"],
+        "filterTitle": "Other"
+      },
+      {
+        "name": "Bounty on Your Head",
+        "code": ["DOWN", "UP", "UP", "UP", "X", "R2", "R1", "L2", "L"],
+        "filterTitle": "Other"
+      },
+      {
+        "name": "Pedestrians Attack (With Guns)",
+        "code": ["X", "L1", "UP", "SQUARE", "DOWN", "X", "L2", "TRIANGLE", "DOWN", "R1", "L1", "L1"],
+        "filterTitle": "Other"
+      },
+      {
+        "name": "Pedestrians Have Weapons",
+        "code": ["R2", "R1", "X", "TRIANGLE", "X", "TRIANGLE", "UP", "DOWN"],
+        "filterTitle": "Other"
+      },
+      {
+        "name": "All Pedestrians Are Elvis",
+        "code": ["L1", "CIRCLE", "TRIANGLE", "L1", "L1", "SQUARE", "L2", "UP", "DOWN", "LEFT"],
+        "filterTitle": "Other"
+      },
+      {
+        "name": "Beach Party Mode",
+        "code": ["UP", "UP", "DOWN", "DOWN", "SQUARE", "CIRCLE", "L1", "R1", "TRIANGLE", "DOWN"],
+        "filterTitle": "Other"
+      },
+      {
+        "name": "Triad Theme",
+        "code": ["X", "X", "DOWN", "R2", "L2", "CIRCLE", "R1", "CIRCLE", "SQUARE"],
+        "filterTitle": "Other"
+      },
+      {
+        "name": "Funhouse Theme",
+        "code": ["TRIANGLE", "TRIANGLE", "L1", "SQUARE", "SQUARE", "CIRCLE", "SQUARE", "DOWN", "CIRCLE"],
+        "filterTitle": "Other"
+      },
+      {
+        "name": "Rural Theme",
+        "code": ["L1", "L1", "R1", "R1", "L2", "L1", "R2", "DOWN", "LEFT", "UP"],
+        "filterTitle": "Other"
+      },
+      {
+        "name": "Kinky Theme",
+        "code": ["SQUARE", "RIGHT", "SQUARE", "SQUARE", "L2", "X", "TRIANGLE", "X", "TRIANGLE"],
+        "filterTitle": "Other"
+      },
+      {
+        "name": "Mega Jump",
+        "code": ["UP", "UP", "TRIANGLE", "TRIANGLE", "UP", "UP", "LEFT", "RIGHT", "SQUARE", "R2", "R2"],
+        "filterTitle": "Movement Cheat Codes List"
+      },
+      {
+        "name": "Super Punch",
+        "code": ["UP", "LEFT", "X", "TRIANGLE", "R1", "SQUARE", "SQUARE", "SQUARE", "L2"],
+        "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+        "name": "Spawn Rhino Tank",
+        "code": ["CIRCLE", "CIRCLE", "L1", "CIRCLE", "CIRCLE", "CIRCLE", "L1", "L2", "R1", "TRIANGLE", "CIRCLE", "TRIANGLE"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Jetpack",
+        "code": ["L1", "L2", "R1", "R2", "UP", "DOWN", "LEFT", "RIGHT", "L1", "L2", "R1", "R2", "UP", "DOWN", "LEFT", "RIGHT"],
+        "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Hydra",
+        "code": ["TRIANGLE", "TRIANGLE", "SQUARE", "CIRCLE", "X", "L1", "L1", "DOWN", "UP"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Hunter",
+        "code": ["CIRCLE", "X", "L1", "CIRCLE", "CIRCLE", "L1", "CIRCLE", "R1", "R2", "L2", "L1", "L1"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Stunt Plane",
+        "code": ["CIRCLE", "UP", "L1", "L2", "DOWN", "R1", "L1", "L1", "LEFT", "LEFT", "X", "TRIANGLE"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Bloodring Banger",
+        "code": ["DOWN", "R1", "CIRCLE", "L2", "L2", "X", "R1", "L1", "LEFT", "LEFT"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Vortex Hovercraft",
+        "code": ["TRIANGLE", "TRIANGLE", "SQUARE", "CIRCLE", "X", "L1", "L2", "DOWN", "DOWN"],
+        "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Parachute",
+        "code": ["LEFT", "RIGHT", "L1", "L2", "R1", "R2", "R2", "UP", "DOWN", "RIGHT", "L1"],
+        "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Monster",
+        "code": ["R1", "UP", "X", "DOWN", "R2", "X", "L1", "DOWN", "DOWN", "DOWN"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Hotring Racer #1",
+        "code": ["R1", "CIRCLE", "R2", "RIGHT", "L1", "L2", "X", "X", "SQUARE", "R1"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Hotring Racer #2",
+        "code": ["R2", "L1", "CIRCLE", "RIGHT", "L1", "R1", "RIGHT", "UP", "CIRCLE", "R2"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Romero",
+        "code": ["DOWN", "R2", "DOWN", "R1", "L2", "LEFT", "R1", "L1", "LEFT", "RIGHT"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Stretch",
+        "code": ["R2", "UP", "L2", "LEFT", "LEFT", "R1", "L1", "CIRCLE", "RIGHT"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Trashmaster",
+        "code": ["CIRCLE", "R1", "CIRCLE", "R1", "LEFT", "LEFT", "R1", "L1", "CIRCLE", "RIGHT"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Caddy",
+        "code": ["CIRCLE", "L1", "UP", "R1", "L2", "X", "R1", "L1", "CIRCLE", "X"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Quad",
+        "code": ["LEFT", "LEFT", "DOWN", "DOWN", "UP", "UP", "SQUARE", "CIRCLE", "TRIANGLE", "R1", "R2"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Tanker Truck",
+        "code": ["R1", "UP", "LEFT", "RIGHT", "R2", "UP", "RIGHT", "SQUARE", "RIGHT", "L2", "L1", "L1"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Dozer",
+        "code": ["R2", "L1", "L1", "RIGHT", "RIGHT", "UP", "X", "L1", "LEFT"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Spawn Rancher",
+        "code": ["UP", "RIGHT", "RIGHT", "L1", "RIGHT", "UP", "SQUARE", "L2"],
+        "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+        "name": "Max Muscle",
+        "code": ["TRIANGLE", "UP", "UP", "LEFT", "RIGHT", "SQUARE", "CIRCLE", "LEFT"],
+        "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+        "name": "Max Fat",
+        "code": ["TRIANGLE", "UP", "UP", "LEFT", "RIGHT", "SQUARE", "CIRCLE", "DOWN"],
+        "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+        "name": "Max Sex Appeal",
+        "code": ["SQUARE", "TRIANGLE", "CIRCLE", "UP", "SQUARE", "TRIANGLE", "X", "RIGHT", "SQUARE", "R2", "UP", "DOWN", "SQUARE"],
+        "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+        "name": "Max Respect",
+        "code": ["L1", "R1", "TRIANGLE", "DOWN", "R2", "X", "L1", "UP", "L2", "L2", "L1", "L1"],
+        "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+        "name": "Cars Fly",
+        "code": ["RIGHT", "R2", "CIRCLE", "R1", "L2", "DOWN", "L1", "R1"],
+        "filterTitle": "Movement Cheat Codes List"
+      },
+      {
+        "name": "Cars Float Away When Hit",
+        "code": ["SQUARE", "R2", "DOWN", "DOWN", "LEFT", "DOWN", "LEFT", "LEFT", "L2", "X"],
+        "filterTitle": "Movement Cheat Codes List"
+      },
+      {
+        "name": "Cars Drive on Water",
+        "code": ["RIGHT", "R2", "CIRCLE", "R1", "L2", "SQUARE", "R1", "R2"],
+        "filterTitle": "Movement Cheat Codes List"
+      },
+      {
+        "name": "All Traffic Lights Stay Green",
+        "code": ["RIGHT", "R1", "UP", "L2", "L2", "LEFT", "R1", "L1", "R1", "R1"],
+        "filterTitle": "Other"
+      }
+    ],
+    "XBOX": [
+      {
+          "name": "Full Health, Armor, And $250,000",
+          "code": ["RB", "RT", "LB", "A", "LEFT", "DOWN", "RIGHT", "UP", "LEFT", "DOWN", "RIGHT", "UP"],
+          "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+          "name": "Infinite Ammo",
+          "code": ["LB", "RB", "X", "RB", "LEFT", "RT", "RB", "LEFT", "X", "DOWN", "LB", "LB"],
+          "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+          "name": "Infinite Health",
+          "code": ["Down", "A", "Right", "Left", "Right", "RB", "Right", "Down", "Up", "Y"],
+          "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+          "name": "Weapons 1",
+          "code": ["RB", "RT", "LB", "RT", "LEFT", "DOWN", "RIGHT", "UP", "LEFT", "DOWN", "RIGHT", "UP"],
+          "filterTitle": "Weapon Cheat Codes List"
+      },
+      {
+          "name": "Weapons 2",
+          "code": ["RB", "RT", "LB", "RT", "LEFT", "DOWN", "RIGHT", "UP", "LEFT", "DOWN", "DOWN", "LEFT"],
+          "filterTitle": "Weapon Cheat Codes List"
+      },
+      {
+          "name": "Weapons 3",
+          "code": ["RB", "RT", "LB", "RT", "LEFT", "DOWN", "RIGHT", "UP", "LEFT", "DOWN", "DOWN", "DOWN"],
+          "filterTitle": "Weapon Cheat Codes List"
+      },
+      {
+          "name": "Lower Wanted Level",
+          "code": ["RB", "RB", "B", "RT", "UP", "DOWN", "UP", "DOWN", "UP", "DOWN"],
+          "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+          "name": "Raise Wanted Level",
+          "code": ["RB", "RB", "B", "RT", "LEFT", "RIGHT", "LEFT", "RIGHT", "LEFT", "RIGHT"],
+          "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+          "name": "Lock Wanted Level",
+          "code": ["Circle", "Right", "Circle", "Right", "Left", "X", "Y", "Up"],
+          "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+          "name": "Maximum Wanted Level",
+          "code": ["B", "RIGHT", "B", "RIGHT", "LEFT", "X", "A", "DOWN"],
+          "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+          "name": "Pedestrian Riot",
+          "code": ["DOWN", "LEFT", "UP", "LEFT", "A", "RT", "RB", "LT", "LB"],
+          "filterTitle": "Other"
+      },
+      {
+          "name": "Chaos Mode",
+          "code": ["LT", "RIGHT", "LB", "Y", "RIGHT", "RIGHT", "RB", "LB", "RIGHT", "LB", "LB", "LB"],
+          "filterTitle": "Other"
+      },
+      {
+          "name": "Bounty on Your Head",
+          "code": ["DOWN", "UP", "UP", "UP", "A", "RT", "RB", "LT", "LT"],
+          "filterTitle": "Other"
+      },
+      {
+          "name": "Pedestrians Attack (With Guns)",
+          "code": ["A", "LB", "UP", "X", "DOWN", "A", "LT", "Y", "DOWN", "RB", "LB", "LB"],
+          "filterTitle": "Other"
+      },
+      {
+          "name": "Pedestrians Have Weapons",
+          "code": ["RT", "RB", "A", "Y", "A", "Y", "UP", "DOWN"],
+          "filterTitle": "Other"
+      },
+      {
+          "name": "All Pedestrians Are Elvis",
+          "code": ["LB", "B", "Y", "LB", "LB", "X", "LT", "UP", "DOWN", "LEFT"],
+          "filterTitle": "Other"
+      },
+      {
+          "name": "Beach Party Mode",
+          "code": ["UP", "UP", "DOWN", "DOWN", "X", "B", "LB", "RB", "Y", "DOWN"],
+          "filterTitle": "Other"
+      },
+      {
+          "name": "Triad Theme",
+          "code": ["A", "A", "DOWN", "RT", "LT", "B", "RB", "B", "X"],
+          "filterTitle": "Other"
+      },
+      {
+          "name": "Funhouse Theme",
+          "code": ["Y", "Y", "LB", "X", "X", "B", "X", "DOWN", "B"],
+          "filterTitle": "Other"
+      },
+      {
+          "name": "Rural Theme",
+          "code": ["LB", "LB", "RB", "RB", "LT", "LB", "RT", "DOWN", "LEFT", "UP"],
+          "filterTitle": "Other"
+      },
+      {
+          "name": "Kinky Theme",
+          "code": ["X", "RIGHT", "X", "X", "LT", "A", "Y", "A", "Y"],
+          "filterTitle": "Other"
+      },
+      {
+          "name": "Mega Jump",
+          "code": ["UP", "UP", "Y", "Y", "UP", "UP", "LEFT", "RIGHT", "X", "RT", "RT"],
+          "filterTitle": "Movement Cheat Codes List"
+      },
+      {
+          "name": "Super Punch",
+          "code": ["UP", "LEFT", "A", "Y", "RB", "X", "X", "X", "LT"],
+          "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+          "name": "Spawn Rhino Tank",
+          "code": ["B", "B", "LB", "B", "B", "B", "LB", "LT", "RB", "Y", "B", "Y"],
+          "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Jetpack",
+          "code": ["LB", "LT", "RB", "RT", "UP", "DOWN", "LEFT", "RIGHT", "LB", "LT", "RB", "RT", "UP", "DOWN", "LEFT", "RIGHT"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Hydra",
+          "code": ["Y", "Y", "X", "B", "A", "LB", "LB", "DOWN", "UP"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Hunter",
+          "code": ["B", "A", "LB", "B", "B", "LB", "B", "RB", "RT", "LT", "LB", "LB"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Stunt Plane",
+          "code": ["B", "UP", "LB", "LT", "DOWN", "RB", "LB", "LB", "LEFT", "LEFT", "A", "Y"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Bloodring Banger",
+          "code": ["DOWN", "RB", "B", "LT", "LT", "A", "RB", "LB", "LEFT", "LEFT"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Vortex Hovercraft",
+          "code": ["Y", "Y", "X", "B", "A", "LB", "LT", "DOWN", "DOWN"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Parachute",
+          "code": ["LEFT", "RIGHT", "LB", "LT", "RB", "RT", "RT", "UP", "DOWN", "RIGHT", "LB"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Monster",
+          "code": ["RB", "UP", "A", "DOWN", "RT", "A", "LT", "DOWN", "DOWN", "DOWN"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Hotring Racer #1",
+          "code": ["RB", "B", "RT", "RIGHT", "LB", "LT", "X", "X", "Y", "RB"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Hotring Racer #2",
+          "code": ["RT", "LB", "B", "RIGHT", "LB", "RB", "RIGHT", "UP", "B", "RT"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Romero",
+          "code": ["DOWN", "RB", "DOWN", "RT", "LT", "LEFT", "RT", "LT", "LEFT", "RIGHT"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Stretch",
+          "code": ["RB", "UP", "LT", "LEFT", "LEFT", "RT", "LT", "A", "RIGHT"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Trashmaster",
+          "code": ["B", "RB", "B", "RB", "LEFT", "LEFT", "RB", "LB", "B", "RIGHT"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Caddy",
+          "code": ["B", "LB", "UP", "RB", "LT", "A", "RB", "LB", "B", "A"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Quad",
+          "code": ["LEFT", "LEFT", "DOWN", "DOWN", "UP", "UP", "X", "B", "Y", "RT", "RB"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Tanker Truck",
+          "code": ["RB", "UP", "LEFT", "RIGHT", "RT", "UP", "RIGHT", "X", "RIGHT", "LT", "LB", "LB"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Dozer",
+          "code": ["RT", "LB", "LB", "RIGHT", "RIGHT", "UP", "A", "LB", "LEFT"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Spawn Rancher",
+          "code": ["UP", "RIGHT", "RIGHT", "LB", "RIGHT", "UP", "B", "LT"],
+          "filterTitle": "Special Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Max Muscle",
+          "code": ["Y", "UP", "UP", "LEFT", "RIGHT", "X", "B", "LEFT"],
+          "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+          "name": "Max Fat",
+          "code": ["Y", "UP", "UP", "LEFT", "RIGHT", "X", "B", "DOWN"],
+          "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+          "name": "Max Sex Appeal",
+          "code": ["X", "UP", "UP", "LT", "LT", "X", "Y", "RIGHT", "X", "RT", "UP", "DOWN", "X"],
+          "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+          "name": "Max Respect",
+          "code": ["LB", "RB", "Y", "DOWN", "RT", "A", "LT", "UP", "LT", "LT", "LB", "LB"],
+          "filterTitle": "Ability Cheat Codes List"
+      },
+      {
+          "name": "Cars Fly",
+          "code": ["RIGHT", "RT", "B", "RB", "LT", "DOWN", "LB", "LB"],
+          "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Cars Float Away When Hit",
+          "code": ["X", "RT", "DOWN", "DOWN", "LT", "DOWN", "LT", "LEFT", "RT", "Y"],
+          "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+          "name": "Cars Drive on Water",
+          "code": ["RIGHT", "RT", "B", "RB", "LT", "X", "RB", "RT"],
+          "filterTitle": "Vehicle Cheat Codes List"
+      },
+      {
+          "name": "All Traffic Lights Stay Green",
+          "code": ["RIGHT", "RB", "UP", "LT", "LT", "LEFT", "RB", "LB", "RB", "RB"],
+          "filterTitle": "Vehicle Cheat Codes List"
+      }
+    ],
+    "PC": [
+        {
+               "name": "Health, Armor, and Money ($250,000)",
+               "code": "HESOYAM",
+               "filterTitle": "Other"
+           },
+           {
+               "name": "Infinite Ammo",
+               "code": "FULLCLIP",
+               "filterTitle": "Weapon Cheat Codes List"
+           },
+           {
+               "name": "Infinite Health",
+               "code": "BAGUVIX",
+               "filterTitle": "Ability Cheat Codes List"
+           },
+           {
+               "name": "Weapons 1",
+               "code": "LXGIWYL",
+               "filterTitle": "Weapon Cheat Codes List"
+           },
+           {
+               "name": "Weapons 2",
+               "code": "PROFESSIONALSKIT",
+               "filterTitle": "Weapon Cheat Codes List"
+           },
+           {
+               "name": "Weapons 3",
+               "code": "UZUMYMW",
+               "filterTitle": "Weapon Cheat Codes List"
+           },
+           {
+               "name": "Wanted Level Down",
+               "code": "TURNDOWNTHEHEAT",
+               "filterTitle": "Special Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Wanted Level Up",
+               "code": "TURNUPTHEHEAT",
+               "filterTitle": "Special Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Lock Wanted Level",
+               "code": "AEZAKMI",
+               "filterTitle": "Special Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Maximum Wanted Level",
+               "code": "BRINGITON",
+               "filterTitle": "Special Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Pedestrian Riot",
+               "code": "DOWN, LEFT, UP, LEFT, X, R2, R1, L2, L",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "Chaos Mode",
+               "code": "L2, RIGHT, L1, TRIANGLE, RIGHT, RIGHT, R1, L1, RIGHT, L1, L1, L",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "Bounty on Your Head",
+               "code": "DOWN, UP, UP, UP, X, R2, R1, L2, L",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "Pedestrians Attack (With Guns)",
+               "code": "X, L1, UP, SQUARE, DOWN, X, L2, TRIANGLE, DOWN, R1, L1, L1",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "Pedestrians Have Weapons",
+               "code": "R2, R1, X, TRIANGLE, X, TRIANGLE, UP, DOWN",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "All Pedestrians Are Elvis",
+               "code": "L1, CIRCLE, TRIANGLE, L1, L1, SQUARE, L2, UP, DOWN, LEFT",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "Beach Party Mode",
+               "code": "UP, UP, DOWN, DOWN, SQUARE, CIRCLE, L1, R1, TRIANGLE, DOWN",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "Triad Theme",
+               "code": "X, X, DOWN, R2, L2, CIRCLE, R1, CIRCLE, SQUARE",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "Funhouse Theme",
+               "code": "TRIANGLE, TRIANGLE, L1, SQUARE, SQUARE, CIRCLE, SQUARE, DOWN, CIRCLE",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "Rural Theme",
+               "code": "L1, L1, R1, R1, L2, L1, R2, DOWN, LEFT, UP",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "Kinky Theme",
+               "code": "SQUARE, RIGHT, SQUARE, SQUARE, L2, X, TRIANGLE, X, TRIANGLE",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "Mega Jump",
+               "code": "UP, UP, TRIANGLE, TRIANGLE, UP, UP, LEFT, RIGHT, SQUARE, R2, R2",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "Super Punch",
+               "code": "UP, LEFT, X, TRIANGLE, R1, SQUARE, SQUARE, SQUARE, L2",
+               "filterTitle": "Movement Cheat Codes List"
+           },
+           {
+               "name": "Spawn Rhino Tank",
+               "code": "CIRCLE, CIRCLE, L1, CIRCLE, CIRCLE, CIRCLE, L1, L2, R1, TRIANGLE, CIRCLE, TRIANGLE",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Jetpack",
+               "code": "L1, L2, R1, R2, UP, DOWN, LEFT, RIGHT, L1, L2, R1, R2, UP, DOWN, LEFT, RIGHT",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Hydra",
+               "code": "TRIANGLE, TRIANGLE, SQUARE, CIRCLE, X, L1, L1, DOWN, UP",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Hunter",
+               "code": "CIRCLE, X, L1, CIRCLE, CIRCLE, L1, CIRCLE, R1 R2, L2, L1, L1",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Stunt Plane",
+               "code": "CIRCLE, UP, L1, L2, DOWN, R1, L1, L1, LEFT, LEFT, X, TRIANGLE",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Bloodring Banger",
+               "code": "DOWN, R1, CIRCLE, L2, L2, X, R1, L1, LEFT, LEFT",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Vortex Hovercraft",
+               "code": "TRIANGLE, TRIANGLE, SQUARE, CIRCLE, X, L1, L2, DOWN, DOWN",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Parachute",
+               "code": "AIYPWZQP",
+               "filterTitle": "Other"
+           },
+           {
+               "name": "Spawn Monster",
+               "code": "MONSTERMASH",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Hotring Racer #1",
+               "code": "VROCKPOKEY",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Hotring Racer #2",
+               "code": "VPJTQWV",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Romero",
+               "code": "WHERESTHEFUNERAL",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Stretch",
+               "code": "CELEBRITYSTATUS",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Trashmaster",
+               "code": "TRUEGRIME",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Caddy",
+               "code": "RZHSUEW",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Quad",
+               "code": "FOURWHEELFUN",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Tanker Truck",
+               "code": "AMOMHRER",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Dozer",
+               "code": "ITSALLBULL",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Spawn Rancher",
+               "code": "JQNTDMH",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Max Muscle",
+               "code": "JYSDSOD",
+               "filterTitle": "Ability Cheat Codes List"
+           },
+           {
+               "name": "Max Fat",
+               "code": "BTCDBCB",
+               "filterTitle": "Ability Cheat Codes List"
+           },
+           {
+               "name": "Max Sex Appeal",
+               "code": "KVGYZQK",
+               "filterTitle": "Ability Cheat Codes List"
+           },
+           {
+               "name": "Max Respect",
+               "code": "WORSHIPME",
+               "filterTitle": "Ability Cheat Codes List"
+           },
+           {
+               "name": "Cars Fly",
+               "code": "CHITTYCHITTYBANGBANG",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Cars Float Away When Hit",
+               "code": "BUBBLECARS",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "Cars Drive on Water",
+               "code": "WHEELSONLYPLEASE",
+               "filterTitle": "Vehicle Cheat Codes List"
+           },
+           {
+               "name": "All Traffic Lights Stay Green",
+               "code": "RIGHT, RB, UP, LT, LT, LEFT, RB, LB, RB, RB",
+               "filterTitle": "Vehicle Cheat Codes List"
+           }
+       ]
+  }
+}
