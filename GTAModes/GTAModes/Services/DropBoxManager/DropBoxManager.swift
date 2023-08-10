@@ -322,8 +322,10 @@ private extension DBManager {
 //        })
 //    }
     
-    func validateAccessToken(token : String,completion: @escaping(Bool)->()) {
+    func validateAccessToken(token : String, completion: @escaping(Bool)->()) {
         self.getTokenBy(refresh_token: token) { access_token in
+            guard let self = self else { return }
+            
             if let aToken = access_token {
                 self.client = DropboxClient(accessToken:aToken)
                 print("token updated !!! \(aToken),\(String(describing: self.client))")

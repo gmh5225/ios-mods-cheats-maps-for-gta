@@ -39,8 +39,8 @@
 		2CA95FEE2A83C8FA0039343E /* cheats_GTA-SA.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA95FEA2A83C8FA0039343E /* cheats_GTA-SA.json */; };
 		2CA95FEF2A83C8FA0039343E /* cheats_GTA-VC.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA95FEB2A83C8FA0039343E /* cheats_GTA-VC.json */; };
 		2CA95FF12A83E77A0039343E /* MainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FF02A83E77A0039343E /* MainObject.swift */; };
-		2CA95FF32A83E8450039343E /* CheatsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FF22A83E8450039343E /* CheatsObject.swift */; };
 		2CA95FF52A83EACF0039343E /* CheatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FF42A83EACF0039343E /* CheatManager.swift */; };
+		2CA95FF82A84D4210039343E /* CheatsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FF72A84D4210039343E /* CheatsObject.swift */; };
 		2CBF47222A79151300A50257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A205B2A7170E3002A6D3C /* LaunchScreen.storyboard */; };
 		2CBF47242A79153200A50257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A20592A7170E3002A6D3C /* Assets.xcassets */; };
 		2CBFE4552A77E28400A50257 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE4542A77E28400A50257 /* FilterTableViewCell.swift */; };
@@ -89,8 +89,8 @@
 		2CA95FEA2A83C8FA0039343E /* cheats_GTA-SA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cheats_GTA-SA.json"; sourceTree = "<group>"; };
 		2CA95FEB2A83C8FA0039343E /* cheats_GTA-VC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cheats_GTA-VC.json"; sourceTree = "<group>"; };
 		2CA95FF02A83E77A0039343E /* MainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainObject.swift; sourceTree = "<group>"; };
-		2CA95FF22A83E8450039343E /* CheatsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatsObject.swift; sourceTree = "<group>"; };
 		2CA95FF42A83EACF0039343E /* CheatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatManager.swift; sourceTree = "<group>"; };
+		2CA95FF72A84D4210039343E /* CheatsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatsObject.swift; sourceTree = "<group>"; };
 		2CBFE4442A77BDD400A50257 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2CBFE4472A77BE0200A50257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CBFE4492A77CEDA00A50257 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
@@ -228,6 +228,7 @@
 		2C2A20862A72A3C6002A6D3C /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				2CA95FF62A84D4050039343E /* Models */,
 				2C2A20892A72A530002A6D3C /* Realm+Utilities.swift */,
 			);
 			path = DataBase;
@@ -338,6 +339,14 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		2CA95FF62A84D4050039343E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2CA95FF72A84D4210039343E /* CheatsObject.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		2CBFE4482A77CE6A00A50257 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,7 +392,6 @@
 			isa = PBXGroup;
 			children = (
 				2CA95FF02A83E77A0039343E /* MainObject.swift */,
-				2CA95FF22A83E8450039343E /* CheatsObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -494,6 +502,7 @@
 				2C2A20782A7287AA002A6D3C /* MainFlowAssembly.swift in Sources */,
 				2CDEBF072A82F57100F976A3 /* CustomNavigationView.swift in Sources */,
 				2CDEBF042A82586500F976A3 /* DBConstants.swift in Sources */,
+				2CA95FF82A84D4210039343E /* CheatsObject.swift in Sources */,
 				2C45A53D2A76A7800023B3A8 /* ChecklistModel.swift in Sources */,
 				2C7F39F42A7BF09800F575F7 /* GameModesHeaderView.swift in Sources */,
 				2C2A20762A7286EC002A6D3C /* FlowCoordinator.swift in Sources */,
@@ -501,7 +510,6 @@
 				2C2A20B92A7556BF002A6D3C /* Reusable.swift in Sources */,
 				2C2A20732A7285AA002A6D3C /* MainFlowCoordinator.swift in Sources */,
 				2C2A20532A7170E1002A6D3C /* SceneDelegate.swift in Sources */,
-				2CA95FF32A83E8450039343E /* CheatsObject.swift in Sources */,
 				2C2A208A2A72A530002A6D3C /* Realm+Utilities.swift in Sources */,
 				2C7F39F62A7BF0BF00F575F7 /* GameModesTableViewCell.swift in Sources */,
 				2C2A20BE2A756AD4002A6D3C /* GSViewController.swift in Sources */,
