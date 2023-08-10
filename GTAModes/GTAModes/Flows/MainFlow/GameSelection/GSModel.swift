@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Combine
+import RealmSwift
 
 protocol GSModelNavigationHandler: AnyObject {
     
@@ -16,19 +18,21 @@ protocol GSModelNavigationHandler: AnyObject {
 
 final class GSModel {
     
-    let menuItems: [MainCellData] = [
-        .init(title: "Version 6", imageUrl: "V6"),
-        .init(title: "Version 5", imageUrl: "V5"),
-        .init(title: "Version VC", imageUrl: "VVC"),
-        .init(title: "Version SA", imageUrl: "VSA")
-    ]
+    var reloadData: AnyPublisher<Void, Never> {
+      reloadDataSubject
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
+    }
+    var menuItems: [MainItem] = []
     
     private let navigationHandler: GSModelNavigationHandler
+    private let reloadDataSubject = PassthroughSubject<Void, Never>()
     
     init(
         navigationHandler: GSModelNavigationHandler
     ) {
         self.navigationHandler = navigationHandler
+        fetchData()
     }
     
     public func selectedItems(index: Int) {
@@ -39,6 +43,21 @@ final class GSModel {
     
     public func backActionProceed() {
         navigationHandler.gsModelDidRequestToBack(self)
+    }
+    
+    func fetchData() {
+        do {
+            let realm = try Realm()
+            let menuItem = realm.objects(MainItemObject.self).map { $0.lightweightRepresentation}
+            menuItem.forEach { [weak self] value in
+                guard let self = self else { return }
+                
+                self.menuItems.append(value)
+            }
+            reloadDataSubject.send()
+        } catch {
+            print("Error saving data to Realm: \(error)")
+        }
     }
     
 }

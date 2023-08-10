@@ -2,7 +2,7 @@
 
 import Foundation
 import SwiftyDropbox
-import CoreData
+import RealmSwift
 
 protocol DropBoxManagerDelegate : AnyObject {
     func currentProgressOperation(progress : Progress)
@@ -12,19 +12,13 @@ protocol DropBoxManagerDelegate : AnyObject {
 final class DBManager : NSObject {
     
     // MARK: - Private properties
-
+    
     private let defaults = UserDefaults.standard
     private var isReadyContent : Bool = false
     
-    let notShared: Void = { () -> Void in
-        let fruits = ["apple", "banana", "cherry"]
-        for _ in fruits {
-            print("")
-        }
-    }()
     
     // MARK: - Public properties
-
+    
     static let shared = DBManager()
     var client: DropboxClient?
     weak var delegate: DropBoxManagerDelegate?
@@ -32,28 +26,28 @@ final class DBManager : NSObject {
     
     // MARK: - For CoreData
     
-//    var persistentContainer = CoreDataManager.shared.persistentContainer
+    //    var persistentContainer = CoreDataManager.shared.persistentContainer
     
     // MARK: - Public
-
+    
     func setupDropBox() {
-            clearAllThings()
-            
-            if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
-                fetchGTA5Modes()
-            } else {
-                print("start resetting token operation")
-                reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
-                    guard let self = self else { return }
-                    if let rToken = refresh_token {
-                        print(rToken)
-                        self.defaults.setValue(rToken, forKey: DBKeys.RefreshTokenSaveVar)
-                    }
-                    
-                    fetchGTA5Modes()
+        clearAllThings()
+        
+        if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
+            fetchMainInfo()
+        } else {
+            print("start resetting token operation")
+            reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
+                guard let self = self else { return }
+                if let rToken = refresh_token {
+                    print(rToken)
+                    self.defaults.setValue(rToken, forKey: DBKeys.RefreshTokenSaveVar)
                 }
                 
+                fetchMainInfo()
             }
+            
+        }
     }
     
     func fetchGTA5Modes() {
@@ -61,7 +55,7 @@ final class DBManager : NSObject {
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: DBKeys.Path.gta5_modes.rawValue).response(completionHandler: { responce, error in
+                self.client?.files.download(path: DBKeys.Path.main.rawValue).response(completionHandler: { responce, error in
                     if let data = responce?.1 {
                         print(String(decoding: data, as: UTF8.self)) //JSON string exists
                     } else {
@@ -72,22 +66,19 @@ final class DBManager : NSObject {
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
             }
         }
-
     }
     
     func getImageUrl(img: String, completion: @escaping (String?) -> ()){
-            validateAccessToken(token: DBKeys.refresh_token) { [weak self] isValid in
-                guard let self = self else { return }
-                self.client?.files.getTemporaryLink(path: "/\(img)").response(completionHandler: { responce, error in
-                    if let link = responce {
-                        completion(link.link)
-                    } else {
-                        completion(nil)
-                    }
-                })
+        self.client?.files.getTemporaryLink(path: img).response(completionHandler: { responce, error in
+            if let link = responce {
+                completion(link.link)
+            } else {
+                completion(nil)
             }
-        }
-
+        })
+        
+    }
+    
     
     func getFileUrl(path: String, completion: @escaping (String?) -> ()){
         self.client?.files.getTemporaryLink(path: "/\(path)").response(completionHandler: { responce, error in
@@ -98,7 +89,7 @@ final class DBManager : NSObject {
             }
         })
     }
-        
+    
     
     func downloadFileBy(urlPath: URL, completion: @escaping (String?, Error?) -> Void) {
         let fileURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -145,64 +136,40 @@ final class DBManager : NSObject {
         })
     }
     
-//    func saveDayInfo(name: String, categories: [NutritionCategory]) {
-//
-//        let context = persistentContainer.viewContext
-//
-//        let point = DayDataModel(context: context)
-//        point.name = name
-//
-//        var categoriesArray = [CategoryDataModel]()
-//
-//        for (index, categ) in categories.enumerated() {
-//            print(categ.name)
-//            let categToSave = CategoryDataModel(context: context)
-//
-//            categToSave.name = categ.name
-//            categToSave.day = point
-//            categToSave.displayIndex = Int64(index)
-//
-//            var recipeArray = [RecipeDataModel]()
-//
-//            for recipe in categ.recipes {
-//                let recipeToSave = RecipeDataModel(context: context)
-//
-//                recipeToSave.howToCook = recipe.howToCook
-//                recipeToSave.imagePath = recipe.imagePath
-//                recipeToSave.ingredients = recipe.ingredients
-//                recipeToSave.kCal = recipe.kCal
-//                recipeToSave.name = recipe.name
-//                recipeToSave.other = recipe.other
-//                recipeToSave.time = recipe.time
-//                recipeToSave.done = false
-//                recipeToSave.category = categToSave
-//
-//                recipeArray.append(recipeToSave)
-//            }
-//
-//            var recipeSet = NSSet(array: recipeArray)
-//
-//            categToSave.recipes = recipeSet
-//
-//            categoriesArray.append(categToSave)
-//        }
-//
-//        let categorySet = NSSet(array: categoriesArray) // Convert array to NSSet
-//        point.categories = categorySet
-//
-//        do {
-//            try context.save()
-//        } catch let error {
-//            print("Error saving day info: \(error.localizedDescription)")
-//        }
-//    }
-    
-    
 }
 
 // MARK: - Private
 
 private extension DBManager {
+    
+    func fetchMainInfo() {
+        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+            guard let self = self else { return }
+            
+            if validator {
+                self.client?.files.download(path: DBKeys.Path.main.rawValue).response(completionHandler: { responce, error in
+                    if let data = responce?.1 {
+                        do {
+                            let decoder = JSONDecoder()
+                            let decodedData = try decoder.decode(MainItemsDataParser.self, from: data)
+                            //                            let items = decodedData.data
+                            self.addMenuItemToDB(decodedData)
+                            
+                            
+                            
+                        } catch {
+                            print("Error decoding JSON: \(error)")
+                        }
+                    } else {
+                        print(error?.description)
+                    }
+                })
+            } else {
+                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
+            }
+        }
+    }
+    
     
     func clearAllThings() {
         defaults.set(false, forKey: "dataDidLoaded")
@@ -212,95 +179,10 @@ private extension DBManager {
         //TODO: Clear CoreData if needed
     }
     
-    func fetchData(validate : Bool) {
-         if validate {
-            print("token valid")
-            if defaults.value(forKey: "dataDidLoaded") == nil || (defaults.value(forKey: "dataDidLoaded") != nil) == true {
-                featchNutritionItems { error in
-                }
-                
-
-            } else {
-                print("data in database")
-            }
-        } else {
-            print("token has expired")
-        }
-    }
     
-    func featchNutritionItems(_ completion: @escaping (Error?) -> Void)  {
-        client?.files.download(path: DBKeys.Path.gta5_modes.rawValue).response(completionHandler: { [weak self] response, error in
-            guard let self = self else { return }
-//            if let response = response {
-//                let fileContents = response.1
-//
-//                if let response = try? JSONDecoder().decode(DBNutritionResponce.self, from: fileContents) {
-//                    let nutrition = response.nutritions.first
-//                    print(nutrition)
-//
-//                    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "DayDataModel")
-//                    let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//
-//                    do {
-//
-//                        try self.persistentContainer.viewContext.execute(deleteRequest)
-//                        try self.persistentContainer.viewContext.save()
-//                        print("Removed all elements")
-//                    } catch let error {
-//                        self.persistentContainer.viewContext.rollback()
-//                        print("Error: \(error.localizedDescription)")
-//                    }
-//
-//
-//                    if let days = nutrition?.days {
-//                        for day in days {
-//                            self.saveDayInfo(name: day.name, categories: day.categories)
-//                        }
-//                    }
-//
-//                    UserDefaults.standard.set(true, forKey: "dietexist")
-//                    DispatchQueue.main.async { completion(nil) }
-//
-//                } else {
-//                    let tempError = NSError(domain: "", code: 500, userInfo: [ NSLocalizedDescriptionKey: "Bad response"])
-//                    DispatchQueue.main.async { completion(tempError) }
-//                }
-//            }
-//
-//            if let error = error {
-//                print(error)
-//                let tempError = NSError(domain: "", code: 500, userInfo: [ NSLocalizedDescriptionKey: "Internal service error"])
-//                DispatchQueue.main.async { completion(tempError) }
-//            }
-//
-        })
-        .progress({ progress in
-            print("Downloading: ",progress)
-        })
-    }
-    
-//
-//    func fetchHabbits(path: String, type: Decodable.Type, completion: @escaping (Data?) -> Void) {
-//        client?.files.download(path: path).response(completionHandler: { response, error in
-//            if let response = response {
-//                let fileContents = response.1
-//                DispatchQueue.main.async { completion(fileContents) }
-//            }
-//
-//            if let error = error {
-//                print(error)
-//                DispatchQueue.main.async { completion(nil) }
-//            }
-//
-//        })
-//        .progress({ progress in
-//            print("Downloading: ",progress)
-//        })
-//    }
     
     func validateAccessToken(token : String, completion: @escaping(Bool)->()) {
         self.getTokenBy(refresh_token: token) { access_token in
-            guard let self = self else { return }
             
             if let aToken = access_token {
                 self.client = DropboxClient(accessToken:aToken)
@@ -368,6 +250,55 @@ private extension DBManager {
     }
     
 }
+// MARK: - DataBase
 
-
-
+private extension DBManager {
+    
+    func addMenuItemToDB(_ itemsMenu: MainItemsDataParser) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.delete(realm.objects(MainItemObject.self))
+            }
+        } catch {
+            print("Error deleting existing data: \(error)")
+        }
+        
+        let list = itemsMenu.data.map { $0.imagePath }
+        
+        var trueImagePath: [String] = []
+        var processedCount = 0
+        
+        for path in list {
+            print(path)
+            getImageUrl(img: "/main/" + path) { truePath in
+                processedCount += 1
+                trueImagePath.append(truePath ?? "")
+                
+                if processedCount == list.count {
+                    self.saveMainItemsToRealm(itemsMenu, trueImagePath)
+                }
+            }
+        }
+    }
+    
+    func saveMainItemsToRealm(_ itemsMenu: MainItemsDataParser, _ trueImagePath: [String]) {
+        do {
+            let realm = try Realm()
+            
+            try realm.write {
+                for (index, item) in itemsMenu.data.enumerated() {
+                    let mainItemObject = MainItemObject(
+                        title: item.title,
+                        type: item.type,
+                        imagePath: trueImagePath[index],
+                        rawTypeItem: "main"
+                    )
+                    realm.add(mainItemObject)
+                }
+            }
+        } catch {
+            print("Error saving data to Realm: \(error)")
+        }
+    }
+}

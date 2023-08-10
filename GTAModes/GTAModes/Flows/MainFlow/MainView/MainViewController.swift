@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 class MainViewController: NiblessViewController {
     
+    private var subscriptions = Set<AnyCancellable>()
     private let model: MainModel
-    
     private let tableView = UITableView(frame: .zero)
     
     init(model: MainModel) {
@@ -23,6 +24,7 @@ class MainViewController: NiblessViewController {
         super.viewDidLoad()
         
         setupView()
+        setupBindings()
     }
     
     private func setupView() {
@@ -34,6 +36,15 @@ class MainViewController: NiblessViewController {
         tableView.rowHeight = 228.0
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    private func setupBindings() {
+        model.reloadData
+          .sink { [weak self] in
+            guard let self = self else { return }
+            
+            self.tableView.reloadData()
+          }.store(in: &subscriptions)
     }
     
 }

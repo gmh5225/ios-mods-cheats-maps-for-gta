@@ -34,13 +34,10 @@
 		2C45A5432A771A050023B3A8 /* ChecklistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5422A771A050023B3A8 /* ChecklistCell.swift */; };
 		2C7F39F42A7BF09800F575F7 /* GameModesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */; };
 		2C7F39F62A7BF0BF00F575F7 /* GameModesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F39F52A7BF0BF00F575F7 /* GameModesTableViewCell.swift */; };
-		2CA95FEC2A83C8FA0039343E /* cheats_GTA5.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA95FE82A83C8FA0039343E /* cheats_GTA5.json */; };
-		2CA95FED2A83C8FA0039343E /* cheats_GTA6.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA95FE92A83C8FA0039343E /* cheats_GTA6.json */; };
-		2CA95FEE2A83C8FA0039343E /* cheats_GTA-SA.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA95FEA2A83C8FA0039343E /* cheats_GTA-SA.json */; };
-		2CA95FEF2A83C8FA0039343E /* cheats_GTA-VC.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA95FEB2A83C8FA0039343E /* cheats_GTA-VC.json */; };
-		2CA95FF12A83E77A0039343E /* MainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FF02A83E77A0039343E /* MainObject.swift */; };
 		2CA95FF52A83EACF0039343E /* CheatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FF42A83EACF0039343E /* CheatManager.swift */; };
 		2CA95FF82A84D4210039343E /* CheatsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FF72A84D4210039343E /* CheatsObject.swift */; };
+		2CA95FFC2A8512470039343E /* MainItemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FFB2A8512470039343E /* MainItemObject.swift */; };
+		2CA960002A853F870039343E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2CA95FFF2A853F870039343E /* Kingfisher */; };
 		2CBF47222A79151300A50257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A205B2A7170E3002A6D3C /* LaunchScreen.storyboard */; };
 		2CBF47242A79153200A50257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A20592A7170E3002A6D3C /* Assets.xcassets */; };
 		2CBFE4552A77E28400A50257 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE4542A77E28400A50257 /* FilterTableViewCell.swift */; };
@@ -48,7 +45,6 @@
 		2CBFE4592A77ECA200A50257 /* PanPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE4582A77ECA200A50257 /* PanPresentationManager.swift */; };
 		2CBFE45B2A79080D00A50257 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE45A2A79080D00A50257 /* MapViewController.swift */; };
 		2CDEBEDE2A80F1DD00F976A3 /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDEBEDD2A80F1DD00F976A3 /* SwiftyDropbox */; };
-		2CDEBEE12A813F8500F976A3 /* Main.json in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEE02A813F8500F976A3 /* Main.json */; };
 		2CDEBEE32A813FF800F976A3 /* GamesList.json in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEE22A813FF800F976A3 /* GamesList.json */; };
 		2CDEBEE52A81404600F976A3 /* Checklist.json in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEE42A81404600F976A3 /* Checklist.json */; };
 		2CDEBF032A82586500F976A3 /* DropBoxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEF62A82586500F976A3 /* DropBoxManager.swift */; };
@@ -84,13 +80,9 @@
 		2C45A5422A771A050023B3A8 /* ChecklistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistCell.swift; sourceTree = "<group>"; };
 		2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesHeaderView.swift; sourceTree = "<group>"; };
 		2C7F39F52A7BF0BF00F575F7 /* GameModesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesTableViewCell.swift; sourceTree = "<group>"; };
-		2CA95FE82A83C8FA0039343E /* cheats_GTA5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cheats_GTA5.json; sourceTree = "<group>"; };
-		2CA95FE92A83C8FA0039343E /* cheats_GTA6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cheats_GTA6.json; sourceTree = "<group>"; };
-		2CA95FEA2A83C8FA0039343E /* cheats_GTA-SA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cheats_GTA-SA.json"; sourceTree = "<group>"; };
-		2CA95FEB2A83C8FA0039343E /* cheats_GTA-VC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cheats_GTA-VC.json"; sourceTree = "<group>"; };
-		2CA95FF02A83E77A0039343E /* MainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainObject.swift; sourceTree = "<group>"; };
 		2CA95FF42A83EACF0039343E /* CheatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatManager.swift; sourceTree = "<group>"; };
 		2CA95FF72A84D4210039343E /* CheatsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatsObject.swift; sourceTree = "<group>"; };
+		2CA95FFB2A8512470039343E /* MainItemObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItemObject.swift; sourceTree = "<group>"; };
 		2CBFE4442A77BDD400A50257 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2CBFE4472A77BE0200A50257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CBFE4492A77CEDA00A50257 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
@@ -106,7 +98,6 @@
 		2CBFE4562A77E38600A50257 /* PanPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanPresentationController.swift; sourceTree = "<group>"; };
 		2CBFE4582A77ECA200A50257 /* PanPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanPresentationManager.swift; sourceTree = "<group>"; };
 		2CBFE45A2A79080D00A50257 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		2CDEBEE02A813F8500F976A3 /* Main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Main.json; sourceTree = "<group>"; };
 		2CDEBEE22A813FF800F976A3 /* GamesList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GamesList.json; sourceTree = "<group>"; };
 		2CDEBEE42A81404600F976A3 /* Checklist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Checklist.json; sourceTree = "<group>"; };
 		2CDEBEF62A82586500F976A3 /* DropBoxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropBoxManager.swift; sourceTree = "<group>"; };
@@ -119,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CA960002A853F870039343E /* Kingfisher in Frameworks */,
 				2C2A206F2A727E88002A6D3C /* RealmSwift in Frameworks */,
 				2CDEBEDE2A80F1DD00F976A3 /* SwiftyDropbox in Frameworks */,
 			);
@@ -132,6 +124,7 @@
 			children = (
 				2C2A204F2A7170E1002A6D3C /* GTAModes */,
 				2C2A204E2A7170E1002A6D3C /* Products */,
+				2CA95FFE2A853F870039343E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -343,8 +336,16 @@
 			isa = PBXGroup;
 			children = (
 				2CA95FF72A84D4210039343E /* CheatsObject.swift */,
+				2CA95FFB2A8512470039343E /* MainItemObject.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2CA95FFE2A853F870039343E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		2CBFE4482A77CE6A00A50257 /* Fonts */ = {
@@ -366,11 +367,6 @@
 		2CDEBEDF2A813F0200F976A3 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				2CA95FEA2A83C8FA0039343E /* cheats_GTA-SA.json */,
-				2CA95FEB2A83C8FA0039343E /* cheats_GTA-VC.json */,
-				2CA95FE82A83C8FA0039343E /* cheats_GTA5.json */,
-				2CA95FE92A83C8FA0039343E /* cheats_GTA6.json */,
-				2CDEBEE02A813F8500F976A3 /* Main.json */,
 				2CDEBEE22A813FF800F976A3 /* GamesList.json */,
 				2CDEBEE42A81404600F976A3 /* Checklist.json */,
 			);
@@ -391,7 +387,6 @@
 		2CDEBEE92A82586500F976A3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2CA95FF02A83E77A0039343E /* MainObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -423,6 +418,7 @@
 			packageProductDependencies = (
 				2C2A206E2A727E88002A6D3C /* RealmSwift */,
 				2CDEBEDD2A80F1DD00F976A3 /* SwiftyDropbox */,
+				2CA95FFF2A853F870039343E /* Kingfisher */,
 			);
 			productName = "GTA Modes";
 			productReference = 2C2A204D2A7170E1002A6D3C /* GTAModes.app */;
@@ -455,6 +451,7 @@
 			packageReferences = (
 				2C2A206D2A727E88002A6D3C /* XCRemoteSwiftPackageReference "realm-swift" */,
 				2CDEBEDC2A80F1DD00F976A3 /* XCRemoteSwiftPackageReference "SwiftyDropbox" */,
+				2CA95FFD2A853D2B0039343E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 2C2A204E2A7170E1002A6D3C /* Products */;
 			projectDirPath = "";
@@ -471,12 +468,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C3C53292A7BB01F00D019A1 /* Inter-Regular.ttf in Resources */,
-				2CA95FED2A83C8FA0039343E /* cheats_GTA6.json in Resources */,
 				2C3C53282A7BB01300D019A1 /* Inter-Bold.ttf in Resources */,
-				2CA95FEF2A83C8FA0039343E /* cheats_GTA-VC.json in Resources */,
 				2CBF47242A79153200A50257 /* Assets.xcassets in Resources */,
-				2CA95FEC2A83C8FA0039343E /* cheats_GTA5.json in Resources */,
-				2CA95FEE2A83C8FA0039343E /* cheats_GTA-SA.json in Resources */,
 				2CBF47222A79151300A50257 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,7 +488,6 @@
 				2C2A20712A7282D8002A6D3C /* ApplicationFlowAssembly.swift in Sources */,
 				2CDEBEE32A813FF800F976A3 /* GamesList.json in Sources */,
 				2C45A5432A771A050023B3A8 /* ChecklistCell.swift in Sources */,
-				2CDEBEE12A813F8500F976A3 /* Main.json in Sources */,
 				2C2A20682A717FA2002A6D3C /* ApplicationFlowCoordinator.swift in Sources */,
 				2CDEBEE52A81404600F976A3 /* Checklist.json in Sources */,
 				2C45A5372A76A7550023B3A8 /* GameModesViewController.swift in Sources */,
@@ -513,10 +505,10 @@
 				2C2A208A2A72A530002A6D3C /* Realm+Utilities.swift in Sources */,
 				2C7F39F62A7BF0BF00F575F7 /* GameModesTableViewCell.swift in Sources */,
 				2C2A20BE2A756AD4002A6D3C /* GSViewController.swift in Sources */,
-				2CA95FF12A83E77A0039343E /* MainObject.swift in Sources */,
 				2CBFE4572A77E38600A50257 /* PanPresentationController.swift in Sources */,
 				2C45A53B2A76A7780023B3A8 /* ChecklistViewController.swift in Sources */,
 				2CBFE45B2A79080D00A50257 /* MapViewController.swift in Sources */,
+				2CA95FFC2A8512470039343E /* MainItemObject.swift in Sources */,
 				2C2A20812A729337002A6D3C /* NiblessViewController.swift in Sources */,
 				2C2A20BB2A755AFA002A6D3C /* Autolayout.swift in Sources */,
 				2CBFE4592A77ECA200A50257 /* PanPresentationManager.swift in Sources */,
@@ -756,6 +748,14 @@
 				kind = branch;
 			};
 		};
+		2CA95FFD2A853D2B0039343E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		2CDEBEDC2A80F1DD00F976A3 /* XCRemoteSwiftPackageReference "SwiftyDropbox" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dropbox/SwiftyDropbox";
@@ -771,6 +771,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C2A206D2A727E88002A6D3C /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		2CA95FFF2A853F870039343E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CA95FFD2A853D2B0039343E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		2CDEBEDD2A80F1DD00F976A3 /* SwiftyDropbox */ = {
 			isa = XCSwiftPackageProductDependency;

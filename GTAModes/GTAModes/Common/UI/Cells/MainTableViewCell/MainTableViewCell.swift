@@ -13,8 +13,11 @@ public struct MainCellData {
 
 import Foundation
 import UIKit
+import Kingfisher
 
 final class MainTableViewCell: UITableViewCell, Reusable {
+    
+    private var kingfisherManager: KingfisherManager
     
     private let containerView = UIView()
     private let backgroundImageView = UIImageView()
@@ -23,6 +26,8 @@ final class MainTableViewCell: UITableViewCell, Reusable {
     private let rightImageView = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        self.kingfisherManager = KingfisherManager.shared
+        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
@@ -33,12 +38,12 @@ final class MainTableViewCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(_ value: MainCellData, fontSize: CGFloat) {
+    public func configure(_ value: MainItem, fontSize: CGFloat) {
         titleLabel.text = value.title.uppercased()
-        backgroundImageView.image = UIImage(named: value.imageUrl)
         backgroundImageView.contentMode = .scaleAspectFill
         titleLabel.font = UIFont(name: "Inter-Bold", size: fontSize)
         titleLabel.textColor = .white
+        backgroundImageView.kf.setImage(with: URL(string: value.imagePath)) 
     }
     
     private func setupLayout() {

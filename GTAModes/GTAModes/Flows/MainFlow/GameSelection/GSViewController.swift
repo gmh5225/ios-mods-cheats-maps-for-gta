@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 class GSViewController: NiblessViewController {
     
+    private var subscriptions = Set<AnyCancellable>()
     private let model: GSModel
     private let tableView = UITableView(frame: .zero)
     private let customNavigation: CustomNavigationView
@@ -27,6 +29,7 @@ class GSViewController: NiblessViewController {
         super.viewDidLoad()
         
         setupView()
+        setupBindings()
     }
     
     private func setupView() {
@@ -50,6 +53,15 @@ class GSViewController: NiblessViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
+    }
+    
+    private func setupBindings() {
+        model.reloadData
+          .sink { [weak self] in
+            guard let self = self else { return }
+            
+            self.tableView.reloadData()
+          }.store(in: &subscriptions)
     }
     
 }
