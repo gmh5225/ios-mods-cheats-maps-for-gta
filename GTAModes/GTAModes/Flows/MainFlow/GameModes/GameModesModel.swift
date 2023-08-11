@@ -43,6 +43,7 @@ final class GameModesModel {
         self.versionGame = versionGame
         self.navigationHandler = navigationHandler
         fetchData(version: versionGame)
+        showCheats(.ps)
     }
     
     func backActionProceed() {
@@ -54,6 +55,7 @@ final class GameModesModel {
     }
     
     func fetchData(version: String) {
+        allCheatItems.removeAll()
         do {
             let realm = try Realm()
             let cheats = realm.objects(CheatObject.self)
@@ -65,7 +67,6 @@ final class GameModesModel {
                 
                 self.allCheatItems.append(value)
             }
-            showCheats(.ps)
         } catch {
             print("Error saving data to Realm: \(error)")
         }
@@ -89,6 +90,32 @@ final class GameModesModel {
             let list = allCheatItems.filter { $0.isFavorite == true }
             cheatItems = list
             reloadDataSubject.send()
+        }
+    }
+    
+    func actionAt(index: Int) {
+        let selectedItem = cheatItems[index]
+        do {
+            let realm = try Realm()
+            try! realm.write {
+                if let existingCheatObject = realm.objects(CheatObject.self)
+                    .filter("platform == %@ AND game == %@ AND name == %@", selectedItem.platform, selectedItem.game, selectedItem.name).first {
+                    existingCheatObject.name = selectedItem.name
+                    existingCheatObject.code.removeAll()
+                    existingCheatObject.code.append(objectsIn: selectedItem.code)
+                    existingCheatObject.filterTitle = selectedItem.filterTitle
+                    existingCheatObject.platform = selectedItem.platform
+                    existingCheatObject.game = selectedItem.game
+                    existingCheatObject.isFavorite = !selectedItem.isFavorite
+                    realm.add(existingCheatObject, update: .modified)
+                }
+                    
+            }
+            fetchData(version: versionGame)
+            cheatItems[index].isFavorite = !cheatItems[index].isFavorite
+            reloadDataSubject.send()
+        } catch {
+            print("Error saving data to Realm: \(error)")
         }
     }
     

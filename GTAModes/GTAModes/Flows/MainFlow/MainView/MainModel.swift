@@ -28,13 +28,18 @@ final class MainModel {
     
     private let navigationHandler: MainModelNavigationHandler
     private let reloadDataSubject = PassthroughSubject<Void, Never>()
+    private let defaults = UserDefaults.standard
     var notificationToken: NotificationToken?
     
     init(
         navigationHandler: MainModelNavigationHandler
     ) {
         self.navigationHandler = navigationHandler
-        observeRealm()
+        if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, isLoadedData {
+            fetchData()
+        } else {
+            observeRealm()
+        }
     }
     
     public func selectedItems(index: Int) {

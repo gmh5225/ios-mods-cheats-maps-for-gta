@@ -3,4 +3,524 @@
    uuid = "F2E442C2-38A3-42C9-BA0C-003BDE980097"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFD41D5A-595A-4ADA-85D4-1D088D624998"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "actionAt(index:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EFD41D5A-595A-4ADA-85D4-1D088D624998 - 2d052857774aa06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "EFD41D5A-595A-4ADA-85D4-1D088D624998 - 2d052857774a9e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "39C304FA-CAB6-4555-A82A-253992CD3E3C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "actionAt(index:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "39C304FA-CAB6-4555-A82A-253992CD3E3C - 2d052857774a859"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "448">
+               </Location>
+               <Location
+                  uuid = "39C304FA-CAB6-4555-A82A-253992CD3E3C - 2d052857774a87a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "448">
+               </Location>
+               <Location
+                  uuid = "39C304FA-CAB6-4555-A82A-253992CD3E3C - 2d05285777497b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "448">
+               </Location>
+               <Location
+                  uuid = "39C304FA-CAB6-4555-A82A-253992CD3E3C - 2d0528577749793"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "448">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02BFC9C6-A550-4518-9AA7-59AEF4C4F2E5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "actionAt(index:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "02BFC9C6-A550-4518-9AA7-59AEF4C4F2E5 - 2d052857774a838"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "740">
+               </Location>
+               <Location
+                  uuid = "02BFC9C6-A550-4518-9AA7-59AEF4C4F2E5 - 2d052857774a859"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "740">
+               </Location>
+               <Location
+                  uuid = "02BFC9C6-A550-4518-9AA7-59AEF4C4F2E5 - 2d0528577749772"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "792">
+               </Location>
+               <Location
+                  uuid = "02BFC9C6-A550-4518-9AA7-59AEF4C4F2E5 - 2d0528577749772"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "1196">
+               </Location>
+               <Location
+                  uuid = "02BFC9C6-A550-4518-9AA7-59AEF4C4F2E5 - 2d0528577749772"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "740">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF7CB878-2023-4AB5-BD08-3C909D61BAEE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "actionAt(index:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CF7CB878-2023-4AB5-BD08-3C909D61BAEE - 2d05285777497f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "872">
+               </Location>
+               <Location
+                  uuid = "CF7CB878-2023-4AB5-BD08-3C909D61BAEE - 2d052857774a817"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "872">
+               </Location>
+               <Location
+                  uuid = "CF7CB878-2023-4AB5-BD08-3C909D61BAEE - 2d052857774970f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "816">
+               </Location>
+               <Location
+                  uuid = "CF7CB878-2023-4AB5-BD08-3C909D61BAEE - 2d0528577749730"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "872">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3615FB14-2CA9-4360-8829-089A8CA1DBDA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Flows/MainFlow/GameModes/GameModesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3BB45860-2CFF-41DB-B158-53D93FC40B51"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Flows/MainFlow/GameModes/GameModesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "setupBindings()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "65B36485-5203-4BCB-88CF-FB73BD36E0BF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Flows/MainFlow/MainView/MainModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "init(navigationHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3500E0E6-FAFC-4EF8-9B60-B3F1C72ECEFD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Flows/MainFlow/MainView/MainModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "init(navigationHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9EE8E1D-7C7B-4701-B207-2FA78475022B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "actionAt(index:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F9EE8E1D-7C7B-4701-B207-2FA78475022B - d5329606170ebe4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "F9EE8E1D-7C7B-4701-B207-2FA78475022B - d5329606170ebe4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "508">
+               </Location>
+               <Location
+                  uuid = "F9EE8E1D-7C7B-4701-B207-2FA78475022B - d5329606170ebe4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "F9EE8E1D-7C7B-4701-B207-2FA78475022B - d5329606170ebe4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "524">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01900AFA-5253-4996-8768-34ECD1F18E70"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "actionAt(index:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "01900AFA-5253-4996-8768-34ECD1F18E70 - d5329606170ebe13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "548">
+               </Location>
+               <Location
+                  uuid = "01900AFA-5253-4996-8768-34ECD1F18E70 - d5329606170ebe13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "556">
+               </Location>
+               <Location
+                  uuid = "01900AFA-5253-4996-8768-34ECD1F18E70 - d5329606170ebe13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in GTAModes.GameModesModel.actionAt(index: Swift.Int) -&gt; ()"
+                  moduleName = "GTAModes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "540">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "055719B0-B5B6-4E66-BCB1-F7637BA701BD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Flows/MainFlow/GameModes/GameModesModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "actionAt(index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

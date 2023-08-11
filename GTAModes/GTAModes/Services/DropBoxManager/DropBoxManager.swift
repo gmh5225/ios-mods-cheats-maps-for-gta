@@ -31,22 +31,26 @@ final class DBManager : NSObject {
     // MARK: - Public
     
     func setupDropBox() {
-        clearAllThings()
-        
-        if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
-            fetchMainAndGameListInfo()
-        } else {
-            print("start resetting token operation")
-            reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
-                guard let self = self else { return }
-                if let rToken = refresh_token {
-                    print(rToken)
-                    self.defaults.setValue(rToken, forKey: DBKeys.RefreshTokenSaveVar)
+        if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, !isLoadedData {
+            clearAllThings()
+            
+            if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
+                fetchMainAndGameListInfo()
+            } else {
+                print("start resetting token operation")
+                reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
+                    guard let self = self else { return }
+                    if let rToken = refresh_token {
+                        print(rToken)
+                        self.defaults.setValue(rToken, forKey: DBKeys.RefreshTokenSaveVar)
+                    }
+                    
+                    fetchMainAndGameListInfo()
                 }
                 
-                fetchMainAndGameListInfo()
             }
-            
+        } else {
+            print(" ================== ALL DATA IS LOCALY OK =======================")
         }
     }
     
@@ -223,9 +227,11 @@ private extension DBManager {
                             print("============== V6 ALL OK =================")
                             self?.fetchGTAVCCodes { [weak self] _ in
                                 print("============== VC ALL OK =================")
-                                self?.fetchGTASACodes { _ in
+                                self?.fetchGTASACodes { [weak self] _ in
                                     print("============== SA ALL OK =================")
                                     print("============== ALL OK ALL OK ALL OK =================")
+                                    self?.defaults.set(true, forKey: "dataDidLoaded")
+
                                 }
                             }
                         }

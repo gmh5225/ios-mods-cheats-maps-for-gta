@@ -36,6 +36,13 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public override func prepareForReuse() {
+      super.prepareForReuse()
+
+        favoriteImage.image = UIImage()
+        titleLabel.text = ""
+    }
+    
     public func configure(_ value: CheatItem) {
         titleLabel.font = UIFont(name: "Inter-Regular", size: 20)
         titleLabel.textColor = .white

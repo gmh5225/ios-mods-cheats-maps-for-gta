@@ -56,12 +56,18 @@ public struct CheatItem {
 }
 
 public final class CheatObject: Object {
+    
+    @objc dynamic private(set) var id: String = UUID().uuidString.lowercased()
     @objc dynamic var name: String = ""
-    let code = List<String>()
+    var code = List<String>()
     @objc dynamic var filterTitle: String = ""
     @objc dynamic var platform: String = ""
     @objc dynamic var game: String = ""
     @objc dynamic var isFavorite: Bool = false
+    
+    override public static func primaryKey() -> String? {
+        return #keyPath(CheatObject.id)
+    }
 
     convenience init(
         name: String,

@@ -116,6 +116,11 @@ extension GameModesViewController: UITableViewDelegate {
         return headerView
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        model.actionAt(index: indexPath.row)
+    }
+    
 }
 
 extension GameModesViewController: UISearchResultsUpdating, UISearchBarDelegate {
