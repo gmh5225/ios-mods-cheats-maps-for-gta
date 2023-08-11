@@ -34,7 +34,7 @@ final class DBManager : NSObject {
         clearAllThings()
         
         if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
-            fetchMainInfo()
+            fetchMainAndGameListInfo()
         } else {
             print("start resetting token operation")
             reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
@@ -44,7 +44,7 @@ final class DBManager : NSObject {
                     self.defaults.setValue(rToken, forKey: DBKeys.RefreshTokenSaveVar)
                 }
                 
-                fetchMainInfo()
+                fetchMainAndGameListInfo()
             }
             
         }
@@ -142,35 +142,6 @@ final class DBManager : NSObject {
 
 private extension DBManager {
     
-    func fetchMainInfo() {
-        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
-            guard let self = self else { return }
-            
-            if validator {
-                self.client?.files.download(path: DBKeys.Path.main.rawValue).response(completionHandler: { responce, error in
-                    if let data = responce?.1 {
-                        do {
-                            let decoder = JSONDecoder()
-                            let decodedData = try decoder.decode(MainItemsDataParser.self, from: data)
-                            //                            let items = decodedData.data
-                            self.addMenuItemToDB(decodedData)
-                            
-                            
-                            
-                        } catch {
-                            print("Error decoding JSON: \(error)")
-                        }
-                    } else {
-                        print(error?.description)
-                    }
-                })
-            } else {
-                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
-            }
-        }
-    }
-    
-    
     func clearAllThings() {
         defaults.set(false, forKey: "dataDidLoaded")
         defaults.set(0, forKey: "json_categories_data_count")
@@ -250,49 +221,119 @@ private extension DBManager {
     }
     
 }
-// MARK: - DataBase
 
 private extension DBManager {
     
-    func addMenuItemToDB(_ itemsMenu: MainItemsDataParser) {
+    func fetchMainAndGameListInfo() {
         do {
             let realm = try Realm()
             try realm.write {
                 realm.delete(realm.objects(MainItemObject.self))
             }
+            fetchMainInfo { [ weak self] _ in
+                self?.fetchGameListInfo { [weak self] _ in
+                    print("All OK")
+                }
+            }
         } catch {
             print("Error deleting existing data: \(error)")
         }
-        
+    }
+    
+    func fetchMainInfo(completion: @escaping (Void?) -> ()) {
+        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+            guard let self = self else { return }
+            
+            if validator {
+                self.client?.files.download(path: DBKeys.Path.main.rawValue)
+                    .response(completionHandler: { responce, error in
+                    if let data = responce?.1 {
+                        do {
+                            let decoder = JSONDecoder()
+                            let decodedData = try decoder.decode(MainItemsDataParser.self, from: data)
+                            self.addMenuItemToDB(decodedData, type: "main", completion: completion)
+                            
+                        } catch {
+                            print("Error decoding JSON: \(error)")
+                        }
+                    } else {
+                        completion(())
+                        print(error?.description)
+                    }
+                })
+            } else {
+                completion(())
+                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
+            }
+        }
+    }
+    
+    func fetchGameListInfo(completion: @escaping (Void?) -> ()) {
+        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+            guard let self = self else { return }
+            
+            if validator {
+                self.client?.files.download(path: DBKeys.Path.gameList.rawValue)
+                    .response(completionHandler: { responce, error in
+                    if let data = responce?.1 {
+                        do {
+                            let decoder = JSONDecoder()
+                            let decodedData = try decoder.decode(MainItemsDataParser.self, from: data)
+                            self.addMenuItemToDB(decodedData, type: "gameList", completion: completion)
+                            
+                        } catch {
+                            completion(())
+                            print("Error decoding JSON: \(error)")
+                        }
+                    } else {
+                        completion(())
+                        print(error?.description)
+                    }
+                })
+            } else {
+                completion(())
+                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
+            }
+        }
+    }
+    
+    
+    func addMenuItemToDB(
+        _ itemsMenu: MainItemsDataParser,
+        type: String,
+        completion: @escaping (Void?) -> ()
+    ) {
         let list = itemsMenu.data.map { $0.imagePath }
-        
         var trueImagePath: [String] = []
         var processedCount = 0
-        
+        print(list)
         for path in list {
-            print(path)
-            getImageUrl(img: "/main/" + path) { truePath in
+            getImageUrl(img: "/\(type)/" + path) { [weak self] truePath in
                 processedCount += 1
                 trueImagePath.append(truePath ?? "")
-                
                 if processedCount == list.count {
-                    self.saveMainItemsToRealm(itemsMenu, trueImagePath)
+                    print(truePath)
+                    self?.saveMainItemsToRealm(itemsMenu, trueImagePath, type: type)
+                    completion(())
                 }
             }
         }
     }
     
-    func saveMainItemsToRealm(_ itemsMenu: MainItemsDataParser, _ trueImagePath: [String]) {
+    func saveMainItemsToRealm(
+        _ itemsMenu: MainItemsDataParser,
+        _ trueImagePath: [String]
+        , type: String
+    ) {
         do {
             let realm = try Realm()
-            
             try realm.write {
                 for (index, item) in itemsMenu.data.enumerated() {
                     let mainItemObject = MainItemObject(
                         title: item.title,
                         type: item.type,
                         imagePath: trueImagePath[index],
-                        rawTypeItem: "main"
+                        rawTypeItem: type
                     )
                     realm.add(mainItemObject)
                 }

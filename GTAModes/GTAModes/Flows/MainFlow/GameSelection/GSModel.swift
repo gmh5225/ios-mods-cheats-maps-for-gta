@@ -48,8 +48,11 @@ final class GSModel {
     func fetchData() {
         do {
             let realm = try Realm()
-            let menuItem = realm.objects(MainItemObject.self).map { $0.lightweightRepresentation}
-            menuItem.forEach { [weak self] value in
+            let menuItem = realm.objects(MainItemObject.self)
+            let valueList = menuItem.filter { $0.rawTypeItem == "gameList"}
+            let trueValueList = valueList.map { $0.lightweightRepresentation }
+            
+            trueValueList.forEach { [weak self] value in
                 guard let self = self else { return }
                 
                 self.menuItems.append(value)

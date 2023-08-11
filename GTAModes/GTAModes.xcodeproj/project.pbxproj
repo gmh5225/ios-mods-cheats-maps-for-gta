@@ -34,7 +34,6 @@
 		2C45A5432A771A050023B3A8 /* ChecklistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5422A771A050023B3A8 /* ChecklistCell.swift */; };
 		2C7F39F42A7BF09800F575F7 /* GameModesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */; };
 		2C7F39F62A7BF0BF00F575F7 /* GameModesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F39F52A7BF0BF00F575F7 /* GameModesTableViewCell.swift */; };
-		2CA95FF52A83EACF0039343E /* CheatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FF42A83EACF0039343E /* CheatManager.swift */; };
 		2CA95FF82A84D4210039343E /* CheatsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FF72A84D4210039343E /* CheatsObject.swift */; };
 		2CA95FFC2A8512470039343E /* MainItemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FFB2A8512470039343E /* MainItemObject.swift */; };
 		2CA960002A853F870039343E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2CA95FFF2A853F870039343E /* Kingfisher */; };
@@ -45,7 +44,6 @@
 		2CBFE4592A77ECA200A50257 /* PanPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE4582A77ECA200A50257 /* PanPresentationManager.swift */; };
 		2CBFE45B2A79080D00A50257 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE45A2A79080D00A50257 /* MapViewController.swift */; };
 		2CDEBEDE2A80F1DD00F976A3 /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDEBEDD2A80F1DD00F976A3 /* SwiftyDropbox */; };
-		2CDEBEE32A813FF800F976A3 /* GamesList.json in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEE22A813FF800F976A3 /* GamesList.json */; };
 		2CDEBEE52A81404600F976A3 /* Checklist.json in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEE42A81404600F976A3 /* Checklist.json */; };
 		2CDEBF032A82586500F976A3 /* DropBoxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEF62A82586500F976A3 /* DropBoxManager.swift */; };
 		2CDEBF042A82586500F976A3 /* DBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEF72A82586500F976A3 /* DBConstants.swift */; };
@@ -80,7 +78,6 @@
 		2C45A5422A771A050023B3A8 /* ChecklistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistCell.swift; sourceTree = "<group>"; };
 		2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesHeaderView.swift; sourceTree = "<group>"; };
 		2C7F39F52A7BF0BF00F575F7 /* GameModesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesTableViewCell.swift; sourceTree = "<group>"; };
-		2CA95FF42A83EACF0039343E /* CheatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatManager.swift; sourceTree = "<group>"; };
 		2CA95FF72A84D4210039343E /* CheatsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatsObject.swift; sourceTree = "<group>"; };
 		2CA95FFB2A8512470039343E /* MainItemObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItemObject.swift; sourceTree = "<group>"; };
 		2CBFE4442A77BDD400A50257 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -98,7 +95,6 @@
 		2CBFE4562A77E38600A50257 /* PanPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanPresentationController.swift; sourceTree = "<group>"; };
 		2CBFE4582A77ECA200A50257 /* PanPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanPresentationManager.swift; sourceTree = "<group>"; };
 		2CBFE45A2A79080D00A50257 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		2CDEBEE22A813FF800F976A3 /* GamesList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GamesList.json; sourceTree = "<group>"; };
 		2CDEBEE42A81404600F976A3 /* Checklist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Checklist.json; sourceTree = "<group>"; };
 		2CDEBEF62A82586500F976A3 /* DropBoxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropBoxManager.swift; sourceTree = "<group>"; };
 		2CDEBEF72A82586500F976A3 /* DBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConstants.swift; sourceTree = "<group>"; };
@@ -367,7 +363,6 @@
 		2CDEBEDF2A813F0200F976A3 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				2CDEBEE22A813FF800F976A3 /* GamesList.json */,
 				2CDEBEE42A81404600F976A3 /* Checklist.json */,
 			);
 			path = JSON;
@@ -379,7 +374,6 @@
 				2CDEBEE92A82586500F976A3 /* Models */,
 				2CDEBEF62A82586500F976A3 /* DropBoxManager.swift */,
 				2CDEBEF72A82586500F976A3 /* DBConstants.swift */,
-				2CA95FF42A83EACF0039343E /* CheatManager.swift */,
 			);
 			path = DropBoxManager;
 			sourceTree = "<group>";
@@ -486,7 +480,6 @@
 				2C45A5392A76A7620023B3A8 /* GameModesModel.swift in Sources */,
 				2C2A20B72A7551E8002A6D3C /* MainTableViewCell.swift in Sources */,
 				2C2A20712A7282D8002A6D3C /* ApplicationFlowAssembly.swift in Sources */,
-				2CDEBEE32A813FF800F976A3 /* GamesList.json in Sources */,
 				2C45A5432A771A050023B3A8 /* ChecklistCell.swift in Sources */,
 				2C2A20682A717FA2002A6D3C /* ApplicationFlowCoordinator.swift in Sources */,
 				2CDEBEE52A81404600F976A3 /* Checklist.json in Sources */,
@@ -513,7 +506,6 @@
 				2C2A20BB2A755AFA002A6D3C /* Autolayout.swift in Sources */,
 				2CBFE4592A77ECA200A50257 /* PanPresentationManager.swift in Sources */,
 				2CDEBF032A82586500F976A3 /* DropBoxManager.swift in Sources */,
-				2CA95FF52A83EACF0039343E /* CheatManager.swift in Sources */,
 				2C2A207B2A729267002A6D3C /* MainViewController.swift in Sources */,
 				2C2A20C02A756AE0002A6D3C /* GSModel.swift in Sources */,
 				2C2A207F2A72927E002A6D3C /* MainModel.swift in Sources */,
