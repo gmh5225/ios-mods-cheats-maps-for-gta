@@ -75,4 +75,3 @@ public final class MainItemObject: Object {
     }
 
 }
-

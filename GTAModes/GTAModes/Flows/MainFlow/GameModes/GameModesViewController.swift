@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 class GameModesViewController: NiblessViewController {
     
+    private var subscriptions = Set<AnyCancellable>()
     private let model: GameModesModel
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private let customNavigation: CustomNavigationView
@@ -16,10 +18,10 @@ class GameModesViewController: NiblessViewController {
     
     init(model: GameModesModel) {
         self.model = model
-        self.customNavigation = CustomNavigationView(.gameModes)
+        self.customNavigation = CustomNavigationView(.gameModes, titleString: model.title)
         
         super.init()
-
+        
         customNavigation.leftButtonAction = { [weak self] in
             self?.model.backActionProceed()
         }
@@ -33,7 +35,8 @@ class GameModesViewController: NiblessViewController {
         
         configureSearchController()
         setupView()
-
+        setupBindings()
+        
     }
     
     private func setupView() {
@@ -61,6 +64,15 @@ class GameModesViewController: NiblessViewController {
         tableView.separatorStyle = .none
     }
     
+    private func setupBindings() {
+        model.reloadData
+            .sink { [weak self] in
+                guard let self = self else { return }
+                
+                self.tableView.reloadData()
+            }.store(in: &subscriptions)
+    }
+    
     private func configureSearchController() {
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
@@ -81,15 +93,14 @@ class GameModesViewController: NiblessViewController {
 extension GameModesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell: GameModesTableViewCell = tableView.dequeueReusableCell(indexPath)
-        cell.configure(model.dataItems[indexPath.row])
+        cell.configure(model.cheatItems[indexPath.row])
         cell.backgroundColor = .clear
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        model.dataItems.count
+        model.cheatItems.count
     }
     
 }
@@ -98,7 +109,9 @@ extension GameModesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(viewType: GameModesHeaderView.self)
-        //    headerView?.setTitle(viewModel.title)
+        headerView?.actionButton = { [weak self] index in
+            self?.model.showCheats(CheatsType.allCases[index])
+        }
         
         return headerView
     }

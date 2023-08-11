@@ -56,13 +56,14 @@ extension MainFlowCoordinator: MainModelNavigationHandler {
 }
 
 extension MainFlowCoordinator: GSModelNavigationHandler {
+
     func gsModelDidRequestToBack(_ model: GSModel) {
         presentedViewController?.navigationController?.popViewController(animated: true)
     }
     
     
-    func gsModelDidRequestToGameModes(_ model: GSModel) {
-        let model = GameModesModel(navigationHandler: self as GameModesModelNavigationHandler)
+    func gsModelDidRequestToGameModes(_ model: GSModel, gameVersion: String) {
+        let model = GameModesModel(versionGame: gameVersion, navigationHandler: self as GameModesModelNavigationHandler)
         let controller = GameModesViewController(model: model)
         presentedViewController?.navigationController?.pushViewController(controller, animated: true)
     }

@@ -34,20 +34,7 @@ final class MainModel {
         navigationHandler: MainModelNavigationHandler
     ) {
         self.navigationHandler = navigationHandler
-        let realm = try! Realm()
-        let results = realm.objects(MainItemObject.self)
-        notificationToken = results.observe { [weak self] (changes: RealmCollectionChange) in
-            switch changes {
-            case .initial: break
-                //                self?.fetchData()
-            case .update(_, let deletions, let insertions, let modifications):
-                self?.fetchData()
-            case .error(let error):
-                // An error occurred while opening the Realm file on the background worker thread
-                fatalError("\(error)")
-            }
-        }
-        //        fetchData()
+        observeRealm()
     }
     
     public func selectedItems(index: Int) {
@@ -61,6 +48,26 @@ final class MainModel {
         
         if index == 2 {
             navigationHandler.mainModelDidRequestToMap(self)
+        }
+    }
+    
+    private func observeRealm() {
+        do {
+            let realm = try Realm()
+            let results = realm.objects(MainItemObject.self)
+            notificationToken = results.observe { [weak self] (changes: RealmCollectionChange) in
+                switch changes {
+                case .initial: break
+                    //                self?.fetchData()
+                case .update(_, let deletions, let insertions, let modifications):
+                    self?.fetchData()
+                case .error(let error):
+                    // An error occurred while opening the Realm file on the background worker thread
+                    fatalError("\(error)")
+                }
+            }
+        } catch {
+            print("Error saving data to Realm: \(error)")
         }
     }
     

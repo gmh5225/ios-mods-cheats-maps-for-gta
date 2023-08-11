@@ -50,24 +50,6 @@ final class DBManager : NSObject {
         }
     }
     
-    func fetchGTA5Modes() {
-        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
-            guard let self = self else { return }
-            
-            if validator {
-                self.client?.files.download(path: DBKeys.Path.main.rawValue).response(completionHandler: { responce, error in
-                    if let data = responce?.1 {
-                        print(String(decoding: data, as: UTF8.self)) //JSON string exists
-                    } else {
-                        print(error?.description)
-                    }
-                })
-            } else {
-                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
-            }
-        }
-    }
-    
     func getImageUrl(img: String, completion: @escaping (String?) -> ()){
         self.client?.files.getTemporaryLink(path: img).response(completionHandler: { responce, error in
             if let link = responce {
@@ -229,10 +211,25 @@ private extension DBManager {
             let realm = try Realm()
             try realm.write {
                 realm.delete(realm.objects(MainItemObject.self))
+                realm.delete(realm.objects(CheatObject.self))
             }
             fetchMainInfo { [ weak self] _ in
+                print("============== MAIN INFO ALL OK =================")
                 self?.fetchGameListInfo { [weak self] _ in
-                    print("All OK")
+                    print("============== GAME LIST ALL OK =================")
+                    self?.fetchGTA5Codes { [weak self] _ in
+                        print("============== V5 ALL OK =================")
+                        self?.fetchGTA6Codes { [weak self] _ in
+                            print("============== V6 ALL OK =================")
+                            self?.fetchGTAVCCodes { [weak self] _ in
+                                print("============== VC ALL OK =================")
+                                self?.fetchGTASACodes { _ in
+                                    print("============== SA ALL OK =================")
+                                    print("============== ALL OK ALL OK ALL OK =================")
+                                }
+                            }
+                        }
+                    }
                 }
             }
         } catch {
@@ -297,7 +294,6 @@ private extension DBManager {
         }
     }
     
-    
     func addMenuItemToDB(
         _ itemsMenu: MainItemsDataParser,
         type: String,
@@ -342,4 +338,180 @@ private extension DBManager {
             print("Error saving data to Realm: \(error)")
         }
     }
+}
+
+extension DBManager {
+    
+//    CheatObject
+    
+    func fetchGTA5Codes(completion: @escaping (Void?) -> ()) {
+        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+            guard let self = self else { return }
+            
+            if validator {
+                self.client?.files.download(path: DBKeys.Path.gta5_modes.rawValue)
+                    .response(completionHandler: { [weak self] responce, error in
+                        guard let self = self else { return }
+                        
+                    if let data = responce?.1 {
+                        do {
+                            let decoder = JSONDecoder()
+                            let decodedData = try decoder.decode(CheatCodesGTA5Parser.self, from: data)
+                            self.saveCheatItemToRealm(decodedData.GTA5, gameVersion: "GTA5")
+                            completion(())
+                        } catch {
+                            completion(())
+                            print("Error decoding JSON: \(error)")
+                        }
+                    } else {
+                        completion(())
+                        print(error?.description)
+                    }
+                })
+            } else {
+                completion(())
+                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
+            }
+        }
+    }
+    
+    func fetchGTA6Codes(completion: @escaping (Void?) -> ()) {
+        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+            guard let self = self else { return }
+            
+            if validator {
+                self.client?.files.download(path: DBKeys.Path.gta6_modes.rawValue)
+                    .response(completionHandler: { responce, error in
+                    if let data = responce?.1 {
+                        do {
+                            let decoder = JSONDecoder()
+                            let decodedData = try decoder.decode(CheatCodesGTA6Parser.self, from: data)
+                            self.saveCheatItemToRealm(decodedData.GTA6, gameVersion: "GTA6")
+                            completion(())
+                        } catch {
+                            completion(())
+                            print("Error decoding JSON: \(error)")
+                        }
+                    } else {
+                        completion(())
+                        print(error?.description)
+                    }
+                })
+            } else {
+                completion(())
+                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
+            }
+        }
+    }
+    
+    func fetchGTAVCCodes(completion: @escaping (Void?) -> ()) {
+        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+            guard let self = self else { return }
+            
+            if validator {
+                self.client?.files.download(path: DBKeys.Path.gtavc_modes.rawValue)
+                    .response(completionHandler: { responce, error in
+                    if let data = responce?.1 {
+                        do {
+                            let decoder = JSONDecoder()
+                            let decodedData = try decoder.decode(CheatCodesGTAVCParser.self, from: data)
+                            self.saveCheatItemToRealm(decodedData.GTA_Vice_City, gameVersion: "GTAVC")
+                            completion(())
+                        } catch {
+                            completion(())
+                            print("Error decoding JSON: \(error)")
+                        }
+                    } else {
+                        completion(())
+                        print(error?.description)
+                    }
+                })
+            } else {
+                completion(())
+                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
+            }
+        }
+    }
+    
+    func fetchGTASACodes(completion: @escaping (Void?) -> ()) {
+        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+            guard let self = self else { return }
+            
+            if validator {
+                self.client?.files.download(path: DBKeys.Path.gtasa_modes.rawValue)
+                    .response(completionHandler: { responce, error in
+                    if let data = responce?.1 {
+                        do {
+                            let decoder = JSONDecoder()
+                            let decodedData = try decoder.decode(CheatCodesGTASAParser.self, from: data)
+                            self.saveCheatItemToRealm(decodedData.GTA_San_Andreas, gameVersion: "GTASA")
+                            completion(())
+                        } catch {
+                            completion(())
+                            print("Error decoding JSON: \(error)")
+                        }
+                    } else {
+                        completion(())
+                        print(error?.description)
+                    }
+                })
+            } else {
+                completion(())
+                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
+            }
+        }
+    }
+    
+    func saveCheatItemToRealm(
+        _ cheatCodesParser: CheatCodesPlatformParser,
+        gameVersion: String
+    ) {
+        do {
+            let realm = try Realm()
+            
+            try realm.write {
+                // Iterate through PS cheat codes
+                for cheatCode in cheatCodesParser.ps {
+                    let cheatObject = CheatObject(
+                        name: cheatCode.name,
+                        code: cheatCode.code,
+                        filterTitle: cheatCode.filterTitle,
+                        platform: "ps",
+                        game: gameVersion,
+                        isFavorite: false
+                    )
+                    realm.add(cheatObject)
+                }
+                
+                // Iterate through Xbox cheat codes
+                for cheatCode in cheatCodesParser.xbox {
+                    let cheatObject = CheatObject(
+                        name: cheatCode.name,
+                        code: cheatCode.code,
+                        filterTitle: cheatCode.filterTitle,
+                        platform: "xbox",
+                        game: gameVersion,
+                        isFavorite: false
+                    )
+                    realm.add(cheatObject)
+                }
+                if let pcCheats = cheatCodesParser.pc {
+                    for cheatCode in pcCheats {
+                        let cheatObject = CheatObject(
+                            name: cheatCode.name,
+                            code: cheatCode.code,
+                            filterTitle: cheatCode.filterTitle,
+                            platform: "pc",
+                            game: gameVersion,
+                            isFavorite: false
+                        )
+                        realm.add(cheatObject)
+                    }
+                }
+            }
+        } catch {
+            print("Error saving data to Realm: \(error)")
+        }
+    }
+    
 }

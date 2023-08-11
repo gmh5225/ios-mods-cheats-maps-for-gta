@@ -36,19 +36,19 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(_ value: GameModesData) {
+    public func configure(_ value: CheatItem) {
         titleLabel.font = UIFont(name: "Inter-Regular", size: 20)
         titleLabel.textColor = .white
-        titleLabel.text = value.title
+        titleLabel.text = value.name
         favoriteImage.image =  UIImage(named: value.isFavorite ? "favoriteYesIcon" : "favoriteNoIcon")
-        if value.imageNames.count > 1 {
+        if value.code.count > 1 {
             contentModeView.isHidden = true
             stackView.isHidden = false
-            addImages(value.imageNames)
+            addImages(value.code)
         } else {
             contentModeView.isHidden = false
             stackView.isHidden = true
-            modeTitleLabel.text = value.imageNames.first ?? ""
+            modeTitleLabel.text = value.code.first ?? ""
             modeTitleLabel.font = UIFont(name: "Inter-Regular", size: 15)
             modeTitleLabel.textColor = .white
         }

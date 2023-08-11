@@ -10,6 +10,8 @@ import UIKit
 
 final class GameModesHeaderView: UITableViewHeaderFooterView, Reusable {
     
+    public var actionButton: ((Int) -> ())?
+    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -64,7 +66,7 @@ final class GameModesHeaderView: UITableViewHeaderFooterView, Reusable {
     
     @objc func buttonTapped(sender: UIButton) {
         if let index = stackView.arrangedSubviews.firstIndex(of: sender) {
-            print("Button at index \(index) tapped.")
+            actionButton?(index)
             if let selectedButton = selectedButton {
                 selectedButton.backgroundColor = .clear
             }

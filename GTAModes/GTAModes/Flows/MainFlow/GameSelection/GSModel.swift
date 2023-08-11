@@ -9,9 +9,18 @@ import Foundation
 import Combine
 import RealmSwift
 
+public enum GameSelected: String, CaseIterable {
+    
+    case gta6 = "GTA6"
+    case gta5 = "GTA5"
+    case gtaVC = "GTAVC"
+    case gtaSA = "GTASA"
+    
+}
+
 protocol GSModelNavigationHandler: AnyObject {
     
-    func gsModelDidRequestToGameModes(_ model: GSModel)
+    func gsModelDidRequestToGameModes(_ model: GSModel, gameVersion: String)
     func gsModelDidRequestToBack(_ model: GSModel)
     
 }
@@ -36,9 +45,11 @@ final class GSModel {
     }
     
     public func selectedItems(index: Int) {
-        if index == 0 {
-            navigationHandler.gsModelDidRequestToGameModes(self)
-        }
+        
+        navigationHandler.gsModelDidRequestToGameModes(
+            self,
+            gameVersion: GameSelected.allCases[index].rawValue
+        )
     }
     
     public func backActionProceed() {
