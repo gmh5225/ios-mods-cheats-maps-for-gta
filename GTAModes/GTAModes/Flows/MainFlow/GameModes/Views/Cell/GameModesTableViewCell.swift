@@ -37,10 +37,11 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
     }
     
     public override func prepareForReuse() {
-      super.prepareForReuse()
-
+        super.prepareForReuse()
+        
         favoriteImage.image = UIImage()
         titleLabel.text = ""
+        stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
     }
     
     public func configure(_ value: CheatItem) {
@@ -51,7 +52,10 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         if value.code.count > 1 {
             contentModeView.isHidden = true
             stackView.isHidden = false
-            addImages(value.code)
+            print("============= ->  " + value.platform + "  <- =============" )
+            let imagesListName = configureCodes(value)
+            print("============= ->  " + "\(imagesListName)" + "  <- =============" )
+            addImages(imagesListName)
         } else {
             contentModeView.isHidden = false
             stackView.isHidden = true
@@ -136,6 +140,104 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
             $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -16.0)
             $0.height.equal(to: 24.0)
         }
+    }
+    
+    func configureCodes(_ value: CheatItem) -> [String] {
+        var trueCode: [String] = []
+        
+        if value.platform == "ps" {
+            value.code.forEach { [weak self] code in
+                trueCode.append(self?.configurePSCode(code) ?? "")
+            }
+        }
+        
+        if value.platform == "xbox" {
+            value.code.forEach { [weak self] code in
+                trueCode.append(self?.configureXBoxCode(code) ?? "")
+            }
+        }
+        
+        return trueCode
+    }
+    
+    func configurePSCode(_ code: String) -> String {
+        if code == "TRIANGLE" {
+            return "s_triangle"
+        }
+        if code == "SQUARE" {
+            return "s_square"
+        }
+        if code == "CIRCLE" {
+            return "s_circle"
+        }
+        if code == "X" {
+            return "s_cross"
+        }
+        if code == "R1" {
+            return "s_r1"
+        }
+        if code == "R2" {
+            return "s_r2"
+        }
+        if code == "L1" {
+            return "s_l1"
+        }
+        if code == "L2" {
+            return "s_l2"
+        }
+        if code == "RIGHT" {
+            return "s_right"
+        }
+        if code == "LEFT" {
+            return "s_left"
+        }
+        if code == "DOWN" {
+            return "s_down"
+        }
+        if code == "UP" {
+            return "s_up"
+        }
+        return ""
+    }
+    
+    func configureXBoxCode(_ code: String) -> String {
+        if code == "Y" {
+            return "m_y"
+        }
+        if code == "B" {
+            return "m_b"
+        }
+        if code == "A" {
+            return "m_a"
+        }
+        if code == "X" {
+            return "m_x"
+        }
+        if code == "RB" {
+            return "m_rb"
+        }
+        if code == "RT" {
+            return "m_rt"
+        }
+        if code == "LB" {
+            return "m_lb"
+        }
+        if code == "LT" {
+            return "m_lt"
+        }
+        if code == "RIGHT" {
+            return "m_right"
+        }
+        if code == "LEFT" {
+            return "m_left"
+        }
+        if code == "DOWN" {
+            return "m_down"
+        }
+        if code == "UP" {
+            return "m_up"
+        }
+        return ""
     }
     
 }

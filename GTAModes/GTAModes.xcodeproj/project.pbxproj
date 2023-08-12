@@ -44,7 +44,6 @@
 		2CBFE4592A77ECA200A50257 /* PanPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE4582A77ECA200A50257 /* PanPresentationManager.swift */; };
 		2CBFE45B2A79080D00A50257 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE45A2A79080D00A50257 /* MapViewController.swift */; };
 		2CDEBEDE2A80F1DD00F976A3 /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDEBEDD2A80F1DD00F976A3 /* SwiftyDropbox */; };
-		2CDEBEE52A81404600F976A3 /* Checklist.json in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEE42A81404600F976A3 /* Checklist.json */; };
 		2CDEBF032A82586500F976A3 /* DropBoxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEF62A82586500F976A3 /* DropBoxManager.swift */; };
 		2CDEBF042A82586500F976A3 /* DBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEF72A82586500F976A3 /* DBConstants.swift */; };
 		2CDEBF072A82F57100F976A3 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBF062A82F57100F976A3 /* CustomNavigationView.swift */; };
@@ -95,7 +94,6 @@
 		2CBFE4562A77E38600A50257 /* PanPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanPresentationController.swift; sourceTree = "<group>"; };
 		2CBFE4582A77ECA200A50257 /* PanPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanPresentationManager.swift; sourceTree = "<group>"; };
 		2CBFE45A2A79080D00A50257 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		2CDEBEE42A81404600F976A3 /* Checklist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Checklist.json; sourceTree = "<group>"; };
 		2CDEBEF62A82586500F976A3 /* DropBoxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropBoxManager.swift; sourceTree = "<group>"; };
 		2CDEBEF72A82586500F976A3 /* DBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConstants.swift; sourceTree = "<group>"; };
 		2CDEBF062A82F57100F976A3 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
@@ -363,7 +361,6 @@
 		2CDEBEDF2A813F0200F976A3 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				2CDEBEE42A81404600F976A3 /* Checklist.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -482,7 +479,6 @@
 				2C2A20712A7282D8002A6D3C /* ApplicationFlowAssembly.swift in Sources */,
 				2C45A5432A771A050023B3A8 /* ChecklistCell.swift in Sources */,
 				2C2A20682A717FA2002A6D3C /* ApplicationFlowCoordinator.swift in Sources */,
-				2CDEBEE52A81404600F976A3 /* Checklist.json in Sources */,
 				2C45A5372A76A7550023B3A8 /* GameModesViewController.swift in Sources */,
 				2C2A20782A7287AA002A6D3C /* MainFlowAssembly.swift in Sources */,
 				2CDEBF072A82F57100F976A3 /* CustomNavigationView.swift in Sources */,
