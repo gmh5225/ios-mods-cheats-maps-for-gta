@@ -77,16 +77,16 @@ extension MainFlowCoordinator: ChecklistModelNavigationHandler {
     }
     
     func checklistModelDidRequestToFilter(_ model: ChecklistModel) {
-        let controller = FilterViewController(
-            filterData: [
-                .init(title: "Text", isCheck: Bool.random()),
-                .init(title: "SOME", isCheck: Bool.random())
-            ],
-            navigationHandler: self as FilterNavigationHandler
-        )
+//        let controller = FilterViewController(
+//            filterData: [
+//                .init(title: "Text", isCheck: Bool.random()),
+//                .init(title: "SOME", isCheck: Bool.random())
+//            ],
+//            navigationHandler: self as FilterNavigationHandler
+//        )
         
-        presentedViewController?.presentPan(controller)
-        panPresentedViewController = controller
+//        presentedViewController?.presentPan(controller)
+//        panPresentedViewController = controller
     }
     
     func gameModesModelDidRequestToBack(_ model: GameModesModel) {
@@ -97,21 +97,44 @@ extension MainFlowCoordinator: ChecklistModelNavigationHandler {
 
 extension MainFlowCoordinator: GameModesModelNavigationHandler {
     
+    func gameModesModelDidRequestToFilter(
+        _ model: GameModesModel,
+        filterListData: FilterListData,
+        selectedFilter: @escaping (String) -> ()
+    ) {
+//        let controller = FilterViewController(
+//            filterData: [
+//                .init(title: "Text", isCheck: Bool.random()),
+//                .init(title: "SOME", isCheck: Bool.random())
+//            ],
+//            navigationHandler: self as FilterNavigationHandler
+//        )
+
+        let controller = FilterViewController(
+            filterListData: filterListData,
+            selectedFilter: selectedFilter,
+            navigationHandler: self as FilterNavigationHandler
+        )
+        presentedViewController?.presentPan(controller)
+        panPresentedViewController = controller
+    }
+    
+    
     func gameModesModelDidRequestToGameSelection(_ model: GameModesModel) {
         print("sss")
     }
     
     func gameModesModelDidRequestToFilter(_ model: GameModesModel) {
-        let controller = FilterViewController(
-            filterData: [
-                .init(title: "Text", isCheck: Bool.random()),
-                .init(title: "SOME", isCheck: Bool.random())
-            ],
-            navigationHandler: self as FilterNavigationHandler
-        )
-        
-        presentedViewController?.presentPan(controller)
-        panPresentedViewController = controller
+//        let controller = FilterViewController(
+//            filterData: [
+//                .init(title: "Text", isCheck: Bool.random()),
+//                .init(title: "SOME", isCheck: Bool.random())
+//            ],
+//            navigationHandler: self as FilterNavigationHandler
+//        )
+//        
+//        presentedViewController?.presentPan(controller)
+//        panPresentedViewController = controller
     }
     
 }

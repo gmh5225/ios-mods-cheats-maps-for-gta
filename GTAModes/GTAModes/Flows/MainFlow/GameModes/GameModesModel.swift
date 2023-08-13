@@ -13,10 +13,26 @@ public enum CheatsType: CaseIterable {
     case ps, xbox, pc, favorite
 }
 
+public struct FilterListData {
+    
+    public let filterList: [String]
+    public let selectedItem: String
+    
+    init(filterList: [String], selectedItem: String) {
+        self.filterList = filterList
+        self.selectedItem = selectedItem
+    }
+    
+}
+
 protocol GameModesModelNavigationHandler: AnyObject {
     
     func gameModesModelDidRequestToGameSelection(_ model: GameModesModel)
-    func gameModesModelDidRequestToFilter(_ model: GameModesModel)
+    func gameModesModelDidRequestToFilter(
+        _ model: GameModesModel,
+        filterListData: FilterListData,
+        selectedFilter: @escaping (String) -> ()
+    )
     func gameModesModelDidRequestToBack(_ model: GameModesModel)
 }
 
@@ -35,6 +51,8 @@ final class GameModesModel {
     private let reloadDataSubject = PassthroughSubject<Void, Never>()
     private let versionGame: String
     var allCheatItems: [CheatItem] = []
+    private var filterSelected: String = ""
+    
     
     init(
         versionGame: String,
@@ -42,8 +60,8 @@ final class GameModesModel {
     ) {
         self.versionGame = versionGame
         self.navigationHandler = navigationHandler
-        fetchData(version: versionGame)
-        showCheats(.ps)
+        self.fetchData(version: versionGame)
+        self.showCheats(.ps)
     }
     
     func backActionProceed() {
@@ -51,7 +69,19 @@ final class GameModesModel {
     }
     
     func filterActionProceed() {
-        navigationHandler.gameModesModelDidRequestToFilter(self)
+        let filterList = allCheatItems.map { $0.filterTitle }
+        let uniqueList = Array(Set(filterList))
+        let filterListData = FilterListData(filterList: uniqueList, selectedItem: filterSelected)
+        navigationHandler.gameModesModelDidRequestToFilter(
+            self,
+            filterListData: filterListData) { [weak self] selectedFilter in
+                guard let self = self else { return }
+                
+                self.filterSelected = selectedFilter
+                let list = self.allCheatItems.filter { $0.filterTitle == selectedFilter }
+                self.cheatItems = list
+                self.reloadDataSubject.send()
+            }
     }
     
     func fetchData(version: String) {

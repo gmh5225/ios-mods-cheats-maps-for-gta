@@ -56,14 +56,23 @@ protocol FilterNavigationHandler: AnyObject {
 
 final class FilterViewController: NiblessFilterViewController {
     
-    private let filterData: [FilterData]
+    public var selectedFilter: (String) -> ()
+    private let filterListData: FilterListData
     private let tableView = UITableView(frame: .zero)
     private let titleLabel = UILabel()
     private let closeButton = UIButton()
     private let navigationHandler: FilterNavigationHandler
+    private var selectedValue: String
     
-    public init(filterData: [FilterData], navigationHandler: FilterNavigationHandler) {
-        self.filterData = filterData
+    
+    public init(
+        filterListData: FilterListData,
+        selectedFilter: @escaping (String) -> (),
+        navigationHandler: FilterNavigationHandler
+    ) {
+        self.filterListData = filterListData
+        self.selectedFilter = selectedFilter
+        self.selectedValue = filterListData.selectedItem
         self.navigationHandler = navigationHandler
         super.init()
     }
@@ -105,12 +114,12 @@ final class FilterViewController: NiblessFilterViewController {
             $0.bottom.equal(to: view.safeAreaLayoutGuide.bottomAnchor, priority: .defaultLow)
         }
         tableView.backgroundColor = .black
-        tableView.isScrollEnabled = false
         tableView.sectionFooterHeight = 0.0
         tableView.rowHeight = 70.0
         tableView.registerReusableCell(cellType: FilterTableViewCell.self)
         tableView.separatorStyle = .none
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     @objc
@@ -142,16 +151,48 @@ extension FilterViewController: PanPresentable {
 extension FilterViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        filterData.count
+        filterListData.filterList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: FilterTableViewCell = tableView.dequeueReusableCell(indexPath)
-        let valueCell = filterData[indexPath.row]
-        cell.configure(valueCell)
+        let titleCell = filterListData.filterList[indexPath.row]
+        let filterDataCell = FilterData(title: titleCell, isCheck: isCheckFilter(titleCell) )
+        cell.configure(filterDataCell)
         cell.backgroundColor = .black
         
         return cell
     }
     
+    private func isCheckFilter(_ titleCell: String) -> Bool {
+        if titleCell == filterListData.selectedItem, titleCell == selectedValue {
+            return true
+        }
+        
+        if titleCell == filterListData.selectedItem, titleCell != selectedValue {
+            return false
+        }
+        
+        if titleCell != filterListData.selectedItem, titleCell == selectedValue {
+            return true
+        }
+        
+        return false
+    }
+    
+}
+
+extension FilterViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if selectedValue == filterListData.filterList[indexPath.row] {
+            selectedValue = ""
+            selectedFilter("")
+        } else {
+            selectedValue = filterListData.filterList[indexPath.row]
+            selectedFilter(selectedValue)
+        }
+        tableView.reloadData()
+    }
 }
