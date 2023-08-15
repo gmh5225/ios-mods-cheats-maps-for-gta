@@ -31,13 +31,13 @@ final class DBManager : NSObject {
     // MARK: - Public
     
     func setupDropBox() {
-        if let _ = defaults.value(forKey: "dataDidLoaded") as? Bool {
-            
-        } else {
-            clearAllThings()
-        }
-        
-        if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, !isLoadedData {
+//        if let _ = defaults.value(forKey: "dataDidLoaded") as? Bool {
+//
+//        } else {
+//            clearAllThings()
+//        }
+//
+//        if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, !isLoadedData {
             clearAllThings()
             
             if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
@@ -55,9 +55,9 @@ final class DBManager : NSObject {
                 }
                 
             }
-        } else {
-            print(" ================== ALL DATA IS LOCALY OK =======================")
-        }
+//        } else {
+//            print(" ================== ALL DATA IS LOCALY OK =======================")
+//        }
     }
     
     func getImageUrl(img: String, completion: @escaping (String?) -> ()){
@@ -235,8 +235,12 @@ private extension DBManager {
                                 print("============== VC ALL OK =================")
                                 self?.fetchGTASACodes { [weak self] _ in
                                     print("============== SA ALL OK =================")
-                                    print("============== ALL OK ALL OK ALL OK =================")
-                                    self?.defaults.set(true, forKey: "dataDidLoaded")
+                                    
+                                    self?.fetchMissions { [weak self] _ in
+                                        print("============== ALL OK ALL OK ALL OK =================")
+                                        self?.defaults.set(true, forKey: "dataDidLoaded")
+                                    }
+                                    
 
                                 }
                             }
@@ -472,6 +476,74 @@ extension DBManager {
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
             }
         }
+    }
+    
+    func fetchMissions(completion: @escaping (Void?) -> ()) {
+        // ====================================================
+        if let path = Bundle.main.path(forResource: "checklist", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path))
+                let gameData = try JSONDecoder().decode(MissionParser.self, from: data)
+                
+                let allMissionCategories: [MissionCategory] = [
+                           gameData.randomEvents,
+                           gameData.strangersAndFreaks,
+                           gameData.mandatoryMissionStrangersAndFreaks,
+                           gameData.strangersAndFreaksHobbiesAndPastimes,
+                           gameData.sideMission,
+                           gameData.mandatoryMissionHeist,
+                           gameData.branchingChoiceHeist,
+                           gameData.branchingChoice,
+                           gameData.missableMission,
+                           gameData.mandatoryMission,
+                           gameData.misscellaneous,
+                           gameData.randomMission,
+                           gameData.strangers,
+                           gameData.hobby,
+                           gameData.task
+                       ]
+                        for category in allMissionCategories {
+                            print("Category Name: \(category.name)")
+                            print("Missions: \(category.missions)")
+                            print("==============================")
+                        }
+
+            } catch {
+                print("Ошибка при декодировании JSON: \(error)")
+            }
+        } else {
+            print("JSON файл не найден.")
+        }
+        
+        // ====================================================
+//        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+//            guard let self = self else { return }
+//
+//            if validator {
+//                self.client?.files.download(path: DBKeys.Path.checkList.rawValue)
+//                    .response(completionHandler: { responce, error in
+//                    if let data = responce?.1 {
+//                        do {
+        
+        
+//                            let decoder = JSONDecoder()
+//                            let decodedData = try decoder.decode(MissionParser.self, from: data)
+//                            print(decodedData)
+//                            completion(())
+//                        } catch {
+//                            completion(())
+//                            print("Error decoding JSON: \(error)")
+//                        }
+//                    } else {
+//                        completion(())
+//                        print(error?.description)
+//                    }
+//                })
+//            } else {
+//                completion(())
+//                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
+//            }
+//        }
     }
     
     func saveCheatItemToRealm(

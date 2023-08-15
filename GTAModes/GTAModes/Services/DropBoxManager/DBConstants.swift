@@ -18,5 +18,6 @@ struct DBKeys {
         case gta6_modes = "/Cheats/GTA6/cheats_GTA6.json"
         case main = "/main/main.json"
         case gameList = "/gameList/gameList.json"
+        case checkList = "/cheklist/checklist.json"
     }
 }
