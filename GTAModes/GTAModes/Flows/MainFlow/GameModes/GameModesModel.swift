@@ -8,6 +8,7 @@
 import Foundation
 import RealmSwift
 import Combine
+import UIKit
 
 public enum CheatsType: CaseIterable {
     case ps, xbox, pc, favorite
@@ -52,6 +53,8 @@ final class GameModesModel {
     private let versionGame: String
     var allCheatItems: [CheatItem] = []
     private var filterSelected: String = ""
+    private var currentPlatform: CheatsType
+    private var searchText: String = ""
     
     
     init(
@@ -60,8 +63,9 @@ final class GameModesModel {
     ) {
         self.versionGame = versionGame
         self.navigationHandler = navigationHandler
-        self.fetchData(version: versionGame)
-        self.showCheats(.ps)
+        self.currentPlatform = .ps
+        fetchData(version: versionGame)
+        showCheats(.ps)
     }
     
     func backActionProceed() {
@@ -78,8 +82,12 @@ final class GameModesModel {
                 guard let self = self else { return }
                 
                 self.filterSelected = selectedFilter
-                let list = self.allCheatItems.filter { $0.filterTitle == selectedFilter }
-                self.cheatItems = list
+                if selectedFilter.isEmpty {
+                    self.showCheats(currentPlatform)
+                } else {
+                    let list = self.cheatItems.filter { $0.filterTitle == selectedFilter }
+                    self.cheatItems = list
+                }
                 self.reloadDataSubject.send()
             }
     }
@@ -103,24 +111,24 @@ final class GameModesModel {
     }
     
     func showCheats(_ type: CheatsType) {
+        filterSelected = ""
+        var list: [CheatItem] = []
+        currentPlatform = type
         switch type {
         case .ps:
-            let list = allCheatItems.filter { $0.platform == "ps" }
-            cheatItems = list
-            reloadDataSubject.send()
+            list = allCheatItems.filter { $0.platform == "ps" }
+            
         case .xbox:
-            let list = allCheatItems.filter { $0.platform == "xbox" }
-            cheatItems = list
-            reloadDataSubject.send()
+            list = allCheatItems.filter { $0.platform == "xbox" }
+            
         case .pc:
-            let list = allCheatItems.filter { $0.platform == "pc" }
-            cheatItems = list
-            reloadDataSubject.send()
+            list = allCheatItems.filter { $0.platform == "pc" }
+            
         case .favorite:
-            let list = allCheatItems.filter { $0.isFavorite == true }
-            cheatItems = list
-            reloadDataSubject.send()
+            list = allCheatItems.filter { $0.isFavorite == true }
         }
+        cheatItems = list
+        reloadDataSubject.send()
     }
     
     func actionAt(index: Int) {
@@ -139,7 +147,7 @@ final class GameModesModel {
                     existingCheatObject.isFavorite = !selectedItem.isFavorite
                     realm.add(existingCheatObject, update: .modified)
                 }
-                    
+                
             }
             fetchData(version: versionGame)
             cheatItems[index].isFavorite = !cheatItems[index].isFavorite
@@ -149,5 +157,21 @@ final class GameModesModel {
         }
     }
     
+    func searchAt(_ searchText: String) {
+        let filteredList = allCheatItems.filter { $0.name.lowercased().contains(searchText.lowercased())}
+        cheatItems = filteredList
+        self.searchText = searchText
+        if searchText.isEmpty {
+            showCheats(currentPlatform)
+        }
+        reloadDataSubject.send()
+        
+    }
+    
+    func searchDidCancel() {
+        if searchText.isEmpty {
+            showCheats(currentPlatform)
+        }
+    }
+    
 }
-

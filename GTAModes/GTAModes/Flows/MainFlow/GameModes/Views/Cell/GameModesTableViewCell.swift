@@ -16,14 +16,19 @@ public struct GameModesData {
     
 }
 
+import Foundation
+import UIKit
+
 final class GameModesTableViewCell: UITableViewCell, Reusable {
     
     private let containerView = UIView()
     private let titleLabel = UILabel()
     private let favoriteImage = UIImageView()
-    private let stackView = UIStackView()
+    private let firstStackView = UIStackView()
+    private let secondStackView = UIStackView()
     private let contentModeView = UIView()
     private let modeTitleLabel = UILabel()
+    private let screenWidth = UIScreen.main.bounds.width
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -41,7 +46,8 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         
         favoriteImage.image = UIImage()
         titleLabel.text = ""
-        stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        firstStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        secondStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
     }
     
     public func configure(_ value: CheatItem) {
@@ -51,14 +57,16 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         favoriteImage.image =  UIImage(named: value.isFavorite ? "favoriteYesIcon" : "favoriteNoIcon")
         if value.code.count > 1 {
             contentModeView.isHidden = true
-            stackView.isHidden = false
+            firstStackView.isHidden = false
+            secondStackView.isHidden = false
             print("============= ->  " + value.platform + "  <- =============" )
             let imagesListName = configureCodes(value)
             print("============= ->  " + "\(imagesListName)" + "  <- =============" )
             addImages(imagesListName)
         } else {
             contentModeView.isHidden = false
-            stackView.isHidden = true
+            firstStackView.isHidden = true
+            secondStackView.isHidden = true
             modeTitleLabel.text = value.code.first ?? ""
             modeTitleLabel.font = UIFont(name: "Inter-Regular", size: 15)
             modeTitleLabel.textColor = .white
@@ -87,23 +95,42 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         }
         favoriteImage.image = UIImage(named: "favoriteNoIcon")
         
+        containerView.addSubview(firstStackView)
+        containerView.addSubview(secondStackView)
         containerView.addSubview(titleLabel)
         titleLabel.layout {
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
-            $0.trailing.greaterThanOrEqual(to: favoriteImage.leadingAnchor, offsetBy: -8.0)
+            $0.trailing.equal(to: favoriteImage.leadingAnchor, offsetBy: -8.0)
             $0.top.equal(to: containerView.topAnchor, offsetBy: 12.0)
+            $0.bottom.equal(to: firstStackView.topAnchor, offsetBy: -8.0)
         }
+        
+        firstStackView.layout {
+            $0.top.equal(to: titleLabel.bottomAnchor, offsetBy: 8.0)
+            $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
+            $0.trailing.lessThanOrEqual(to: containerView.trailingAnchor, offsetBy: -8.0)
+        }
+        secondStackView.layout {
+            $0.top.equal(to: firstStackView.bottomAnchor, offsetBy: 8.0)
+            $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
+            $0.trailing.lessThanOrEqual(to: containerView.trailingAnchor, offsetBy: -8.0)
+            $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -8.0)
+        }
+        configureStackView(firstStackView)
+        configureStackView(secondStackView)
         
         containerView.addSubview(contentModeView)
         contentModeView.layout {
+            $0.top.equal(to: titleLabel.bottomAnchor, offsetBy: 8.0)
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.lessThanOrEqual(to: containerView.trailingAnchor, offsetBy: -8.0)
-            $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -16.0)
-            $0.height.equal(to: 24.0)
+            $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -8.0)
         }
         
         contentModeView.addSubview(modeTitleLabel)
         modeTitleLabel.layout {
+            $0.top.equal(to: contentModeView.topAnchor, offsetBy: 4.0)
+            $0.bottom.equal(to: contentModeView.bottomAnchor, offsetBy: -4.0)
             $0.leading.equal(to: contentModeView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.equal(to: contentModeView.trailingAnchor, offsetBy: -8.0)
             $0.centerY.equal(to: contentModeView.centerYAnchor)
@@ -111,35 +138,29 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         contentModeView.withCornerRadius(4.0)
         contentModeView.withBorder(width: 1.0, color: UIColor(named: "blueLight")!)
         contentModeView.backgroundColor = UIColor(named: "blueLight")?.withAlphaComponent(0.1)
+        containerView.layoutIfNeeded()
     }
     
     private func addImages(_ imagesName: [String]) {
-        stackView.axis = .horizontal
-        stackView.spacing = 8 // Adjust the spacing between images as needed
-        stackView.distribution = .fillEqually // Adjust distribution mode as needed
-        stackView.alignment = .center
         
+        var imageIndex: Int = 0
         for image in imagesName {
             let imageView = UIImageView(image: UIImage(named: image))
             imageView.contentMode = .scaleAspectFit
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.layout {
-                $0.height.equal(to: 20.0)
-                $0.width.equal(to: 20.0)
+                $0.height.equal(to: 25.0)
+                $0.width.equal(to: 25.0)
             }
+            if imageIndex <= Int(screenWidth) / 41 {
+                firstStackView.addArrangedSubview(imageView)
+            } else {
+                secondStackView.addArrangedSubview(imageView)
+            }
+            imageIndex += 1
             
-            stackView.addArrangedSubview(imageView)
         }
         
-        contentModeView.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(stackView)
-        stackView.layout {
-            $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
-            $0.trailing.greaterThanOrEqual(to: containerView.leadingAnchor, offsetBy: -8.0)
-            $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -16.0)
-            $0.height.equal(to: 24.0)
-        }
     }
     
     func configureCodes(_ value: CheatItem) -> [String] {
@@ -147,13 +168,27 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         
         if value.platform == "ps" {
             value.code.forEach { [weak self] code in
-                trueCode.append(self?.configurePSCode(code) ?? "")
+                guard let self = self else { return }
+                
+                let imageAssetName = self.configurePSCode(code.uppercased())
+                if imageAssetName == "" {
+                    print(code)
+                    print(value.code)
+                }
+                trueCode.append(imageAssetName)
             }
         }
         
         if value.platform == "xbox" {
             value.code.forEach { [weak self] code in
-                trueCode.append(self?.configureXBoxCode(code) ?? "")
+                guard let self = self else { return }
+                
+                let imageAssetName = self.configureXBoxCode(code.uppercased())
+                if imageAssetName == "" {
+                    print(code)
+                    print(value.code)
+                }
+                trueCode.append(imageAssetName)
             }
         }
         
@@ -167,7 +202,7 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         if code == "SQUARE" {
             return "s_square"
         }
-        if code == "CIRCLE" {
+        if code == "CIRCLE" || code == "O" {
             return "s_circle"
         }
         if code == "X" {
@@ -231,13 +266,24 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         if code == "LEFT" {
             return "m_left"
         }
-        if code == "DOWN" {
+        if code == "DOWN" || code == "Down" {
             return "m_down"
         }
         if code == "UP" {
             return "m_up"
         }
+        
+        if code == "R" || code == "L" || code == "BLACK" || code == "WHITE" {
+            return "m_up"
+        }
         return ""
+    }
+    
+    func configureStackView(_ stackView: UIStackView) {
+        stackView.axis = .horizontal
+        stackView.spacing = 8
+        stackView.distribution = .fill
+        stackView.alignment = .center
     }
     
 }

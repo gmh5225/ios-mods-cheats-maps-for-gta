@@ -14,7 +14,8 @@ class GameModesViewController: NiblessViewController {
     private let model: GameModesModel
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private let customNavigation: CustomNavigationView
-    private var searchController: UISearchController = UISearchController(searchResultsController: nil)
+    private let searchContainer = UIView()
+    private var searchBar: SearchBar?
     
     init(model: GameModesModel) {
         self.model = model
@@ -33,10 +34,10 @@ class GameModesViewController: NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureSearchController()
         setupView()
         setupBindings()
-        
+        setupSearchBar()
+        searchBindings()
     }
     
     private func setupView() {
@@ -47,10 +48,21 @@ class GameModesViewController: NiblessViewController {
             $0.trailing.equal(to: view.trailingAnchor, offsetBy: -20.0)
             $0.height.equal(to: 36.0)
         }
+        
+        view.addSubview(searchContainer)
+        searchContainer.layout {
+            $0.top.equal(to: customNavigation.bottomAnchor, offsetBy: 16.0)
+            $0.leading.equal(to: view.safeAreaLayoutGuide.leadingAnchor, offsetBy: 20.0)
+            $0.trailing.equal(to: view.safeAreaLayoutGuide.trailingAnchor, offsetBy: -20.0)
+            $0.height.equal(to: 42)
+        }
+        searchContainer.backgroundColor = UIColor(named: "checkCellBlue")?.withAlphaComponent(0.4)
+        searchContainer.withCornerRadius(20.0)
+        
         view.addSubview(tableView)
         tableView.backgroundColor = .clear
         tableView.layout {
-            $0.top.equal(to: customNavigation.bottomAnchor, offsetBy: 40.0)
+            $0.top.equal(to: searchContainer.bottomAnchor)
             $0.leading.equal(to: view.leadingAnchor)
             $0.trailing.equal(to: view.trailingAnchor)
             $0.bottom.equal(to: view.bottomAnchor)
@@ -58,7 +70,9 @@ class GameModesViewController: NiblessViewController {
         tableView.sectionHeaderHeight = 140.0
         tableView.registerReusableCell(cellType: GameModesTableViewCell.self)
         tableView.registerReusableHeaderFooterView(viewType: GameModesHeaderView.self)
-        tableView.rowHeight = 96.0
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 96.0
+        tableView.keyboardDismissMode = .onDrag
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
@@ -71,21 +85,32 @@ class GameModesViewController: NiblessViewController {
                 
                 self.tableView.reloadData()
             }.store(in: &subscriptions)
+        
     }
     
-    private func configureSearchController() {
-        searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.tintColor = .white
-        searchController.searchBar.placeholder = "Search here"
-        searchController.searchBar.searchTextField.backgroundColor = UIColor(named: "checkCellBlue")?.withAlphaComponent(0.4)
-        searchController.searchBar.searchTextField.textColor = .white
-        searchController.searchBar.searchTextField.tintColor = .white
-        searchController.searchBar.barStyle = .default
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        definesPresentationContext = true
+    private func setupSearchBar() {
+        let searchViewModel = GameModesSearchViewModel()
+        searchBar = SearchBar(viewModel: searchViewModel)
+        searchContainer.addSubview(searchBar!)
+        searchBar?.layout {
+            $0.top.equal(to: searchContainer.topAnchor, offsetBy: -1.0)
+            $0.leading.equal(to: searchContainer.leadingAnchor, offsetBy: -1.0)
+            $0.trailing.equal(to: searchContainer.trailingAnchor, offsetBy: 1.0)
+            $0.bottom.equal(to: searchContainer.bottomAnchor, offsetBy: 1.0)
+        }
+    }
+    
+    private func searchBindings() {
+        if let searchBar = searchBar {
+            searchBar.$text.dropFirst().sink { [weak self] searchText in
+                self?.model.searchAt(searchText)
+            }.store(in: &subscriptions)
+            
+            searchBar.textDidEndEditing.sink { [ weak self ] _ in
+                self?.model.searchDidCancel()
+            }.store(in: &subscriptions)
+            
+        }
     }
     
 }
@@ -123,17 +148,10 @@ extension GameModesViewController: UITableViewDelegate {
     
 }
 
-extension GameModesViewController: UISearchResultsUpdating, UISearchBarDelegate {
+final class GameModesSearchViewModel: SearchBarViewModelApplicable {
     
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let searchBarText = searchController.searchBar.text else { return }
-        
-        print(searchBarText)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        //    viewModel.cancelSearch()
+    var showsCancelButton: Bool {
+        false
     }
     
 }
-

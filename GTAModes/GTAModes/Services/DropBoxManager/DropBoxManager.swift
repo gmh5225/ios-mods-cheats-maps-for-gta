@@ -31,6 +31,12 @@ final class DBManager : NSObject {
     // MARK: - Public
     
     func setupDropBox() {
+        if let _ = defaults.value(forKey: "dataDidLoaded") as? Bool {
+            
+        } else {
+            clearAllThings()
+        }
+        
         if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, !isLoadedData {
             clearAllThings()
             

@@ -32,6 +32,8 @@
 		2C45A53D2A76A7800023B3A8 /* ChecklistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A53C2A76A7800023B3A8 /* ChecklistModel.swift */; };
 		2C45A5402A76A7A50023B3A8 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A53F2A76A7A50023B3A8 /* FilterViewController.swift */; };
 		2C45A5432A771A050023B3A8 /* ChecklistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5422A771A050023B3A8 /* ChecklistCell.swift */; };
+		2C51E7362A8BA9570077C421 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51E7352A8BA9570077C421 /* SearchBar.swift */; };
+		2C51E7382A8BB19E0077C421 /* SearchBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51E7372A8BB19E0077C421 /* SearchBarViewModel.swift */; };
 		2C7F39F42A7BF09800F575F7 /* GameModesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */; };
 		2C7F39F62A7BF0BF00F575F7 /* GameModesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F39F52A7BF0BF00F575F7 /* GameModesTableViewCell.swift */; };
 		2CA95FF82A84D4210039343E /* CheatsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FF72A84D4210039343E /* CheatsObject.swift */; };
@@ -75,6 +77,8 @@
 		2C45A53C2A76A7800023B3A8 /* ChecklistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistModel.swift; sourceTree = "<group>"; };
 		2C45A53F2A76A7A50023B3A8 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		2C45A5422A771A050023B3A8 /* ChecklistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistCell.swift; sourceTree = "<group>"; };
+		2C51E7352A8BA9570077C421 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		2C51E7372A8BB19E0077C421 /* SearchBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewModel.swift; sourceTree = "<group>"; };
 		2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesHeaderView.swift; sourceTree = "<group>"; };
 		2C7F39F52A7BF0BF00F575F7 /* GameModesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesTableViewCell.swift; sourceTree = "<group>"; };
 		2CA95FF72A84D4210039343E /* CheatsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatsObject.swift; sourceTree = "<group>"; };
@@ -165,7 +169,6 @@
 		2C2A20662A717F13002A6D3C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2CDEBEDF2A813F0200F976A3 /* JSON */,
 				2CBFE4482A77CE6A00A50257 /* Fonts */,
 				2C2A205E2A7170E3002A6D3C /* Info.plist */,
 				2C2A20592A7170E3002A6D3C /* Assets.xcassets */,
@@ -306,6 +309,8 @@
 			children = (
 				2C7F39F22A7BF07200F575F7 /* Header */,
 				2C7F39F12A7BF06A00F575F7 /* Cell */,
+				2C51E7352A8BA9570077C421 /* SearchBar.swift */,
+				2C51E7372A8BB19E0077C421 /* SearchBarViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,13 +361,6 @@
 				2CBFE4492A77CEDA00A50257 /* Inter-Thin.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		2CDEBEDF2A813F0200F976A3 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = JSON;
 			sourceTree = "<group>";
 		};
 		2CDEBEE82A82586500F976A3 /* DropBoxManager */ = {
@@ -487,6 +485,7 @@
 				2C45A53D2A76A7800023B3A8 /* ChecklistModel.swift in Sources */,
 				2C7F39F42A7BF09800F575F7 /* GameModesHeaderView.swift in Sources */,
 				2C2A20762A7286EC002A6D3C /* FlowCoordinator.swift in Sources */,
+				2C51E7362A8BA9570077C421 /* SearchBar.swift in Sources */,
 				2C2A20512A7170E1002A6D3C /* AppDelegate.swift in Sources */,
 				2C2A20B92A7556BF002A6D3C /* Reusable.swift in Sources */,
 				2C2A20732A7285AA002A6D3C /* MainFlowCoordinator.swift in Sources */,
@@ -498,6 +497,7 @@
 				2C45A53B2A76A7780023B3A8 /* ChecklistViewController.swift in Sources */,
 				2CBFE45B2A79080D00A50257 /* MapViewController.swift in Sources */,
 				2CA95FFC2A8512470039343E /* MainItemObject.swift in Sources */,
+				2C51E7382A8BB19E0077C421 /* SearchBarViewModel.swift in Sources */,
 				2C2A20812A729337002A6D3C /* NiblessViewController.swift in Sources */,
 				2C2A20BB2A755AFA002A6D3C /* Autolayout.swift in Sources */,
 				2CBFE4592A77ECA200A50257 /* PanPresentationManager.swift in Sources */,
