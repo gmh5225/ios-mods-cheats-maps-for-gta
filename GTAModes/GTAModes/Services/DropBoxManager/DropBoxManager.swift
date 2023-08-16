@@ -33,17 +33,6 @@ final class DBManager : NSObject {
     // MARK: - Public
     
     func setupDropBox() {
-//        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
-//            guard let self = self else { return }
-//
-//            if validator {
-//                getImageUrl(img: "/main/" + "main_cheats.jpg") { [weak self] truePath in
-//                        print(truePath)
-//                    }
-//
-//            }
-//        }
-       
         if let _ = defaults.value(forKey: "dataDidLoaded") as? Bool {
             
         } else {
@@ -248,7 +237,6 @@ private extension DBManager {
         
         fetchMainInfo { [ weak self] in
             print("============== MAIN INFO ALL OK =================")
-            self?.delegate?.isReadyAllContent()
             
             self?.fetchGameListInfo { [weak self] in
                 print("============== GAME LIST ALL OK =================")
@@ -263,6 +251,7 @@ private extension DBManager {
                                 
                                 self?.fetchMissions { [weak self] in
                                     print("============== ALL OK ALL OK ALL OK =================")
+                                    self?.delegate?.isReadyAllContent()
                                     self?.defaults.set(true, forKey: "dataDidLoaded")
                                 }
                                 
