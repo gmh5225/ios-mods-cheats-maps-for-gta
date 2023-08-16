@@ -47,7 +47,7 @@ final class ChecklistModel {
     }
     
     func filterActionProceed() {
-        let filterList = missionList.map { $0.categoryName }
+        let filterList = allMissionListItems.map { $0.categoryName }
         let uniqueList = Array(Set(filterList))
         let filterListData = FilterListData(filterList: uniqueList, selectedItem: filterSelected)
         

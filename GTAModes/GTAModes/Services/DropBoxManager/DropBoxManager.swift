@@ -4,9 +4,12 @@ import Foundation
 import SwiftyDropbox
 import RealmSwift
 
-protocol DropBoxManagerDelegate : AnyObject {
+protocol DropBoxManagerDelegate: AnyObject {
+    
     func currentProgressOperation(progress : Progress)
+    func isReadyMainContent()
     func isReadyAllContent()
+    
 }
 
 final class DBManager : NSObject {
@@ -15,7 +18,6 @@ final class DBManager : NSObject {
     
     private let defaults = UserDefaults.standard
     private var isReadyContent : Bool = false
-    
     
     // MARK: - Public properties
     
@@ -31,33 +33,45 @@ final class DBManager : NSObject {
     // MARK: - Public
     
     func setupDropBox() {
-        //        if let _ = defaults.value(forKey: "dataDidLoaded") as? Bool {
-        //
-        //        } else {
-        //            clearAllThings()
-        //        }
-        //
-        //        if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, !isLoadedData {
-        clearAllThings()
-        
-        if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
-            fetchMainAndGameListInfo()
+//        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+//            guard let self = self else { return }
+//
+//            if validator {
+//                getImageUrl(img: "/main/" + "main_cheats.jpg") { [weak self] truePath in
+//                        print(truePath)
+//                    }
+//
+//            }
+//        }
+       
+        if let _ = defaults.value(forKey: "dataDidLoaded") as? Bool {
+            
         } else {
-            print("start resetting token operation")
-            reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
-                guard let self = self else { return }
-                if let rToken = refresh_token {
-                    print(rToken)
-                    self.defaults.setValue(rToken, forKey: DBKeys.RefreshTokenSaveVar)
+            clearAllThings()
+        }
+        
+        if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, !isLoadedData {
+            clearAllThings()
+            
+            if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
+                getAllContent()
+            } else {
+                print("start resetting token operation")
+                reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
+                    guard let self = self else { return }
+                    if let rToken = refresh_token {
+                        print(rToken)
+                        self.defaults.setValue(rToken, forKey: DBKeys.RefreshTokenSaveVar)
+                    }
+                    
+                    getAllContent()
                 }
                 
-                fetchMainAndGameListInfo()
             }
-            
+        } else {
+            delegate?.isReadyAllContent()
+            print(" ================== ALL DATA IS LOCALY OK =======================")
         }
-        //        } else {
-        //            print(" ================== ALL DATA IS LOCALY OK =======================")
-        //        }
     }
     
     func getImageUrl(img: String, completion: @escaping (String?) -> ()){
@@ -216,44 +230,52 @@ private extension DBManager {
 
 private extension DBManager {
     
-    func fetchMainAndGameListInfo() {
+    func clearRealmData() {
         do {
             let realm = try Realm()
             try realm.write {
                 realm.delete(realm.objects(MainItemObject.self))
                 realm.delete(realm.objects(CheatObject.self))
-            }
-            fetchMainInfo { [ weak self] _ in
-                print("============== MAIN INFO ALL OK =================")
-                self?.fetchGameListInfo { [weak self] _ in
-                    print("============== GAME LIST ALL OK =================")
-                    self?.fetchGTA5Codes { [weak self] _ in
-                        print("============== V5 ALL OK =================")
-                        self?.fetchGTA6Codes { [weak self] _ in
-                            print("============== V6 ALL OK =================")
-                            self?.fetchGTAVCCodes { [weak self] _ in
-                                print("============== VC ALL OK =================")
-                                self?.fetchGTASACodes { [weak self] _ in
-                                    print("============== SA ALL OK =================")
-                                    
-                                    self?.fetchMissions { [weak self] _ in
-                                        print("============== ALL OK ALL OK ALL OK =================")
-                                        self?.defaults.set(true, forKey: "dataDidLoaded")
-                                    }
-                                    
-                                    
-                                }
-                            }
-                        }
-                    }
-                }
+                realm.delete(realm.objects(MissionObject.self))
             }
         } catch {
             print("Error deleting existing data: \(error)")
         }
     }
     
-    func fetchMainInfo(completion: @escaping (Void?) -> ()) {
+    func getAllContent() {
+        clearRealmData()
+        
+        fetchMainInfo { [ weak self] in
+            print("============== MAIN INFO ALL OK =================")
+            self?.delegate?.isReadyAllContent()
+            
+            self?.fetchGameListInfo { [weak self] in
+                print("============== GAME LIST ALL OK =================")
+                self?.fetchGTA5Codes { [weak self] in
+                    print("============== V5 ALL OK =================")
+                    self?.fetchGTA6Codes { [weak self] in
+                        print("============== V6 ALL OK =================")
+                        self?.fetchGTAVCCodes { [weak self] in
+                            print("============== VC ALL OK =================")
+                            self?.fetchGTASACodes { [weak self] in
+                                print("============== SA ALL OK =================")
+                                
+                                self?.fetchMissions { [weak self] in
+                                    print("============== ALL OK ALL OK ALL OK =================")
+                                    self?.defaults.set(true, forKey: "dataDidLoaded")
+                                }
+                                
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func fetchMainInfo(completion: @escaping () -> (Void)) {
         validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
@@ -270,18 +292,18 @@ private extension DBManager {
                                 print("Error decoding JSON: \(error)")
                             }
                         } else {
-                            completion(())
+                            completion()
                             print(error?.description)
                         }
                     })
             } else {
-                completion(())
+                completion()
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
             }
         }
     }
     
-    func fetchGameListInfo(completion: @escaping (Void?) -> ()) {
+    func fetchGameListInfo(completion: @escaping () -> (Void)) {
         validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
@@ -295,16 +317,16 @@ private extension DBManager {
                                 self.addMenuItemToDB(decodedData, type: "gameList", completion: completion)
                                 
                             } catch {
-                                completion(())
+                                completion()
                                 print("Error decoding JSON: \(error)")
                             }
                         } else {
-                            completion(())
+                            completion()
                             print(error?.description)
                         }
                     })
             } else {
-                completion(())
+                completion()
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
             }
         }
@@ -313,24 +335,38 @@ private extension DBManager {
     func addMenuItemToDB(
         _ itemsMenu: MainItemsDataParser,
         type: String,
-        completion: @escaping (Void?) -> ()
+        completion: @escaping () -> Void
     ) {
         let list = itemsMenu.data.map { $0.imagePath }
         var trueImagePath: [String] = []
         var processedCount = 0
-        print(list)
-        for path in list {
+        
+        func processNextImage(index: Int) {
+            guard index < list.count else {
+                // All images have been processed, call completion
+                self.saveMainItemsToRealm(itemsMenu, trueImagePath, type: type)
+                completion()
+                return
+            }
+            
+            let path = list[index]
             getImageUrl(img: "/\(type)/" + path) { [weak self] truePath in
                 processedCount += 1
                 trueImagePath.append(truePath ?? "")
+                
                 if processedCount == list.count {
-                    print(truePath)
                     self?.saveMainItemsToRealm(itemsMenu, trueImagePath, type: type)
-                    completion(())
+                    completion()
+                } else {
+                    processNextImage(index: index + 1) // Process next image
                 }
             }
         }
+        
+        // Start processing the first image
+        processNextImage(index: 0)
     }
+
     
     func saveMainItemsToRealm(
         _ itemsMenu: MainItemsDataParser,
@@ -357,10 +393,8 @@ private extension DBManager {
 }
 
 extension DBManager {
-    
-    //    CheatObject
-    
-    func fetchGTA5Codes(completion: @escaping (Void?) -> ()) {
+
+    func fetchGTA5Codes(completion: @escaping () -> (Void)) {
         validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
@@ -374,24 +408,24 @@ extension DBManager {
                                 let decoder = JSONDecoder()
                                 let decodedData = try decoder.decode(CheatCodesGTA5Parser.self, from: data)
                                 self.saveCheatItemToRealm(decodedData.GTA5, gameVersion: "GTA5")
-                                completion(())
+                                completion()
                             } catch {
-                                completion(())
+                                completion()
                                 print("Error decoding JSON: \(error)")
                             }
                         } else {
-                            completion(())
+                            completion()
                             print(error?.description)
                         }
                     })
             } else {
-                completion(())
+                completion()
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
             }
         }
     }
     
-    func fetchGTA6Codes(completion: @escaping (Void?) -> ()) {
+    func fetchGTA6Codes(completion: @escaping () -> (Void)) {
         validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
@@ -403,24 +437,24 @@ extension DBManager {
                                 let decoder = JSONDecoder()
                                 let decodedData = try decoder.decode(CheatCodesGTA6Parser.self, from: data)
                                 self.saveCheatItemToRealm(decodedData.GTA6, gameVersion: "GTA6")
-                                completion(())
+                                completion()
                             } catch {
-                                completion(())
+                                completion()
                                 print("Error decoding JSON: \(error)")
                             }
                         } else {
-                            completion(())
+                            completion()
                             print(error?.description)
                         }
                     })
             } else {
-                completion(())
+                completion()
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
             }
         }
     }
     
-    func fetchGTAVCCodes(completion: @escaping (Void?) -> ()) {
+    func fetchGTAVCCodes(completion: @escaping () -> (Void)) {
         validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
@@ -432,24 +466,24 @@ extension DBManager {
                                 let decoder = JSONDecoder()
                                 let decodedData = try decoder.decode(CheatCodesGTAVCParser.self, from: data)
                                 self.saveCheatItemToRealm(decodedData.GTA_Vice_City, gameVersion: "GTAVC")
-                                completion(())
+                                completion()
                             } catch {
-                                completion(())
+                                completion()
                                 print("Error decoding JSON: \(error)")
                             }
                         } else {
-                            completion(())
+                            completion()
                             print(error?.description)
                         }
                     })
             } else {
-                completion(())
+                completion()
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
             }
         }
     }
     
-    func fetchGTASACodes(completion: @escaping (Void?) -> ()) {
+    func fetchGTASACodes(completion: @escaping () -> (Void)) {
         validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
@@ -463,24 +497,24 @@ extension DBManager {
                                 let decoder = JSONDecoder()
                                 let decodedData = try decoder.decode(CheatCodesGTASAParser.self, from: data)
                                 self.saveCheatItemToRealm(decodedData.GTA_San_Andreas, gameVersion: "GTASA")
-                                completion(())
+                                completion()
                             } catch {
-                                completion(())
+                                completion()
                                 print("Error decoding JSON: \(error)")
                             }
                         } else {
-                            completion(())
+                            completion()
                             print(error?.description)
                         }
                     })
             } else {
-                completion(())
+                completion()
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
             }
         }
     }
     
-    func fetchMissions(completion: @escaping (Void?) -> ()) {
+    func fetchMissions(completion: @escaping () -> (Void)) {
         validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
@@ -513,18 +547,18 @@ extension DBManager {
                                     decodedData.task
                                 ]
                                 self.saveMissionsToRealm(allMissionCategories)
-                                completion(())
+                                completion()
                             } catch {
-                                completion(())
+                                completion()
                                 print("Error decoding JSON: \(error)")
                             }
                         } else {
-                            completion(())
+                            completion()
                             print(error?.description)
                         }
                     })
             } else {
-                completion(())
+                completion()
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
             }
         }

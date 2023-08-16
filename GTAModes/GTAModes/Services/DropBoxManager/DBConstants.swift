@@ -19,5 +19,15 @@ struct DBKeys {
         case main = "/main/main.json"
         case gameList = "/gameList/gameList.json"
         case checkList = "/cheklist/checklist.json"
+        
+        case cheatsImageLink = "/main/main_cheats.jpg"
+        case checklistImageLink = "/main/main_checklist.jpg"
+        case mapImageLink = "/main/main_map.jpg"
+        
+        case imageV6 = "/gameList/v6.jpg"
+        case imageV5 = "/gameList/v5.jpg"
+        case imageVVC = "/gameList/vcv.jpg"
+        case imageVSA = "/gameList/vsa.jpg"
+        
     }
 }

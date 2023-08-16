@@ -30,15 +30,15 @@ final class MainModel {
     private let reloadDataSubject = PassthroughSubject<Void, Never>()
     private let defaults = UserDefaults.standard
     var notificationToken: NotificationToken?
+    private let reachability = Reachability()
     
     init(
         navigationHandler: MainModelNavigationHandler
     ) {
         self.navigationHandler = navigationHandler
+        listenNetworkConnection()
         if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, isLoadedData {
             fetchData()
-        } else {
-            observeRealm()
         }
     }
     
@@ -55,27 +55,7 @@ final class MainModel {
             navigationHandler.mainModelDidRequestToMap(self)
         }
     }
-    
-    private func observeRealm() {
-        do {
-            let realm = try Realm()
-            let results = realm.objects(MainItemObject.self)
-            notificationToken = results.observe { [weak self] (changes: RealmCollectionChange) in
-                switch changes {
-                case .initial: break
-                    //                self?.fetchData()
-                case .update(_, let deletions, let insertions, let modifications):
-                    self?.fetchData()
-                case .error(let error):
-                    // An error occurred while opening the Realm file on the background worker thread
-                    fatalError("\(error)")
-                }
-            }
-        } catch {
-            print("Error saving data to Realm: \(error)")
-        }
-    }
-    
+
     func fetchData() {
         if menuItems.count != 3 {
             do {
@@ -94,6 +74,39 @@ final class MainModel {
                 print("Error saving data to Realm: \(error)")
             }
         }
+    }
+    
+    private func listenNetworkConnection() {
+        guard let statusInternet = reachability?.networkReachabilityStatus else { return }
+        switch statusInternet {
+        case .notReachable:
+            print("NOT INTERNET")
+        case .reachable(_, _):
+            print("YESSSS INTERNET")
+        case .unknown:
+            print("WTF INTERNET")
+        }
+        
+        reachability?.listener = { [weak self] status in
+            print(status)
+        }
+        reachability?.startListening()
+    }
+}
+
+extension MainModel: DropBoxManagerDelegate {
+    
+    func isReadyMainContent() {
+        print("OK")
+    }
+    
+    
+    func currentProgressOperation(progress: Progress) {
+        print("OK")
+    }
+    
+    func isReadyAllContent() {
+        fetchData()
     }
     
 }
