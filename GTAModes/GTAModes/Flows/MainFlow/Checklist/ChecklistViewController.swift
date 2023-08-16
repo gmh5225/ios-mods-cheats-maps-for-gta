@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 class ChecklistViewController: NiblessViewController {
     
+    private var subscriptions = Set<AnyCancellable>()
     private let model: ChecklistModel
     private let tableView = UITableView(frame: .zero)
     private let customNavigation: CustomNavigationView
@@ -30,6 +32,17 @@ class ChecklistViewController: NiblessViewController {
         super.viewDidLoad()
         
         setupView()
+        setupBindings()
+    }
+    
+    private func setupBindings() {
+        model.reloadData
+            .sink { [weak self] in
+                guard let self = self else { return }
+                
+                self.tableView.reloadData()
+            }.store(in: &subscriptions)
+        
     }
     
     private func setupView() {
@@ -49,7 +62,8 @@ class ChecklistViewController: NiblessViewController {
             $0.bottom.equal(to: view.bottomAnchor)
         }
         tableView.registerReusableCell(cellType: ChecklistCell.self)
-        tableView.rowHeight = 82.0
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 82.0
         tableView.dataSource = self
         tableView.separatorStyle = .none
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)

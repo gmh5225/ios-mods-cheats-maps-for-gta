@@ -28,7 +28,6 @@ public struct FilterListData {
 
 protocol GameModesModelNavigationHandler: AnyObject {
     
-    func gameModesModelDidRequestToGameSelection(_ model: GameModesModel)
     func gameModesModelDidRequestToFilter(
         _ model: GameModesModel,
         filterListData: FilterListData,

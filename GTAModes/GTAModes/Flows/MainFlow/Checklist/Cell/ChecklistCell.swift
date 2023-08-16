@@ -67,15 +67,18 @@ final class ChecklistCell: UITableViewCell, Reusable {
         
         containerView.addSubview(titleLabel)
         titleLabel.layout {
+            $0.top.equal(to: containerView.topAnchor, offsetBy: 20.0)
+            $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -20.0)
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 16.0)
             $0.trailing.lessThanOrEqual(to: switcher.leadingAnchor, offsetBy: -8.0)
             $0.centerY.equal(to: containerView.centerYAnchor)
         }
+        titleLabel.numberOfLines = 0
     }
     
     @objc func switchValueChanged(_ sender: UISwitch) {
         isCheckAction?(sender.isOn)
-       }
+    }
     
 }
 
