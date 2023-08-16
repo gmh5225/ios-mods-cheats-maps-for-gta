@@ -61,14 +61,19 @@ extension ChecklistViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ChecklistCell = tableView.dequeueReusableCell(indexPath)
-        cell.configure(model.menuItems[indexPath.row])
+        cell.configure(model.missionList[indexPath.row])
         cell.backgroundColor = .clear
         
+        cell.isCheckAction = { [weak self] isCheck in
+            guard let self = self else { return }
+            
+            self.model.missionIsCheck(indexPath.row, isCheck: isCheck)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        model.menuItems.count
+        model.missionList.count
     }
     
 }

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RealmSwift
+import Combine
 
 protocol ChecklistModelNavigationHandler: AnyObject {
 
@@ -16,19 +18,21 @@ protocol ChecklistModelNavigationHandler: AnyObject {
 
 final class ChecklistModel {
     
-    let menuItems: [ChecklistData] = [
-        .init(title: "Version 6", type: "V6", isOn: Bool.random()),
-        .init(title: "Version 5", type: "V5", isOn: Bool.random()),
-        .init(title: "Version VC", type: "VVC", isOn: Bool.random()),
-        .init(title: "Version SA", type: "VSA", isOn: Bool.random())
-    ]
-    
+    var missionList: [MissionItem] = []
+    var reloadData: AnyPublisher<Void, Never> {
+      reloadDataSubject
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
+    }
+
     private let navigationHandler: ChecklistModelNavigationHandler
+    private let reloadDataSubject = PassthroughSubject<Void, Never>()
     
     init(
         navigationHandler: ChecklistModelNavigationHandler
     ) {
         self.navigationHandler = navigationHandler
+        fetchData()
     }
     
     func backActionProceed() {
@@ -37,6 +41,44 @@ final class ChecklistModel {
     
     func filterActionProceed() {
         navigationHandler.checklistModelDidRequestToFilter(self)
+    }
+    
+    func fetchData() {
+        do {
+            let realm = try Realm()
+            let missionsItem = realm.objects(MissionObject.self)
+            let valueList = missionsItem.map { $0.lightweightRepresentation}
+            
+            valueList.forEach { [weak self] value in
+                guard let self = self else { return }
+                
+                self.missionList.append(value)
+            }
+            reloadDataSubject.send()
+        } catch {
+            print("Error saving data to Realm: \(error)")
+        }
+    }
+    
+    func missionIsCheck(_ index: Int, isCheck: Bool) {
+        let selectedItem = missionList[index]
+        do {
+            let realm = try Realm()
+            try! realm.write {
+                if let existingMissionObject = realm.objects(MissionObject.self)
+                    .filter("name == %@ AND category == %@", selectedItem.missionName, selectedItem.categoryName).first {
+                    existingMissionObject.name = selectedItem.missionName
+                    existingMissionObject.category = selectedItem.categoryName
+                    existingMissionObject.isCheck = !selectedItem.isCheck
+                    realm.add(existingMissionObject, update: .modified)
+                }
+                
+            }
+            missionList[index].isCheck = !missionList[index].isCheck
+            reloadDataSubject.send()
+        } catch {
+            print("Error saving data to Realm: \(error)")
+        }
     }
     
 }

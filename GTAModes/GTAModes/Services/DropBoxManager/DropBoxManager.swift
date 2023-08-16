@@ -31,33 +31,33 @@ final class DBManager : NSObject {
     // MARK: - Public
     
     func setupDropBox() {
-//        if let _ = defaults.value(forKey: "dataDidLoaded") as? Bool {
-//
-//        } else {
-//            clearAllThings()
-//        }
-//
-//        if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, !isLoadedData {
-            clearAllThings()
-            
-            if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
-                fetchMainAndGameListInfo()
-            } else {
-                print("start resetting token operation")
-                reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
-                    guard let self = self else { return }
-                    if let rToken = refresh_token {
-                        print(rToken)
-                        self.defaults.setValue(rToken, forKey: DBKeys.RefreshTokenSaveVar)
-                    }
-                    
-                    fetchMainAndGameListInfo()
+        //        if let _ = defaults.value(forKey: "dataDidLoaded") as? Bool {
+        //
+        //        } else {
+        //            clearAllThings()
+        //        }
+        //
+        //        if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, !isLoadedData {
+        clearAllThings()
+        
+        if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
+            fetchMainAndGameListInfo()
+        } else {
+            print("start resetting token operation")
+            reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
+                guard let self = self else { return }
+                if let rToken = refresh_token {
+                    print(rToken)
+                    self.defaults.setValue(rToken, forKey: DBKeys.RefreshTokenSaveVar)
                 }
                 
+                fetchMainAndGameListInfo()
             }
-//        } else {
-//            print(" ================== ALL DATA IS LOCALY OK =======================")
-//        }
+            
+        }
+        //        } else {
+        //            print(" ================== ALL DATA IS LOCALY OK =======================")
+        //        }
     }
     
     func getImageUrl(img: String, completion: @escaping (String?) -> ()){
@@ -241,7 +241,7 @@ private extension DBManager {
                                         self?.defaults.set(true, forKey: "dataDidLoaded")
                                     }
                                     
-
+                                    
                                 }
                             }
                         }
@@ -260,20 +260,20 @@ private extension DBManager {
             if validator {
                 self.client?.files.download(path: DBKeys.Path.main.rawValue)
                     .response(completionHandler: { responce, error in
-                    if let data = responce?.1 {
-                        do {
-                            let decoder = JSONDecoder()
-                            let decodedData = try decoder.decode(MainItemsDataParser.self, from: data)
-                            self.addMenuItemToDB(decodedData, type: "main", completion: completion)
-                            
-                        } catch {
-                            print("Error decoding JSON: \(error)")
+                        if let data = responce?.1 {
+                            do {
+                                let decoder = JSONDecoder()
+                                let decodedData = try decoder.decode(MainItemsDataParser.self, from: data)
+                                self.addMenuItemToDB(decodedData, type: "main", completion: completion)
+                                
+                            } catch {
+                                print("Error decoding JSON: \(error)")
+                            }
+                        } else {
+                            completion(())
+                            print(error?.description)
                         }
-                    } else {
-                        completion(())
-                        print(error?.description)
-                    }
-                })
+                    })
             } else {
                 completion(())
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
@@ -288,21 +288,21 @@ private extension DBManager {
             if validator {
                 self.client?.files.download(path: DBKeys.Path.gameList.rawValue)
                     .response(completionHandler: { responce, error in
-                    if let data = responce?.1 {
-                        do {
-                            let decoder = JSONDecoder()
-                            let decodedData = try decoder.decode(MainItemsDataParser.self, from: data)
-                            self.addMenuItemToDB(decodedData, type: "gameList", completion: completion)
-                            
-                        } catch {
+                        if let data = responce?.1 {
+                            do {
+                                let decoder = JSONDecoder()
+                                let decodedData = try decoder.decode(MainItemsDataParser.self, from: data)
+                                self.addMenuItemToDB(decodedData, type: "gameList", completion: completion)
+                                
+                            } catch {
+                                completion(())
+                                print("Error decoding JSON: \(error)")
+                            }
+                        } else {
                             completion(())
-                            print("Error decoding JSON: \(error)")
+                            print(error?.description)
                         }
-                    } else {
-                        completion(())
-                        print(error?.description)
-                    }
-                })
+                    })
             } else {
                 completion(())
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
@@ -358,7 +358,7 @@ private extension DBManager {
 
 extension DBManager {
     
-//    CheatObject
+    //    CheatObject
     
     func fetchGTA5Codes(completion: @escaping (Void?) -> ()) {
         validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
@@ -369,21 +369,21 @@ extension DBManager {
                     .response(completionHandler: { [weak self] responce, error in
                         guard let self = self else { return }
                         
-                    if let data = responce?.1 {
-                        do {
-                            let decoder = JSONDecoder()
-                            let decodedData = try decoder.decode(CheatCodesGTA5Parser.self, from: data)
-                            self.saveCheatItemToRealm(decodedData.GTA5, gameVersion: "GTA5")
+                        if let data = responce?.1 {
+                            do {
+                                let decoder = JSONDecoder()
+                                let decodedData = try decoder.decode(CheatCodesGTA5Parser.self, from: data)
+                                self.saveCheatItemToRealm(decodedData.GTA5, gameVersion: "GTA5")
+                                completion(())
+                            } catch {
+                                completion(())
+                                print("Error decoding JSON: \(error)")
+                            }
+                        } else {
                             completion(())
-                        } catch {
-                            completion(())
-                            print("Error decoding JSON: \(error)")
+                            print(error?.description)
                         }
-                    } else {
-                        completion(())
-                        print(error?.description)
-                    }
-                })
+                    })
             } else {
                 completion(())
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
@@ -398,21 +398,21 @@ extension DBManager {
             if validator {
                 self.client?.files.download(path: DBKeys.Path.gta6_modes.rawValue)
                     .response(completionHandler: { responce, error in
-                    if let data = responce?.1 {
-                        do {
-                            let decoder = JSONDecoder()
-                            let decodedData = try decoder.decode(CheatCodesGTA6Parser.self, from: data)
-                            self.saveCheatItemToRealm(decodedData.GTA6, gameVersion: "GTA6")
+                        if let data = responce?.1 {
+                            do {
+                                let decoder = JSONDecoder()
+                                let decodedData = try decoder.decode(CheatCodesGTA6Parser.self, from: data)
+                                self.saveCheatItemToRealm(decodedData.GTA6, gameVersion: "GTA6")
+                                completion(())
+                            } catch {
+                                completion(())
+                                print("Error decoding JSON: \(error)")
+                            }
+                        } else {
                             completion(())
-                        } catch {
-                            completion(())
-                            print("Error decoding JSON: \(error)")
+                            print(error?.description)
                         }
-                    } else {
-                        completion(())
-                        print(error?.description)
-                    }
-                })
+                    })
             } else {
                 completion(())
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
@@ -427,21 +427,21 @@ extension DBManager {
             if validator {
                 self.client?.files.download(path: DBKeys.Path.gtavc_modes.rawValue)
                     .response(completionHandler: { responce, error in
-                    if let data = responce?.1 {
-                        do {
-                            let decoder = JSONDecoder()
-                            let decodedData = try decoder.decode(CheatCodesGTAVCParser.self, from: data)
-                            self.saveCheatItemToRealm(decodedData.GTA_Vice_City, gameVersion: "GTAVC")
+                        if let data = responce?.1 {
+                            do {
+                                let decoder = JSONDecoder()
+                                let decodedData = try decoder.decode(CheatCodesGTAVCParser.self, from: data)
+                                self.saveCheatItemToRealm(decodedData.GTA_Vice_City, gameVersion: "GTAVC")
+                                completion(())
+                            } catch {
+                                completion(())
+                                print("Error decoding JSON: \(error)")
+                            }
+                        } else {
                             completion(())
-                        } catch {
-                            completion(())
-                            print("Error decoding JSON: \(error)")
+                            print(error?.description)
                         }
-                    } else {
-                        completion(())
-                        print(error?.description)
-                    }
-                })
+                    })
             } else {
                 completion(())
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
@@ -455,22 +455,24 @@ extension DBManager {
             
             if validator {
                 self.client?.files.download(path: DBKeys.Path.gtasa_modes.rawValue)
-                    .response(completionHandler: { responce, error in
-                    if let data = responce?.1 {
-                        do {
-                            let decoder = JSONDecoder()
-                            let decodedData = try decoder.decode(CheatCodesGTASAParser.self, from: data)
-                            self.saveCheatItemToRealm(decodedData.GTA_San_Andreas, gameVersion: "GTASA")
+                    .response(completionHandler: { [weak self] responce, error in
+                        guard let self = self else { return }
+                        
+                        if let data = responce?.1 {
+                            do {
+                                let decoder = JSONDecoder()
+                                let decodedData = try decoder.decode(CheatCodesGTASAParser.self, from: data)
+                                self.saveCheatItemToRealm(decodedData.GTA_San_Andreas, gameVersion: "GTASA")
+                                completion(())
+                            } catch {
+                                completion(())
+                                print("Error decoding JSON: \(error)")
+                            }
+                        } else {
                             completion(())
-                        } catch {
-                            completion(())
-                            print("Error decoding JSON: \(error)")
+                            print(error?.description)
                         }
-                    } else {
-                        completion(())
-                        print(error?.description)
-                    }
-                })
+                    })
             } else {
                 completion(())
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
@@ -479,71 +481,53 @@ extension DBManager {
     }
     
     func fetchMissions(completion: @escaping (Void?) -> ()) {
-        // ====================================================
-        if let path = Bundle.main.path(forResource: "checklist", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let gameData = try JSONDecoder().decode(MissionParser.self, from: data)
-                
-                let allMissionCategories: [MissionCategory] = [
-                           gameData.randomEvents,
-                           gameData.strangersAndFreaks,
-                           gameData.mandatoryMissionStrangersAndFreaks,
-                           gameData.strangersAndFreaksHobbiesAndPastimes,
-                           gameData.sideMission,
-                           gameData.mandatoryMissionHeist,
-                           gameData.branchingChoiceHeist,
-                           gameData.branchingChoice,
-                           gameData.missableMission,
-                           gameData.mandatoryMission,
-                           gameData.misscellaneous,
-                           gameData.randomMission,
-                           gameData.strangers,
-                           gameData.hobby,
-                           gameData.task
-                       ]
-                        for category in allMissionCategories {
-                            print("Category Name: \(category.name)")
-                            print("Missions: \(category.missions)")
-                            print("==============================")
+        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+            guard let self = self else { return }
+            
+            if validator {
+                self.client?.files.download(path: DBKeys.Path.checkList.rawValue)
+                    .response(completionHandler: { [weak self] responce, error in
+                        guard let self = self else { return }
+                        
+                        if let data = responce?.1 {
+                            do {
+                                //
+                                let decoder = JSONDecoder()
+                                let decodedData = try decoder.decode(MissionParser.self, from: data)
+                                
+                                let allMissionCategories: [MissionCategory] = [
+                                    decodedData.randomEvents,
+                                    decodedData.strangersAndFreaks,
+                                    decodedData.mandatoryMissionStrangersAndFreaks,
+                                    decodedData.strangersAndFreaksHobbiesAndPastimes,
+                                    decodedData.sideMission,
+                                    decodedData.mandatoryMissionHeist,
+                                    decodedData.branchingChoiceHeist,
+                                    decodedData.branchingChoice,
+                                    decodedData.missableMission,
+                                    decodedData.mandatoryMission,
+                                    decodedData.misscellaneous,
+                                    decodedData.randomMission,
+                                    decodedData.strangers,
+                                    decodedData.hobby,
+                                    decodedData.task
+                                ]
+                                self.saveMissionsToRealm(allMissionCategories)
+                                completion(())
+                            } catch {
+                                completion(())
+                                print("Error decoding JSON: \(error)")
+                            }
+                        } else {
+                            completion(())
+                            print(error?.description)
                         }
-
-            } catch {
-                print("Ошибка при декодировании JSON: \(error)")
+                    })
+            } else {
+                completion(())
+                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
             }
-        } else {
-            print("JSON файл не найден.")
         }
-        
-        // ====================================================
-//        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
-//            guard let self = self else { return }
-//
-//            if validator {
-//                self.client?.files.download(path: DBKeys.Path.checkList.rawValue)
-//                    .response(completionHandler: { responce, error in
-//                    if let data = responce?.1 {
-//                        do {
-        
-        
-//                            let decoder = JSONDecoder()
-//                            let decodedData = try decoder.decode(MissionParser.self, from: data)
-//                            print(decodedData)
-//                            completion(())
-//                        } catch {
-//                            completion(())
-//                            print("Error decoding JSON: \(error)")
-//                        }
-//                    } else {
-//                        completion(())
-//                        print(error?.description)
-//                    }
-//                })
-//            } else {
-//                completion(())
-//                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
-//            }
-//        }
     }
     
     func saveCheatItemToRealm(
@@ -590,6 +574,28 @@ extension DBManager {
                             isFavorite: false
                         )
                         realm.add(cheatObject)
+                    }
+                }
+            }
+        } catch {
+            print("Error saving data to Realm: \(error)")
+        }
+    }
+    
+    func saveMissionsToRealm(
+        _ missions: [MissionCategory]
+    ) {
+        do {
+            let realm = try Realm()
+            
+            try realm.write {
+                for mission in missions {
+                    mission.missions.forEach { missionName in
+                        let missionObject = MissionObject(
+                            category: mission.name,
+                            name: missionName,
+                            isCheck: false)
+                        realm.add(missionObject)
                     }
                 }
             }
