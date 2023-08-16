@@ -38,6 +38,10 @@
 		2C7F39F42A7BF09800F575F7 /* GameModesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */; };
 		2C7F39F62A7BF0BF00F575F7 /* GameModesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F39F52A7BF0BF00F575F7 /* GameModesTableViewCell.swift */; };
 		2CA082EF2A8D152000585479 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA082EE2A8D152000585479 /* Reachability.swift */; };
+		2CA082F72A8D85E300585479 /* locations.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CA082F12A8D85E300585479 /* locations.js */; };
+		2CA082F82A8D85E300585479 /* leaflet.css in Resources */ = {isa = PBXBuildFile; fileRef = 2CA082F22A8D85E300585479 /* leaflet.css */; };
+		2CA082F92A8D85E300585479 /* jquery-2.1.4.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CA082F32A8D85E300585479 /* jquery-2.1.4.min.js */; };
+		2CA082FA2A8D85E300585479 /* map.html in Resources */ = {isa = PBXBuildFile; fileRef = 2CA082F42A8D85E300585479 /* map.html */; };
 		2CA95FF82A84D4210039343E /* CheatsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FF72A84D4210039343E /* CheatsObject.swift */; };
 		2CA95FFC2A8512470039343E /* MainItemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FFB2A8512470039343E /* MainItemObject.swift */; };
 		2CA960002A853F870039343E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2CA95FFF2A853F870039343E /* Kingfisher */; };
@@ -47,6 +51,8 @@
 		2CBFE4572A77E38600A50257 /* PanPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE4562A77E38600A50257 /* PanPresentationController.swift */; };
 		2CBFE4592A77ECA200A50257 /* PanPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE4582A77ECA200A50257 /* PanPresentationManager.swift */; };
 		2CBFE45B2A79080D00A50257 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE45A2A79080D00A50257 /* MapViewController.swift */; };
+		2CCE5C6C2A8D8F6300E58E14 /* leaflet.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CA082F52A8D85E300585479 /* leaflet.js */; };
+		2CCE5C6D2A8D8F9600E58E14 /* markers.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA082F62A8D85E300585479 /* markers.png */; };
 		2CDEBEDE2A80F1DD00F976A3 /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDEBEDD2A80F1DD00F976A3 /* SwiftyDropbox */; };
 		2CDEBF032A82586500F976A3 /* DropBoxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEF62A82586500F976A3 /* DropBoxManager.swift */; };
 		2CDEBF042A82586500F976A3 /* DBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEF72A82586500F976A3 /* DBConstants.swift */; };
@@ -82,10 +88,15 @@
 		2C51E7352A8BA9570077C421 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		2C51E7372A8BB19E0077C421 /* SearchBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewModel.swift; sourceTree = "<group>"; };
 		2C51E7392A8BD5590077C421 /* MissionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionObject.swift; sourceTree = "<group>"; };
-		2C51E73B2A8C3D230077C421 /* checklist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checklist.json; sourceTree = "<group>"; };
 		2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesHeaderView.swift; sourceTree = "<group>"; };
 		2C7F39F52A7BF0BF00F575F7 /* GameModesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesTableViewCell.swift; sourceTree = "<group>"; };
 		2CA082EE2A8D152000585479 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		2CA082F12A8D85E300585479 /* locations.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = locations.js; sourceTree = "<group>"; };
+		2CA082F22A8D85E300585479 /* leaflet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = leaflet.css; sourceTree = "<group>"; };
+		2CA082F32A8D85E300585479 /* jquery-2.1.4.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-2.1.4.min.js"; sourceTree = "<group>"; };
+		2CA082F42A8D85E300585479 /* map.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = map.html; sourceTree = "<group>"; };
+		2CA082F52A8D85E300585479 /* leaflet.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = leaflet.js; sourceTree = "<group>"; };
+		2CA082F62A8D85E300585479 /* markers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = markers.png; sourceTree = "<group>"; };
 		2CA95FF72A84D4210039343E /* CheatsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatsObject.swift; sourceTree = "<group>"; };
 		2CA95FFB2A8512470039343E /* MainItemObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItemObject.swift; sourceTree = "<group>"; };
 		2CBFE4442A77BDD400A50257 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -165,6 +176,7 @@
 		2C2A20652A717EF7002A6D3C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2CA082F02A8D848D00585479 /* Map */,
 				2CDEBEE82A82586500F976A3 /* DropBoxManager */,
 				2C2A20862A72A3C6002A6D3C /* DataBase */,
 			);
@@ -174,7 +186,6 @@
 		2C2A20662A717F13002A6D3C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2C51E73B2A8C3D230077C421 /* checklist.json */,
 				2CBFE4482A77CE6A00A50257 /* Fonts */,
 				2C2A205E2A7170E3002A6D3C /* Info.plist */,
 				2C2A20592A7170E3002A6D3C /* Assets.xcassets */,
@@ -337,6 +348,19 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		2CA082F02A8D848D00585479 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				2CA082F32A8D85E300585479 /* jquery-2.1.4.min.js */,
+				2CA082F22A8D85E300585479 /* leaflet.css */,
+				2CA082F52A8D85E300585479 /* leaflet.js */,
+				2CA082F12A8D85E300585479 /* locations.js */,
+				2CA082F42A8D85E300585479 /* map.html */,
+				2CA082F62A8D85E300585479 /* markers.png */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		2CA95FF62A84D4050039343E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,7 +480,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CA082F92A8D85E300585479 /* jquery-2.1.4.min.js in Resources */,
+				2CCE5C6D2A8D8F9600E58E14 /* markers.png in Resources */,
+				2CCE5C6C2A8D8F6300E58E14 /* leaflet.js in Resources */,
+				2CA082FA2A8D85E300585479 /* map.html in Resources */,
 				2C3C53292A7BB01F00D019A1 /* Inter-Regular.ttf in Resources */,
+				2CA082F82A8D85E300585479 /* leaflet.css in Resources */,
+				2CA082F72A8D85E300585479 /* locations.js in Resources */,
 				2C3C53282A7BB01300D019A1 /* Inter-Bold.ttf in Resources */,
 				2CBF47242A79153200A50257 /* Assets.xcassets in Resources */,
 				2CBF47222A79151300A50257 /* LaunchScreen.storyboard in Resources */,

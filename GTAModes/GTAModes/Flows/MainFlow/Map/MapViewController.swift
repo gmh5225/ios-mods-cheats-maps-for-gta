@@ -59,10 +59,16 @@ class MapViewController: NiblessViewController {
     }
     
     private func webViewConfigure() {
-        if let url = URL(string: "https://pedkomaksim.github.io/gtavmaponline.github.io/map/map.html") {
-            let request = URLRequest(url: url)
-            webView.load(request)
-        }
+        
+        if let htmlPath = Bundle.main.path(forResource: "map", ofType: "html") {
+                    let fileURL = URL(fileURLWithPath: htmlPath)
+            webView.loadFileURL(fileURL, allowingReadAccessTo: fileURL)
+                }
+        
+//        if let url = URL(string: "https://pedkomaksim.github.io/gtavmaponline.github.io/map/map.html") {
+//            let request = URLRequest(url: url)
+//            webView.load(request)
+//        }
     }
     
 }
