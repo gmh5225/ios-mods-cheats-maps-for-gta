@@ -154,7 +154,7 @@
 
       var map = new L.Map('map', {maxBounds: bounds});
 
-      L.tileLayer(image + '/{z}/{x}-{y}_{z}.png', {
+      L.tileLayer('{x}-{y}_{z}.png', {
         maxZoom: maxLevel, minZoom: minLevel, opacity: 1.0, zIndex: 1, noWrap: true,
         bounds: bounds,
         attribution: 'GTA V Map',
