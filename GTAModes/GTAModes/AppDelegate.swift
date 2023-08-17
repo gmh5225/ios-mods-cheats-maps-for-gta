@@ -2,6 +2,10 @@
 
 import UIKit
 import SwiftyDropbox
+import UIKit
+import Pushwoosh
+import Adjust
+import AVFoundation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -10,9 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        GTAModes_DBManager.shared.gta_setupDropBox()
+        NetworkStatusMonitor.shared.startMonitoring()
         
-        applicationFlowCoordinator = ApplicationFlowCoordinator()
+        ThirdPartyServicesManager.shared.initializeAdjust()
+        ThirdPartyServicesManager.shared.initializePushwoosh(delegate: self)
+        ThirdPartyServicesManager.shared.initializeInApps()
+//        GTAModes_DBManager.shared.gta_setupDropBox()
+//
+//        applicationFlowCoordinator = ApplicationFlowCoordinator()
         
         return true
     }
