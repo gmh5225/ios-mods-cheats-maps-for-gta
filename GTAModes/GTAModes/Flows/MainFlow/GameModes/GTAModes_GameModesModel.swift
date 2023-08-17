@@ -29,14 +29,14 @@ public struct FilterListData {
 protocol GameModesModelNavigationHandler: AnyObject {
     
     func gameModesModelDidRequestToFilter(
-        _ model: GameModesModel,
+        _ model: GTAModes_GameModesModel,
         filterListData: FilterListData,
         selectedFilter: @escaping (String) -> ()
     )
-    func gameModesModelDidRequestToBack(_ model: GameModesModel)
+    func gameModesModelDidRequestToBack(_ model: GTAModes_GameModesModel)
 }
 
-final class GameModesModel {
+final class GTAModes_GameModesModel {
     
     var reloadData: AnyPublisher<Void, Never> {
         reloadDataSubject
@@ -63,15 +63,15 @@ final class GameModesModel {
         self.versionGame = versionGame
         self.navigationHandler = navigationHandler
         self.currentPlatform = .ps
-        fetchData(version: versionGame)
-        showCheats(.ps)
+        gta_fetchData(version: versionGame)
+        gta_showCheats(.ps)
     }
     
-    func backActionProceed() {
+    func gta_backActionProceed() {
         navigationHandler.gameModesModelDidRequestToBack(self)
     }
     
-    func filterActionProceed() {
+    func gta_filterActionProceed() {
         let filterList = allCheatItems.map { $0.filterTitle }
         let uniqueList = Array(Set(filterList))
         let filterListData = FilterListData(filterList: uniqueList, selectedItem: filterSelected)
@@ -82,7 +82,7 @@ final class GameModesModel {
                 
                 self.filterSelected = selectedFilter
                 if selectedFilter.isEmpty {
-                    self.showCheats(currentPlatform)
+                    self.gta_showCheats(currentPlatform)
                 } else {
                     let list = self.cheatItems.filter { $0.filterTitle == selectedFilter }
                     self.cheatItems = list
@@ -91,7 +91,7 @@ final class GameModesModel {
             }
     }
     
-    func fetchData(version: String) {
+    func gta_fetchData(version: String) {
         allCheatItems.removeAll()
         do {
             let realm = try Realm()
@@ -109,7 +109,7 @@ final class GameModesModel {
         }
     }
     
-    func showCheats(_ type: CheatsType) {
+    func gta_showCheats(_ type: CheatsType) {
         filterSelected = ""
         var list: [CheatItem] = []
         currentPlatform = type
@@ -130,7 +130,7 @@ final class GameModesModel {
         reloadDataSubject.send()
     }
     
-    func actionAt(index: Int) {
+    func gta_actionAt(index: Int) {
         let selectedItem = cheatItems[index]
         do {
             let realm = try Realm()
@@ -148,7 +148,7 @@ final class GameModesModel {
                 }
                 
             }
-            fetchData(version: versionGame)
+            gta_fetchData(version: versionGame)
             cheatItems[index].isFavorite = !cheatItems[index].isFavorite
             reloadDataSubject.send()
         } catch {
@@ -156,20 +156,20 @@ final class GameModesModel {
         }
     }
     
-    func searchAt(_ searchText: String) {
+    func gta_searchAt(_ searchText: String) {
         let filteredList = allCheatItems.filter { $0.name.lowercased().contains(searchText.lowercased())}
         cheatItems = filteredList
         self.searchText = searchText
         if searchText.isEmpty {
-            showCheats(currentPlatform)
+            gta_showCheats(currentPlatform)
         }
         reloadDataSubject.send()
         
     }
     
-    func searchDidCancel() {
+    func gta_searchDidCancel() {
         if searchText.isEmpty {
-            showCheats(currentPlatform)
+            gta_showCheats(currentPlatform)
         }
     }
     

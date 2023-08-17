@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class NiblessViewController: UIViewController {
+open class GTAModes_NiblessViewController: UIViewController {
     
     public init() {
         super.init(nibName: nil, bundle: nil)
@@ -21,11 +21,11 @@ open class NiblessViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupBackground()
+        gta_setupBackground()
         
     }
     
-    private func setupBackground() {
+    private func gta_setupBackground() {
         let backgroundImageView = UIImageView(frame: view.bounds)
         backgroundImageView.image = UIImage(named: "bg")
         backgroundImageView.contentMode = .scaleAspectFill
@@ -48,14 +48,15 @@ open class NiblessFilterViewController: UIViewController {
         fatalError("Init is not implemented")
     }
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupBackground()
-        
+    private func gta_setupBackground() {
+        view.backgroundColor = .black
     }
     
-    private func setupBackground() {
-        view.backgroundColor = .black
+    open override func viewDidLoad() {
+        //
+        super.viewDidLoad()
+        //
+        gta_setupBackground()
+        
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class FilterTableViewCell: UITableViewCell, Reusable {
+final class GTAModes_FilterTableViewCell: UITableViewCell, GTAModes_Reusable {
     
     private let containerView = UIView()
     private let titleLabel = UILabel()
@@ -19,21 +19,21 @@ final class FilterTableViewCell: UITableViewCell, Reusable {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
-        setupLayout()
+        gta_setupLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(_ value: FilterData) {
+    public func gta_configure_cell(_ value: FilterData) {
         titleLabel.font = UIFont(name: "Inter-Regular", size: 20)
         titleLabel.textColor = .white
         titleLabel.text = value.title
         checkImage.isHidden = !value.isCheck
     }
     
-    private func setupLayout() {
+    private func gta_setupLayout() {
         contentView.backgroundColor = .clear
         contentView.addSubview(containerView)
         containerView.layout {

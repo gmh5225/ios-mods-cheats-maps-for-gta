@@ -11,13 +11,13 @@ import Combine
 
 protocol MainModelNavigationHandler: AnyObject {
     
-    func mainModelDidRequestToGameSelection(_ model: MainModel)
-    func mainModelDidRequestToChecklist(_ model: MainModel)
-    func mainModelDidRequestToMap(_ model: MainModel)
+    func mainModelDidRequestToGameSelection(_ model: GTAModes_MainModel)
+    func mainModelDidRequestToChecklist(_ model: GTAModes_MainModel)
+    func mainModelDidRequestToMap(_ model: GTAModes_MainModel)
     
 }
 
-final class MainModel {
+final class GTAModes_MainModel {
     
     var reloadData: AnyPublisher<Void, Never> {
         reloadDataSubject
@@ -30,19 +30,19 @@ final class MainModel {
     private let reloadDataSubject = PassthroughSubject<Void, Never>()
     private let defaults = UserDefaults.standard
     var notificationToken: NotificationToken?
-    private let reachability = Reachability()
+    private let reachability = GTAModes_Reachability()
     
     init(
         navigationHandler: MainModelNavigationHandler
     ) {
         self.navigationHandler = navigationHandler
-        listenNetworkConnection()
+        gta_listenNetworkConnection()
         if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, isLoadedData {
-            fetchData()
+            gta_fetchData()
         }
     }
     
-    public func selectedItems(index: Int) {
+    public func gta_selectedItems(index: Int) {
         if index == 0 {
             navigationHandler.mainModelDidRequestToGameSelection(self)
         }
@@ -56,7 +56,7 @@ final class MainModel {
         }
     }
 
-    func fetchData() {
+    func gta_fetchData() {
         if menuItems.count != 3 {
             do {
                 let realm = try Realm()
@@ -76,7 +76,7 @@ final class MainModel {
         }
     }
     
-    private func listenNetworkConnection() {
+    private func gta_listenNetworkConnection() {
         guard let statusInternet = reachability?.networkReachabilityStatus else { return }
         switch statusInternet {
         case .notReachable:
@@ -90,23 +90,18 @@ final class MainModel {
         reachability?.listener = { [weak self] status in
             print(status)
         }
-        reachability?.startListening()
+        reachability?.gta_startListening()
     }
 }
 
-extension MainModel: DropBoxManagerDelegate {
+extension GTAModes_MainModel: DropBoxManagerDelegate {
     
-    func isReadyMainContent() {
+    func gta_currentProgressOperation(progress: Progress) {
         print("OK")
     }
     
-    
-    func currentProgressOperation(progress: Progress) {
-        print("OK")
-    }
-    
-    func isReadyAllContent() {
-        fetchData()
+    func gta_isReadyAllContent() {
+        gta_fetchData()
     }
     
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class GameModesHeaderView: UITableViewHeaderFooterView, Reusable {
+final class GameModesHeaderView: UITableViewHeaderFooterView, GTAModes_Reusable {
     
     public var actionButton: ((Int) -> ())?
     
@@ -17,7 +17,6 @@ final class GameModesHeaderView: UITableViewHeaderFooterView, Reusable {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fillEqually
-        stackView.spacing = 10 // Необходимый вам отступ между кнопками
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -27,14 +26,14 @@ final class GameModesHeaderView: UITableViewHeaderFooterView, Reusable {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
-        setupView()
+        gta_setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupView() {
+    private func gta_setupView() {
         contentView.addSubview(stackView)
         stackView.layout {
             $0.leading.equal(to: contentView.leadingAnchor, offsetBy: 20.0)
@@ -42,7 +41,6 @@ final class GameModesHeaderView: UITableViewHeaderFooterView, Reusable {
             $0.top.equal(to: contentView.topAnchor)
             $0.bottom.equal(to: contentView.bottomAnchor)
         }
-        // Создаем и настраиваем кнопки
         let images = ["sony", "xbox", "win", "fav"]
         for imageName in images {
             let button = UIButton(type: .custom)
@@ -51,7 +49,7 @@ final class GameModesHeaderView: UITableViewHeaderFooterView, Reusable {
             button.withBorder()
             button.withCornerRadius(4.33)
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+            button.addTarget(self, action: #selector(gta_buttonTapped), for: .touchUpInside)
             stackView.addArrangedSubview(button)
             if imageName == "sony" {
                 button.backgroundColor = UIColor(named: "blueColor")?.withAlphaComponent(0.4)
@@ -64,14 +62,12 @@ final class GameModesHeaderView: UITableViewHeaderFooterView, Reusable {
         }
     }
     
-    @objc func buttonTapped(sender: UIButton) {
+    @objc func gta_buttonTapped(sender: UIButton) {
         if let index = stackView.arrangedSubviews.firstIndex(of: sender) {
             actionButton?(index)
             if let selectedButton = selectedButton {
                 selectedButton.backgroundColor = .clear
             }
-            
-            // Устанавливаем новую выбранную кнопку и изменяем ее цвет фона
             selectedButton = sender
             sender.backgroundColor = UIColor(named: "blueColor")?.withAlphaComponent(0.4)
         }

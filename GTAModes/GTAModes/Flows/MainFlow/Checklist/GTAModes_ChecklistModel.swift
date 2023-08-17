@@ -11,16 +11,16 @@ import Combine
 
 protocol ChecklistModelNavigationHandler: AnyObject {
     
-    func checklistModelDidRequestToBack(_ model: ChecklistModel)
+    func checklistModelDidRequestToBack(_ model: GTAModes_ChecklistModel)
     func checklistModelDidRequestToFilter(
-        _ model: ChecklistModel,
+        _ model: GTAModes_ChecklistModel,
         filterListData: FilterListData,
         selectedFilter: @escaping (String) -> ()
     )
     
 }
 
-final class ChecklistModel {
+final class GTAModes_ChecklistModel {
     
     var missionList: [MissionItem] = []
     var reloadData: AnyPublisher<Void, Never> {
@@ -39,14 +39,14 @@ final class ChecklistModel {
         navigationHandler: ChecklistModelNavigationHandler
     ) {
         self.navigationHandler = navigationHandler
-        fetchData()
+        gta_fetchData()
     }
     
-    func backActionProceed() {
+    func gta_backActionProceed() {
         navigationHandler.checklistModelDidRequestToBack(self)
     }
     
-    func filterActionProceed() {
+    func gta_filterActionProceed() {
         let filterList = allMissionListItems.map { $0.categoryName }
         let uniqueList = Array(Set(filterList))
         let filterListData = FilterListData(filterList: uniqueList, selectedItem: filterSelected)
@@ -67,7 +67,7 @@ final class ChecklistModel {
             }
     }
     
-    func fetchData() {
+    func gta_fetchData() {
         do {
             let realm = try Realm()
             let missionsItem = realm.objects(MissionObject.self)
@@ -85,7 +85,7 @@ final class ChecklistModel {
         }
     }
     
-    func missionIsCheck(_ index: Int, isCheck: Bool) {
+    func gta_missionIsCheck(_ index: Int, isCheck: Bool) {
         let selectedItem = missionList[index]
         do {
             let realm = try Realm()

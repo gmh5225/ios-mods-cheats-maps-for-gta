@@ -8,13 +8,13 @@
 import UIKit
 import Combine
 
-class MainViewController: NiblessViewController {
+class GTAModes_MainViewController: GTAModes_NiblessViewController {
     
     private var subscriptions = Set<AnyCancellable>()
-    private let model: MainModel
+    private let model: GTAModes_MainModel
     private let tableView = UITableView(frame: .zero)
     
-    init(model: MainModel) {
+    init(model: GTAModes_MainModel) {
         self.model = model
         
         super.init()
@@ -23,22 +23,22 @@ class MainViewController: NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
-        setupBindings()
+        gta_setupView()
+        gta_setupBindings()
     }
     
-    private func setupView() {
+    private func gta_setupView() {
         navigationItem.title = ""
         view.addSubview(tableView)
         tableView.backgroundColor = .clear
         tableView.pinEdges(to: view)
-        tableView.registerReusableCell(cellType: MainTableViewCell.self)
+        tableView.registerReusableCell(cellType: GTAModes_MainTableViewCell.self)
         tableView.rowHeight = 228.0
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    private func setupBindings() {
+    private func gta_setupBindings() {
         model.reloadData
           .sink { [weak self] in
             guard let self = self else { return }
@@ -49,13 +49,13 @@ class MainViewController: NiblessViewController {
     
 }
 
-extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell: MainTableViewCell = tableView.dequeueReusableCell(indexPath)
-        cell.configure(model.menuItems[indexPath.row], fontSize: 30.0)
+        let cell: GTAModes_MainTableViewCell = tableView.dequeueReusableCell(indexPath)
+        cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0)
         cell.backgroundColor = .clear
+        
         return cell
     }
     
@@ -64,7 +64,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        model.selectedItems(index: indexPath.row)
+        model.gta_selectedItems(index: indexPath.row)
     }
     
 }

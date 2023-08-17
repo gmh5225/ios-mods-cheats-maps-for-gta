@@ -1,9 +1,3 @@
-//
-//  PanPresentationManager.swift
-//  GTAModes
-//
-//  Created by Максим Педько on 31.07.2023.
-//
 
 import UIKit
 
@@ -25,7 +19,7 @@ public extension UIViewController {
   
   private static var presentationManagerKey: UInt8 = 0
   
-  private var presentationManager: UIViewControllerTransitioningDelegate? {
+  private var gta_presentationManager: UIViewControllerTransitioningDelegate? {
     if let manager = objc_getAssociatedObject(self, &UIViewController.presentationManagerKey)
         as? PanPresentationManager {
       return manager
@@ -41,9 +35,9 @@ public extension UIViewController {
     return newManager
   }
   
-  func presentPan(_ controller: UIViewController) {
+  func gta_presentPan(_ controller: UIViewController) {
     controller.modalPresentationStyle = .custom
-    controller.transitioningDelegate = presentationManager
+    controller.transitioningDelegate = gta_presentationManager
     
     present(controller, animated: false, completion: nil)
   }

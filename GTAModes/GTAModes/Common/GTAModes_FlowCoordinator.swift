@@ -7,8 +7,8 @@
 
 import UIKit
 
-public protocol FlowCoordinator {
+public protocol GTAModes_FlowCoordinator {
   
-  func createFlow() -> UIViewController
+  func gta_createFlow() -> UIViewController
     
 }

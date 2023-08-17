@@ -8,34 +8,27 @@
 import UIKit
 import Combine
 
-class ChecklistViewController: NiblessViewController {
+class GTAModes_ChecklistViewController: GTAModes_NiblessViewController {
     
     private var subscriptions = Set<AnyCancellable>()
-    private let model: ChecklistModel
+    private let model: GTAModes_ChecklistModel
     private let tableView = UITableView(frame: .zero)
-    private let customNavigation: CustomNavigationView
+    private let customNavigation: GTAModes_CustomNavigationView
     
-    init(model: ChecklistModel) {
+    init(model: GTAModes_ChecklistModel) {
         self.model = model
-        self.customNavigation = CustomNavigationView(.checkList)
+        self.customNavigation = GTAModes_CustomNavigationView(.checkList)
         super.init()
         
         customNavigation.leftButtonAction = { [weak self] in
-            self?.model.backActionProceed()
+            self?.model.gta_backActionProceed()
         }
         customNavigation.rightButtonAction = { [weak self] in
-            self?.model.filterActionProceed()
+            self?.model.gta_filterActionProceed()
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupView()
-        setupBindings()
-    }
-    
-    private func setupBindings() {
+    private func gta_setupBindings() {
         model.reloadData
             .sink { [weak self] in
                 guard let self = self else { return }
@@ -45,7 +38,15 @@ class ChecklistViewController: NiblessViewController {
         
     }
     
-    private func setupView() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        gta_setupView()
+        //
+        gta_setupBindings()
+    }
+    
+    private func gta_setupView() {
         view.addSubview(customNavigation)
         customNavigation.layout {
             $0.top.equal(to: view.safeAreaLayoutGuide.topAnchor)
@@ -61,7 +62,7 @@ class ChecklistViewController: NiblessViewController {
             $0.trailing.equal(to: view.trailingAnchor)
             $0.bottom.equal(to: view.bottomAnchor)
         }
-        tableView.registerReusableCell(cellType: ChecklistCell.self)
+        tableView.registerReusableCell(cellType: GTAModes_ChecklistCell.self)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 82.0
         tableView.dataSource = self
@@ -71,23 +72,26 @@ class ChecklistViewController: NiblessViewController {
     
 }
 
-extension ChecklistViewController: UITableViewDataSource {
+extension GTAModes_ChecklistViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: ChecklistCell = tableView.dequeueReusableCell(indexPath)
-        cell.configure(model.missionList[indexPath.row])
+        let cell: GTAModes_ChecklistCell = tableView.dequeueReusableCell(indexPath)
+        cell.gta_configure_cell(model.missionList[indexPath.row])
         cell.backgroundColor = .clear
         
         cell.isCheckAction = { [weak self] isCheck in
             guard let self = self else { return }
             
-            self.model.missionIsCheck(indexPath.row, isCheck: isCheck)
+            self.model.gta_missionIsCheck(indexPath.row, isCheck: isCheck)
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //
         model.missionList.count
+        //
+        //
     }
     
 }

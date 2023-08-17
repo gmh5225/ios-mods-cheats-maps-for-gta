@@ -1,9 +1,4 @@
-//
-//  AppDelegate.swift
-//  GTA Modes
-//
-//  Created by Максим Педько on 26.07.2023.
-//
+
 
 import UIKit
 import SwiftyDropbox
@@ -15,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        DBManager.shared.setupDropBox()
+        GTAModes_DBManager.shared.gta_setupDropBox()
         
         applicationFlowCoordinator = ApplicationFlowCoordinator()
         

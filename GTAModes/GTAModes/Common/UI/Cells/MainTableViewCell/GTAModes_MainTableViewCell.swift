@@ -4,18 +4,12 @@
 //
 //  Created by Максим Педько on 29.07.2023.
 //
-public struct MainCellData {
-    
-    let title: String
-    let imageUrl: String
-    
-}
 
 import Foundation
 import UIKit
 import Kingfisher
 
-final class MainTableViewCell: UITableViewCell, Reusable {
+final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
     
     private var kingfisherManager: KingfisherManager
     
@@ -31,14 +25,14 @@ final class MainTableViewCell: UITableViewCell, Reusable {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
-        setupLayout()
+        gta_setupLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(_ value: MainItem, fontSize: CGFloat) {
+    public func gta_configure(_ value: MainItem, fontSize: CGFloat) {
         titleLabel.text = value.title.uppercased()
         backgroundImageView.contentMode = .scaleAspectFill
         titleLabel.font = UIFont(name: "Inter-Bold", size: fontSize)
@@ -46,7 +40,7 @@ final class MainTableViewCell: UITableViewCell, Reusable {
         backgroundImageView.kf.setImage(with: URL(string: value.imagePath)) 
     }
     
-    private func setupLayout() {
+    private func gta_setupLayout() {
         contentView.backgroundColor = .clear
         contentView.addSubview(containerView)
         containerView.layout {

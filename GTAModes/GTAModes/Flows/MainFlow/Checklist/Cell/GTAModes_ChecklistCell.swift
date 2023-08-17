@@ -5,18 +5,13 @@
 //  Created by Максим Педько on 31.07.2023.
 //
 
-public struct ChecklistData {
-    
-    let title: String
-    let type: String
-    let isOn: Bool
-    
-}
 
+//import
 import Foundation
 import UIKit
 
-final class ChecklistCell: UITableViewCell, Reusable {
+//class
+final class GTAModes_ChecklistCell: UITableViewCell, GTAModes_Reusable {
     
     public var isCheckAction: ((Bool) -> ())?
     
@@ -28,21 +23,21 @@ final class ChecklistCell: UITableViewCell, Reusable {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
-        setupLayout()
+        gta_setupLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(_ value: MissionItem) {
+    public func gta_configure_cell(_ value: MissionItem) {
         titleLabel.font = UIFont(name: "Inter-Regular", size: 20)
         titleLabel.textColor = .white
         titleLabel.text = value.missionName
         switcher.isOn = value.isCheck
     }
     
-    private func setupLayout() {
+    private func gta_setupLayout() {
         contentView.backgroundColor = .clear
         contentView.addSubview(containerView)
         containerView.layout {
@@ -63,7 +58,7 @@ final class ChecklistCell: UITableViewCell, Reusable {
             $0.width.equal(to: 51.0)
         }
         switcher.onTintColor = .init(named: "blueLight")
-        switcher.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
+        switcher.addTarget(self, action: #selector(gta_switchValueChanged(_:)), for: .valueChanged)
         
         containerView.addSubview(titleLabel)
         titleLabel.layout {
@@ -76,8 +71,10 @@ final class ChecklistCell: UITableViewCell, Reusable {
         titleLabel.numberOfLines = 0
     }
     
-    @objc func switchValueChanged(_ sender: UISwitch) {
+    @objc func gta_switchValueChanged(_ sender: UISwitch) {
+        //
         isCheckAction?(sender.isOn)
+        //
     }
     
 }

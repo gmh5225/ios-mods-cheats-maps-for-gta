@@ -95,13 +95,13 @@ public final class PanPresentationController: UIPresentationController {
     
     NotificationCenter.default.addObserver(
       self,
-      selector: #selector(keyboardWillShow(notification:)),
+      selector: #selector(gta_keyboardWillShow(notification:)),
       name: UIResponder.keyboardWillShowNotification,
       object: nil
     )
     NotificationCenter.default.addObserver(
       self,
-      selector: #selector(keyboardWillHide(notification:)),
+      selector: #selector(gta_keyboardWillHide(notification:)),
       name: UIResponder.keyboardWillHideNotification,
       object: nil
     )
@@ -110,13 +110,13 @@ public final class PanPresentationController: UIPresentationController {
   public override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
     guard dimmingView.superview != nil else { return }
     
-    movePresentedView(yDisplacement: maxYDisplacement, animated: true)
+    gta_movePresentedView(yDisplacement: maxYDisplacement, animated: true)
   }
   
   public override func presentationTransitionWillBegin() {
     super.presentationTransitionWillBegin()
     
-    setupView()
+    gta_setupView()
   }
   
   public override func presentationTransitionDidEnd(_ completed: Bool) {
@@ -126,7 +126,7 @@ public final class PanPresentationController: UIPresentationController {
     UIView.animate(withDuration: 0.3) {
       self.dimmingView.alpha = 1.0
     }
-    movePresentedView(yDisplacement: maxYDisplacement, animated: true)
+    gta_movePresentedView(yDisplacement: maxYDisplacement, animated: true)
   }
   
   public override func dismissalTransitionWillBegin() {
@@ -142,19 +142,19 @@ public final class PanPresentationController: UIPresentationController {
     })
   }
   
-  private func setupView() {
+  private func gta_setupView() {
     guard let containerView = containerView else { return }
     
     containerView.addSubview(presentedView)
-    setupDimmingView(in: containerView)
+    gta_setupDimmingView(in: containerView)
   }
   
-  private func setupDimmingView(in container: UIView) {
+  private func gta_setupDimmingView(in container: UIView) {
     container.insertSubview(dimmingView, at: 0)
     
-    let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didPanOnPresentedView(_:)))
+    let panGesture = UIPanGestureRecognizer(target: self, action: #selector(gta_didPanOnPresentedView(_:)))
     panGesture.delaysTouchesBegan = true
-    let dismissGestrure = UITapGestureRecognizer(target: self, action: #selector(dismissController))
+    let dismissGestrure = UITapGestureRecognizer(target: self, action: #selector(gta_dismissController))
     dismissGestrure.require(toFail: panGesture)
     panGesture.delegate = self
     dismissGestrure.delegate = self
@@ -171,13 +171,13 @@ public final class PanPresentationController: UIPresentationController {
   }
   
   @objc
-  private func dismissController() {
+  private func gta_dismissController() {
     let dimissableController = presentingViewController.presentedViewController as? PanPresentationDismissable
     dimissableController?.willDismiss(by: presentingViewController)
     presentingViewController.dismiss(animated: true)
   }
     
-  private func movePresentedView(yDisplacement y: CGFloat, animated: Bool) {
+  private func gta_movePresentedView(yDisplacement y: CGFloat, animated: Bool) {
     guard
       presentedView.frame.minY != y,
       !presentingViewController.isBeingDismissed else {
@@ -204,7 +204,7 @@ public final class PanPresentationController: UIPresentationController {
   }
   
   @objc
-  private func didPanOnPresentedView(_ recognizer: UIPanGestureRecognizer) {
+  private func gta_didPanOnPresentedView(_ recognizer: UIPanGestureRecognizer) {
     let yDisplacement = recognizer.translation(in: presentedView).y
     let yVelocity = recognizer.velocity(in: presentedView).y
     var newYPosition: CGFloat = presentedView.frame.minY + yDisplacement
@@ -213,7 +213,7 @@ public final class PanPresentationController: UIPresentationController {
     case .began, .changed:
       if (presentedView.frame.minY + yDisplacement) < minYDisplacement {
         if (presentedView.frame.minY + yDisplacement) < minYDisplacement {
-          movePresentedView(yDisplacement: minYDisplacement, animated: true)
+          gta_movePresentedView(yDisplacement: minYDisplacement, animated: true)
           
           return
         }
@@ -222,40 +222,40 @@ public final class PanPresentationController: UIPresentationController {
       
     default:
       if newYPosition < minYDisplacement {
-        movePresentedView(yDisplacement: minYDisplacement, animated: true)
+        gta_movePresentedView(yDisplacement: minYDisplacement, animated: true)
       } else if newYPosition > minYDisplacement && newYPosition < maxYDisplacement {
         if yVelocity > 0 {
-          movePresentedView(yDisplacement: maxYDisplacement, animated: true)
+          gta_movePresentedView(yDisplacement: maxYDisplacement, animated: true)
         } else {
-          movePresentedView(yDisplacement: minYDisplacement, animated: true)
+          gta_movePresentedView(yDisplacement: minYDisplacement, animated: true)
         }
         presentedView.endEditing(true)
       } else {
-        dismissController()
+        gta_dismissController()
       }
       
       return
     }
     
-    movePresentedView(yDisplacement: newYPosition, animated: false)
+    gta_movePresentedView(yDisplacement: newYPosition, animated: false)
     recognizer.setTranslation(.zero, in: recognizer.view)
   }
   
   @objc
-  private func keyboardWillShow(notification: NSNotification) {
+  private func gta_keyboardWillShow(notification: NSNotification) {
     if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
       let keyboardRectangle = keyboardFrame.cgRectValue
       keyboardHeight = keyboardRectangle.height
     }
     isKeyboardShown = true
-    movePresentedView(yDisplacement: minYDisplacement, animated: true)
+    gta_movePresentedView(yDisplacement: minYDisplacement, animated: true)
   }
   
   @objc
-  private func keyboardWillHide(notification: NSNotification) {
+  private func gta_keyboardWillHide(notification: NSNotification) {
     keyboardHeight = 0.0
     isKeyboardShown = false
-    movePresentedView(yDisplacement: minYDisplacement, animated: true)
+    gta_movePresentedView(yDisplacement: minYDisplacement, animated: true)
   }
   
 }

@@ -1,9 +1,3 @@
-//
-//  SceneDelegate.swift
-//  GTA Modes
-//
-//  Created by Максим Педько on 26.07.2023.
-//
 
 import UIKit
 
@@ -20,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         let launchViewController = UIStoryboard(name: "LaunchScreen", bundle: .main).instantiateInitialViewController()
-        applicationFlowCoordinator?.start(with: launchViewController, on: window)
+        applicationFlowCoordinator?.gtaModes_start(with: launchViewController, on: window)
         
         self.window = window
     }

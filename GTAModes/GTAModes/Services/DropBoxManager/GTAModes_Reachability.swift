@@ -14,7 +14,7 @@ import SystemConfiguration.CaptiveNetwork
 /// Reachability can be used to determine background information about why a network operation failed, or to retry
 /// network requests when a connection is established. It should not be used to prevent a user from initiating a network
 /// request, as it's possible that an initial request may be required to establish reachability.
-final public class Reachability {
+final public class GTAModes_Reachability {
     
     /// Defines the various states of network reachability.
     ///
@@ -79,16 +79,16 @@ final public class Reachability {
     /// Handler for general level network events
     private let generalNetworkEventHandler: SCNetworkReachabilityCallBack = { (_, flags, info) in
         if let info = info {
-            let reachability = Unmanaged<Reachability>.fromOpaque(info).takeUnretainedValue()
-            reachability.notifyListener(flags)
+            let reachability = Unmanaged<GTAModes_Reachability>.fromOpaque(info).takeUnretainedValue()
+            reachability.gta_notifyListener(flags)
         }
     }
     
     /// Handler for system level network events
     private let systemNetworkEventHandler: CFNotificationCallback = { center, observer, name, object, info in
         if let observer = observer {
-            let unmanagedSelf = Unmanaged<Reachability>.fromOpaque(observer).takeUnretainedValue()
-            unmanagedSelf.notifyListener(unmanagedSelf.flags ?? SCNetworkReachabilityFlags())
+            let unmanagedSelf = Unmanaged<GTAModes_Reachability>.fromOpaque(observer).takeUnretainedValue()
+            unmanagedSelf.gta_notifyListener(unmanagedSelf.flags ?? SCNetworkReachabilityFlags())
         }
     }
     
@@ -135,7 +135,7 @@ final public class Reachability {
     }
     
     deinit {
-        stopListening()
+        gta_stopListening()
     }
     
     // MARK: - Listening
@@ -144,7 +144,7 @@ final public class Reachability {
     ///
     /// - returns: `true` if listening was started successfully, `false` otherwise.
     @discardableResult
-    public func startListening() -> Bool {
+    public func gta_startListening() -> Bool {
         var context = SCNetworkReachabilityContext(
             version: 0,
             info: nil,
@@ -171,7 +171,7 @@ final public class Reachability {
     }
     
     /// Stops listening for changes in network reachability status.
-    public func stopListening() {
+    public func gta_stopListening() {
         SCNetworkReachabilitySetCallback(reachability, nil, nil)
         SCNetworkReachabilitySetDispatchQueue(reachability, nil)
         CFNotificationCenterRemoveObserver(CFNotificationCenterGetDarwinNotifyCenter(),
@@ -202,7 +202,7 @@ final public class Reachability {
     
     // MARK: - Internal - Listener Notification
     
-    func notifyListener(_ flags: SCNetworkReachabilityFlags) {
+    func gta_notifyListener(_ flags: SCNetworkReachabilityFlags) {
         let ssid = getSSID()
         
         guard previousFlags != flags
@@ -260,7 +260,7 @@ final public class Reachability {
 
 // MARK: - Extensions
 
-extension Reachability.NetworkReachabilityStatus: Equatable {}
+extension GTAModes_Reachability.NetworkReachabilityStatus: Equatable {}
 
 /// Returns whether the two network reachability status values are equal.
 ///
@@ -268,7 +268,7 @@ extension Reachability.NetworkReachabilityStatus: Equatable {}
 /// - parameter rhs: The right-hand side value to compare.
 ///
 /// - returns: `true` if the two values are equal, `false` otherwise.
-public func == (lhs: Reachability.NetworkReachabilityStatus, rhs: Reachability.NetworkReachabilityStatus) -> Bool {
+public func == (lhs: GTAModes_Reachability.NetworkReachabilityStatus, rhs: GTAModes_Reachability.NetworkReachabilityStatus) -> Bool {
     switch (lhs, rhs) {
     case (.unknown, .unknown):
         return true

@@ -28,17 +28,17 @@ private extension CGFloat {
     
 }
 
-public class PanDragIndicator: NiblessView {
+public class PanDragIndicator: GTAModes_NiblessView {
     
     public static let height = 4.0
     
     public override init() {
         super.init()
         
-        setupView()
+        gta_setupView()
     }
     
-    private func setupView() {
+    private func gta_setupView() {
         withCornerRadius(Self.height / 2.0)
         layout {
             $0.width.equal(to: 32.0)
@@ -54,7 +54,7 @@ protocol FilterNavigationHandler: AnyObject {
     func filterDidRequestToClose()
 }
 
-final class FilterViewController: NiblessFilterViewController {
+final class GTAModes_FilterViewController: NiblessFilterViewController {
     
     public var selectedFilter: (String) -> ()
     private let filterListData: FilterListData
@@ -80,10 +80,10 @@ final class FilterViewController: NiblessFilterViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
+        gta_setupView()
     }
     
-    private func setupView() {
+    private func gta_setupView() {
         view.withCornerRadius()
         titleLabel.text = "Filter"
         titleLabel.font = UIFont(name: "Inter-Regular", size: 20)
@@ -103,7 +103,7 @@ final class FilterViewController: NiblessFilterViewController {
             $0.width.equal(to: 24.0)
         }
         closeButton.setImage(UIImage(named: "closeIcon"), for: .normal)
-        closeButton.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
+        closeButton.addTarget(self, action: #selector(gta_closeAction), for: .touchUpInside)
         
         tableView.accessibilityIdentifier = "tableView"
         view.addSubview(tableView)
@@ -116,20 +116,20 @@ final class FilterViewController: NiblessFilterViewController {
         tableView.backgroundColor = .black
         tableView.sectionFooterHeight = 0.0
         tableView.rowHeight = 70.0
-        tableView.registerReusableCell(cellType: FilterTableViewCell.self)
+        tableView.registerReusableCell(cellType: GTAModes_FilterTableViewCell.self)
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
     }
     
     @objc
-    func closeAction() {
+    func gta_closeAction() {
         navigationHandler.filterDidRequestToClose()
     }
     
 }
 
-extension FilterViewController: PanPresentable {
+extension GTAModes_FilterViewController: PanPresentable {
     
     private var contentSize: CGSize {
         CGSize(
@@ -148,17 +148,19 @@ extension FilterViewController: PanPresentable {
     
 }
 
-extension FilterViewController: UITableViewDataSource {
+extension GTAModes_FilterViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //
         filterListData.filterList.count
+        //
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: FilterTableViewCell = tableView.dequeueReusableCell(indexPath)
+        let cell: GTAModes_FilterTableViewCell = tableView.dequeueReusableCell(indexPath)
         let titleCell = filterListData.filterList[indexPath.row]
         let filterDataCell = FilterData(title: titleCell, isCheck: isCheckFilter(titleCell) )
-        cell.configure(filterDataCell)
+        cell.gta_configure_cell(filterDataCell)
         cell.backgroundColor = .black
         
         return cell
@@ -182,7 +184,7 @@ extension FilterViewController: UITableViewDataSource {
     
 }
 
-extension FilterViewController: UITableViewDelegate {
+extension GTAModes_FilterViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

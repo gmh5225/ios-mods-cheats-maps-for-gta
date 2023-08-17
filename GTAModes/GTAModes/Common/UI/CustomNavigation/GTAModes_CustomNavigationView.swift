@@ -14,7 +14,7 @@ public enum NavType {
     
 }
 
-public final class CustomNavigationView: NiblessView {
+public final class GTAModes_CustomNavigationView: GTAModes_NiblessView {
     
     public var leftButtonAction: (() -> Void)?
     public var rightButtonAction: (() -> Void)?
@@ -30,38 +30,38 @@ public final class CustomNavigationView: NiblessView {
       self.titleString = titleString
       super.init()
 
-      initialConfiguration()
+      gta_initialConfiguration()
     }
     
 }
 
-extension CustomNavigationView {
+extension GTAModes_CustomNavigationView {
     
-    private func initialConfiguration() {
+    private func gta_initialConfiguration() {
         backgroundColor = .clear
         addSubviews(leftButton, rightButton, titleLabel)
         switch type {
         case .gameSelect:
-            addLeftButton(UIImage(named: "backToMainIcon") ?? UIImage())
-            addTitle("Cheats")
+            gta_addLeftButton(UIImage(named: "backToMainIcon") ?? UIImage())
+            gta_addTitle("Cheats")
             
         case .gameModes:
-            addLeftButton(UIImage(named: "backIcon") ?? UIImage())
-            addFilterButton()
-            addTitle(titleString ?? "Cheats")
+            gta_addLeftButton(UIImage(named: "backIcon") ?? UIImage())
+            gta_addFilterButton()
+            gta_addTitle(titleString ?? "Cheats")
             
         case .checkList:
-            addLeftButton(UIImage(named: "backToMainIcon") ?? UIImage())
-            addFilterButton()
-            addTitle("Checklist")
+            gta_addLeftButton(UIImage(named: "backToMainIcon") ?? UIImage())
+            gta_addFilterButton()
+            gta_addTitle("Checklist")
             
         case .map:
-            addLeftButton(UIImage(named: "backToMainIcon") ?? UIImage())
-            addTitle("Map")
+            gta_addLeftButton(UIImage(named: "backToMainIcon") ?? UIImage())
+            gta_addTitle("Map")
         }
     }
     
-    private func addFilterButton() {
+    private func gta_addFilterButton() {
         rightButton.layout {
             $0.trailing.equal(to: self.trailingAnchor)
             $0.top.equal(to: self.topAnchor)
@@ -71,10 +71,10 @@ extension CustomNavigationView {
         }
         
         rightButton.setImage(UIImage(named: "filterIcon"), for: .normal)
-        rightButton.addTarget(self, action: #selector(filterButtonAction), for: .touchUpInside)
+        rightButton.addTarget(self, action: #selector(gta_filterButtonAction), for: .touchUpInside)
     }
     
-    private func addLeftButton(_ image: UIImage) {
+    private func gta_addLeftButton(_ image: UIImage) {
         leftButton.layout {
             $0.leading.equal(to: self.leadingAnchor)
             $0.top.equal(to: self.topAnchor)
@@ -83,10 +83,10 @@ extension CustomNavigationView {
             $0.width.equal(to: 32.0)
         }
         leftButton.setImage(image, for: .normal)
-        leftButton.addTarget(self, action: #selector(leftBarButtonTapped), for: .touchUpInside)
+        leftButton.addTarget(self, action: #selector(gta_leftBarButtonTapped), for: .touchUpInside)
     }
     
-    private func addTitle(_ title: String) {
+    private func gta_addTitle(_ title: String) {
         titleLabel.layout {
             $0.leading.equal(to: leftButton.trailingAnchor, offsetBy: 20.0)
             $0.centerY.equal(to: leftButton.centerYAnchor)
@@ -98,12 +98,12 @@ extension CustomNavigationView {
     }
     
     @objc
-    private func filterButtonAction() {
+    private func gta_filterButtonAction() {
         rightButtonAction?()
     }
     
     @objc
-    private func leftBarButtonTapped() {
+    private func gta_leftBarButtonTapped() {
         leftButtonAction?()
     }
     

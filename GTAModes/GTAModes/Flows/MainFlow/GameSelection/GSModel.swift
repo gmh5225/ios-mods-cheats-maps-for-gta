@@ -41,10 +41,10 @@ final class GSModel {
         navigationHandler: GSModelNavigationHandler
     ) {
         self.navigationHandler = navigationHandler
-        fetchData()
+        gta_fetchData()
     }
     
-    public func selectedItems(index: Int) {
+    public func gta_selectedItems(index: Int) {
         
         navigationHandler.gsModelDidRequestToGameModes(
             self,
@@ -52,11 +52,13 @@ final class GSModel {
         )
     }
     
-    public func backActionProceed() {
+    public func gta_backActionProceed() {
+        //
         navigationHandler.gsModelDidRequestToBack(self)
+        //
     }
     
-    func fetchData() {
+    func gta_fetchData() {
         do {
             let realm = try Realm()
             let menuItem = realm.objects(MainItemObject.self)

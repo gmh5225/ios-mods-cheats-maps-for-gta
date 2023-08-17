@@ -11,39 +11,37 @@ import UIKit
 final class ApplicationFlowCoordinator: NSObject {
     
     private(set) var window: UIWindow!
-//    private(set) var container: Container!
     
     override init() {
         super.init()
         
-//        initializeDependencies()
     }
     
-    func start(with launchViewController: UIViewController?, on window: UIWindow) {
+    func gtaModes_start(with launchViewController: UIViewController?, on window: UIWindow) {
         self.window = window
         if let launchViewController = launchViewController {
-            setWindowRootViewController(with: launchViewController)
+            gtaModes_setWindowRootViewController(with: launchViewController)
         }
         
-        presentMainFlow()
+        gtaModes_presentMainFlow()
     }
     
-    func setWindowRootViewController(with viewController: UIViewController) {
+    func gtaModes_presentMainFlow() {
+        let flowCoordinator = GTAModes_MainFlowCoordinator()
+        
+        let controller = flowCoordinator.gta_createFlow()
+        let navigation = UINavigationController(rootViewController: controller)
+        navigation.setNavigationBarHidden(true, animated: false)
+        gtaModes_setWindowRootViewController(with: navigation)
+    }
+    
+    func gtaModes_setWindowRootViewController(with viewController: UIViewController) {
         window.rootViewController = viewController
         window.makeKeyAndVisible()
         
         if window.rootViewController != nil {
             UIView.transition(with: window, duration: 0.25, options: .transitionCrossDissolve, animations: nil)
         }
-    }
-    
-    func presentMainFlow() {
-        let flowCoordinator = MainFlowCoordinator()
-        
-        let controller = flowCoordinator.createFlow()
-        let navigation = UINavigationController(rootViewController: controller)
-        navigation.setNavigationBarHidden(true, animated: false)
-        setWindowRootViewController(with: navigation)
     }
     
 }

@@ -8,31 +8,40 @@
 import UIKit
 import Combine
 
-class GSViewController: NiblessViewController {
+class GSViewController: GTAModes_NiblessViewController {
     
     private var subscriptions = Set<AnyCancellable>()
     private let model: GSModel
     private let tableView = UITableView(frame: .zero)
-    private let customNavigation: CustomNavigationView
+    private let customNavigation: GTAModes_CustomNavigationView
     
     init(model: GSModel) {
         self.model = model
-        self.customNavigation = CustomNavigationView(.gameSelect)
+        self.customNavigation = GTAModes_CustomNavigationView(.gameSelect)
         super.init()
         
         customNavigation.leftButtonAction = { [weak self] in
-            self?.model.backActionProceed()
+            self?.model.gta_backActionProceed()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
-        setupBindings()
+        gta_setupView()
+        gs_setupBindings()
     }
     
-    private func setupView() {
+    private func gs_setupBindings() {
+        model.reloadData
+          .sink { [weak self] in
+            guard let self = self else { return }
+            
+            self.tableView.reloadData()
+          }.store(in: &subscriptions)
+    }
+    
+    private func gta_setupView() {
         view.addSubview(customNavigation)
         customNavigation.layout {
             $0.top.equal(to: view.safeAreaLayoutGuide.topAnchor)
@@ -48,21 +57,14 @@ class GSViewController: NiblessViewController {
             $0.trailing.equal(to: view.trailingAnchor)
             $0.bottom.equal(to: view.bottomAnchor)
         }
-        tableView.registerReusableCell(cellType: MainTableViewCell.self)
+        tableView.registerReusableCell(cellType: GTAModes_MainTableViewCell.self)
         tableView.rowHeight = 160.0
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
     }
     
-    private func setupBindings() {
-        model.reloadData
-          .sink { [weak self] in
-            guard let self = self else { return }
-            
-            self.tableView.reloadData()
-          }.store(in: &subscriptions)
-    }
+    
     
 }
 
@@ -70,8 +72,8 @@ extension GSViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: MainTableViewCell = tableView.dequeueReusableCell(indexPath)
-        cell.configure(model.menuItems[indexPath.row], fontSize: 24.0)
+        let cell: GTAModes_MainTableViewCell = tableView.dequeueReusableCell(indexPath)
+        cell.gta_configure(model.menuItems[indexPath.row], fontSize: 24.0)
         cell.backgroundColor = .clear
         return cell
     }
@@ -81,7 +83,7 @@ extension GSViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        model.selectedItems(index: indexPath.row)
+        model.gta_selectedItems(index: indexPath.row)
     }
     
 }

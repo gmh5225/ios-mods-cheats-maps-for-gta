@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-public final class SearchBar: NiblessView {
+public final class GTAModes_SearchBar: GTAModes_NiblessView {
     
     // MARK: - Public properties
     
@@ -32,18 +32,18 @@ public final class SearchBar: NiblessView {
     private let textField = UITextField()
     
     private var cancellables: Set<AnyCancellable> = []
-    private let viewModel: SearchBarViewModelApplicable
+    private let viewModel: GTAModes_SearchBarViewModelApplicable
     
     // MARK: - Life cycle
     
-    public init(viewModel: SearchBarViewModelApplicable) {
+    public init(viewModel: GTAModes_SearchBarViewModelApplicable) {
         self.viewModel = viewModel
         
         super.init()
         
-        initialConfiguration()
-        initialBinding()
-        setupViewModelBindings()
+        gta_initialConfiguration()
+        gta_initialBinding()
+        gta_setupViewModelBindings()
     }
     
     // MARK: - Public functions
@@ -53,28 +53,28 @@ public final class SearchBar: NiblessView {
         return textField.becomeFirstResponder()
     }
     
-    public func clear() {
+    public func gta_clear() {
         text.removeAll()
     }
     
     // MARK: - Private functions
     
-    private func initialBinding() {
-        clearButton.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
+    private func gta_initialBinding() {
+        clearButton.addTarget(self, action: #selector(gta_clearButtonTapped), for: .touchUpInside)
         $text
             .sink { [weak self] text in
                 self?.textField.text = text
-                self?.showClearButton(!text.isEmpty)
+                self?.gta_showClearButton(!text.isEmpty)
             }
             .store(in: &cancellables)
-        textField.addTarget(self, action: #selector(textFieldDidEndEditing), for: .editingDidEnd)
-        textField.addTarget(self, action: #selector(textFieldEditingDidBegin), for: .editingDidBegin)
+        textField.addTarget(self, action: #selector(gta_textFieldDidEndEditing), for: .editingDidEnd)
+        textField.addTarget(self, action: #selector(gta_textFieldEditingDidBegin), for: .editingDidBegin)
         
-        textField.addTarget(self, action: #selector(textFieldPrimaryActionTriggered), for: .primaryActionTriggered)
-        textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        textField.addTarget(self, action: #selector(gta_textFieldPrimaryActionTriggered), for: .primaryActionTriggered)
+        textField.addTarget(self, action: #selector(gta_textFieldEditingChanged), for: .editingChanged)
     }
     
-    private func setupViewModelBindings() {
+    private func gta_setupViewModelBindings() {
         // search bar text and placeholder text bindings
         viewModel.textFont
             .sink { [weak self] font in
@@ -110,8 +110,8 @@ public final class SearchBar: NiblessView {
                 }
                 .store(in: &cancellables)
             
-            cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
-
+            cancelButton.addTarget(self, action: #selector(gta_cancelButtonTapped), for: .touchUpInside)
+            
         }
         
         // search bar elements color
@@ -124,7 +124,7 @@ public final class SearchBar: NiblessView {
             .store(in: &cancellables)
     }
     
-    private func showClearButton(_ isShow: Bool) {
+    private func gta_showClearButton(_ isShow: Bool) {
         textField.rightViewMode = isShow ? .always : .never
     }
     
@@ -133,40 +133,44 @@ public final class SearchBar: NiblessView {
     @objc private func textChange(_ sender: UITextField) {
         guard let text = sender.text else { return }
         
-        showClearButton(!text.isEmpty)
+        gta_showClearButton(!text.isEmpty)
     }
-    
-    // ... (other private functions as in your original code)
     
 }
 
-extension SearchBar {
+extension GTAModes_SearchBar {
     
-    @objc private func clearButtonTapped() {
+    @objc private func gta_clearButtonTapped() {
         textField.text?.removeAll()
         text = ""
     }
     
-    @objc private func textFieldDidEndEditing() {
-            textDidEndEditing.send()
+    @objc private func gta_textFieldDidEndEditing() {
+        //
+        textDidEndEditing.send()
+        //
     }
     
-    @objc private func textFieldEditingDidBegin() {
+    @objc private func gta_textFieldEditingDidBegin() {
+        //
         textDidBeginEditing.send()
+        //
     }
     
-    @objc private func textFieldPrimaryActionTriggered() {
+    @objc private func gta_textFieldPrimaryActionTriggered() {
+        //
         textField.endEditing(false)
+        //
     }
     
-    @objc private func textFieldEditingChanged() {
+    @objc private func gta_textFieldEditingChanged() {
         if let text = textField.text {
             self.text = text
-            showClearButton(!text.isEmpty)
+            gta_showClearButton(!text.isEmpty)
         }
     }
     
-    @objc private func cancelButtonTapped() {
+    @objc private func gta_cancelButtonTapped() {
         textField.endEditing(false)
         textField.text?.removeAll()
         text = ""
@@ -175,11 +179,11 @@ extension SearchBar {
     
 }
 
-extension SearchBar {
+extension GTAModes_SearchBar {
     
-    private func initialConfiguration() {
+    private func gta_initialConfiguration() {
         backgroundColor = .clear
-        configureCancelButton()
+        gta_configureCancelButton()
         
         addSubview(textField)
         textField.layout {
@@ -196,15 +200,14 @@ extension SearchBar {
         
         textField.layer.borderWidth = 1.0
         textField.rightViewMode = .never
-        textField.rightView = rightView()
+        textField.rightView = gta_rightView()
         textField.leftViewMode = .always
-        textField.leftView = leftView()
-//        textField.inputAccessoryView = KeyboardToolbar(resignResponerView: textField)
+        textField.leftView = gta_leftView()
         textField.keyboardAppearance = .default
         textField.addTarget(self, action: #selector(textChange(_:)), for: .editingChanged)
     }
     
-    private func configureCancelButton() {
+    private func gta_configureCancelButton() {
         guard viewModel.showsCancelButton else { return }
         
         addSubview(cancelButton)
@@ -223,7 +226,7 @@ extension SearchBar {
         cancelButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
     
-    private func leftView() -> UIView {
+    private func gta_leftView() -> UIView {
         let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 42.0, height: 42.0)))
         view.addSubview(leftImageView)
         view.layout {
@@ -240,7 +243,7 @@ extension SearchBar {
         return view
     }
     
-    private func rightView() -> UIView {
+    private func gta_rightView() -> UIView {
         let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 42.0, height: 42.0)))
         clearButton.setImage(UIImage(systemName: "clear"), for: .normal)
         view.addSubview(clearButton)

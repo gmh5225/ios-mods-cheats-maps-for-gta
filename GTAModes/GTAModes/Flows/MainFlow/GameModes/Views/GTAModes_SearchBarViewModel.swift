@@ -13,7 +13,7 @@ public enum SearchBarViewStyle {
     case darkContent
 }
 
-public protocol SearchBarViewModelApplicable {
+public protocol GTAModes_SearchBarViewModelApplicable {
 
     var searchBarColor: AnyPublisher<UIColor, Never> { get }
     var cancelButtonText: AnyPublisher<NSAttributedString, Never> { get }
@@ -31,7 +31,7 @@ public protocol SearchBarViewModelApplicable {
 
 }
 
-public extension SearchBarViewModelApplicable {
+public extension GTAModes_SearchBarViewModelApplicable {
 
     var placeholderString: String {
         "Search here"
@@ -97,7 +97,7 @@ public extension SearchBarViewModelApplicable {
     }
 }
 
-public class SearchBarViewModel: SearchBarViewModelApplicable {
+public class GTAModes_SearchBarViewModel: GTAModes_SearchBarViewModelApplicable {
     
     public init() { }
 }

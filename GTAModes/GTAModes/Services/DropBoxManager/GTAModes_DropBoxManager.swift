@@ -6,13 +6,12 @@ import RealmSwift
 
 protocol DropBoxManagerDelegate: AnyObject {
     
-    func currentProgressOperation(progress : Progress)
-    func isReadyMainContent()
-    func isReadyAllContent()
+    func gta_currentProgressOperation(progress : Progress)
+    func gta_isReadyAllContent()
     
 }
 
-final class DBManager : NSObject {
+final class GTAModes_DBManager : NSObject {
     
     // MARK: - Private properties
     
@@ -21,7 +20,7 @@ final class DBManager : NSObject {
     
     // MARK: - Public properties
     
-    static let shared = DBManager()
+    static let shared = GTAModes_DBManager()
     var client: DropboxClient?
     weak var delegate: DropBoxManagerDelegate?
     
@@ -32,38 +31,38 @@ final class DBManager : NSObject {
     
     // MARK: - Public
     
-    func setupDropBox() {
+    func gta_setupDropBox() {
         if let _ = defaults.value(forKey: "dataDidLoaded") as? Bool {
             
         } else {
-            clearAllThings()
+            gta_clearAllThings()
         }
         
         if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, !isLoadedData {
-            clearAllThings()
+            gta_clearAllThings()
             
             if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
-                getAllContent()
+                gta_getAllContent()
             } else {
                 print("start resetting token operation")
-                reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
+                gta_reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
                     guard let self = self else { return }
                     if let rToken = refresh_token {
                         print(rToken)
                         self.defaults.setValue(rToken, forKey: DBKeys.RefreshTokenSaveVar)
                     }
                     
-                    getAllContent()
+                    gta_getAllContent()
                 }
                 
             }
         } else {
-            delegate?.isReadyAllContent()
+            delegate?.gta_isReadyAllContent()
             print(" ================== ALL DATA IS LOCALY OK =======================")
         }
     }
     
-    func getImageUrl(img: String, completion: @escaping (String?) -> ()){
+    func gta_getImageUrl(img: String, completion: @escaping (String?) -> ()){
         self.client?.files.getTemporaryLink(path: img).response(completionHandler: { responce, error in
             if let link = responce {
                 completion(link.link)
@@ -75,69 +74,69 @@ final class DBManager : NSObject {
     }
     
     
-    func getFileUrl(path: String, completion: @escaping (String?) -> ()){
-        self.client?.files.getTemporaryLink(path: "/\(path)").response(completionHandler: { responce, error in
-            if let link = responce {
-                completion(link.link)
-            } else {
-                completion(nil)
-            }
-        })
-    }
+//    func getFileUrl(path: String, completion: @escaping (String?) -> ()){
+//        self.client?.files.getTemporaryLink(path: "/\(path)").response(completionHandler: { responce, error in
+//            if let link = responce {
+//                completion(link.link)
+//            } else {
+//                completion(nil)
+//            }
+//        })
+//    }
     
+//
+//    func downloadFileBy(urlPath: URL, completion: @escaping (String?, Error?) -> Void) {
+//        let fileURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//        let urlForDestination = fileURL.appendingPathComponent(urlPath.lastPathComponent)
+//        if FileManager().fileExists(atPath: urlForDestination.path) {
+//            print("File already exists [\(urlForDestination.path)]")
+//            completion(urlForDestination.path, nil)
+//        } else {
+//            let configuration = URLSessionConfiguration.default
+//            let urlSession = URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
+//            var request = URLRequest(url: urlPath)
+//            let httpMethod = "GET"
+//            request.httpMethod = httpMethod
+//            let urlDataTask = urlSession.dataTask(with: request, completionHandler: { data, response, error in
+//                if error != nil {
+//                    completion(urlForDestination.path, error)
+//                } else {
+//                    if let response = response as? HTTPURLResponse {
+//                        if response.statusCode == 200 {
+//                            if let data = data {
+//                                if let _ = try? data.write(to: urlForDestination, options: Data.WritingOptions.atomic) {
+//                                    completion(urlForDestination.path, error)
+//                                } else {
+//                                    completion(urlForDestination.path, error)
+//                                }
+//                            } else {
+//                                completion(urlForDestination.path, error)
+//                            }
+//                        }
+//                    }
+//                }
+//            })
+//            urlDataTask.resume()
+//        }
+//    }
     
-    func downloadFileBy(urlPath: URL, completion: @escaping (String?, Error?) -> Void) {
-        let fileURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let urlForDestination = fileURL.appendingPathComponent(urlPath.lastPathComponent)
-        if FileManager().fileExists(atPath: urlForDestination.path) {
-            print("File already exists [\(urlForDestination.path)]")
-            completion(urlForDestination.path, nil)
-        } else {
-            let configuration = URLSessionConfiguration.default
-            let urlSession = URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
-            var request = URLRequest(url: urlPath)
-            let httpMethod = "GET"
-            request.httpMethod = httpMethod
-            let urlDataTask = urlSession.dataTask(with: request, completionHandler: { data, response, error in
-                if error != nil {
-                    completion(urlForDestination.path, error)
-                } else {
-                    if let response = response as? HTTPURLResponse {
-                        if response.statusCode == 200 {
-                            if let data = data {
-                                if let _ = try? data.write(to: urlForDestination, options: Data.WritingOptions.atomic) {
-                                    completion(urlForDestination.path, error)
-                                } else {
-                                    completion(urlForDestination.path, error)
-                                }
-                            } else {
-                                completion(urlForDestination.path, error)
-                            }
-                        }
-                    }
-                }
-            })
-            urlDataTask.resume()
-        }
-    }
-    
-    func downloadFileBy(urlPath: String, completion: @escaping (Data?) -> Void) {
-        self.client?.files.download(path:  "/\(urlPath)").response(completionHandler: { responce, error in
-            if let responce = responce {
-                completion(responce.1)
-            } else {
-                completion(nil)
-            }
-        })
-    }
+//    func downloadFileBy(urlPath: String, completion: @escaping (Data?) -> Void) {
+//        self.client?.files.download(path:  "/\(urlPath)").response(completionHandler: { responce, error in
+//            if let responce = responce {
+//                completion(responce.1)
+//            } else {
+//                completion(nil)
+//            }
+//        })
+//    }
     
 }
 
 // MARK: - Private
 
-private extension DBManager {
+private extension GTAModes_DBManager {
     
-    func clearAllThings() {
+    func gta_clearAllThings() {
         defaults.set(false, forKey: "dataDidLoaded")
         defaults.set(0, forKey: "json_categories_data_count")
         defaults.set(0, forKey: "json_data_count")
@@ -147,8 +146,8 @@ private extension DBManager {
     
     
     
-    func validateAccessToken(token : String, completion: @escaping(Bool)->()) {
-        self.getTokenBy(refresh_token: token) { access_token in
+    func gta_validateAccessToken(token : String, completion: @escaping(Bool)->()) {
+        self.gta_getTokenBy(refresh_token: token) { access_token in
             
             if let aToken = access_token {
                 self.client = DropboxClient(accessToken:aToken)
@@ -160,7 +159,7 @@ private extension DBManager {
         }
     }
     
-    func reshreshToken(code: String, completion: @escaping (String?) -> ()) {
+    func gta_reshreshToken(code: String, completion: @escaping (String?) -> ()) {
         let username = DBKeys.appkey
         let password = DBKeys.appSecret
         let loginString = String(format: "%@:%@", username, password)
@@ -189,7 +188,7 @@ private extension DBManager {
         task.resume()
     }
     
-    func getTokenBy(refresh_token: String, completion: @escaping (String?) -> ()) {
+    func gta_getTokenBy(refresh_token: String, completion: @escaping (String?) -> ()) {
         let loginString = String(format: "%@:%@", DBKeys.appkey, DBKeys.appSecret)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
@@ -217,9 +216,9 @@ private extension DBManager {
     
 }
 
-private extension DBManager {
+private extension GTAModes_DBManager {
     
-    func clearRealmData() {
+    func gta_clearRealmData() {
         do {
             let realm = try Realm()
             try realm.write {
@@ -232,10 +231,10 @@ private extension DBManager {
         }
     }
     
-    func getAllContent() {
-        clearRealmData()
+    func gta_getAllContent() {
+        gta_clearRealmData()
         
-        fetchMainInfo { [ weak self] in
+        gta_fetchMainInfo { [ weak self] in
             print("============== MAIN INFO ALL OK =================")
             
             self?.fetchGameListInfo { [weak self] in
@@ -251,7 +250,7 @@ private extension DBManager {
                                 
                                 self?.fetchMissions { [weak self] in
                                     print("============== ALL OK ALL OK ALL OK =================")
-                                    self?.delegate?.isReadyAllContent()
+                                    self?.delegate?.gta_isReadyAllContent()
                                     self?.defaults.set(true, forKey: "dataDidLoaded")
                                 }
                                 
@@ -264,8 +263,8 @@ private extension DBManager {
         }
     }
     
-    func fetchMainInfo(completion: @escaping () -> (Void)) {
-        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+    func gta_fetchMainInfo(completion: @escaping () -> (Void)) {
+        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
@@ -293,7 +292,7 @@ private extension DBManager {
     }
     
     func fetchGameListInfo(completion: @escaping () -> (Void)) {
-        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
@@ -339,7 +338,7 @@ private extension DBManager {
             }
             
             let path = list[index]
-            getImageUrl(img: "/\(type)/" + path) { [weak self] truePath in
+            gta_getImageUrl(img: "/\(type)/" + path) { [weak self] truePath in
                 processedCount += 1
                 trueImagePath.append(truePath ?? "")
                 
@@ -381,10 +380,10 @@ private extension DBManager {
     }
 }
 
-extension DBManager {
+extension GTAModes_DBManager {
 
     func fetchGTA5Codes(completion: @escaping () -> (Void)) {
-        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
@@ -415,7 +414,7 @@ extension DBManager {
     }
     
     func fetchGTA6Codes(completion: @escaping () -> (Void)) {
-        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
@@ -444,7 +443,7 @@ extension DBManager {
     }
     
     func fetchGTAVCCodes(completion: @escaping () -> (Void)) {
-        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
@@ -473,7 +472,7 @@ extension DBManager {
     }
     
     func fetchGTASACodes(completion: @escaping () -> (Void)) {
-        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
@@ -504,7 +503,7 @@ extension DBManager {
     }
     
     func fetchMissions(completion: @escaping () -> (Void)) {
-        validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {

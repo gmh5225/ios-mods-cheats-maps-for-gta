@@ -14,30 +14,30 @@ protocol MapNavigationHandler: AnyObject {
     
 }
 
-class MapViewController: NiblessViewController {
+class GTAModes_MapViewController: GTAModes_NiblessViewController {
     
-    private let navigationHandler: MapNavigationHandler
-    private let webView = WKWebView()
-    private let customNavigation: CustomNavigationView
+    private let gtaModes_navigationHandler: MapNavigationHandler
+    private let gtaModes_webView = WKWebView()
+    private let customNavigation: GTAModes_CustomNavigationView
     
     init(navigationHandler: MapNavigationHandler) {
-        self.navigationHandler = navigationHandler
-        self.customNavigation = CustomNavigationView(.map)
+        self.gtaModes_navigationHandler = navigationHandler
+        self.customNavigation = GTAModes_CustomNavigationView(.map)
         
         super.init()
         customNavigation.leftButtonAction = { [weak self] in
-            self?.navigationHandler.mapDidRequestToBack()
+            self?.gtaModes_navigationHandler.mapDidRequestToBack()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
-        webViewConfigure()
+        gta_setupView()
+        gta_webViewConfigure()
     }
     
-    private func setupView() {
+    private func gta_setupView() {
         
         view.addSubview(customNavigation)
         customNavigation.layout {
@@ -47,28 +47,24 @@ class MapViewController: NiblessViewController {
             $0.height.equal(to: 36.0)
         }
         
-        view.addSubview(webView)
-        webView.layout {
+        view.addSubview(gtaModes_webView)
+        gtaModes_webView.layout {
             $0.leading.equal(to: view.leadingAnchor, offsetBy: 30.0)
             $0.trailing.greaterThanOrEqual(to: view.trailingAnchor, offsetBy: -30.0)
             $0.top.equal(to: customNavigation.bottomAnchor, offsetBy: 20.0)
             $0.bottom.equal(to: self.view.safeAreaLayoutGuide.bottomAnchor, offsetBy: -20.0)
         }
-        webView.layer.cornerRadius = 12.0
-        webView.layer.masksToBounds = true
+        gtaModes_webView.layer.cornerRadius = 12.0
+        gtaModes_webView.layer.masksToBounds = true
     }
     
-    private func webViewConfigure() {
+    private func gta_webViewConfigure() {
         
         if let htmlPath = Bundle.main.path(forResource: "map", ofType: "html") {
-                    let fileURL = URL(fileURLWithPath: htmlPath)
-            webView.loadFileURL(fileURL, allowingReadAccessTo: fileURL.deletingLastPathComponent())
-                }
+            let fileURL = URL(fileURLWithPath: htmlPath)
+            gtaModes_webView.loadFileURL(fileURL, allowingReadAccessTo: fileURL.deletingLastPathComponent())
+        }
         
-//        if let url = URL(string: "https://pedkomaksim.github.io/gtavmaponline.github.io/map/map.html") {
-//            let request = URLRequest(url: url)
-//            webView.load(request)
-//        }
     }
     
 }

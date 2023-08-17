@@ -8,39 +8,39 @@
 import UIKit
 import Combine
 
-class GameModesViewController: NiblessViewController {
+class GTAModes_GameModesViewController: GTAModes_NiblessViewController {
     
     private var subscriptions = Set<AnyCancellable>()
-    private let model: GameModesModel
+    private let model: GTAModes_GameModesModel
     private let tableView = UITableView(frame: .zero, style: .grouped)
-    private let customNavigation: CustomNavigationView
+    private let customNavigation: GTAModes_CustomNavigationView
     private let searchContainer = UIView()
-    private var searchBar: SearchBar?
+    private var searchBar: GTAModes_SearchBar?
     
-    init(model: GameModesModel) {
+    init(model: GTAModes_GameModesModel) {
         self.model = model
-        self.customNavigation = CustomNavigationView(.gameModes, titleString: model.title)
+        self.customNavigation = GTAModes_CustomNavigationView(.gameModes, titleString: model.title)
         
         super.init()
         
         customNavigation.leftButtonAction = { [weak self] in
-            self?.model.backActionProceed()
+            self?.model.gta_backActionProceed()
         }
         customNavigation.rightButtonAction = { [weak self] in
-            self?.model.filterActionProceed()
+            self?.model.gta_filterActionProceed()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
-        setupBindings()
-        setupSearchBar()
-        searchBindings()
+        gta_setupView()
+        gta_setupBindings()
+        gta_setupSearchBar()
+        gta_searchBindings()
     }
     
-    private func setupView() {
+    private func gta_setupView() {
         view.addSubview(customNavigation)
         customNavigation.layout {
             $0.top.equal(to: view.safeAreaLayoutGuide.topAnchor)
@@ -68,7 +68,7 @@ class GameModesViewController: NiblessViewController {
             $0.bottom.equal(to: view.bottomAnchor)
         }
         tableView.sectionHeaderHeight = 140.0
-        tableView.registerReusableCell(cellType: GameModesTableViewCell.self)
+        tableView.registerReusableCell(cellType: GTAModes_GameModesTableViewCell.self)
         tableView.registerReusableHeaderFooterView(viewType: GameModesHeaderView.self)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 96.0
@@ -78,7 +78,7 @@ class GameModesViewController: NiblessViewController {
         tableView.separatorStyle = .none
     }
     
-    private func setupBindings() {
+    private func gta_setupBindings() {
         model.reloadData
             .sink { [weak self] in
                 guard let self = self else { return }
@@ -88,9 +88,9 @@ class GameModesViewController: NiblessViewController {
         
     }
     
-    private func setupSearchBar() {
+    private func gta_setupSearchBar() {
         let searchViewModel = GameModesSearchViewModel()
-        searchBar = SearchBar(viewModel: searchViewModel)
+        searchBar = GTAModes_SearchBar(viewModel: searchViewModel)
         searchContainer.addSubview(searchBar!)
         searchBar?.layout {
             $0.top.equal(to: searchContainer.topAnchor, offsetBy: -1.0)
@@ -100,14 +100,14 @@ class GameModesViewController: NiblessViewController {
         }
     }
     
-    private func searchBindings() {
+    private func gta_searchBindings() {
         if let searchBar = searchBar {
             searchBar.$text.dropFirst().sink { [weak self] searchText in
-                self?.model.searchAt(searchText)
+                self?.model.gta_searchAt(searchText)
             }.store(in: &subscriptions)
             
             searchBar.textDidEndEditing.sink { [ weak self ] _ in
-                self?.model.searchDidCancel()
+                self?.model.gta_searchDidCancel()
             }.store(in: &subscriptions)
             
         }
@@ -115,11 +115,11 @@ class GameModesViewController: NiblessViewController {
     
 }
 
-extension GameModesViewController: UITableViewDataSource {
+extension GTAModes_GameModesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: GameModesTableViewCell = tableView.dequeueReusableCell(indexPath)
-        cell.configure(model.cheatItems[indexPath.row])
+        let cell: GTAModes_GameModesTableViewCell = tableView.dequeueReusableCell(indexPath)
+        cell.gameMode_configure_cell(model.cheatItems[indexPath.row])
         cell.backgroundColor = .clear
         return cell
     }
@@ -130,12 +130,12 @@ extension GameModesViewController: UITableViewDataSource {
     
 }
 
-extension GameModesViewController: UITableViewDelegate {
+extension GTAModes_GameModesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(viewType: GameModesHeaderView.self)
         headerView?.actionButton = { [weak self] index in
-            self?.model.showCheats(CheatsType.allCases[index])
+            self?.model.gta_showCheats(CheatsType.allCases[index])
         }
         
         return headerView
@@ -143,12 +143,12 @@ extension GameModesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        model.actionAt(index: indexPath.row)
+        model.gta_actionAt(index: indexPath.row)
     }
     
 }
 
-final class GameModesSearchViewModel: SearchBarViewModelApplicable {
+final class GameModesSearchViewModel: GTAModes_SearchBarViewModelApplicable {
     
     var showsCancelButton: Bool {
         false

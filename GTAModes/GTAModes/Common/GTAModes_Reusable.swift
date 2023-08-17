@@ -12,13 +12,13 @@ import UIKit
 // MARK: Code-based Reusable
 
 /// Protocol for `UITableViewCell` and `UICollectionViewCell` subclasses when they are code-based
-public protocol Reusable: AnyObject {
+public protocol GTAModes_Reusable: AnyObject {
     
   static var reuseIdentifier: String { get }
     
 }
 
-public extension Reusable {
+public extension GTAModes_Reusable {
     
   static var reuseIdentifier: String {
     String(describing: self)
@@ -29,15 +29,15 @@ public extension Reusable {
 // MARK: - NIB-based Reusable
 
 /// Protocol for `UITableViewCell` and `UICollectionViewCell` subclasses when they are NIB-based
-public protocol NibReusable: Reusable, NibLoadable {}
+public protocol GTAModes_NibReusable: GTAModes_Reusable, GTAModes_NibLoadable {}
 
-public protocol NibLoadable: AnyObject {
+public protocol GTAModes_NibLoadable: AnyObject {
     
   static var nib: UINib { get }
     
 }
 
-public extension NibLoadable {
+public extension GTAModes_NibLoadable {
     
   static var nib: UINib {
     UINib(nibName: String(describing: self), bundle: Bundle(for: self))
@@ -50,18 +50,18 @@ public extension UITableView {
   // MARK: UITableViewCell
   
   /** Register a NIB-Based `UITableViewCell` subclass (conforming to `NibReusable`) */
-  final func registerReusableCell<T: UITableViewCell>(cellType: T.Type) where T: NibReusable {
+  final func registerReusableCell<T: UITableViewCell>(cellType: T.Type) where T: GTAModes_NibReusable {
     register(cellType.nib, forCellReuseIdentifier: cellType.reuseIdentifier)
   }
   
   /** Register a Class-Based `UITableViewCell` subclass (conforming to `Reusable`) */
-  final func registerReusableCell<T: UITableViewCell>(cellType: T.Type) where T: Reusable {
+  final func registerReusableCell<T: UITableViewCell>(cellType: T.Type) where T: GTAModes_Reusable {
     register(cellType.self, forCellReuseIdentifier: cellType.reuseIdentifier)
   }
   
   /** Returns a reusable `UITableViewCell` object for the class inferred by the return-type */
   final func dequeueReusableCell<T: UITableViewCell>(_ indexPath: IndexPath, cellType: T.Type = T.self) -> T
-    where T: Reusable {
+    where T: GTAModes_Reusable {
       guard let cell = dequeueReusableCell(withIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
         fatalError(
           "Failed to dequeue a cell with identifier \(cellType.reuseIdentifier) "
@@ -78,18 +78,18 @@ public extension UITableView {
   // MARK: UITableViewHeaderFooterView
   
   /** Register a NIB-Based `UITableViewHeaderFooterView` subclass (conforming to `NibReusable`) */
-  final func registerReusableHeaderFooterView<T: UITableViewHeaderFooterView>(viewType: T.Type) where T: NibReusable {
+  final func registerReusableHeaderFooterView<T: UITableViewHeaderFooterView>(viewType: T.Type) where T: GTAModes_NibReusable {
     register(viewType.nib, forHeaderFooterViewReuseIdentifier: viewType.reuseIdentifier)
   }
   
   /** Register a Class-Based `UITableViewHeaderFooterView` subclass (conforming to `Reusable`) */
-  final func registerReusableHeaderFooterView<T: UITableViewHeaderFooterView>(viewType: T.Type) where T: Reusable {
+  final func registerReusableHeaderFooterView<T: UITableViewHeaderFooterView>(viewType: T.Type) where T: GTAModes_Reusable {
     register(viewType.self, forHeaderFooterViewReuseIdentifier: viewType.reuseIdentifier)
   }
   
   /** Returns a reusable `UITableViewHeaderFooterView` object for the class inferred by the return-type */
   final func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(viewType: T.Type = T.self) -> T?
-    where T: Reusable {
+    where T: GTAModes_Reusable {
     guard let view = dequeueReusableHeaderFooterView(withIdentifier: viewType.reuseIdentifier) as? T? else {
       fatalError(
         "Failed to dequeue a header/footer with identifier \(viewType.reuseIdentifier) "
@@ -104,7 +104,7 @@ public extension UITableView {
     
 }
 
-open class NiblessView: UIView {
+open class GTAModes_NiblessView: UIView {
     
   public init() {
     super.init(frame: .zero)

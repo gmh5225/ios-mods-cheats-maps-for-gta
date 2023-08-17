@@ -8,18 +8,10 @@
 import Foundation
 import UIKit
 
-public struct GameModesData {
-    
-    let title: String
-    let imageNames: [String]
-    let isFavorite: Bool
-    
-}
-
 import Foundation
 import UIKit
 
-final class GameModesTableViewCell: UITableViewCell, Reusable {
+final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable {
     
     private let containerView = UIView()
     private let titleLabel = UILabel()
@@ -34,7 +26,7 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
-        setupLayout()
+        gta_setupLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -50,7 +42,7 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         secondStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
     }
     
-    public func configure(_ value: CheatItem) {
+    public func gameMode_configure_cell(_ value: CheatItem) {
         titleLabel.font = UIFont(name: "Inter-Regular", size: 20)
         titleLabel.textColor = .white
         titleLabel.text = value.name
@@ -60,9 +52,9 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
             firstStackView.isHidden = false
             secondStackView.isHidden = false
             print("============= ->  " + value.platform + "  <- =============" )
-            let imagesListName = configureCodes(value)
+            let imagesListName = gta_configureCodes(value)
             print("============= ->  " + "\(imagesListName)" + "  <- =============" )
-            addImages(imagesListName)
+            gta_addImages(imagesListName)
         } else {
             contentModeView.isHidden = false
             firstStackView.isHidden = true
@@ -73,7 +65,7 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         }
     }
     
-    private func setupLayout() {
+    private func gta_setupLayout() {
         contentView.backgroundColor = .clear
         contentView.addSubview(containerView)
         containerView.layout {
@@ -116,8 +108,8 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
             $0.trailing.lessThanOrEqual(to: containerView.trailingAnchor, offsetBy: -8.0)
             $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -8.0)
         }
-        configureStackView(firstStackView)
-        configureStackView(secondStackView)
+        gta_configureStackView(firstStackView)
+        gta_configureStackView(secondStackView)
         
         containerView.addSubview(contentModeView)
         contentModeView.layout {
@@ -141,8 +133,7 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         containerView.layoutIfNeeded()
     }
     
-    private func addImages(_ imagesName: [String]) {
-        
+    private func gta_addImages(_ imagesName: [String]) {
         var imageIndex: Int = 0
         for image in imagesName {
             let imageView = UIImageView(image: UIImage(named: image))
@@ -163,14 +154,14 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         
     }
     
-    func configureCodes(_ value: CheatItem) -> [String] {
+    func gta_configureCodes(_ value: CheatItem) -> [String] {
         var trueCode: [String] = []
         
         if value.platform == "ps" {
             value.code.forEach { [weak self] code in
                 guard let self = self else { return }
                 
-                let imageAssetName = self.configurePSCode(code.uppercased())
+                let imageAssetName = self.gta_configurePSCode(code.uppercased())
                 if imageAssetName == "" {
                     print(code)
                     print(value.code)
@@ -183,7 +174,7 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
             value.code.forEach { [weak self] code in
                 guard let self = self else { return }
                 
-                let imageAssetName = self.configureXBoxCode(code.uppercased())
+                let imageAssetName = self.gta_configureXBoxCode(code.uppercased())
                 if imageAssetName == "" {
                     print(code)
                     print(value.code)
@@ -195,7 +186,7 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         return trueCode
     }
     
-    func configurePSCode(_ code: String) -> String {
+    func gta_configurePSCode(_ code: String) -> String {
         if code == "TRIANGLE" {
             return "s_triangle"
         }
@@ -235,7 +226,7 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         return ""
     }
     
-    func configureXBoxCode(_ code: String) -> String {
+    func gta_configureXBoxCode(_ code: String) -> String {
         if code == "Y" {
             return "m_y"
         }
@@ -279,7 +270,7 @@ final class GameModesTableViewCell: UITableViewCell, Reusable {
         return ""
     }
     
-    func configureStackView(_ stackView: UIStackView) {
+    func gta_configureStackView(_ stackView: UIStackView) {
         stackView.axis = .horizontal
         stackView.spacing = 8
         stackView.distribution = .fill
