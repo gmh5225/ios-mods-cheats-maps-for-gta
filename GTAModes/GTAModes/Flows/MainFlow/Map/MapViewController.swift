@@ -62,7 +62,7 @@ class MapViewController: NiblessViewController {
         
         if let htmlPath = Bundle.main.path(forResource: "map", ofType: "html") {
                     let fileURL = URL(fileURLWithPath: htmlPath)
-            webView.loadFileURL(fileURL, allowingReadAccessTo: fileURL)
+            webView.loadFileURL(fileURL, allowingReadAccessTo: fileURL.deletingLastPathComponent())
                 }
         
 //        if let url = URL(string: "https://pedkomaksim.github.io/gtavmaponline.github.io/map/map.html") {
