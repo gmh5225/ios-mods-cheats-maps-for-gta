@@ -44,7 +44,7 @@ class GSViewController: GTAModes_NiblessViewController {
     private func gta_setupView() {
         view.addSubview(customNavigation)
         customNavigation.layout {
-            $0.top.equal(to: view.safeAreaLayoutGuide.topAnchor)
+            $0.top.equal(to: view.safeAreaLayoutGuide.topAnchor, offsetBy: 21.0)
             $0.leading.equal(to: view.leadingAnchor, offsetBy: 20.0)
             $0.trailing.equal(to: view.trailingAnchor, offsetBy: -20.0)
             $0.height.equal(to: 36.0)

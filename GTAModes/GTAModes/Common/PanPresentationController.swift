@@ -84,8 +84,8 @@ public final class PanPresentationController: UIPresentationController {
   private var dimmingView: UIView = {
     let view = UIView()
     view.translatesAutoresizingMaskIntoConstraints = false
-      view.backgroundColor = .clear
-    view.alpha = 0.0
+      view.backgroundColor = .black
+    view.alpha = 0.4
     
     return view
   }()
@@ -122,21 +122,21 @@ public final class PanPresentationController: UIPresentationController {
   public override func presentationTransitionDidEnd(_ completed: Bool) {
     super.presentationTransitionDidEnd(completed)
     
-    dimmingView.alpha = 0.0
+    dimmingView.alpha = 0.4
     UIView.animate(withDuration: 0.3) {
-      self.dimmingView.alpha = 1.0
+        self.dimmingView.alpha = 0.4
     }
     gta_movePresentedView(yDisplacement: maxYDisplacement, animated: true)
   }
   
   public override func dismissalTransitionWillBegin() {
     guard let coordinator = presentedViewController.transitionCoordinator else {
-      dimmingView.alpha = 0.0
+      dimmingView.alpha = 0.4
       
       return
     }
     
-    dimmingView.alpha = 1.0
+    dimmingView.alpha = 0.4
     coordinator.animate(alongsideTransition: { _ in
       self.dimmingView.alpha = 0.0
     })

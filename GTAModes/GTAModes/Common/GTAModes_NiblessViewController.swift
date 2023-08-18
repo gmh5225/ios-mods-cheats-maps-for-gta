@@ -18,6 +18,10 @@ open class GTAModes_NiblessViewController: UIViewController {
         fatalError("Init is not implemented")
     }
     
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +50,10 @@ open class NiblessFilterViewController: UIViewController {
     @available(*, unavailable)
     required public init?(coder aDecoder: NSCoder) {
         fatalError("Init is not implemented")
+    }
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     private func gta_setupBackground() {
