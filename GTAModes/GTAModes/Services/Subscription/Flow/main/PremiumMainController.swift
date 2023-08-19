@@ -7,7 +7,7 @@ enum PremiumMainControllerStyle {
 }
 
 protocol PremiumMainControllerDelegate_MEX: AnyObject {
-  func funcProductBuyed()
+    func funcProductBuyed()
 }
 
 class PremiumMainController: UIViewController {
@@ -285,26 +285,23 @@ class PremiumMainController: UIViewController {
     
     private func openApp(){
         if productBuy == .mainProduct {
-            // show main VC
-            //              let tabBarVC = LoadingBrownViewController()
-            //              let navVC = UINavigationController(rootViewController: tabBarVC)
-            //              navVC.setNavigationBarHidden(true, animated: false)
-            //              navVC.navigationBar.isHidden = true
+            gta_openMainFlow()
             
-            let flowCoordinator = GTAModes_MainFlowCoordinator()
-            
-            let controller = flowCoordinator.gta_createFlow()
-//            let navigation = UINavigationController(rootViewController: controller)
-//            navigation.setNavigationBarHidden(true, animated: false)
-
-            
-            UIApplication.shared.setRootVC(controller)
-            UIApplication.shared.notificationFeedbackGenerator(type: .success)
         } else {
             delegate?.funcProductBuyed()
             dismiss(animated: true)
             
+            
         }
+    }
+    
+    private func gta_openMainFlow() {
+        GTAModes_DBManager.shared.gta_setupDropBox()
+        let flowCoordinator = GTAModes_MainFlowCoordinator()
+        let controller = flowCoordinator.gta_createFlow()
+        
+        UIApplication.shared.setRootVC(controller)
+        UIApplication.shared.notificationFeedbackGenerator(type: .success)
     }
     
     private func showRestore(){
