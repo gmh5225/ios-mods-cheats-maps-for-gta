@@ -31,7 +31,14 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
         navigationItem.title = ""
         view.addSubview(tableView)
         tableView.backgroundColor = .clear
-        tableView.pinEdges(to: view)
+        view.addSubview(tableView)
+        tableView.backgroundColor = .clear
+        tableView.layout {
+            $0.top.equal(to: view.safeAreaLayoutGuide.topAnchor, offsetBy: 21.0)
+            $0.leading.equal(to: view.leadingAnchor)
+            $0.trailing.equal(to: view.trailingAnchor)
+            $0.bottom.equal(to: view.bottomAnchor)
+        }
         tableView.registerReusableCell(cellType: GTAModes_MainTableViewCell.self)
         tableView.rowHeight = 228.0
         tableView.delegate = self
