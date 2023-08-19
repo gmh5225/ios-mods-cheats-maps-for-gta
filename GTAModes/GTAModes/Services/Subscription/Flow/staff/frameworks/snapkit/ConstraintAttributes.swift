@@ -116,8 +116,8 @@ internal struct ConstraintAttributes : OptionSet, ExpressibleByIntegerLiteral {
     @available(iOS 8.0, *)
     internal static let centerWithinMargins: ConstraintAttributes = [.centerXWithinMargins, .centerYWithinMargins]
     
-    internal var layoutAttributes:[LayoutAttribute] {
-        var attrs = [LayoutAttribute]()
+    internal var layoutAttributes:[LayoutAttributeSub] {
+        var attrs = [LayoutAttributeSub]()
         if (self.contains(ConstraintAttributes.left)) {
             attrs.append(.left)
         }

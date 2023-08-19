@@ -6,6 +6,10 @@ enum PremiumMainControllerStyle {
     case mainProduct,unlockContentProduct,unlockFuncProduct,unlockOther
 }
 
+protocol PremiumMainControllerDelegate_MEX: AnyObject {
+  func funcProductBuyed()
+}
+
 class PremiumMainController: UIViewController {
     
     private var playerLayer : AVPlayerLayer!
@@ -19,7 +23,7 @@ class PremiumMainController: UIViewController {
     @IBOutlet weak var closeBtn: UIButton!
     
     public var productBuy : PremiumMainControllerStyle = .mainProduct
-    
+    weak var delegate: PremiumMainControllerDelegate_MEX?
     
     private var intScreenStatus = 0
     private var avPlayer: AVPlayer? = AVPlayer()
@@ -112,7 +116,7 @@ class PremiumMainController: UIViewController {
             loopVideoMB(videoPlayer: avPlayer)
         }
         addPlayerNotifications()
-}
+    }
     
     private func addPlayerNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidPlayToEnd), name: .AVPlayerItemDidPlayToEndTime, object: nil)
@@ -259,7 +263,7 @@ class PremiumMainController: UIViewController {
         freeform.bringSubviewToFront(self.viewTransaction)
         self.viewTransaction.inapp.productBuy = self.productBuy
         self.viewTransaction.snp.makeConstraints { make in
-//            make.height.equalTo(338)
+            //            make.height.equalTo(338)
             make.width.equalTo(freeform).multipliedBy(1)
             make.centerX.equalTo(freeform).multipliedBy(1)
             make.bottom.equalTo(freeform).offset(0)
@@ -280,9 +284,27 @@ class PremiumMainController: UIViewController {
     }
     
     private func openApp(){
-        let vc = MainAppController()
-        UIApplication.shared.setRootVC(vc)
-        UIApplication.shared.notificationFeedbackGenerator(type: .success)
+        if productBuy == .mainProduct {
+            // show main VC
+            //              let tabBarVC = LoadingBrownViewController()
+            //              let navVC = UINavigationController(rootViewController: tabBarVC)
+            //              navVC.setNavigationBarHidden(true, animated: false)
+            //              navVC.navigationBar.isHidden = true
+            
+            let flowCoordinator = GTAModes_MainFlowCoordinator()
+            
+            let controller = flowCoordinator.gta_createFlow()
+//            let navigation = UINavigationController(rootViewController: controller)
+//            navigation.setNavigationBarHidden(true, animated: false)
+
+            
+            UIApplication.shared.setRootVC(controller)
+            UIApplication.shared.notificationFeedbackGenerator(type: .success)
+        } else {
+            delegate?.funcProductBuyed()
+            dismiss(animated: true)
+            
+        }
     }
     
     private func showRestore(){
@@ -313,7 +335,7 @@ extension PremiumMainController : ReusableViewEvent {
             self.view1.fadeOut()
             self.viewTransaction.fadeIn()
             self.showRestore()
-//            self.viewTransaction.title.restartpageControl()
+            //            self.viewTransaction.title.restartpageControl()
             UIApplication.shared.impactFeedbackGenerator(type: .medium)
         case .transaction: break
         }

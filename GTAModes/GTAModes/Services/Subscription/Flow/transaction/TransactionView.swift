@@ -59,11 +59,11 @@ class TransactionView: UIView,AnimatedButtonEvent,IAPManagerProtocol, NetworkSta
                 heightView.constant = 163
             } else {
 //                sliderTop.constant = 60
-                heightView.constant = 152
+                heightView.constant = 153
             }
         } else {
             conteinerWidth.constant = 400
-            heightView.constant = 167
+            heightView.constant = 169
 //            sliderTop.constant = 45
         }
         contentView.fixInView(self)

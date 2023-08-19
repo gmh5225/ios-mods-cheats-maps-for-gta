@@ -60,6 +60,21 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_MainTableViewCell = tableView.dequeueReusableCell(indexPath)
+        if indexPath.row == 2 {
+            if IAPManager.shared.productBought.contains(.unlockFuncProduct) {
+                // убрать замок
+            } else {
+                //поставить замочек
+            }
+        }
+        
+        if indexPath.row == 3 {
+            if IAPManager.shared.productBought.contains(.unlockContentProduct) {
+                // убрать замок
+            } else {
+                //поставить замочек
+            }
+        }
         cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0)
         cell.backgroundColor = .clear
         
@@ -71,7 +86,38 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        model.gta_selectedItems(index: indexPath.row)
+        if indexPath.row == 2 {
+            if IAPManager.shared.productBought.contains(.unlockFuncProduct) {
+                model.gta_selectedItems(index: indexPath.row)
+            } else {
+                showSub(.unlockFuncProduct)
+            }
+        }
+        
+        if indexPath.row == 3 {
+            if IAPManager.shared.productBought.contains(.unlockContentProduct) {
+                model.gta_selectedItems(index: indexPath.row)
+            } else {
+                showSub(.unlockContentProduct)
+            }
+        }
+        
+        
+    }
+    
+    func showSub(_ premiumSub: PremiumMainControllerStyle) {
+        let withPremiumVC = PremiumMainController()
+        withPremiumVC.productBuy = premiumSub
+        withPremiumVC.delegate = self
+        navigationController?.present(withPremiumVC, animated: false)
+    }
+    
+}
+
+extension GTAModes_MainViewController: PremiumMainControllerDelegate_MEX {
+    
+    func funcProductBuyed() {
+        tableView.reloadData()
     }
     
 }

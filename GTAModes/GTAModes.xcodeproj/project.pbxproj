@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2C0DC3772A8FADF800A03F44 /* Pushwoosh in Frameworks */ = {isa = PBXBuildFile; productRef = 2C0DC3762A8FADF800A03F44 /* Pushwoosh */; };
-		2C19B9B82A8F84BE008CDFCF /* Adjust in Frameworks */ = {isa = PBXBuildFile; productRef = 2C19B9B72A8F84BE008CDFCF /* Adjust */; };
-		2C19B9BA2A8F84BE008CDFCF /* Criteo in Frameworks */ = {isa = PBXBuildFile; productRef = 2C19B9B92A8F84BE008CDFCF /* Criteo */; };
-		2C19B9BC2A8F84BE008CDFCF /* Sociomantic in Frameworks */ = {isa = PBXBuildFile; productRef = 2C19B9BB2A8F84BE008CDFCF /* Sociomantic */; };
-		2C19B9BE2A8F84BE008CDFCF /* Trademob in Frameworks */ = {isa = PBXBuildFile; productRef = 2C19B9BD2A8F84BE008CDFCF /* Trademob */; };
-		2C19B9C02A8F84BE008CDFCF /* WebBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 2C19B9BF2A8F84BE008CDFCF /* WebBridge */; };
 		2C19B9C32A8F8586008CDFCF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2C19B9C22A8F8586008CDFCF /* FirebaseAnalytics */; };
 		2C19B9C52A8F8586008CDFCF /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 2C19B9C42A8F8586008CDFCF /* FirebaseAnalyticsOnDeviceConversion */; };
 		2C19B9C72A8F8586008CDFCF /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C19B9C62A8F8586008CDFCF /* FirebaseAnalyticsSwift */; };
@@ -2460,6 +2455,13 @@
 		2CA95FF82A84D4210039343E /* CheatsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FF72A84D4210039343E /* CheatsObject.swift */; };
 		2CA95FFC2A8512470039343E /* MainItemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA95FFB2A8512470039343E /* MainItemObject.swift */; };
 		2CA960002A853F870039343E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2CA95FFF2A853F870039343E /* Kingfisher */; };
+		2CB88FD62A90CAC7006B9301 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB88FD52A90CAC7006B9301 /* NotificationService.swift */; };
+		2CB88FDA2A90CAC7006B9301 /* NotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2CB88FD32A90CAC7006B9301 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2CB88FE22A90D16B006B9301 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB88FE02A90D169006B9301 /* AdServices.framework */; };
+		2CB88FE32A90D16C006B9301 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB88FE12A90D16A006B9301 /* AdSupport.framework */; };
+		2CB88FE52A90D174006B9301 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB88FE42A90D174006B9301 /* AppTrackingTransparency.framework */; };
+		2CB88FE72A90D189006B9301 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB88FE62A90D188006B9301 /* iAd.framework */; };
+		2CB88FE92A90D19F006B9301 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB88FE82A90D19E006B9301 /* WebKit.framework */; };
 		2CBF47222A79151300A50257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A205B2A7170E3002A6D3C /* LaunchScreen.storyboard */; };
 		2CBF47242A79153200A50257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A20592A7170E3002A6D3C /* Assets.xcassets */; };
 		2CBFE4552A77E28400A50257 /* GTAModes_FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFE4542A77E28400A50257 /* GTAModes_FilterTableViewCell.swift */; };
@@ -2472,9 +2474,35 @@
 		2CDEBF032A82586500F976A3 /* GTAModes_DropBoxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEF62A82586500F976A3 /* GTAModes_DropBoxManager.swift */; };
 		2CDEBF042A82586500F976A3 /* GTAModes_DBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEF72A82586500F976A3 /* GTAModes_DBConstants.swift */; };
 		2CDEBF072A82F57100F976A3 /* GTAModes_CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBF062A82F57100F976A3 /* GTAModes_CustomNavigationView.swift */; };
+		B6086E5DA68400D2ABF2BB7A /* Pods_GTAModes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2E2352E0EAAE4846BA5952 /* Pods_GTAModes.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2CB88FD82A90CAC7006B9301 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C2A20452A7170E1002A6D3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CB88FD22A90CAC7006B9301;
+			remoteInfo = NotificationService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2CB88FDB2A90CAC7006B9301 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2CB88FDA2A90CAC7006B9301 /* NotificationService.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0C14A4FEA062255A39CFF41A /* Pods-GTAModes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTAModes.release.xcconfig"; path = "Target Support Files/Pods-GTAModes/Pods-GTAModes.release.xcconfig"; sourceTree = "<group>"; };
 		2C1CA3B02A8E70B200C89F79 /* ServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesManager.swift; sourceTree = "<group>"; };
 		2C1CA3B22A8E70B200C89F79 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		2C1CA3B32A8E70B200C89F79 /* phone.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = phone.mp4; sourceTree = "<group>"; };
@@ -4939,6 +4967,15 @@
 		2CA082F62A8D85E300585479 /* markers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = markers.png; sourceTree = "<group>"; };
 		2CA95FF72A84D4210039343E /* CheatsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatsObject.swift; sourceTree = "<group>"; };
 		2CA95FFB2A8512470039343E /* MainItemObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItemObject.swift; sourceTree = "<group>"; };
+		2CB88FD32A90CAC7006B9301 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CB88FD52A90CAC7006B9301 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		2CB88FD72A90CAC7006B9301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CB88FDF2A90CB9F006B9301 /* NotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationService.entitlements; sourceTree = "<group>"; };
+		2CB88FE02A90D169006B9301 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
+		2CB88FE12A90D16A006B9301 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		2CB88FE42A90D174006B9301 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
+		2CB88FE62A90D188006B9301 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		2CB88FE82A90D19E006B9301 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2CBFE4442A77BDD400A50257 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2CBFE4472A77BE0200A50257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CBFE44B2A77CEDA00A50257 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
@@ -4950,6 +4987,8 @@
 		2CDEBEF62A82586500F976A3 /* GTAModes_DropBoxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTAModes_DropBoxManager.swift; sourceTree = "<group>"; };
 		2CDEBEF72A82586500F976A3 /* GTAModes_DBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTAModes_DBConstants.swift; sourceTree = "<group>"; };
 		2CDEBF062A82F57100F976A3 /* GTAModes_CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_CustomNavigationView.swift; sourceTree = "<group>"; };
+		7F2E2352E0EAAE4846BA5952 /* Pods_GTAModes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTAModes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7040E287D44240A115BA20F /* Pods-GTAModes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTAModes.debug.xcconfig"; path = "Target Support Files/Pods-GTAModes/Pods-GTAModes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4960,8 +4999,10 @@
 				2C19B9F12A8F8586008CDFCF /* FirebaseRemoteConfig in Frameworks */,
 				2C19B9ED2A8F8586008CDFCF /* FirebaseMessaging in Frameworks */,
 				2C19B9D72A8F8586008CDFCF /* FirebaseDatabaseSwift in Frameworks */,
+				2CB88FE22A90D16B006B9301 /* AdServices.framework in Frameworks */,
 				2C19B9C92A8F8586008CDFCF /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				2C19B9E72A8F8586008CDFCF /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
+				2CB88FE32A90D16C006B9301 /* AdSupport.framework in Frameworks */,
 				2C0DC3772A8FADF800A03F44 /* Pushwoosh in Frameworks */,
 				2C19B9E52A8F8586008CDFCF /* FirebaseInAppMessaging-Beta in Frameworks */,
 				2C19B9C72A8F8586008CDFCF /* FirebaseAnalyticsSwift in Frameworks */,
@@ -4970,21 +5011,18 @@
 				2C19B9F32A8F8586008CDFCF /* FirebaseRemoteConfigSwift in Frameworks */,
 				2C19B9D12A8F8586008CDFCF /* FirebaseAuthCombine-Community in Frameworks */,
 				2C19B9D92A8F8586008CDFCF /* FirebaseDynamicLinks in Frameworks */,
-				2C19B9C02A8F84BE008CDFCF /* WebBridge in Frameworks */,
-				2C19B9B82A8F84BE008CDFCF /* Adjust in Frameworks */,
 				2C19B9CB2A8F8586008CDFCF /* FirebaseAppCheck in Frameworks */,
 				2C19B9E92A8F8586008CDFCF /* FirebaseInstallations in Frameworks */,
 				2C19B9DB2A8F8586008CDFCF /* FirebaseFirestore in Frameworks */,
 				2C19B9C52A8F8586008CDFCF /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				2C19B9F52A8F8586008CDFCF /* FirebaseStorage in Frameworks */,
-				2C19B9BC2A8F84BE008CDFCF /* Sociomantic in Frameworks */,
 				2CA960002A853F870039343E /* Kingfisher in Frameworks */,
+				2CB88FE52A90D174006B9301 /* AppTrackingTransparency.framework in Frameworks */,
 				2C1CA4742A8E720B00C89F79 /* StoreKit.framework in Frameworks */,
 				2C19B9DD2A8F8586008CDFCF /* FirebaseFirestoreCombine-Community in Frameworks */,
 				2C2A206F2A727E88002A6D3C /* RealmSwift in Frameworks */,
-				2C19B9BA2A8F84BE008CDFCF /* Criteo in Frameworks */,
 				2C19B9E12A8F8586008CDFCF /* FirebaseFunctions in Frameworks */,
-				2C19B9BE2A8F84BE008CDFCF /* Trademob in Frameworks */,
+				2CB88FE72A90D189006B9301 /* iAd.framework in Frameworks */,
 				2C19B9C32A8F8586008CDFCF /* FirebaseAnalytics in Frameworks */,
 				2C19B9D32A8F8586008CDFCF /* FirebaseCrashlytics in Frameworks */,
 				2C19B9E32A8F8586008CDFCF /* FirebaseFunctionsCombine-Community in Frameworks */,
@@ -4994,6 +5032,15 @@
 				2C19B9CF2A8F8586008CDFCF /* FirebaseAuth in Frameworks */,
 				2C19B9F72A8F8586008CDFCF /* FirebaseStorageCombine-Community in Frameworks */,
 				2C19B9DF2A8F8586008CDFCF /* FirebaseFirestoreSwift in Frameworks */,
+				2CB88FE92A90D19F006B9301 /* WebKit.framework in Frameworks */,
+				B6086E5DA68400D2ABF2BB7A /* Pods_GTAModes.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CB88FD02A90CAC7006B9301 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5221,8 +5268,10 @@
 			isa = PBXGroup;
 			children = (
 				2C2A204F2A7170E1002A6D3C /* GTAModes */,
+				2CB88FD42A90CAC7006B9301 /* NotificationService */,
 				2C2A204E2A7170E1002A6D3C /* Products */,
 				2CA95FFE2A853F870039343E /* Frameworks */,
+				A8B8353F472C526FEFD3CD98 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -5230,6 +5279,7 @@
 			isa = PBXGroup;
 			children = (
 				2C2A204D2A7170E1002A6D3C /* GTAModes.app */,
+				2CB88FD32A90CAC7006B9301 /* NotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -7775,9 +7825,25 @@
 		2CA95FFE2A853F870039343E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CB88FE82A90D19E006B9301 /* WebKit.framework */,
+				2CB88FE62A90D188006B9301 /* iAd.framework */,
+				2CB88FE42A90D174006B9301 /* AppTrackingTransparency.framework */,
+				2CB88FE02A90D169006B9301 /* AdServices.framework */,
+				2CB88FE12A90D16A006B9301 /* AdSupport.framework */,
 				2C1CA4732A8E720A00C89F79 /* StoreKit.framework */,
+				7F2E2352E0EAAE4846BA5952 /* Pods_GTAModes.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2CB88FD42A90CAC7006B9301 /* NotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				2CB88FDF2A90CB9F006B9301 /* NotificationService.entitlements */,
+				2CB88FD52A90CAC7006B9301 /* NotificationService.swift */,
+				2CB88FD72A90CAC7006B9301 /* Info.plist */,
+			);
+			path = NotificationService;
 			sourceTree = "<group>";
 		};
 		2CBFE4482A77CE6A00A50257 /* Fonts */ = {
@@ -7807,6 +7873,15 @@
 			path = CustomNavigation;
 			sourceTree = "<group>";
 		};
+		A8B8353F472C526FEFD3CD98 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7040E287D44240A115BA20F /* Pods-GTAModes.debug.xcconfig */,
+				0C14A4FEA062255A39CFF41A /* Pods-GTAModes.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -7814,24 +7889,23 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C2A20612A7170E3002A6D3C /* Build configuration list for PBXNativeTarget "GTAModes" */;
 			buildPhases = (
+				C9943C63DB79845544FD8197 /* [CP] Check Pods Manifest.lock */,
 				2C2A20492A7170E1002A6D3C /* Sources */,
 				2C2A204A2A7170E1002A6D3C /* Frameworks */,
 				2C2A204B2A7170E1002A6D3C /* Resources */,
+				FC145E48FE705635C75E491D /* [CP] Embed Pods Frameworks */,
+				2CB88FDB2A90CAC7006B9301 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2CB88FD92A90CAC7006B9301 /* PBXTargetDependency */,
 			);
 			name = GTAModes;
 			packageProductDependencies = (
 				2C2A206E2A727E88002A6D3C /* RealmSwift */,
 				2CDEBEDD2A80F1DD00F976A3 /* SwiftyDropbox */,
 				2CA95FFF2A853F870039343E /* Kingfisher */,
-				2C19B9B72A8F84BE008CDFCF /* Adjust */,
-				2C19B9B92A8F84BE008CDFCF /* Criteo */,
-				2C19B9BB2A8F84BE008CDFCF /* Sociomantic */,
-				2C19B9BD2A8F84BE008CDFCF /* Trademob */,
-				2C19B9BF2A8F84BE008CDFCF /* WebBridge */,
 				2C19B9C22A8F8586008CDFCF /* FirebaseAnalytics */,
 				2C19B9C42A8F8586008CDFCF /* FirebaseAnalyticsOnDeviceConversion */,
 				2C19B9C62A8F8586008CDFCF /* FirebaseAnalyticsSwift */,
@@ -7865,6 +7939,23 @@
 			productReference = 2C2A204D2A7170E1002A6D3C /* GTAModes.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2CB88FD22A90CAC7006B9301 /* NotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CB88FDE2A90CAC7006B9301 /* Build configuration list for PBXNativeTarget "NotificationService" */;
+			buildPhases = (
+				2CB88FCF2A90CAC7006B9301 /* Sources */,
+				2CB88FD02A90CAC7006B9301 /* Frameworks */,
+				2CB88FD12A90CAC7006B9301 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationService;
+			productName = NotificationService;
+			productReference = 2CB88FD32A90CAC7006B9301 /* NotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -7876,6 +7967,9 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					2C2A204C2A7170E1002A6D3C = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					2CB88FD22A90CAC7006B9301 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
@@ -7935,7 +8029,6 @@
 				2C2A206D2A727E88002A6D3C /* XCRemoteSwiftPackageReference "realm-swift" */,
 				2CDEBEDC2A80F1DD00F976A3 /* XCRemoteSwiftPackageReference "SwiftyDropbox" */,
 				2CA95FFD2A853D2B0039343E /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				2C19B9B62A8F84BE008CDFCF /* XCRemoteSwiftPackageReference "ios_sdk" */,
 				2C19B9C12A8F8586008CDFCF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2C0DC3752A8FADF800A03F44 /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */,
 			);
@@ -7944,6 +8037,7 @@
 			projectRoot = "";
 			targets = (
 				2C2A204C2A7170E1002A6D3C /* GTAModes */,
+				2CB88FD22A90CAC7006B9301 /* NotificationService */,
 			);
 		};
 /* End PBXProject section */
@@ -10294,7 +10388,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2CB88FD12A90CAC7006B9301 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C9943C63DB79845544FD8197 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GTAModes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC145E48FE705635C75E491D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GTAModes/Pods-GTAModes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GTAModes/Pods-GTAModes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GTAModes/Pods-GTAModes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C2A20492A7170E1002A6D3C /* Sources */ = {
@@ -10394,7 +10537,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2CB88FCF2A90CAC7006B9301 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CB88FD62A90CAC7006B9301 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2CB88FD92A90CAC7006B9301 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CB88FD22A90CAC7006B9301 /* NotificationService */;
+			targetProxy = 2CB88FD82A90CAC7006B9301 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2C1CA3B82A8E70B200C89F79 /* Localizable.strings */ = {
@@ -10574,7 +10733,9 @@
 		};
 		2C2A20622A7170E3002A6D3C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7040E287D44240A115BA20F /* Pods-GTAModes.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GTAModes/GTAModes.entitlements;
@@ -10611,7 +10772,9 @@
 		};
 		2C2A20632A7170E3002A6D3C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C14A4FEA062255A39CFF41A /* Pods-GTAModes.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GTAModes/GTAModes.entitlements;
@@ -10646,6 +10809,62 @@
 			};
 			name = Release;
 		};
+		2CB88FDC2A90CAC7006B9301 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationService/NotificationService.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WSL2HKX9YP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noname.digital.development.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2CB88FDD2A90CAC7006B9301 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationService/NotificationService.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WSL2HKX9YP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noname.digital.development.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -10667,20 +10886,21 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		2CB88FDE2A90CAC7006B9301 /* Build configuration list for PBXNativeTarget "NotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CB88FDC2A90CAC7006B9301 /* Debug */,
+				2CB88FDD2A90CAC7006B9301 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		2C0DC3752A8FADF800A03F44 /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Pushwoosh/Pushwoosh-XCFramework.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		2C19B9B62A8F84BE008CDFCF /* XCRemoteSwiftPackageReference "ios_sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/adjust/ios_sdk.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -10725,31 +10945,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C0DC3752A8FADF800A03F44 /* XCRemoteSwiftPackageReference "Pushwoosh-XCFramework" */;
 			productName = Pushwoosh;
-		};
-		2C19B9B72A8F84BE008CDFCF /* Adjust */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2C19B9B62A8F84BE008CDFCF /* XCRemoteSwiftPackageReference "ios_sdk" */;
-			productName = Adjust;
-		};
-		2C19B9B92A8F84BE008CDFCF /* Criteo */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2C19B9B62A8F84BE008CDFCF /* XCRemoteSwiftPackageReference "ios_sdk" */;
-			productName = Criteo;
-		};
-		2C19B9BB2A8F84BE008CDFCF /* Sociomantic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2C19B9B62A8F84BE008CDFCF /* XCRemoteSwiftPackageReference "ios_sdk" */;
-			productName = Sociomantic;
-		};
-		2C19B9BD2A8F84BE008CDFCF /* Trademob */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2C19B9B62A8F84BE008CDFCF /* XCRemoteSwiftPackageReference "ios_sdk" */;
-			productName = Trademob;
-		};
-		2C19B9BF2A8F84BE008CDFCF /* WebBridge */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2C19B9B62A8F84BE008CDFCF /* XCRemoteSwiftPackageReference "ios_sdk" */;
-			productName = WebBridge;
 		};
 		2C19B9C22A8F8586008CDFCF /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

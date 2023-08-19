@@ -2,8 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Template Template Template Template</string>
+	<key>PW_APP_GROUPS_NAME</key>
+	<string>group.com.noname.digital.development</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SFProText-Bold.ttf</string>
 		<string>Inter-Bold.ttf</string>
 		<string>Inter-Regular.ttf</string>
 	</array>
@@ -26,5 +31,7 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<key>Pushwoosh_APPID</key>
+	<string>22192-19DD0</string>
 </dict>
 </plist>
