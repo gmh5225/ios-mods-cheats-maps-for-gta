@@ -18,6 +18,7 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
     private let titleLabel = UILabel()
     private let bottomBlackView = UIView()
     private let rightImageView = UIImageView()
+    private let lockImageView = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.kingfisherManager = KingfisherManager.shared
@@ -32,12 +33,22 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func gta_configure(_ value: MainItem, fontSize: CGFloat) {
+    public func gta_configure(_ value: MainItem, fontSize: CGFloat, isLock: Bool) {
         titleLabel.text = value.title.uppercased()
         backgroundImageView.contentMode = .scaleAspectFill
         titleLabel.font = UIFont(name: "Inter-Bold", size: fontSize)
         titleLabel.textColor = .white
-        backgroundImageView.kf.setImage(with: URL(string: value.imagePath)) 
+        backgroundImageView.kf.setImage(with: URL(string: value.imagePath))
+        lockImageView.isHidden = !isLock
+        if isLock {
+            lockImageView.layout {
+                $0.width.equal(to: 32.0)
+            }
+        } else {
+            lockImageView.layout {
+                $0.width.equal(to: 0.0)
+            }
+        }
     }
     
     private func gta_setupLayout() {
@@ -76,10 +87,21 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
         
         bottomBlackView.backgroundColor = UIColor(named: "mainBlackColor")?.withAlphaComponent(0.5)
         
+        bottomBlackView.addSubview(lockImageView)
+        lockImageView.layout {
+            $0.bottom.equal(to: bottomBlackView.bottomAnchor, offsetBy: -12.0)
+            $0.leading.equal(to: bottomBlackView.leadingAnchor, offsetBy: 18.0)
+            $0.top.equal(to: bottomBlackView.topAnchor, offsetBy: 12.0)
+            $0.height.equal(to: 32.0)
+            $0.width.equal(to: 32.0)
+        }
+        lockImageView.image = UIImage(named: "lockIcon")
+        lockImageView.contentMode = .scaleAspectFill
+        
         bottomBlackView.addSubview(titleLabel)
         titleLabel.layout {
             $0.bottom.equal(to: bottomBlackView.bottomAnchor, offsetBy: -12.0)
-            $0.leading.equal(to: bottomBlackView.leadingAnchor, offsetBy: 18.0)
+            $0.leading.equal(to: lockImageView.trailingAnchor, offsetBy: 8.0)
             $0.top.equal(to: bottomBlackView.topAnchor, offsetBy: 12.0)
         }
         
@@ -93,6 +115,7 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
         }
         rightImageView.image = UIImage(named: "rightIcon")
         containerView.bringSubviewToFront(bottomBlackView)
+        
     }
     
 }

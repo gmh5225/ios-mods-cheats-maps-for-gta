@@ -90,22 +90,38 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_MainTableViewCell = tableView.dequeueReusableCell(indexPath)
+//        if indexPath.row == 2 {
+//            if IAPManager.shared.productBought.contains(.unlockFuncProduct) {
+//                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
+//            } else {
+//                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: true)
+//            }
+//        } else if indexPath.row == 3 {
+//            if IAPManager.shared.productBought.contains(.unlockContentProduct) {
+//                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
+//            } else {
+//                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: true)
+//            }
+//        } else {
+//            cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
+//        }
+        
         if indexPath.row == 2 {
-            if IAPManager.shared.productBought.contains(.unlockFuncProduct) {
-                // убрать замок
-            } else {
-                //поставить замочек
-            }
+//            if IAPManager.shared.productBought.contains(.unlockFuncProduct) {
+//                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
+//            } else {
+                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: true)
+//            }
+        } else if indexPath.row == 3 {
+//            if IAPManager.shared.productBought.contains(.unlockContentProduct) {
+//                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
+//            } else {
+                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: true)
+//            }
+        } else {
+            cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
         }
         
-        if indexPath.row == 3 {
-            if IAPManager.shared.productBought.contains(.unlockContentProduct) {
-                // убрать замок
-            } else {
-                //поставить замочек
-            }
-        }
-        cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0)
         cell.backgroundColor = .clear
         
         return cell

@@ -602,7 +602,6 @@ extension GTAModes_DBManager {
                 
                 if processedCount == list.count {
                     self?.configureDataPathModes(modes, trueImagePath: trueImagePath, completion: completion)
-//                    completion()
                 } else {
                     processNextImage(index: index + 1) // Process next image
                 }

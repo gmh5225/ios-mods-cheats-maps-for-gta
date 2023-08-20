@@ -73,7 +73,7 @@ extension GSViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: GTAModes_MainTableViewCell = tableView.dequeueReusableCell(indexPath)
-        cell.gta_configure(model.menuItems[indexPath.row], fontSize: 24.0)
+        cell.gta_configure(model.menuItems[indexPath.row], fontSize: 24.0, isLock: false)
         cell.backgroundColor = .clear
         return cell
     }
