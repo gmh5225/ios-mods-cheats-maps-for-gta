@@ -11,7 +11,7 @@ protocol DropBoxManagerDelegate: AnyObject {
     
 }
 
-final class GTAModes_DBManager : NSObject {
+final class GTAModes_DBManager: NSObject {
     
     // MARK: - Private properties
     

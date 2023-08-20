@@ -5285,9 +5285,10 @@
 		2C2A20692A717FE9002A6D3C /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
+				2C5CA6E42A924B83005F9D24 /* GameModes */,
 				2C45A5342A76A7200023B3A8 /* Map */,
 				2C45A5332A76A6880023B3A8 /* Checklist */,
-				2C45A5322A76A65D0023B3A8 /* GameModes */,
+				2C45A5322A76A65D0023B3A8 /* GameCheats */,
 				2C2A20BC2A756AB3002A6D3C /* GameSelection */,
 				2C2A20792A72907B002A6D3C /* MainView */,
 				2C2A20722A7285AA002A6D3C /* GTAModes_MainFlowCoordinator.swift */,
@@ -5361,14 +5362,14 @@
 			path = GameSelection;
 			sourceTree = "<group>";
 		};
-		2C45A5322A76A65D0023B3A8 /* GameModes */ = {
+		2C45A5322A76A65D0023B3A8 /* GameCheats */ = {
 			isa = PBXGroup;
 			children = (
 				2C7F39F02A7BF05D00F575F7 /* Views */,
 				2C45A5362A76A7550023B3A8 /* GTAModes_GameModesViewController.swift */,
 				2C45A5382A76A7620023B3A8 /* GTAModes_GameModesModel.swift */,
 			);
-			path = GameModes;
+			path = GameCheats;
 			sourceTree = "<group>";
 		};
 		2C45A5332A76A6880023B3A8 /* Checklist */ = {
@@ -5404,6 +5405,13 @@
 				2C45A5422A771A050023B3A8 /* GTAModes_ChecklistCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2C5CA6E42A924B83005F9D24 /* GameModes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GameModes;
 			sourceTree = "<group>";
 		};
 		2C7F39F02A7BF05D00F575F7 /* Views */ = {

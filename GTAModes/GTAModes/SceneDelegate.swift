@@ -28,12 +28,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func gta_showMainFlow(_ window: UIWindow) {
-        GTAModes_DBManager.shared.gta_setupDropBox()
         let flowCoordinator = GTAModes_MainFlowCoordinator()
         
         let controller = flowCoordinator.gta_createFlow()
         controller.modalPresentationStyle = .fullScreen
-        window.rootViewController = controller
+        
+        let navigation = UINavigationController(rootViewController: controller)
+        navigation.setNavigationBarHidden(true, animated: false)
+        window.rootViewController = navigation
         window.makeKeyAndVisible()
     }
     

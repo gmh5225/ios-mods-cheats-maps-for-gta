@@ -16,6 +16,7 @@ final class GameModesHeaderView: UITableViewHeaderFooterView, GTAModes_Reusable 
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
+        stackView.spacing = 8
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView

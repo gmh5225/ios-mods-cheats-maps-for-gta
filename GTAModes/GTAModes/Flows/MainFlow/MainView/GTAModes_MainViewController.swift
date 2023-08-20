@@ -13,6 +13,7 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
     private var subscriptions = Set<AnyCancellable>()
     private let model: GTAModes_MainModel
     private let tableView = UITableView(frame: .zero)
+    var alert: UIAlertController?
     
     init(model: GTAModes_MainModel) {
         self.model = model
@@ -23,6 +24,9 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if model.menuItems.isEmpty {
+            gta_showSpiner()
+        }
         gta_setupView()
         gta_setupBindings()
     }
@@ -47,11 +51,37 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
     
     private func gta_setupBindings() {
         model.reloadData
-          .sink { [weak self] in
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                guard let self = self else { return }
+                
+                self.tableView.reloadData()
+            }.store(in: &subscriptions)
+        
+        model.hideSpiner = { [weak self] in
             guard let self = self else { return }
             
             self.tableView.reloadData()
-          }.store(in: &subscriptions)
+            self.gta_hideSpiner()
+        }
+    }
+    
+    private func gta_showSpiner() {
+        alert = UIAlertController(title: nil, message: "Load Data", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = .medium
+        loadingIndicator.startAnimating()
+        
+        alert?.view.addSubview(loadingIndicator)
+        
+        present(alert!, animated: true, completion: nil)
+
+    }
+    
+    private func gta_hideSpiner() {
+        alert?.dismiss(animated: false)
     }
     
 }
@@ -88,17 +118,17 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         model.gta_selectedItems(index: indexPath.row)
         
-//        if indexPath.row == 2 {
-//            if IAPManager.shared.productBought.contains(.unlockFuncProduct) {
-//                model.gta_selectedItems(index: indexPath.row)
-//            } else if indexPath.row == 3 {
-//            if IAPManager.shared.productBought.contains(.unlockContentProduct) {
-//                model.gta_selectedItems(index: indexPath.row)
-//            } else {
-//                showSub(.unlockContentProduct)
-//            }
-//        }
-         
+        //        if indexPath.row == 2 {
+        //            if IAPManager.shared.productBought.contains(.unlockFuncProduct) {
+        //                model.gta_selectedItems(index: indexPath.row)
+        //            } else if indexPath.row == 3 {
+        //            if IAPManager.shared.productBought.contains(.unlockContentProduct) {
+        //                model.gta_selectedItems(index: indexPath.row)
+        //            } else {
+        //                showSub(.unlockContentProduct)
+        //            }
+        //        }
+        
     }
     
     func showSub(_ premiumSub: PremiumMainControllerStyle) {

@@ -299,8 +299,12 @@ class PremiumMainController: UIViewController {
         GTAModes_DBManager.shared.gta_setupDropBox()
         let flowCoordinator = GTAModes_MainFlowCoordinator()
         let controller = flowCoordinator.gta_createFlow()
+        controller.modalPresentationStyle = .fullScreen
         
-        UIApplication.shared.setRootVC(controller)
+        let navigation = UINavigationController(rootViewController: controller)
+        navigation.setNavigationBarHidden(true, animated: false)
+        
+        UIApplication.shared.setRootVC(navigation)
         UIApplication.shared.notificationFeedbackGenerator(type: .success)
     }
     
@@ -371,6 +375,3 @@ extension PremiumMainController : TransactionViewEvents {
         Configurations.termsLink.openURL()
     }
 }
-
-
-

@@ -14,10 +14,13 @@ protocol MainModelNavigationHandler: AnyObject {
     func mainModelDidRequestToGameSelection(_ model: GTAModes_MainModel)
     func mainModelDidRequestToChecklist(_ model: GTAModes_MainModel)
     func mainModelDidRequestToMap(_ model: GTAModes_MainModel)
+    func mainModelDidRequestToModes(_ model: GTAModes_MainModel)
     
 }
 
 final class GTAModes_MainModel {
+    
+    public var hideSpiner: (() -> Void)?
     
     var reloadData: AnyPublisher<Void, Never> {
         reloadDataSubject
@@ -36,10 +39,9 @@ final class GTAModes_MainModel {
         navigationHandler: MainModelNavigationHandler
     ) {
         self.navigationHandler = navigationHandler
-        gta_listenNetworkConnection()
-        if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, isLoadedData {
-            gta_fetchData()
-        }
+        
+        GTAModes_DBManager.shared.delegate = self
+        GTAModes_DBManager.shared.gta_setupDropBox()
     }
     
     public func gta_selectedItems(index: Int) {
@@ -54,10 +56,14 @@ final class GTAModes_MainModel {
         if index == 2 {
             navigationHandler.mainModelDidRequestToMap(self)
         }
+        
+        if index == 3 {
+            navigationHandler.mainModelDidRequestToModes(self)
+        }
     }
 
     func gta_fetchData() {
-        if menuItems.count != 3 {
+        if menuItems.count != 4 {
             do {
                 let realm = try Realm()
                 let menuItem = realm.objects(MainItemObject.self)
@@ -70,28 +76,13 @@ final class GTAModes_MainModel {
                     self.menuItems.append(value)
                 }
                 reloadDataSubject.send()
+                hideSpiner?()
             } catch {
                 print("Error saving data to Realm: \(error)")
             }
         }
     }
     
-    private func gta_listenNetworkConnection() {
-        guard let statusInternet = reachability?.networkReachabilityStatus else { return }
-        switch statusInternet {
-        case .notReachable:
-            print("NOT INTERNET")
-        case .reachable(_, _):
-            print("YESSSS INTERNET")
-        case .unknown:
-            print("WTF INTERNET")
-        }
-        
-        reachability?.listener = { [weak self] status in
-            print(status)
-        }
-        reachability?.gta_startListening()
-    }
 }
 
 extension GTAModes_MainModel: DropBoxManagerDelegate {
