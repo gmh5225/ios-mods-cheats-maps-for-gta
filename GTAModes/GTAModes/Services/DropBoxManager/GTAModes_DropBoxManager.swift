@@ -247,14 +247,13 @@ private extension GTAModes_DBManager {
                             print("============== VC ALL OK =================")
                             self?.fetchGTASACodes { [weak self] in
                                 print("============== SA ALL OK =================")
-                                
                                 self?.fetchMissions { [weak self] in
-                                    print("============== ALL OK ALL OK ALL OK =================")
-                                    self?.delegate?.gta_isReadyAllContent()
-                                    self?.defaults.set(true, forKey: "dataDidLoaded")
+                                    self?.fetchGTA5Mods { [weak self] in
+                                        print("============== ALL OK ALL OK ALL OK =================")
+                                        self?.delegate?.gta_isReadyAllContent()
+                                        self?.defaults.set(true, forKey: "dataDidLoaded")
+                                    }
                                 }
-                                
-                                
                             }
                         }
                     }
@@ -535,6 +534,36 @@ extension GTAModes_DBManager {
                                     decodedData.task
                                 ]
                                 self.saveMissionsToRealm(allMissionCategories)
+                                completion()
+                            } catch {
+                                completion()
+                                print("Error decoding JSON: \(error)")
+                            }
+                        } else {
+                            completion()
+                            print(error?.description)
+                        }
+                    })
+            } else {
+                completion()
+                let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
+            }
+        }
+    }
+    
+    func fetchGTA5Mods(completion: @escaping () -> (Void)) {
+        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+            guard let self = self else { return }
+            
+            if validator {
+                self.client?.files.download(path: DBKeys.Path.modsGTA5List.rawValue)
+                    .response(completionHandler: { responce, error in
+                        if let data = responce?.1 {
+                            do {
+                                let decoder = JSONDecoder()
+                                let decodedData = try decoder.decode(GTA5Mods.self, from: data)
+                                print(decodedData.GTA5)
+                                
                                 completion()
                             } catch {
                                 completion()

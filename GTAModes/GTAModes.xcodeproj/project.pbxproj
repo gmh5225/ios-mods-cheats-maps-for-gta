@@ -102,6 +102,7 @@
 		2C51E73A2A8BD5590077C421 /* MissionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51E7392A8BD5590077C421 /* MissionObject.swift */; };
 		2C5CA6E62A924D78005F9D24 /* GTA_GameModesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5CA6E52A924D78005F9D24 /* GTA_GameModesViewController.swift */; };
 		2C5CA6E82A924DFC005F9D24 /* GTAModes_GameModesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5CA6E72A924DFC005F9D24 /* GTAModes_GameModesModel.swift */; };
+		2C5CA6EA2A92514D005F9D24 /* ModObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5CA6E92A92514D005F9D24 /* ModObject.swift */; };
 		2C685A522A8E0BFB0078CFFD /* 0-1_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685A492A8E0BFA0078CFFD /* 0-1_3.png */; };
 		2C685A532A8E0BFB0078CFFD /* 1-0_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685A4A2A8E0BFA0078CFFD /* 1-0_3.png */; };
 		2C685A542A8E0BFB0078CFFD /* 1-2_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685A4B2A8E0BFA0078CFFD /* 1-2_3.png */; };
@@ -2618,6 +2619,7 @@
 		2C51E7392A8BD5590077C421 /* MissionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionObject.swift; sourceTree = "<group>"; };
 		2C5CA6E52A924D78005F9D24 /* GTA_GameModesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTA_GameModesViewController.swift; sourceTree = "<group>"; };
 		2C5CA6E72A924DFC005F9D24 /* GTAModes_GameModesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_GameModesModel.swift; sourceTree = "<group>"; };
+		2C5CA6E92A92514D005F9D24 /* ModObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModObject.swift; sourceTree = "<group>"; };
 		2C685A492A8E0BFA0078CFFD /* 0-1_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-1_3.png"; sourceTree = "<group>"; };
 		2C685A4A2A8E0BFA0078CFFD /* 1-0_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-0_3.png"; sourceTree = "<group>"; };
 		2C685A4B2A8E0BFA0078CFFD /* 1-2_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-2_3.png"; sourceTree = "<group>"; };
@@ -7783,6 +7785,7 @@
 				2CA95FF72A84D4210039343E /* CheatsObject.swift */,
 				2CA95FFB2A8512470039343E /* MainItemObject.swift */,
 				2C51E7392A8BD5590077C421 /* MissionObject.swift */,
+				2C5CA6E92A92514D005F9D24 /* ModObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -10395,6 +10398,7 @@
 				2CBFE4552A77E28400A50257 /* GTAModes_FilterTableViewCell.swift in Sources */,
 				2C45A5402A76A7A50023B3A8 /* GTAModes_FilterViewController.swift in Sources */,
 				2C1CA43A2A8E70B200C89F79 /* PageControll.swift in Sources */,
+				2C5CA6EA2A92514D005F9D24 /* ModObject.swift in Sources */,
 				2CA082EF2A8D152000585479 /* GTAModes_Reachability.swift in Sources */,
 				2C5CA6E82A924DFC005F9D24 /* GTAModes_GameModesModel.swift in Sources */,
 				2C1CA4542A8E70B200C89F79 /* UILayoutSupport+Extensions.swift in Sources */,
