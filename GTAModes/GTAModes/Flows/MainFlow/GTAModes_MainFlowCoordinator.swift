@@ -33,7 +33,8 @@ extension GTAModes_MainFlowCoordinator: MainModelNavigationHandler {
     
     func mainModelDidRequestToModes(_ model: GTAModes_MainModel) {
         let model = GTAModes_GameModesModel(versionGame: "gameVersion", navigationHandler: self as GameModesModelNavigationHandler)
-        let controller = GTAModes_GameModesViewController(model: model)
+        let controller = GTA_GameModesViewController(model: model)
+        presentedViewController = controller
         rootViewController?.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -69,8 +70,8 @@ extension GTAModes_MainFlowCoordinator: GSModelNavigationHandler {
     
     
     func gsModelDidRequestToGameModes(_ model: GSModel, gameVersion: String) {
-        let model = GTAModes_GameModesModel(versionGame: gameVersion, navigationHandler: self as GameModesModelNavigationHandler)
-        let controller = GTAModes_GameModesViewController(model: model)
+        let model = GTAModes_GameCheatsModel(versionGame: gameVersion, navigationHandler: self as GameCheatsModelNavigationHandler)
+        let controller = GTAModes_GameCheatsViewController(model: model)
         presentedViewController?.navigationController?.pushViewController(controller, animated: true)
     }
 
@@ -100,15 +101,15 @@ extension GTAModes_MainFlowCoordinator: ChecklistModelNavigationHandler {
     
 }
 
-extension GTAModes_MainFlowCoordinator: GameModesModelNavigationHandler {
+extension GTAModes_MainFlowCoordinator: GameCheatsModelNavigationHandler {
     
-    func gameModesModelDidRequestToBack(_ model: GTAModes_GameModesModel) {
+    func gameModesModelDidRequestToBack(_ model: GTAModes_GameCheatsModel) {
         presentedViewController?.navigationController?.popViewController(animated: true)
     }
     
     
     func gameModesModelDidRequestToFilter(
-        _ model: GTAModes_GameModesModel,
+        _ model: GTAModes_GameCheatsModel,
         filterListData: FilterListData,
         selectedFilter: @escaping (String) -> ()
     ) {
@@ -137,4 +138,22 @@ extension GTAModes_MainFlowCoordinator: MapNavigationHandler {
     func mapDidRequestToBack() {
         presentedViewController?.navigationController?.popViewController(animated: true)
     }
+}
+
+extension GTAModes_MainFlowCoordinator: GameModesModelNavigationHandler {
+    
+    func gameModesModelDidRequestToFilter(_ model: GTAModes_GameModesModel, filterListData: FilterListData, selectedFilter: @escaping (String) -> ()) {
+        let controller = GTAModes_FilterViewController(
+            filterListData: filterListData,
+            selectedFilter: selectedFilter,
+            navigationHandler: self as FilterNavigationHandler
+        )
+        presentedViewController?.gta_presentPan(controller)
+        panPresentedViewController = controller
+    }
+    
+    func gameModesModelDidRequestToBack(_ model: GTAModes_GameModesModel) {
+        presentedViewController?.navigationController?.popViewController(animated: true)
+    }
+    
 }

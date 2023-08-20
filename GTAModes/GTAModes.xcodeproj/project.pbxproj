@@ -91,8 +91,8 @@
 		2C2A20C02A756AE0002A6D3C /* GSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20BF2A756AE0002A6D3C /* GSModel.swift */; };
 		2C3C53282A7BB01300D019A1 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CBFE44B2A77CEDA00A50257 /* Inter-Bold.ttf */; };
 		2C3C53292A7BB01F00D019A1 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CBFE44C2A77CEDA00A50257 /* Inter-Regular.ttf */; };
-		2C45A5372A76A7550023B3A8 /* GTAModes_GameModesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5362A76A7550023B3A8 /* GTAModes_GameModesViewController.swift */; };
-		2C45A5392A76A7620023B3A8 /* GTAModes_GameModesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5382A76A7620023B3A8 /* GTAModes_GameModesModel.swift */; };
+		2C45A5372A76A7550023B3A8 /* GTAModes_GameCheatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5362A76A7550023B3A8 /* GTAModes_GameCheatsViewController.swift */; };
+		2C45A5392A76A7620023B3A8 /* GTAModes_GameCheatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A5382A76A7620023B3A8 /* GTAModes_GameCheatsModel.swift */; };
 		2C45A53B2A76A7780023B3A8 /* GTAModes_ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A53A2A76A7780023B3A8 /* GTAModes_ChecklistViewController.swift */; };
 		2C45A53D2A76A7800023B3A8 /* GTAModes_ChecklistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A53C2A76A7800023B3A8 /* GTAModes_ChecklistModel.swift */; };
 		2C45A5402A76A7A50023B3A8 /* GTAModes_FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45A53F2A76A7A50023B3A8 /* GTAModes_FilterViewController.swift */; };
@@ -100,6 +100,8 @@
 		2C51E7362A8BA9570077C421 /* GTAModes_SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51E7352A8BA9570077C421 /* GTAModes_SearchBar.swift */; };
 		2C51E7382A8BB19E0077C421 /* GTAModes_SearchBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51E7372A8BB19E0077C421 /* GTAModes_SearchBarViewModel.swift */; };
 		2C51E73A2A8BD5590077C421 /* MissionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51E7392A8BD5590077C421 /* MissionObject.swift */; };
+		2C5CA6E62A924D78005F9D24 /* GTA_GameModesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5CA6E52A924D78005F9D24 /* GTA_GameModesViewController.swift */; };
+		2C5CA6E82A924DFC005F9D24 /* GTAModes_GameModesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5CA6E72A924DFC005F9D24 /* GTAModes_GameModesModel.swift */; };
 		2C685A522A8E0BFB0078CFFD /* 0-1_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685A492A8E0BFA0078CFFD /* 0-1_3.png */; };
 		2C685A532A8E0BFB0078CFFD /* 1-0_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685A4A2A8E0BFA0078CFFD /* 1-0_3.png */; };
 		2C685A542A8E0BFB0078CFFD /* 1-2_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C685A4B2A8E0BFA0078CFFD /* 1-2_3.png */; };
@@ -2605,8 +2607,8 @@
 		2C2A20BA2A755AFA002A6D3C /* GTAModes_Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_Autolayout.swift; sourceTree = "<group>"; };
 		2C2A20BD2A756AD4002A6D3C /* GSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSViewController.swift; sourceTree = "<group>"; };
 		2C2A20BF2A756AE0002A6D3C /* GSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSModel.swift; sourceTree = "<group>"; };
-		2C45A5362A76A7550023B3A8 /* GTAModes_GameModesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_GameModesViewController.swift; sourceTree = "<group>"; };
-		2C45A5382A76A7620023B3A8 /* GTAModes_GameModesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_GameModesModel.swift; sourceTree = "<group>"; };
+		2C45A5362A76A7550023B3A8 /* GTAModes_GameCheatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_GameCheatsViewController.swift; sourceTree = "<group>"; };
+		2C45A5382A76A7620023B3A8 /* GTAModes_GameCheatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_GameCheatsModel.swift; sourceTree = "<group>"; };
 		2C45A53A2A76A7780023B3A8 /* GTAModes_ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_ChecklistViewController.swift; sourceTree = "<group>"; };
 		2C45A53C2A76A7800023B3A8 /* GTAModes_ChecklistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_ChecklistModel.swift; sourceTree = "<group>"; };
 		2C45A53F2A76A7A50023B3A8 /* GTAModes_FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_FilterViewController.swift; sourceTree = "<group>"; };
@@ -2614,6 +2616,8 @@
 		2C51E7352A8BA9570077C421 /* GTAModes_SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_SearchBar.swift; sourceTree = "<group>"; };
 		2C51E7372A8BB19E0077C421 /* GTAModes_SearchBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_SearchBarViewModel.swift; sourceTree = "<group>"; };
 		2C51E7392A8BD5590077C421 /* MissionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionObject.swift; sourceTree = "<group>"; };
+		2C5CA6E52A924D78005F9D24 /* GTA_GameModesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTA_GameModesViewController.swift; sourceTree = "<group>"; };
+		2C5CA6E72A924DFC005F9D24 /* GTAModes_GameModesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_GameModesModel.swift; sourceTree = "<group>"; };
 		2C685A492A8E0BFA0078CFFD /* 0-1_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-1_3.png"; sourceTree = "<group>"; };
 		2C685A4A2A8E0BFA0078CFFD /* 1-0_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-0_3.png"; sourceTree = "<group>"; };
 		2C685A4B2A8E0BFA0078CFFD /* 1-2_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-2_3.png"; sourceTree = "<group>"; };
@@ -5366,8 +5370,8 @@
 			isa = PBXGroup;
 			children = (
 				2C7F39F02A7BF05D00F575F7 /* Views */,
-				2C45A5362A76A7550023B3A8 /* GTAModes_GameModesViewController.swift */,
-				2C45A5382A76A7620023B3A8 /* GTAModes_GameModesModel.swift */,
+				2C45A5362A76A7550023B3A8 /* GTAModes_GameCheatsViewController.swift */,
+				2C45A5382A76A7620023B3A8 /* GTAModes_GameCheatsModel.swift */,
 			);
 			path = GameCheats;
 			sourceTree = "<group>";
@@ -5410,6 +5414,8 @@
 		2C5CA6E42A924B83005F9D24 /* GameModes */ = {
 			isa = PBXGroup;
 			children = (
+				2C5CA6E52A924D78005F9D24 /* GTA_GameModesViewController.swift */,
+				2C5CA6E72A924DFC005F9D24 /* GTAModes_GameModesModel.swift */,
 			);
 			path = GameModes;
 			sourceTree = "<group>";
@@ -10390,16 +10396,17 @@
 				2C45A5402A76A7A50023B3A8 /* GTAModes_FilterViewController.swift in Sources */,
 				2C1CA43A2A8E70B200C89F79 /* PageControll.swift in Sources */,
 				2CA082EF2A8D152000585479 /* GTAModes_Reachability.swift in Sources */,
+				2C5CA6E82A924DFC005F9D24 /* GTAModes_GameModesModel.swift in Sources */,
 				2C1CA4542A8E70B200C89F79 /* UILayoutSupport+Extensions.swift in Sources */,
 				2C1CA43C2A8E70B200C89F79 /* AnimatedButton.swift in Sources */,
 				2C1CA45A2A8E70B200C89F79 /* ConstraintOffsetTarget.swift in Sources */,
-				2C45A5392A76A7620023B3A8 /* GTAModes_GameModesModel.swift in Sources */,
+				2C45A5392A76A7620023B3A8 /* GTAModes_GameCheatsModel.swift in Sources */,
 				2C2A20B72A7551E8002A6D3C /* GTAModes_MainTableViewCell.swift in Sources */,
 				2C1CA4452A8E70B200C89F79 /* LayoutConstraintItem.swift in Sources */,
 				2C45A5432A771A050023B3A8 /* GTAModes_ChecklistCell.swift in Sources */,
 				2C1CA44F2A8E70B200C89F79 /* ConstraintPriority.swift in Sources */,
 				2C1CA4592A8E70B200C89F79 /* ConstraintConstantTarget.swift in Sources */,
-				2C45A5372A76A7550023B3A8 /* GTAModes_GameModesViewController.swift in Sources */,
+				2C45A5372A76A7550023B3A8 /* GTAModes_GameCheatsViewController.swift in Sources */,
 				2C1CA44B2A8E70B200C89F79 /* ConstraintInsets.swift in Sources */,
 				2C1CA4622A8E70B200C89F79 /* Debugging.swift in Sources */,
 				2CDEBF072A82F57100F976A3 /* GTAModes_CustomNavigationView.swift in Sources */,
@@ -10430,6 +10437,7 @@
 				2C1CA4422A8E70B200C89F79 /* SwiftyGifManager.swift in Sources */,
 				2C1CA46B2A8E70B200C89F79 /* ReusableCell.swift in Sources */,
 				2C1CA45C2A8E70B200C89F79 /* ConstraintMaker.swift in Sources */,
+				2C5CA6E62A924D78005F9D24 /* GTA_GameModesViewController.swift in Sources */,
 				2C1CA4552A8E70B200C89F79 /* ConstraintView.swift in Sources */,
 				2C51E73A2A8BD5590077C421 /* MissionObject.swift in Sources */,
 				2C1CA4662A8E70B200C89F79 /* ConstraintDirectionalInsets.swift in Sources */,

@@ -8,16 +8,16 @@
 import UIKit
 import Combine
 
-class GTAModes_GameModesViewController: GTAModes_NiblessViewController {
+class GTAModes_GameCheatsViewController: GTAModes_NiblessViewController {
     
     private var subscriptions = Set<AnyCancellable>()
-    private let model: GTAModes_GameModesModel
+    private let model: GTAModes_GameCheatsModel
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private let customNavigation: GTAModes_CustomNavigationView
     private let searchContainer = UIView()
     private var searchBar: GTAModes_SearchBar?
     
-    init(model: GTAModes_GameModesModel) {
+    init(model: GTAModes_GameCheatsModel) {
         self.model = model
         self.customNavigation = GTAModes_CustomNavigationView(.gameModes, titleString: model.title)
         
@@ -115,7 +115,7 @@ class GTAModes_GameModesViewController: GTAModes_NiblessViewController {
     
 }
 
-extension GTAModes_GameModesViewController: UITableViewDataSource {
+extension GTAModes_GameCheatsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_GameModesTableViewCell = tableView.dequeueReusableCell(indexPath)
@@ -130,7 +130,7 @@ extension GTAModes_GameModesViewController: UITableViewDataSource {
     
 }
 
-extension GTAModes_GameModesViewController: UITableViewDelegate {
+extension GTAModes_GameCheatsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(viewType: GameModesHeaderView.self)
@@ -144,14 +144,6 @@ extension GTAModes_GameModesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         model.gta_actionAt(index: indexPath.row)
-    }
-    
-}
-
-final class GameModesSearchViewModel: GTAModes_SearchBarViewModelApplicable {
-    
-    var showsCancelButton: Bool {
-        false
     }
     
 }

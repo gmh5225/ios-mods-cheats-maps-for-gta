@@ -1,30 +1,14 @@
 //
-//  GameModesModel.swift
+//  GTAModes_GameModesModel.swift
 //  GTAModes
 //
-//  Created by Максим Педько on 30.07.2023.
+//  Created by Максим Педько on 20.08.2023.
 //
 
 import Foundation
 import RealmSwift
 import Combine
 import UIKit
-
-public enum CheatsType: CaseIterable {
-    case ps, xbox, pc, favorite
-}
-
-public struct FilterListData {
-    
-    public let filterList: [String]
-    public let selectedItem: String
-    
-    init(filterList: [String], selectedItem: String) {
-        self.filterList = filterList
-        self.selectedItem = selectedItem
-    }
-    
-}
 
 protocol GameModesModelNavigationHandler: AnyObject {
     
@@ -174,3 +158,4 @@ final class GTAModes_GameModesModel {
     }
     
 }
+
