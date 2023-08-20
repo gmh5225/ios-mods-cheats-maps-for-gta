@@ -74,15 +74,15 @@ final class GTAModes_DBManager: NSObject {
     }
     
     
-//    func getFileUrl(path: String, completion: @escaping (String?) -> ()){
-//        self.client?.files.getTemporaryLink(path: "/\(path)").response(completionHandler: { responce, error in
-//            if let link = responce {
-//                completion(link.link)
-//            } else {
-//                completion(nil)
-//            }
-//        })
-//    }
+    func gta_getFileUrl(path: String, completion: @escaping (String?) -> ()){
+        self.client?.files.getTemporaryLink(path: path).response(completionHandler: { responce, error in
+            if let link = responce {
+                completion(link.link)
+            } else {
+                completion(nil)
+            }
+        })
+    }
     
 //
 //    func downloadFileBy(urlPath: URL, completion: @escaping (String?, Error?) -> Void) {
@@ -557,14 +557,15 @@ extension GTAModes_DBManager {
             
             if validator {
                 self.client?.files.download(path: DBKeys.Path.modsGTA5List.rawValue)
-                    .response(completionHandler: { responce, error in
+                    .response(completionHandler: { [weak self] responce, error in
+                        guard let self = self else { return }
+                        
                         if let data = responce?.1 {
                             do {
                                 let decoder = JSONDecoder()
                                 let decodedData = try decoder.decode(GTA5Mods.self, from: data)
-                                print(decodedData.GTA5)
+                                self.configureModes(decodedData.GTA5["mods"] ?? [], completion: completion)
                                 
-                                completion()
                             } catch {
                                 completion()
                                 print("Error decoding JSON: \(error)")
@@ -578,6 +579,88 @@ extension GTAModes_DBManager {
                 completion()
                 let tempError = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Unauthorized error"])
             }
+        }
+    }
+    
+    func configureModes(_ modes: [ModParser], completion: @escaping () -> Void) {
+        let list = modes.map { $0.image }
+        
+        var trueImagePath: [String] = []
+        var processedCount = 0
+        
+        func processNextImage(index: Int) {
+            guard index < list.count else {
+                // All images have been processed, call completion
+                self.configureDataPathModes(modes, trueImagePath: trueImagePath, completion: completion)
+                return
+            }
+            
+            let path = list[index]
+            gta_getImageUrl(img: "/mods/" + path) { [weak self] truePath in
+                processedCount += 1
+                trueImagePath.append(truePath ?? "")
+                
+                if processedCount == list.count {
+                    self?.configureDataPathModes(modes, trueImagePath: trueImagePath, completion: completion)
+//                    completion()
+                } else {
+                    processNextImage(index: index + 1) // Process next image
+                }
+            }
+        }
+        
+        // Start processing the first image
+        processNextImage(index: 0)
+    }
+    
+    func configureDataPathModes(_ modes: [ModParser], trueImagePath: [String], completion: @escaping () -> Void) {
+        let list = modes.map { $0.mod }
+        
+        var trueDataPath: [String] = []
+        var processedCount = 0
+        
+        func processNextImage(index: Int) {
+            guard index < list.count else {
+                // All images have been processed, call completion
+                self.saveModesToRealm(modes, trueImagePath: trueImagePath, trueDataPath: trueDataPath)
+                completion()
+                return
+            }
+            
+            let path = list[index]
+            gta_getFileUrl(path: "/mods/" + path) { [weak self] truePath in
+                processedCount += 1
+                trueDataPath.append(truePath ?? "")
+                
+                if processedCount == list.count {
+                    self?.saveModesToRealm(modes, trueImagePath: trueImagePath, trueDataPath: trueDataPath)
+                    completion()
+                } else {
+                    processNextImage(index: index + 1) // Process next image
+                }
+            }
+        }
+        
+        // Start processing the first image
+        processNextImage(index: 0)
+    }
+    
+    func saveModesToRealm(_ modes: [ModParser], trueImagePath: [String], trueDataPath: [String]) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                for (index, item) in modes.enumerated() {
+                    let modItemObject = ModObject(
+                        titleMod: item.title,
+                        descriptionMod: item.description,
+                        imagePath: trueImagePath[index].isEmpty ? item.image : trueImagePath[index]  ,
+                        modPath: trueDataPath[index].isEmpty ? item.mod : trueDataPath[index] ,
+                        filterTitle: item.filterTitle)
+                    realm.add(modItemObject)
+                }
+            }
+        } catch {
+            print("Error saving data to Realm: \(error)")
         }
     }
     
