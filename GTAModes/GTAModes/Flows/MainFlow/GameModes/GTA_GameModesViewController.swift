@@ -118,7 +118,17 @@ extension GTA_GameModesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_GameModesTableViewCell = tableView.dequeueReusableCell(indexPath)
         cell.gameMode_configure_cell(model.modeItems[indexPath.row])
+        cell.tableView = tableView
         cell.backgroundColor = .clear
+        
+        cell.downloadAction = {
+            print("DOWNLOAD")
+        }
+        
+        cell.shareAction = {
+            print("shareAction")
+        }
+        
         return cell
     }
     
