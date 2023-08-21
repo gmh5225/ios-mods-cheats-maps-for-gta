@@ -8,10 +8,7 @@
 import Foundation
 import UIKit
 
-import Foundation
-import UIKit
-
-final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable {
+final class GTAModes_GameCheatsTableViewCell: UITableViewCell, GTAModes_Reusable {
     
     private let containerView = UIView()
     private let titleLabel = UILabel()

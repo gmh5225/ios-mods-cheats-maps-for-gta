@@ -32,7 +32,7 @@ final class GTAModes_MainFlowCoordinator: NSObject, GTAModes_FlowCoordinator {
 extension GTAModes_MainFlowCoordinator: MainModelNavigationHandler {
     
     func mainModelDidRequestToModes(_ model: GTAModes_MainModel) {
-        let model = GTAModes_GameModesModel(versionGame: "gameVersion", navigationHandler: self as GameModesModelNavigationHandler)
+        let model = GTAModes_GameModesModel(navigationHandler: self as GameModesModelNavigationHandler)
         let controller = GTA_GameModesViewController(model: model)
         presentedViewController = controller
         rootViewController?.navigationController?.pushViewController(controller, animated: true)

@@ -67,9 +67,7 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
             $0.trailing.equal(to: view.trailingAnchor)
             $0.bottom.equal(to: view.bottomAnchor)
         }
-        tableView.sectionHeaderHeight = 140.0
         tableView.registerReusableCell(cellType: GTAModes_GameModesTableViewCell.self)
-        tableView.registerReusableHeaderFooterView(viewType: GameModesHeaderView.self)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 96.0
         tableView.keyboardDismissMode = .onDrag
@@ -119,27 +117,18 @@ extension GTA_GameModesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_GameModesTableViewCell = tableView.dequeueReusableCell(indexPath)
-        cell.gameMode_configure_cell(model.cheatItems[indexPath.row])
+        cell.gameMode_configure_cell(model.modeItems[indexPath.row])
         cell.backgroundColor = .clear
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        model.cheatItems.count
+        model.modeItems.count
     }
     
 }
 
 extension GTA_GameModesViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(viewType: GameModesHeaderView.self)
-        headerView?.actionButton = { [weak self] index in
-            self?.model.gta_showCheats(CheatsType.allCases[index])
-        }
-        
-        return headerView
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

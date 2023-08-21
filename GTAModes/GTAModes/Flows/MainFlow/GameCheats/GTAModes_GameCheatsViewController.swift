@@ -68,7 +68,7 @@ class GTAModes_GameCheatsViewController: GTAModes_NiblessViewController {
             $0.bottom.equal(to: view.bottomAnchor)
         }
         tableView.sectionHeaderHeight = 140.0
-        tableView.registerReusableCell(cellType: GTAModes_GameModesTableViewCell.self)
+        tableView.registerReusableCell(cellType: GTAModes_GameCheatsTableViewCell.self)
         tableView.registerReusableHeaderFooterView(viewType: GameModesHeaderView.self)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 96.0
@@ -118,7 +118,7 @@ class GTAModes_GameCheatsViewController: GTAModes_NiblessViewController {
 extension GTAModes_GameCheatsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: GTAModes_GameModesTableViewCell = tableView.dequeueReusableCell(indexPath)
+        let cell: GTAModes_GameCheatsTableViewCell = tableView.dequeueReusableCell(indexPath)
         cell.gameMode_configure_cell(model.cheatItems[indexPath.row])
         cell.backgroundColor = .clear
         return cell
