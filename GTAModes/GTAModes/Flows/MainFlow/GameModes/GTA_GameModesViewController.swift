@@ -17,6 +17,8 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
     private let searchContainer = UIView()
     private var searchBar: GTAModes_SearchBar?
     
+    var alert: UIAlertController?
+    
     init(model: GTAModes_GameModesModel) {
         self.model = model
         self.customNavigation = GTAModes_CustomNavigationView(.gameModes, titleString: model.title)
@@ -84,6 +86,16 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
                 self.tableView.reloadData()
             }.store(in: &subscriptions)
         
+        model.showSpinnerData.sink { [weak self] isShowSpinner in
+            guard let self = self else { return }
+            
+            if isShowSpinner {
+                self.gta_showSpiner()
+            } else {
+                self.gta_hideSpiner()
+            }
+        }.store(in: &subscriptions)
+        
     }
     
     private func gta_setupSearchBar() {
@@ -111,22 +123,52 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         }
     }
     
+    private func gta_showSpiner() {
+        alert = UIAlertController(title: nil, message: "Download Mode", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = .medium
+        loadingIndicator.startAnimating()
+        
+        alert?.view.addSubview(loadingIndicator)
+        
+        present(alert!, animated: true, completion: nil)
+        
+    }
+    
+    private func gta_hideSpiner() {
+        alert?.dismiss(animated: false)
+    }
+    
+    func shareFile(at mode: ModItem) {
+        if model.checkIsLoadData(mode.title) {
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let fileURL = documentsDirectory.appendingPathComponent(mode.title)
+            
+            let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            present(activityViewController, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 extension GTA_GameModesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_GameModesTableViewCell = tableView.dequeueReusableCell(indexPath)
-        cell.gameMode_configure_cell(model.modeItems[indexPath.row])
+        let mode = model.modeItems[indexPath.row]
+        cell.gameMode_configure_cell(mode, isLoaded: model.checkIsLoadData(mode.title))
         cell.tableView = tableView
         cell.backgroundColor = .clear
         
-        cell.downloadAction = {
-            print("DOWNLOAD")
+        cell.downloadAction = { [weak self] in
+            self?.model.downloadMode(index: indexPath.row)
         }
         
-        cell.shareAction = {
-            print("shareAction")
+        cell.shareAction = { [weak self] in
+            self?.shareFile(at: mode)
         }
         
         return cell

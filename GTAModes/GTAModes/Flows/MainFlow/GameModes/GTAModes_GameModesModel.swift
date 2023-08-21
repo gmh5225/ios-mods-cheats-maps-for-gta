@@ -27,12 +27,18 @@ final class GTAModes_GameModesModel {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    var showSpinnerData: AnyPublisher<Bool, Never> {
+        showSpinnerSubject
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
     var modeItems: [ModItem] = []
     var title: String {
         "Mods Version 5"
     }
     private let navigationHandler: GameModesModelNavigationHandler
     private let reloadDataSubject = PassthroughSubject<Void, Never>()
+    private let showSpinnerSubject = PassthroughSubject<Bool, Never>()
     var allModeItems: [ModItem] = []
     private var filterSelected: String = ""
     private var searchText: String = ""
@@ -43,7 +49,8 @@ final class GTAModes_GameModesModel {
     ) {
         self.navigationHandler = navigationHandler
         gta_fetchData()
-        showMods() 
+        showMods()
+        GTAModes_DBManager.shared.delegate = self
     }
     
     func gta_backActionProceed() {
@@ -86,11 +93,41 @@ final class GTAModes_GameModesModel {
             print("Error saving data to Realm: \(error)")
         }
     }
+    
+    func downloadMode(index: Int) {
+        let mode = modeItems[index]
+        showSpinnerSubject.send(true)
+        if !checkIsLoadData(mode.title) {
+            GTAModes_DBManager.shared.downloadMode(mode: mode) { [weak self] localUrl in
+                if let localUrl = localUrl {
+                    
+                    print("File downloaded to: \(localUrl)")
+                    self?.showSpinnerSubject.send(false)
+                } else {
+                    self?.showSpinnerSubject.send(false)
+                    print("ERROR")
+                }
+                
+            }
+        } else {
+            showSpinnerSubject.send(false)
+            print("FILE IS LOCALY")
+        }
+        
+    }
+    
+    func checkIsLoadData(_ modeName: String) -> Bool {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileURL = documentsDirectory.appendingPathComponent(modeName)
+        
+        return FileManager.default.fileExists(atPath: fileURL.path)
+    }
 
     func showMods() {
         modeItems = allModeItems
         reloadDataSubject.send()
     }
+    
     func gta_actionAt(index: Int) {
 //        let selectedItem = cheatItems[index]
 //        do {
@@ -136,3 +173,14 @@ final class GTAModes_GameModesModel {
     
 }
 
+extension GTAModes_GameModesModel: DropBoxManagerDelegate {
+    
+    func gta_currentProgressOperation(progress: Progress) {
+        print("OK")
+    }
+    
+    func gta_isReadyAllContent() {
+        print("OK")
+    }
+    
+}

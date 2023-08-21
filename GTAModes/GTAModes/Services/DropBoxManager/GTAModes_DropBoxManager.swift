@@ -74,61 +74,47 @@ final class GTAModes_DBManager: NSObject {
     }
     
     
-    func gta_getFileUrl(path: String, completion: @escaping (String?) -> ()){
-        self.client?.files.getTemporaryLink(path: path).response(completionHandler: { responce, error in
-            if let link = responce {
-                completion(link.link)
+//    func gta_getFileUrl(path: String, completion: @escaping (String?) -> ()){
+//        self.client?.files.getTemporaryLink(path: path).response(completionHandler: { responce, error in
+//            if let link = responce {
+//                completion(link.link)
+//            } else {
+//                completion(nil)
+//            }
+//        })
+//    }
+    
+//
+    func downloadMode(mode: ModItem, completion: @escaping (String?) -> ()) {
+        downloadFileBy(urlPath: mode.modPath) { [weak self] modeData in
+            if let modeData = modeData {
+                self?.saveDataLocal(modeName: mode.title, data: modeData, completion: completion)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    func downloadFileBy(urlPath: String, completion: @escaping (Data?) -> Void) {
+        self.client?.files.download(path:  "/mods/" + urlPath).response(completionHandler: { responce, error in
+            if let responce = responce {
+                completion(responce.1)
             } else {
                 completion(nil)
             }
         })
     }
     
-//
-//    func downloadFileBy(urlPath: URL, completion: @escaping (String?, Error?) -> Void) {
-//        let fileURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-//        let urlForDestination = fileURL.appendingPathComponent(urlPath.lastPathComponent)
-//        if FileManager().fileExists(atPath: urlForDestination.path) {
-//            print("File already exists [\(urlForDestination.path)]")
-//            completion(urlForDestination.path, nil)
-//        } else {
-//            let configuration = URLSessionConfiguration.default
-//            let urlSession = URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
-//            var request = URLRequest(url: urlPath)
-//            let httpMethod = "GET"
-//            request.httpMethod = httpMethod
-//            let urlDataTask = urlSession.dataTask(with: request, completionHandler: { data, response, error in
-//                if error != nil {
-//                    completion(urlForDestination.path, error)
-//                } else {
-//                    if let response = response as? HTTPURLResponse {
-//                        if response.statusCode == 200 {
-//                            if let data = data {
-//                                if let _ = try? data.write(to: urlForDestination, options: Data.WritingOptions.atomic) {
-//                                    completion(urlForDestination.path, error)
-//                                } else {
-//                                    completion(urlForDestination.path, error)
-//                                }
-//                            } else {
-//                                completion(urlForDestination.path, error)
-//                            }
-//                        }
-//                    }
-//                }
-//            })
-//            urlDataTask.resume()
-//        }
-//    }
-    
-//    func downloadFileBy(urlPath: String, completion: @escaping (Data?) -> Void) {
-//        self.client?.files.download(path:  "/\(urlPath)").response(completionHandler: { responce, error in
-//            if let responce = responce {
-//                completion(responce.1)
-//            } else {
-//                completion(nil)
-//            }
-//        })
-//    }
+    func saveDataLocal(modeName: String, data: Data, completion: @escaping (String?) -> ()) {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileURL = documentsDirectory.appendingPathComponent(modeName)
+        do {
+            try data.write(to: fileURL, options: .atomic)
+            completion(fileURL.lastPathComponent)
+        } catch {
+            completion(nil)
+        }
+    }
     
 }
 
@@ -591,7 +577,8 @@ extension GTAModes_DBManager {
         func processNextImage(index: Int) {
             guard index < list.count else {
                 // All images have been processed, call completion
-                self.configureDataPathModes(modes, trueImagePath: trueImagePath, completion: completion)
+                self.saveModesToRealm(modes, trueImagePath: trueImagePath)
+                completion()
                 return
             }
             
@@ -601,38 +588,7 @@ extension GTAModes_DBManager {
                 trueImagePath.append(truePath ?? "")
                 
                 if processedCount == list.count {
-                    self?.configureDataPathModes(modes, trueImagePath: trueImagePath, completion: completion)
-                } else {
-                    processNextImage(index: index + 1) // Process next image
-                }
-            }
-        }
-        
-        // Start processing the first image
-        processNextImage(index: 0)
-    }
-    
-    func configureDataPathModes(_ modes: [ModParser], trueImagePath: [String], completion: @escaping () -> Void) {
-        let list = modes.map { $0.mod }
-        
-        var trueDataPath: [String] = []
-        var processedCount = 0
-        
-        func processNextImage(index: Int) {
-            guard index < list.count else {
-                // All images have been processed, call completion
-                self.saveModesToRealm(modes, trueImagePath: trueImagePath, trueDataPath: trueDataPath)
-                completion()
-                return
-            }
-            
-            let path = list[index]
-            gta_getFileUrl(path: "/mods/" + path) { [weak self] truePath in
-                processedCount += 1
-                trueDataPath.append(truePath ?? "")
-                
-                if processedCount == list.count {
-                    self?.saveModesToRealm(modes, trueImagePath: trueImagePath, trueDataPath: trueDataPath)
+                    self?.saveModesToRealm(modes, trueImagePath: trueImagePath)
                     completion()
                 } else {
                     processNextImage(index: index + 1) // Process next image
@@ -644,7 +600,9 @@ extension GTAModes_DBManager {
         processNextImage(index: 0)
     }
     
-    func saveModesToRealm(_ modes: [ModParser], trueImagePath: [String], trueDataPath: [String]) {
+
+    
+    func saveModesToRealm(_ modes: [ModParser], trueImagePath: [String]) {
         do {
             let realm = try Realm()
             try realm.write {
@@ -653,8 +611,9 @@ extension GTAModes_DBManager {
                         titleMod: item.title,
                         descriptionMod: item.description,
                         imagePath: trueImagePath[index].isEmpty ? item.image : trueImagePath[index]  ,
-                        modPath: trueDataPath[index].isEmpty ? item.mod : trueDataPath[index] ,
-                        filterTitle: item.filterTitle)
+                        modPath: item.mod,
+                        filterTitle: item.filterTitle
+                    )
                     realm.add(modItemObject)
                 }
             }

@@ -79,7 +79,7 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         modeImage.image = UIImage()
     }
     
-    public func gameMode_configure_cell(_ value: ModItem) {
+    public func gameMode_configure_cell(_ value: ModItem, isLoaded: Bool) {
         titleLabel.font = UIFont(name: "Inter-Regular", size: 20)
         titleLabel.textColor = .white
         titleLabel.text = value.title
@@ -88,6 +88,7 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         descriprionLabel.font = UIFont(name: "Inter-Regular", size: 20)
         descriprionLabel.textColor = .white
         descriprionLabel.text = value.description
+        downloadButtonView.backgroundColor = isLoaded ? UIColor(named: "greenColor")?.withAlphaComponent(0.4) : UIColor(named: "blueColor")?.withAlphaComponent(0.4)
     }
     
     private func gta_setupLayout() {
@@ -110,7 +111,7 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
             $0.height.equal(to: 25.0)
             $0.width.equal(to: 25.0)
         }
-        typeImage.image = UIImage(named: "longCellIcon")
+        typeImage.image = isExpanded ? UIImage(named: "longCellIcon") : UIImage(named: "shotCellIcon")
         containerView.addSubview(titleLabel)
         titleLabel.layout {
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
@@ -193,8 +194,8 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         downloadButtonView.addGestureRecognizer(downloadGestrure)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
         containerView.addGestureRecognizer(tapGesture)
-        descriprionLabel.isHidden = true
-        stackView.isHidden = true
+        descriprionLabel.isHidden = isExpanded
+        stackView.isHidden = isExpanded
     }
     
     func configureButtonView(title: String, imageName: String) -> UIView {
