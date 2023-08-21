@@ -103,14 +103,17 @@ final class GTAModes_GameModesModel {
                     
                     print("File downloaded to: \(localUrl)")
                     self?.showSpinnerSubject.send(false)
+                    self?.reloadDataSubject.send()
                 } else {
                     self?.showSpinnerSubject.send(false)
+                    self?.reloadDataSubject.send()
                     print("ERROR")
                 }
                 
             }
         } else {
             showSpinnerSubject.send(false)
+            reloadDataSubject.send()
             print("FILE IS LOCALY")
         }
         

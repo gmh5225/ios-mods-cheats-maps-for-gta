@@ -160,7 +160,6 @@ extension GTA_GameModesViewController: UITableViewDataSource {
         let cell: GTAModes_GameModesTableViewCell = tableView.dequeueReusableCell(indexPath)
         let mode = model.modeItems[indexPath.row]
         cell.gameMode_configure_cell(mode, isLoaded: model.checkIsLoadData(mode.title))
-        cell.tableView = tableView
         cell.backgroundColor = .clear
         
         cell.downloadAction = { [weak self] in

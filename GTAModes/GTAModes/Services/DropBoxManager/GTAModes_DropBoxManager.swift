@@ -74,17 +74,17 @@ final class GTAModes_DBManager: NSObject {
     }
     
     
-//    func gta_getFileUrl(path: String, completion: @escaping (String?) -> ()){
-//        self.client?.files.getTemporaryLink(path: path).response(completionHandler: { responce, error in
-//            if let link = responce {
-//                completion(link.link)
-//            } else {
-//                completion(nil)
-//            }
-//        })
-//    }
+    //    func gta_getFileUrl(path: String, completion: @escaping (String?) -> ()){
+    //        self.client?.files.getTemporaryLink(path: path).response(completionHandler: { responce, error in
+    //            if let link = responce {
+    //                completion(link.link)
+    //            } else {
+    //                completion(nil)
+    //            }
+    //        })
+    //    }
     
-//
+    //
     func downloadMode(mode: ModItem, completion: @escaping (String?) -> ()) {
         downloadFileBy(urlPath: mode.modPath) { [weak self] modeData in
             if let modeData = modeData {
@@ -96,13 +96,23 @@ final class GTAModes_DBManager: NSObject {
     }
     
     func downloadFileBy(urlPath: String, completion: @escaping (Data?) -> Void) {
-        self.client?.files.download(path:  "/mods/" + urlPath).response(completionHandler: { responce, error in
-            if let responce = responce {
-                completion(responce.1)
+        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+            guard let self = self else { return }
+            
+            if validator {
+                self.client?.files.download(path:  "/mods/" + urlPath).response(completionHandler: { responce, error in
+                    if let responce = responce {
+                        completion(responce.1)
+                    } else {
+                        completion(nil)
+                    }
+                })
             } else {
                 completion(nil)
+                print("ERROR")
             }
-        })
+            
+        }
     }
     
     func saveDataLocal(modeName: String, data: Data, completion: @escaping (String?) -> ()) {
@@ -339,7 +349,7 @@ private extension GTAModes_DBManager {
         // Start processing the first image
         processNextImage(index: 0)
     }
-
+    
     
     func saveMainItemsToRealm(
         _ itemsMenu: MainItemsDataParser,
@@ -366,7 +376,7 @@ private extension GTAModes_DBManager {
 }
 
 extension GTAModes_DBManager {
-
+    
     func fetchGTA5Codes(completion: @escaping () -> (Void)) {
         gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
@@ -600,7 +610,7 @@ extension GTAModes_DBManager {
         processNextImage(index: 0)
     }
     
-
+    
     
     func saveModesToRealm(_ modes: [ModParser], trueImagePath: [String]) {
         do {
