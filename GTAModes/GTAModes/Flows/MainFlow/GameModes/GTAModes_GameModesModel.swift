@@ -56,25 +56,25 @@ final class GTAModes_GameModesModel {
     func gta_backActionProceed() {
         navigationHandler.gameModesModelDidRequestToBack(self)
     }
-//
+    
     func gta_filterActionProceed() {
-//        let filterList = allCheatItems.map { $0.filterTitle }
-//        let uniqueList = Array(Set(filterList))
-//        let filterListData = FilterListData(filterList: uniqueList, selectedItem: filterSelected)
-//        navigationHandler.gameModesModelDidRequestToFilter(
-//            self,
-//            filterListData: filterListData) { [weak self] selectedFilter in
-//                guard let self = self else { return }
-//
-//                self.filterSelected = selectedFilter
-//                if selectedFilter.isEmpty {
-//                    self.gta_showCheats(currentPlatform)
-//                } else {
-//                    let list = self.cheatItems.filter { $0.filterTitle == selectedFilter }
-//                    self.cheatItems = list
-//                }
-//                self.reloadDataSubject.send()
-//            }
+        let filterList = allModeItems.map { $0.filterTitle }
+        let uniqueList = Array(Set(filterList))
+        let filterListData = FilterListData(filterList: uniqueList, selectedItem: filterSelected)
+        navigationHandler.gameModesModelDidRequestToFilter(
+            self,
+            filterListData: filterListData) { [weak self] selectedFilter in
+                guard let self = self else { return }
+
+                self.filterSelected = selectedFilter
+                if selectedFilter.isEmpty {
+                    self.modeItems = allModeItems
+                } else {
+                    let list = self.allModeItems.filter { $0.filterTitle == selectedFilter }
+                    self.modeItems = list
+                }
+                self.reloadDataSubject.send()
+            }
     }
     
     func gta_fetchData() {
@@ -100,7 +100,6 @@ final class GTAModes_GameModesModel {
         if !checkIsLoadData(mode.title) {
             GTAModes_DBManager.shared.downloadMode(mode: mode) { [weak self] localUrl in
                 if let localUrl = localUrl {
-                    
                     print("File downloaded to: \(localUrl)")
                     self?.showSpinnerSubject.send(false)
                     self?.reloadDataSubject.send()
@@ -131,46 +130,19 @@ final class GTAModes_GameModesModel {
         reloadDataSubject.send()
     }
     
-    func gta_actionAt(index: Int) {
-//        let selectedItem = cheatItems[index]
-//        do {
-//            let realm = try Realm()
-//            try! realm.write {
-//                if let existingCheatObject = realm.objects(CheatObject.self)
-//                    .filter("platform == %@ AND game == %@ AND name == %@", selectedItem.platform, selectedItem.game, selectedItem.name).first {
-//                    existingCheatObject.name = selectedItem.name
-//                    existingCheatObject.code.removeAll()
-//                    existingCheatObject.code.append(objectsIn: selectedItem.code)
-//                    existingCheatObject.filterTitle = selectedItem.filterTitle
-//                    existingCheatObject.platform = selectedItem.platform
-//                    existingCheatObject.game = selectedItem.game
-//                    existingCheatObject.isFavorite = !selectedItem.isFavorite
-//                    realm.add(existingCheatObject, update: .modified)
-//                }
-//
-//            }
-//            gta_fetchData(version: versionGame)
-//            cheatItems[index].isFavorite = !cheatItems[index].isFavorite
-//            reloadDataSubject.send()
-//        } catch {
-//            print("Error saving data to Realm: \(error)")
-//        }
-    }
-//
     func gta_searchAt(_ searchText: String) {
-//        let filteredList = allCheatItems.filter { $0.name.lowercased().contains(searchText.lowercased())}
-//        cheatItems = filteredList
-//        self.searchText = searchText
-//        if searchText.isEmpty {
-//            gta_showCheats(currentPlatform)
-//        }
-//        reloadDataSubject.send()
-//
+        let filteredList = allModeItems.filter { $0.title.lowercased().contains(searchText.lowercased())}
+        modeItems = filteredList
+        self.searchText = searchText
+        if searchText.isEmpty {
+            modeItems = allModeItems
+        }
+        reloadDataSubject.send()
     }
     
     func gta_searchDidCancel() {
         if searchText.isEmpty {
-//            gta_showCheats(currentPlatform)
+            modeItems = allModeItems
         }
     }
     

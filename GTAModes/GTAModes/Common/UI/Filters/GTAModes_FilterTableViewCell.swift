@@ -54,7 +54,7 @@ final class GTAModes_FilterTableViewCell: UITableViewCell, GTAModes_Reusable {
         containerView.addSubview(titleLabel)
         titleLabel.layout {
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 16.0)
-            $0.trailing.greaterThanOrEqual(to: checkImage.leadingAnchor, offsetBy: 16.0)
+            $0.trailing.equal(to: checkImage.leadingAnchor, offsetBy: -4.0)
             $0.centerY.equal(to: containerView.centerYAnchor)
         }
         containerView.addSubview(borderLineView)

@@ -7,62 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "66FA8F8D-8535-4747-990E-2F622D9B25CF"
-            shouldBeEnabled = "No"
+            uuid = "F869D3AB-4AEF-43C1-85AC-A3167A18372A"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GTAModes/Flows/MainFlow/GameModes/GTAModes_GameModesTableViewCell.swift"
+            filePath = "GTAModes/Flows/MainFlow/GameModes/GTAModes_GameModesModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "gameMode_configure_cell(_:isLoaded:)"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "downloadMode(index:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "66FA8F8D-8535-4747-990E-2F622D9B25CF - e229165533ec2f51"
+                  uuid = "F869D3AB-4AEF-43C1-85AC-A3167A18372A - 237e0dec7377c651"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "GTAModes.GTAModes_GameModesTableViewCell.gameMode_configure_cell(_: GTAModes.ModItem, isLoaded: Swift.Bool) -&gt; ()"
+                  symbolName = "GTAModes.GTAModes_GameModesModel.downloadMode(index: Swift.Int) -&gt; ()"
                   moduleName = "GTAModes"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GTAModes_GameModesTableViewCell.swift"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GTAModes_GameModesModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "1800">
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "252">
                </Location>
                <Location
-                  uuid = "66FA8F8D-8535-4747-990E-2F622D9B25CF - e229165533ec2f70"
+                  uuid = "F869D3AB-4AEF-43C1-85AC-A3167A18372A - 66cdd5472593660"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "GTAModes.GTAModes_GameModesTableViewCell.gameMode_configure_cell(_: GTAModes.ModItem, isLoaded: Swift.Bool) -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;) -&gt; () in GTAModes.GTAModes_GameModesModel.downloadMode(index: Swift.Int) -&gt; ()"
                   moduleName = "GTAModes"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GTAModes_GameModesTableViewCell.swift"
+                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GTAModes_GameModesModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "1304">
-               </Location>
-               <Location
-                  uuid = "66FA8F8D-8535-4747-990E-2F622D9B25CF - e229165533ec2ec5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GTAModes.GTAModes_GameModesTableViewCell.gameMode_configure_cell(_: GTAModes.ModItem, isLoaded: Swift.Bool) -&gt; ()"
-                  moduleName = "GTAModes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maksimpedko/Desktop/GTA_Modes/GTAModes/GTAModes/Flows/MainFlow/GameModes/GTAModes_GameModesTableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
-                  offsetFromSymbolStart = "1304">
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "104">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -70,16 +55,128 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EB58C2B9-EB15-41D9-AAAA-E62D71D50D3D"
+            uuid = "F87E1D34-9C7F-4F18-B708-D3D4471AA48B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GTAModes/Flows/MainFlow/GameModes/GTAModes_GameModesTableViewCell.swift"
+            filePath = "GTAModes/Flows/MainFlow/GameModes/GTAModes_GameModesModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "gameMode_configure_cell(_:isLoaded:)"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "downloadMode(index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4CB4DE2-BDA7-466E-A16B-8B9A46AC791C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Flows/MainFlow/GameModes/GTAModes_GameModesModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "downloadMode(index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "29789B1A-BF2D-4D87-959D-3DC86E378446"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Services/DropBoxManager/GTAModes_DropBoxManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "downloadMode(mode:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F3E231D-3AFD-4908-952A-CE50077B92BC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Services/DropBoxManager/GTAModes_DropBoxManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "downloadMode(mode:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "958EDE57-DE3B-4822-9F9E-CE63550F9966"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Services/DropBoxManager/GTAModes_DropBoxManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "downloadFileBy(urlPath:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F066035-9D4E-42EE-A6B2-25CB7CC9DE54"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Services/DropBoxManager/GTAModes_DropBoxManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "downloadFileBy(urlPath:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CAFAE5DC-0C48-4671-8EE2-782D2CEAA63E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Services/DropBoxManager/GTAModes_DropBoxManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "downloadFileBy(urlPath:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A2A5C1C1-4710-49D0-8AFD-66775C3247E6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GTAModes/Services/DropBoxManager/GTAModes_DropBoxManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "downloadFileBy(urlPath:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

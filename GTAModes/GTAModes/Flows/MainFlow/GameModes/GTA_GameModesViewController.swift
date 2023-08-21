@@ -64,7 +64,7 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         view.addSubview(tableView)
         tableView.backgroundColor = .clear
         tableView.layout {
-            $0.top.equal(to: searchContainer.bottomAnchor)
+            $0.top.equal(to: searchContainer.bottomAnchor, offsetBy: 8.0)
             $0.leading.equal(to: view.leadingAnchor)
             $0.trailing.equal(to: view.trailingAnchor)
             $0.bottom.equal(to: view.bottomAnchor)
@@ -74,7 +74,6 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         tableView.estimatedRowHeight = 96.0
         tableView.keyboardDismissMode = .onDrag
         tableView.dataSource = self
-        tableView.delegate = self
         tableView.separatorStyle = .none
     }
     
@@ -175,15 +174,6 @@ extension GTA_GameModesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         model.modeItems.count
-    }
-    
-}
-
-extension GTA_GameModesViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        model.gta_actionAt(index: indexPath.row)
     }
     
 }

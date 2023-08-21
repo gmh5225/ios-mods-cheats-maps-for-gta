@@ -62,7 +62,7 @@ class GTAModes_GameCheatsViewController: GTAModes_NiblessViewController {
         view.addSubview(tableView)
         tableView.backgroundColor = .clear
         tableView.layout {
-            $0.top.equal(to: searchContainer.bottomAnchor)
+            $0.top.equal(to: searchContainer.bottomAnchor, offsetBy: 8.0)
             $0.leading.equal(to: view.leadingAnchor)
             $0.trailing.equal(to: view.trailingAnchor)
             $0.bottom.equal(to: view.bottomAnchor)
