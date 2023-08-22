@@ -14,7 +14,7 @@ enum gta_animationButtonStyle {
     case gif, native
 }
 
-class AnimatedButton: UIView {
+class GTA_AnimatedButton: UIView {
     
     @IBOutlet private weak var backgroundSelf: UIImageView!
     //
@@ -26,7 +26,7 @@ class AnimatedButton: UIView {
     private let currentFont = "SFProText-Bold"
     private var persistentAnimations: [String: CAAnimation] = [:]
     private var persistentSpeed: Float = 0.0
-    private let xib = "AnimatedButton"
+    private let xib = "GTA_AnimatedButton"
     
     public var style : gta_animationButtonStyle = .native
     

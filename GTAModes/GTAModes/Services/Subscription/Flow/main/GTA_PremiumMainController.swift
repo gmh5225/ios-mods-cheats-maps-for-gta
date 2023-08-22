@@ -314,11 +314,11 @@ class GTA_PremiumMainController: UIViewController {
         }
     }
     
-    @IBAction func restoreAction(_ sender: UIButton) {
+    @IBAction func gta_restoreAction(_ sender: UIButton) {
         self.viewTransaction.gta_restoreAction()
     }
     
-    @IBAction func closeController(_ sender: UIButton) {
+    @IBAction func gta_closeController(_ sender: UIButton) {
         gta_openApp()
     }
 }

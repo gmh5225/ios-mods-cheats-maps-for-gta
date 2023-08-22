@@ -23,8 +23,8 @@
 		2C1CA4392A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3ED2A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift */; };
 		2C1CA43A2A8E70B200C89F79 /* GTA_PageControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F12A8E70B200C89F79 /* GTA_PageControll.swift */; };
 		2C1CA43B2A8E70B200C89F79 /* GTA_slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F22A8E70B200C89F79 /* GTA_slider.swift */; };
-		2C1CA43C2A8E70B200C89F79 /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F42A8E70B200C89F79 /* AnimatedButton.swift */; };
-		2C1CA43D2A8E70B200C89F79 /* AnimatedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F52A8E70B200C89F79 /* AnimatedButton.xib */; };
+		2C1CA43C2A8E70B200C89F79 /* GTA_AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F42A8E70B200C89F79 /* GTA_AnimatedButton.swift */; };
+		2C1CA43D2A8E70B200C89F79 /* GTA_AnimatedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F52A8E70B200C89F79 /* GTA_AnimatedButton.xib */; };
 		2C1CA43E2A8E70B200C89F79 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F82A8E70B200C89F79 /* UIImageView+SwiftyGif.swift */; };
 		2C1CA43F2A8E70B200C89F79 /* NSImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F92A8E70B200C89F79 /* NSImage+SwiftyGif.swift */; };
 		2C1CA4402A8E70B200C89F79 /* ObjcAssociatedWeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3FA2A8E70B200C89F79 /* ObjcAssociatedWeakObject.swift */; };
@@ -2539,8 +2539,8 @@
 		2C1CA3ED2A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_NetworkStatusMonitor.swift; sourceTree = "<group>"; };
 		2C1CA3F12A8E70B200C89F79 /* GTA_PageControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_PageControll.swift; sourceTree = "<group>"; };
 		2C1CA3F22A8E70B200C89F79 /* GTA_slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_slider.swift; sourceTree = "<group>"; };
-		2C1CA3F42A8E70B200C89F79 /* AnimatedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedButton.swift; sourceTree = "<group>"; };
-		2C1CA3F52A8E70B200C89F79 /* AnimatedButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimatedButton.xib; sourceTree = "<group>"; };
+		2C1CA3F42A8E70B200C89F79 /* GTA_AnimatedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_AnimatedButton.swift; sourceTree = "<group>"; };
+		2C1CA3F52A8E70B200C89F79 /* GTA_AnimatedButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_AnimatedButton.xib; sourceTree = "<group>"; };
 		2C1CA3F82A8E70B200C89F79 /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
 		2C1CA3F92A8E70B200C89F79 /* NSImage+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+SwiftyGif.swift"; sourceTree = "<group>"; };
 		2C1CA3FA2A8E70B200C89F79 /* ObjcAssociatedWeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjcAssociatedWeakObject.swift; sourceTree = "<group>"; };
@@ -5114,8 +5114,8 @@
 		2C1CA3F32A8E70B200C89F79 /* button */ = {
 			isa = PBXGroup;
 			children = (
-				2C1CA3F42A8E70B200C89F79 /* AnimatedButton.swift */,
-				2C1CA3F52A8E70B200C89F79 /* AnimatedButton.xib */,
+				2C1CA3F42A8E70B200C89F79 /* GTA_AnimatedButton.swift */,
+				2C1CA3F52A8E70B200C89F79 /* GTA_AnimatedButton.xib */,
 			);
 			path = button;
 			sourceTree = "<group>";
@@ -10115,7 +10115,7 @@
 				2C685DF62A8E0C790078CFFD /* 16-14_6.png in Resources */,
 				2C6869472A8E0E500078CFFD /* 14-1_7.png in Resources */,
 				2C6869BC2A8E0E510078CFFD /* 11-42_7.png in Resources */,
-				2C1CA43D2A8E70B200C89F79 /* AnimatedButton.xib in Resources */,
+				2C1CA43D2A8E70B200C89F79 /* GTA_AnimatedButton.xib in Resources */,
 				2C686C0F2A8E0E520078CFFD /* 11-30_7.png in Resources */,
 				2C6866E52A8E0E500078CFFD /* 36-31_7.png in Resources */,
 				2C685F2A2A8E0C790078CFFD /* 9-20_6.png in Resources */,
@@ -10402,7 +10402,7 @@
 				2C5CA6EA2A92514D005F9D24 /* ModObject.swift in Sources */,
 				2C5CA6E82A924DFC005F9D24 /* GTAModes_GameModesModel.swift in Sources */,
 				2C1CA4542A8E70B200C89F79 /* UILayoutSupport+Extensions.swift in Sources */,
-				2C1CA43C2A8E70B200C89F79 /* AnimatedButton.swift in Sources */,
+				2C1CA43C2A8E70B200C89F79 /* GTA_AnimatedButton.swift in Sources */,
 				2C1CA45A2A8E70B200C89F79 /* ConstraintOffsetTarget.swift in Sources */,
 				2C45A5392A76A7620023B3A8 /* GTAModes_GameCheatsModel.swift in Sources */,
 				2C2A20B72A7551E8002A6D3C /* GTAModes_MainTableViewCell.swift in Sources */,

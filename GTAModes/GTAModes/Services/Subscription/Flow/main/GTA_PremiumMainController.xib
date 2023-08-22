@@ -34,7 +34,7 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             <connections>
-                                <action selector="restoreAction:" destination="-1" eventType="touchUpInside" id="MTU-t1-0cx"/>
+                                <action selector="gta_restoreAction:" destination="-1" eventType="touchUpInside" id="MTU-t1-0cx"/>
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HjY-MY-gDS">
@@ -45,7 +45,7 @@
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
-                                <action selector="closeController:" destination="-1" eventType="touchUpInside" id="9Nk-vU-hM3"/>
+                                <action selector="gta_closeController:" destination="-1" eventType="touchUpInside" id="9Nk-vU-hM3"/>
                             </connections>
                         </button>
                     </subviews>

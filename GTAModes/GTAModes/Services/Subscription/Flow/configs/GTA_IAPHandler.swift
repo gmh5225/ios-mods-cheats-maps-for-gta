@@ -12,17 +12,17 @@ protocol GTA_IAPManagerProtocol: AnyObject {
 
 class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDelegate {
     
+    private var inMain: SKProduct?
+    private var inUnlockContent: SKProduct?
+    private var inUnlockFunc: SKProduct?
+    private var inUnlockOther: SKProduct?
+    
     static let shared = GTA_IAPManager()
     weak var  transactionsDelegate: GTA_IAPManagerProtocol?
     
     public var  localizablePrice = "$4.99"
     public var productBuy : gta_PremiumMainControllerStyle = .mainProduct
     public var productBought: [gta_PremiumMainControllerStyle] = []
-    
-    private var inMain: SKProduct?
-    private var inUnlockContent: SKProduct?
-    private var inUnlockFunc: SKProduct?
-    private var inUnlockOther: SKProduct?
     
     private var mainProduct = GTA_Configurations.mainSubscriptionID
     private var unlockContentProduct = GTA_Configurations.unlockContentSubscriptionID

@@ -25,7 +25,7 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
     @IBOutlet private weak var sliderStack: UIStackView!
     @IBOutlet private weak var trialLb: UILabel!
     @IBOutlet private weak var descriptLb: UILabel!
-    @IBOutlet private weak var purchaseBtn: AnimatedButton!
+    @IBOutlet private weak var purchaseBtn: GTA_AnimatedButton!
     @IBOutlet private weak var privacyBtn: UIButton!
     @IBOutlet private weak var policyBtn: UIButton!
     @IBOutlet private weak var trialWight: NSLayoutConstraint!
@@ -187,7 +187,7 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
     
     //MARK: actions
     
-    @IBAction func privacyAction(_ sender: UIButton) {
+    @IBAction func gta_privacyAction(_ sender: UIButton) {
         
         self.delegate?.gta_termsOpen()
     }
@@ -201,7 +201,7 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
         purchaseBtn.isUserInteractionEnabled = false
     }
     
-    @IBAction func termsAction(_ sender: UIButton) {
+    @IBAction func gta_termsAction(_ sender: UIButton) {
         self.delegate?.gta_privacyOpen()
     }
     

@@ -36,7 +36,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYq-fY-sEp" customClass="AnimatedButton" customModule="GTAModes" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYq-fY-sEp" customClass="GTA_AnimatedButton" customModule="GTAModes" customModuleProvider="target">
                             <rect key="frame" x="20" y="221" width="353" height="60"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>

@@ -26,7 +26,7 @@ struct GTA_ReusableContentCell {
 class GTA_ReusableView: UIView, GTA_AnimatedButtonEvent {
     
 //
-    @IBOutlet private weak var nextStepBtn: AnimatedButton!
+    @IBOutlet private weak var nextStepBtn: GTA_AnimatedButton!
     //
     @IBOutlet private weak var titleWight: NSLayoutConstraint!
     //

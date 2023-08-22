@@ -80,7 +80,7 @@ THEN $4.99/WEEK</string>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8J-gz-TlO" customClass="AnimatedButton" customModule="GTAModes" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8J-gz-TlO" customClass="GTA_AnimatedButton" customModule="GTAModes" customModuleProvider="target">
                                             <rect key="frame" x="20" y="46" width="353" height="60"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -95,7 +95,7 @@ THEN $4.99/WEEK</string>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
-                                                <action selector="privacyAction:" destination="-1" eventType="touchUpInside" id="Wb6-87-HL0"/>
+                                                <action selector="gta_privacyAction:" destination="-1" eventType="touchUpInside" id="Wb6-87-HL0"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gc4-hX-H0q">
@@ -103,7 +103,7 @@ THEN $4.99/WEEK</string>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
-                                                <action selector="termsAction:" destination="-1" eventType="touchUpInside" id="6uq-jJ-hdB"/>
+                                                <action selector="gta_termsAction:" destination="-1" eventType="touchUpInside" id="6uq-jJ-hdB"/>
                                             </connections>
                                         </button>
                                     </subviews>
