@@ -10,7 +10,7 @@ protocol GTA_PremiumMainControllerDelegate_MEX: AnyObject {
     func gta_funcProductBuyed()
 }
 
-class PremiumMainController: UIViewController {
+class GTA_PremiumMainController: UIViewController {
     
     private var playerLayer : AVPlayerLayer!
     private var view0 = ReusableView()
@@ -193,7 +193,7 @@ class PremiumMainController: UIViewController {
     
     //reusable setup
     
-    private func generateContentForView(config: configView) -> [GTA_ReusableContentCell] {
+    private func generateContentForView(config: gta_enum_configView) -> [GTA_ReusableContentCell] {
         var contentForCV : [GTA_ReusableContentCell] = []
         switch config {
         case .first:
@@ -224,7 +224,7 @@ class PremiumMainController: UIViewController {
         }
     }
     
-    private func gta_setReusable(config : configView, isHide : Bool){
+    private func gta_setReusable(config : gta_enum_configView, isHide : Bool){
         var currentView : ReusableView? = nil
         var viewModel : GTA_ReusableViewModel? = nil
         switch config {
@@ -323,32 +323,32 @@ class PremiumMainController: UIViewController {
     }
 }
 
-extension PremiumMainController : GTA_ReusableViewEvent {
-    func gta_nextStep(config: configView) {
+extension GTA_PremiumMainController : GTA_ReusableViewEvent {
+    func gta_nextStep(config: gta_enum_configView) {
         switch config {
         case .first:
             self.view0.gta_fadeOut()
             self.view1.gta_fadeIn()
-            UIApplication.shared.impactFeedbackGenerator(type: .medium)
+            UIApplication.shared.gta_impactFeedbackGenerator(type: .medium)
             GTA_ThirdPartyServicesManager.shared.gta_makeATT()
         case .second:
             self.view1.gta_fadeOut()
             self.viewTransaction.gta_fadeIn()
             self.gta_showRestore()
             //            self.viewTransaction.title.restartpageControl()
-            UIApplication.shared.impactFeedbackGenerator(type: .medium)
+            UIApplication.shared.gta_impactFeedbackGenerator(type: .medium)
         case .transaction: break
         }
     }
 }
 
-extension PremiumMainController: GTA_NetworkStatusMonitorDelegate {
+extension GTA_PremiumMainController: GTA_NetworkStatusMonitorDelegate {
     func gta_showMess() {
         gta_transactionTreatment_TOC(title: NSLocalizedString( "ConnectivityTitle", comment: ""), message: NSLocalizedString("ConnectivityDescription", comment: ""))
     }
 }
 
-extension PremiumMainController : GTA_TransactionViewEvents {
+extension GTA_PremiumMainController : GTA_TransactionViewEvents {
     func gta_userSubscribed() {
         gta_deinitOperation()
         self.gta_openApp()

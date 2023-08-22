@@ -16,8 +16,10 @@ enum gta_animationButtonStyle {
 
 class AnimatedButton: UIView {
     
-    @IBOutlet private var contentSelf: UIView!
     @IBOutlet private weak var backgroundSelf: UIImageView!
+    //
+    @IBOutlet private var contentSelf: UIView!
+//
     @IBOutlet private weak var titleSelf: UILabel!
     
     weak var delegate : GTA_AnimatedButtonEvent?
@@ -27,14 +29,6 @@ class AnimatedButton: UIView {
     private let xib = "AnimatedButton"
     
     public var style : gta_animationButtonStyle = .native
-    
-    
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        gta_Init()
-    }
     
     // Этот метод будет вызван, когда view добавляется к superview
       override func didMoveToSuperview() {
@@ -140,7 +134,10 @@ class AnimatedButton: UIView {
         delegate?.gta_onClick()
     }
     
-
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        gta_Init()
+    }
     
 }
 

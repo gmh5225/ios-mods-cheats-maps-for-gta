@@ -119,7 +119,10 @@ extension UIView {
     }
     
      func gta_convertFromCATransitionType(_ input: CATransitionType) -> String {
+         //
+         
         return input.rawValue
+         //
     }
 }
 
@@ -142,7 +145,7 @@ extension String {
 extension String {
     func gta_openURL(){
         if let url = URL(string: self) {
-            UIApplication.shared.impactFeedbackGenerator(type: .medium)
+            UIApplication.shared.gta_impactFeedbackGenerator(type: .medium)
             UIApplication.shared.open(url)
         }
     }
@@ -162,7 +165,7 @@ extension UIApplication {
         generator.notificationOccurred(type)
     }
     
-    func impactFeedbackGenerator(type : UIImpactFeedbackGenerator.FeedbackStyle) {
+    func gta_impactFeedbackGenerator(type : UIImpactFeedbackGenerator.FeedbackStyle) {
         let generator = UIImpactFeedbackGenerator(style: type)
         generator.impactOccurred()
     }

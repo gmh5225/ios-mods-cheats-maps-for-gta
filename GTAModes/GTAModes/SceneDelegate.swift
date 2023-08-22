@@ -39,7 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func gta_showSubPremiumFlow(_ window: UIWindow) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            let unsubscribedVC = PremiumMainController()
+            let unsubscribedVC = GTA_PremiumMainController()
             unsubscribedVC.modalPresentationStyle = .fullScreen
             window.rootViewController = unsubscribedVC
             window.makeKeyAndVisible()

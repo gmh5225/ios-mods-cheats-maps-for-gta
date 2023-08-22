@@ -68,8 +68,8 @@
 		2C1CA4662A8E70B200C89F79 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4212A8E70B200C89F79 /* ConstraintDirectionalInsets.swift */; };
 		2C1CA4672A8E70B200C89F79 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4222A8E70B200C89F79 /* ConstraintLayoutSupportDSL.swift */; };
 		2C1CA4682A8E70B200C89F79 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4232A8E70B200C89F79 /* ConstraintMakerRelatable.swift */; };
-		2C1CA4692A8E70B200C89F79 /* PremiumMainController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA4252A8E70B200C89F79 /* PremiumMainController.xib */; };
-		2C1CA46A2A8E70B200C89F79 /* PremiumMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4262A8E70B200C89F79 /* PremiumMainController.swift */; };
+		2C1CA4692A8E70B200C89F79 /* GTA_PremiumMainController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA4252A8E70B200C89F79 /* GTA_PremiumMainController.xib */; };
+		2C1CA46A2A8E70B200C89F79 /* GTA_PremiumMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4262A8E70B200C89F79 /* GTA_PremiumMainController.swift */; };
 		2C1CA46B2A8E70B200C89F79 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4292A8E70B200C89F79 /* ReusableCell.swift */; };
 		2C1CA46C2A8E70B200C89F79 /* ReusableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA42A2A8E70B200C89F79 /* ReusableCell.xib */; };
 		2C1CA46D2A8E70B200C89F79 /* ReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA42B2A8E70B200C89F79 /* ReusableView.xib */; };
@@ -2584,8 +2584,8 @@
 		2C1CA4212A8E70B200C89F79 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
 		2C1CA4222A8E70B200C89F79 /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		2C1CA4232A8E70B200C89F79 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
-		2C1CA4252A8E70B200C89F79 /* PremiumMainController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PremiumMainController.xib; sourceTree = "<group>"; };
-		2C1CA4262A8E70B200C89F79 /* PremiumMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PremiumMainController.swift; sourceTree = "<group>"; };
+		2C1CA4252A8E70B200C89F79 /* GTA_PremiumMainController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_PremiumMainController.xib; sourceTree = "<group>"; };
+		2C1CA4262A8E70B200C89F79 /* GTA_PremiumMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_PremiumMainController.swift; sourceTree = "<group>"; };
 		2C1CA4292A8E70B200C89F79 /* ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 		2C1CA42A2A8E70B200C89F79 /* ReusableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReusableCell.xib; sourceTree = "<group>"; };
 		2C1CA42B2A8E70B200C89F79 /* ReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReusableView.xib; sourceTree = "<group>"; };
@@ -5189,8 +5189,8 @@
 		2C1CA4242A8E70B200C89F79 /* main */ = {
 			isa = PBXGroup;
 			children = (
-				2C1CA4252A8E70B200C89F79 /* PremiumMainController.xib */,
-				2C1CA4262A8E70B200C89F79 /* PremiumMainController.swift */,
+				2C1CA4252A8E70B200C89F79 /* GTA_PremiumMainController.xib */,
+				2C1CA4262A8E70B200C89F79 /* GTA_PremiumMainController.swift */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -8491,7 +8491,7 @@
 				2C686C4E2A8E0E520078CFFD /* 23-23_7.png in Resources */,
 				2C6866662A8E0E4F0078CFFD /* 31-31_7.png in Resources */,
 				2C6866372A8E0E4F0078CFFD /* 30-27_7.png in Resources */,
-				2C1CA4692A8E70B200C89F79 /* PremiumMainController.xib in Resources */,
+				2C1CA4692A8E70B200C89F79 /* GTA_PremiumMainController.xib in Resources */,
 				2C686A282A8E0E510078CFFD /* 19-37_7.png in Resources */,
 				2C686B552A8E0E510078CFFD /* 25-42_7.png in Resources */,
 				2C685A8D2A8E0C0C0078CFFD /* 5-5_4.png in Resources */,
@@ -10446,7 +10446,7 @@
 				2C1CA4552A8E70B200C89F79 /* ConstraintView.swift in Sources */,
 				2C51E73A2A8BD5590077C421 /* MissionObject.swift in Sources */,
 				2C1CA4662A8E70B200C89F79 /* ConstraintDirectionalInsets.swift in Sources */,
-				2C1CA46A2A8E70B200C89F79 /* PremiumMainController.swift in Sources */,
+				2C1CA46A2A8E70B200C89F79 /* GTA_PremiumMainController.swift in Sources */,
 				2C1CA43F2A8E70B200C89F79 /* NSImage+SwiftyGif.swift in Sources */,
 				2C1CA44A2A8E70B200C89F79 /* ConstraintPriorityTarget.swift in Sources */,
 				2C2A20532A7170E1002A6D3C /* SceneDelegate.swift in Sources */,

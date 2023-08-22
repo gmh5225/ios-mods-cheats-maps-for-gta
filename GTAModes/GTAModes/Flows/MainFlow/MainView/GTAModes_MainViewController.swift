@@ -11,25 +11,14 @@ import Combine
 class GTAModes_MainViewController: GTAModes_NiblessViewController {
     
     private var subscriptions = Set<AnyCancellable>()
+    //
     private let model: GTAModes_MainModel
+    //
     private let tableView = UITableView(frame: .zero)
+    //
     var alert: UIAlertController?
     
-    init(model: GTAModes_MainModel) {
-        self.model = model
-        
-        super.init()
-    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        if model.menuItems.isEmpty {
-            gta_showSpiner()
-        }
-        gta_setupView()
-        gta_setupBindings()
-    }
     
     private func gta_setupView() {
         navigationItem.title = ""
@@ -49,6 +38,12 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
         tableView.dataSource = self
     }
     
+    init(model: GTAModes_MainModel) {
+        self.model = model
+        
+        super.init()
+    }
+    
     private func gta_setupBindings() {
         model.reloadData
             .receive(on: DispatchQueue.main)
@@ -64,6 +59,16 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
             self.tableView.reloadData()
             self.gta_hideSpiner()
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if model.menuItems.isEmpty {
+            gta_showSpiner()
+        }
+        gta_setupView()
+        gta_setupBindings()
     }
     
     private func gta_showSpiner() {
@@ -132,7 +137,7 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
     }
         
         func showSub(_ premiumSub: gta_PremiumMainControllerStyle) {
-            let withPremiumVC = PremiumMainController()
+            let withPremiumVC = GTA_PremiumMainController()
             withPremiumVC.productBuy = premiumSub
             withPremiumVC.delegate = self
             navigationController?.present(withPremiumVC, animated: false)

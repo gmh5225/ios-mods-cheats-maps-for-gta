@@ -195,7 +195,7 @@ class TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol, GT
     
     
     func gta_onClick() {
-        UIApplication.shared.impactFeedbackGenerator(type: .heavy)
+        UIApplication.shared.gta_impactFeedbackGenerator(type: .heavy)
         networkingMonitor.gta_startMonitoring()
         inapp.gta_doPurchase()
         purchaseBtn.isUserInteractionEnabled = false

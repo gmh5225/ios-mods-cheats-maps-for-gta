@@ -5,16 +5,13 @@ import Foundation
 import UIKit
 
 class GTA_CustomPageControl: UIPageControl {
+    
+    @IBInspectable var otherPagesImage: UIImage? = UIImage(named: "page_0")
+    //
 
     @IBInspectable var currentPageImage: UIImage? = UIImage(named: "page_1")
     
-    @IBInspectable var otherPagesImage: UIImage? = UIImage(named: "page_0")
-    
-    override var currentPage: Int {
-        didSet {
-            gta_updateDots()
-        }
-    }
+    //
     
     private func gta_defaultConfigurationForiOS14AndAbove() {
         if #available(iOS 14.0, *) {
@@ -86,6 +83,12 @@ class GTA_CustomPageControl: UIPageControl {
             } as? UIImageView
             
             return view
+        }
+    }
+    
+    override var currentPage: Int {
+        didSet {
+            gta_updateDots()
         }
     }
 }

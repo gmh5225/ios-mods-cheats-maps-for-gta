@@ -4,12 +4,12 @@
 
 import UIKit
 
-enum configView {
+enum gta_enum_configView {
     case first,second,transaction
 }
 
 protocol GTA_ReusableViewEvent : AnyObject {
-    func gta_nextStep(config: configView)
+    func gta_nextStep(config: gta_enum_configView)
 }
 
 struct GTA_ReusableViewModel {
@@ -24,34 +24,28 @@ struct GTA_ReusableContentCell {
 }
 
 class ReusableView: UIView, GTA_AnimatedButtonEvent {
-    func gta_onClick() {
-        self.protocolElement?.gta_nextStep(config: self.configView)
-    }
     
-    @IBOutlet private var contentView: UIView!
-    @IBOutlet private weak var titleLb: UILabel!
-    @IBOutlet private weak var content: UICollectionView!
+//
     @IBOutlet private weak var nextStepBtn: AnimatedButton!
+    //
     @IBOutlet private weak var titleWight: NSLayoutConstraint!
+    //
+    @IBOutlet private var contentView: UIView!
+    //
+    @IBOutlet private weak var titleLb: UILabel!
+    //
+    @IBOutlet private weak var content: UICollectionView!
+    //
     @IBOutlet private weak var buttonBottom: NSLayoutConstraint!
-    
+    //
     weak var protocolElement : GTA_ReusableViewEvent?
-    
-    public var configView : configView = .first
+    //
+    public var configView : gta_enum_configView = .first
     public var viewModel : GTA_ReusableViewModel? = nil
     private let cellName = "ReusableCell"
     private var selectedStorage : [Int] = []
     private let multic: CGFloat = 0.94
     private let xib = "ReusableView"
-    
- 
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        //
-        gta_Init()
-    }
     
     private func gta_Init() {
         Bundle.main.loadNibNamed(xib, owner: self, options: nil)
@@ -98,7 +92,11 @@ class ReusableView: UIView, GTA_AnimatedButtonEvent {
         titleLb.adjustsFontSizeToFitWidth = true
     }
     
-    public func gta_setConfigView(config: configView) {
+    func gta_onClick() {
+        self.protocolElement?.gta_nextStep(config: self.configView)
+    }
+    
+    public func gta_setConfigView(config: gta_enum_configView) {
         self.configView = config
     }
     
@@ -119,6 +117,13 @@ class ReusableView: UIView, GTA_AnimatedButtonEvent {
     private func gta_getLastElement() -> Int {
         return (viewModel?.items.count ?? 0) - 1
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        //
+        gta_Init()
+    }
 }
 
 extension ReusableView : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
@@ -128,14 +133,19 @@ extension ReusableView : UICollectionViewDataSource,UICollectionViewDelegate,UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = content.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as! ReusableCell
+        
         let content = viewModel?.items[indexPath.item]
+        
         cell.cellLabel.text = content?.title
+        
         if selectedStorage.contains(where: {$0 == indexPath.item}) {
             cell.cellImage.image = content?.selectedImage
         } else {
             cell.cellImage.image = content?.image
         }
+        
         return cell
     }
     
@@ -147,7 +157,7 @@ extension ReusableView : UICollectionViewDataSource,UICollectionViewDelegate,UIC
         }
         
        
-        UIApplication.shared.impactFeedbackGenerator(type: .light)
+        UIApplication.shared.gta_impactFeedbackGenerator(type: .light)
         collectionView.reloadData()
         collectionView.performBatchUpdates(nil, completion: nil)
         if indexPath.last == gta_getLastElement() {
