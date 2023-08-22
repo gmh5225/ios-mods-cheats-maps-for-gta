@@ -15,6 +15,7 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
     public var downloadAction: (() -> Void)?
     
     private var kingfisherManager: KingfisherManager
+    private var downloadTask: DownloadTask?
     
     private let containerView = UIView()
     private let titleLabel = UILabel()
@@ -42,18 +43,44 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         
         titleLabel.text = ""
         descriprionLabel.text = ""
+        modeImage.image = nil
+        downloadTask?.cancel()
     }
     
     public func gameMode_configure_cell(_ value: ModItem, isLoaded: Bool) {
         titleLabel.font = UIFont(name: "Inter-Regular", size: 20)
         titleLabel.textColor = .white
         titleLabel.text = value.title
-        modeImage.kf.setImage(with: URL(string: value.imagePath))
         
         descriprionLabel.font = UIFont(name: "Inter-Regular", size: 20)
         descriprionLabel.textColor = .white
         descriprionLabel.text = value.description
         downloadButtonView.backgroundColor = isLoaded ? UIColor(named: "greenColor")?.withAlphaComponent(0.4) : UIColor(named: "blueColor")?.withAlphaComponent(0.4)
+        setImageMod(value)
+    }
+    
+    private func setImageMod(_ mode: ModItem) {
+        if ImageCache.default.isCached(forKey: mode.imagePath) {
+            setImage(with: mode.imagePath)
+        } else {
+            guard let imageModUrl = URL(string: mode.imagePath) else { return }
+            
+            downloadTask = self.kingfisherManager.retrieveImage(
+                with: imageModUrl) { [weak self] result in
+                    guard case .success(let value) = result  else { return }
+                    guard let self = self else { return }
+                    
+                    if !self.isLocalCachePhoto(with: mode.imagePath) {
+                        self.saveImage(
+                            image: value.image,
+                            cacheKey: imageModUrl.absoluteString) { [weak self] in
+                                self?.setImage(with: mode.imagePath)
+                        }
+                    } else {
+                        self.setImage(with: mode.imagePath)
+                    }
+            }
+        }
     }
     
     private func gta_setupLayout() {
@@ -83,6 +110,7 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
             $0.top.equal(to: titleLabel.bottomAnchor, offsetBy: 8.0)
             $0.height.equal(to: 218.0)
         }
+        modeImage.contentMode = .scaleAspectFill
         
         containerView.addSubview(descriprionLabel)
         descriprionLabel.layout {
@@ -184,5 +212,37 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         downloadAction?()
     }
     
+    private func isLocalCachePhoto(with path: String?) -> Bool {
+        guard let localPath = path, let localUrl = URL(string: localPath) else { return false }
+        
+        return ImageCache.default.isCached(forKey: localUrl.absoluteString)
+    }
+    
+    private func saveImage(image: UIImage, cacheKey: String, completion: (() -> Void)? = nil) {
+        ImageCache.default.store(image, forKey: cacheKey, options: KingfisherParsedOptionsInfo(nil)) { _ in
+            completion?()
+        }
+    }
+    
+    private func setImage(with urlPath: String, completionHandler: (() -> Void)? = nil) {
+        guard let urlImage = URL(string: urlPath) else {
+            completionHandler?()
+            return
+            
+        }
+        
+        downloadTask = kingfisherManager.retrieveImage(with: urlImage) { [weak self] result in
+                guard let self = self else { return }
+                
+                switch result {
+                case .success(let value):
+                    self.modeImage.image = value.image
+                case .failure:
+                    self.modeImage.image = nil
+                }
+                
+                completionHandler?()
+        }
+    }
     
 }
