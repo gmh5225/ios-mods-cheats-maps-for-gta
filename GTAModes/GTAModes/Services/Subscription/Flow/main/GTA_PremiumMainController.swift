@@ -13,9 +13,9 @@ protocol GTA_PremiumMainControllerDelegate_MEX: AnyObject {
 class GTA_PremiumMainController: UIViewController {
     
     private var playerLayer : AVPlayerLayer!
-    private var view0 = ReusableView()
-    private var view1 = ReusableView()
-    private var viewTransaction = TransactionView()
+    private var view0 = GTA_ReusableView()
+    private var view1 = GTA_ReusableView()
+    private var viewTransaction = GTA_TransactionView()
     
     @IBOutlet private weak var freeform: UIView!
     @IBOutlet private weak var videoElement: UIView!
@@ -225,7 +225,7 @@ class GTA_PremiumMainController: UIViewController {
     }
     
     private func gta_setReusable(config : gta_enum_configView, isHide : Bool){
-        var currentView : ReusableView? = nil
+        var currentView : GTA_ReusableView? = nil
         var viewModel : GTA_ReusableViewModel? = nil
         switch config {
         case .first:

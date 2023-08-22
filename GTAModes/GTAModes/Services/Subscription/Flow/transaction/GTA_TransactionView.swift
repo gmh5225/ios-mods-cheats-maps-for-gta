@@ -12,13 +12,13 @@ protocol GTA_TransactionViewEvents : AnyObject {
     func gta_termsOpen()
 }
 
-class TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol, GTA_NetworkStatusMonitorDelegate {
+class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol, GTA_NetworkStatusMonitorDelegate {
     func gta_showMess() {
         gta_transactionTreatment_TOC(title: NSLocalizedString( "ConnectivityTitle", comment: ""), message: NSLocalizedString("ConnectivityDescription", comment: ""))
     }
     
     
-    private let xib = "TransactionView"
+    private let xib = "GTA_TransactionView"
     
     @IBOutlet private var contentView: UIView!
     @IBOutlet private(set) weak var title: UILabel!

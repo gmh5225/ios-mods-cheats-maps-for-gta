@@ -23,7 +23,7 @@ struct GTA_ReusableContentCell {
     var selectedImage: UIImage
 }
 
-class ReusableView: UIView, GTA_AnimatedButtonEvent {
+class GTA_ReusableView: UIView, GTA_AnimatedButtonEvent {
     
 //
     @IBOutlet private weak var nextStepBtn: AnimatedButton!
@@ -42,10 +42,10 @@ class ReusableView: UIView, GTA_AnimatedButtonEvent {
     //
     public var configView : gta_enum_configView = .first
     public var viewModel : GTA_ReusableViewModel? = nil
-    private let cellName = "ReusableCell"
+    private let cellName = "GTA_ReusableCell"
     private var selectedStorage : [Int] = []
     private let multic: CGFloat = 0.94
-    private let xib = "ReusableView"
+    private let xib = "GTA_ReusableView"
     
     private func gta_Init() {
         Bundle.main.loadNibNamed(xib, owner: self, options: nil)
@@ -126,7 +126,7 @@ class ReusableView: UIView, GTA_AnimatedButtonEvent {
     }
 }
 
-extension ReusableView : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+extension GTA_ReusableView : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         gta_setLocalizable()
         return viewModel?.items.count ?? 0
@@ -134,7 +134,7 @@ extension ReusableView : UICollectionViewDataSource,UICollectionViewDelegate,UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = content.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as! ReusableCell
+        let cell = content.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as! GTA_ReusableCell
         
         let content = viewModel?.items[indexPath.item]
         

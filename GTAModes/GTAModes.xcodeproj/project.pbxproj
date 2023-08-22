@@ -16,8 +16,8 @@
 		2C1CA4322A8E70B200C89F79 /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B62A8E70B200C89F79 /* SFProText-Bold.ttf */; };
 		2C1CA4332A8E70B200C89F79 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B82A8E70B200C89F79 /* Localizable.strings */; };
 		2C1CA4342A8E70B200C89F79 /* validateLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3CF2A8E70B200C89F79 /* validateLocalizable.swift */; };
-		2C1CA4352A8E70B200C89F79 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3E72A8E70B200C89F79 /* TransactionView.swift */; };
-		2C1CA4362A8E70B200C89F79 /* TransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3E82A8E70B200C89F79 /* TransactionView.xib */; };
+		2C1CA4352A8E70B200C89F79 /* GTA_TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3E72A8E70B200C89F79 /* GTA_TransactionView.swift */; };
+		2C1CA4362A8E70B200C89F79 /* GTA_TransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3E82A8E70B200C89F79 /* GTA_TransactionView.xib */; };
 		2C1CA4372A8E70B200C89F79 /* gta_extensions-freeform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3EA2A8E70B200C89F79 /* gta_extensions-freeform.swift */; };
 		2C1CA4382A8E70B200C89F79 /* GTA_IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3EC2A8E70B200C89F79 /* GTA_IAPHandler.swift */; };
 		2C1CA4392A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3ED2A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift */; };
@@ -70,10 +70,10 @@
 		2C1CA4682A8E70B200C89F79 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4232A8E70B200C89F79 /* ConstraintMakerRelatable.swift */; };
 		2C1CA4692A8E70B200C89F79 /* GTA_PremiumMainController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA4252A8E70B200C89F79 /* GTA_PremiumMainController.xib */; };
 		2C1CA46A2A8E70B200C89F79 /* GTA_PremiumMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4262A8E70B200C89F79 /* GTA_PremiumMainController.swift */; };
-		2C1CA46B2A8E70B200C89F79 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4292A8E70B200C89F79 /* ReusableCell.swift */; };
-		2C1CA46C2A8E70B200C89F79 /* ReusableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA42A2A8E70B200C89F79 /* ReusableCell.xib */; };
-		2C1CA46D2A8E70B200C89F79 /* ReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA42B2A8E70B200C89F79 /* ReusableView.xib */; };
-		2C1CA46E2A8E70B200C89F79 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA42C2A8E70B200C89F79 /* ReusableView.swift */; };
+		2C1CA46B2A8E70B200C89F79 /* GTA_ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4292A8E70B200C89F79 /* GTA_ReusableCell.swift */; };
+		2C1CA46C2A8E70B200C89F79 /* GTA_ReusableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA42A2A8E70B200C89F79 /* GTA_ReusableCell.xib */; };
+		2C1CA46D2A8E70B200C89F79 /* GTA_ReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA42B2A8E70B200C89F79 /* GTA_ReusableView.xib */; };
+		2C1CA46E2A8E70B200C89F79 /* GTA_ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA42C2A8E70B200C89F79 /* GTA_ReusableView.swift */; };
 		2C1CA4712A8E714F00C89F79 /* GTA_Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4702A8E714F00C89F79 /* GTA_Configurations.swift */; };
 		2C1CA4742A8E720B00C89F79 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1CA4732A8E720A00C89F79 /* StoreKit.framework */; };
 		2C2A20512A7170E1002A6D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20502A7170E1002A6D3C /* AppDelegate.swift */; };
@@ -2532,8 +2532,8 @@
 		2C1CA3E22A8E70B200C89F79 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2C1CA3E32A8E70B200C89F79 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2C1CA3E42A8E70B200C89F79 /* en-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-IN"; path = "en-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		2C1CA3E72A8E70B200C89F79 /* TransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
-		2C1CA3E82A8E70B200C89F79 /* TransactionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionView.xib; sourceTree = "<group>"; };
+		2C1CA3E72A8E70B200C89F79 /* GTA_TransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_TransactionView.swift; sourceTree = "<group>"; };
+		2C1CA3E82A8E70B200C89F79 /* GTA_TransactionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_TransactionView.xib; sourceTree = "<group>"; };
 		2C1CA3EA2A8E70B200C89F79 /* gta_extensions-freeform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "gta_extensions-freeform.swift"; sourceTree = "<group>"; };
 		2C1CA3EC2A8E70B200C89F79 /* GTA_IAPHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_IAPHandler.swift; sourceTree = "<group>"; };
 		2C1CA3ED2A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_NetworkStatusMonitor.swift; sourceTree = "<group>"; };
@@ -2586,10 +2586,10 @@
 		2C1CA4232A8E70B200C89F79 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		2C1CA4252A8E70B200C89F79 /* GTA_PremiumMainController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_PremiumMainController.xib; sourceTree = "<group>"; };
 		2C1CA4262A8E70B200C89F79 /* GTA_PremiumMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_PremiumMainController.swift; sourceTree = "<group>"; };
-		2C1CA4292A8E70B200C89F79 /* ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
-		2C1CA42A2A8E70B200C89F79 /* ReusableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReusableCell.xib; sourceTree = "<group>"; };
-		2C1CA42B2A8E70B200C89F79 /* ReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReusableView.xib; sourceTree = "<group>"; };
-		2C1CA42C2A8E70B200C89F79 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		2C1CA4292A8E70B200C89F79 /* GTA_ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_ReusableCell.swift; sourceTree = "<group>"; };
+		2C1CA42A2A8E70B200C89F79 /* GTA_ReusableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_ReusableCell.xib; sourceTree = "<group>"; };
+		2C1CA42B2A8E70B200C89F79 /* GTA_ReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_ReusableView.xib; sourceTree = "<group>"; };
+		2C1CA42C2A8E70B200C89F79 /* GTA_ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_ReusableView.swift; sourceTree = "<group>"; };
 		2C1CA4702A8E714F00C89F79 /* GTA_Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTA_Configurations.swift; sourceTree = "<group>"; };
 		2C1CA4722A8E71E200C89F79 /* GTAModes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GTAModes.entitlements; sourceTree = "<group>"; };
 		2C1CA4732A8E720A00C89F79 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -5061,8 +5061,8 @@
 		2C1CA3E62A8E70B200C89F79 /* transaction */ = {
 			isa = PBXGroup;
 			children = (
-				2C1CA3E72A8E70B200C89F79 /* TransactionView.swift */,
-				2C1CA3E82A8E70B200C89F79 /* TransactionView.xib */,
+				2C1CA3E72A8E70B200C89F79 /* GTA_TransactionView.swift */,
+				2C1CA3E82A8E70B200C89F79 /* GTA_TransactionView.xib */,
 			);
 			path = transaction;
 			sourceTree = "<group>";
@@ -5199,8 +5199,8 @@
 			isa = PBXGroup;
 			children = (
 				2C1CA4282A8E70B200C89F79 /* cell */,
-				2C1CA42B2A8E70B200C89F79 /* ReusableView.xib */,
-				2C1CA42C2A8E70B200C89F79 /* ReusableView.swift */,
+				2C1CA42B2A8E70B200C89F79 /* GTA_ReusableView.xib */,
+				2C1CA42C2A8E70B200C89F79 /* GTA_ReusableView.swift */,
 			);
 			path = reusable;
 			sourceTree = "<group>";
@@ -5208,8 +5208,8 @@
 		2C1CA4282A8E70B200C89F79 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				2C1CA4292A8E70B200C89F79 /* ReusableCell.swift */,
-				2C1CA42A2A8E70B200C89F79 /* ReusableCell.xib */,
+				2C1CA4292A8E70B200C89F79 /* GTA_ReusableCell.swift */,
+				2C1CA42A2A8E70B200C89F79 /* GTA_ReusableCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -8593,7 +8593,7 @@
 				2C68678A2A8E0E500078CFFD /* 12-12_7.png in Resources */,
 				2C6868BC2A8E0E500078CFFD /* 13-20_7.png in Resources */,
 				2C6868BF2A8E0E500078CFFD /* 14-15_7.png in Resources */,
-				2C1CA4362A8E70B200C89F79 /* TransactionView.xib in Resources */,
+				2C1CA4362A8E70B200C89F79 /* GTA_TransactionView.xib in Resources */,
 				2C6867C92A8E0E500078CFFD /* 41-24_7.png in Resources */,
 				2C6867852A8E0E500078CFFD /* 33-2_7.png in Resources */,
 				2C686A6F2A8E0E510078CFFD /* 42-35_7.png in Resources */,
@@ -9065,7 +9065,7 @@
 				2C685DEB2A8E0C790078CFFD /* 15-14_6.png in Resources */,
 				2C6867202A8E0E500078CFFD /* 12-40_7.png in Resources */,
 				2C68663F2A8E0E4F0078CFFD /* 42-27_7.png in Resources */,
-				2C1CA46C2A8E70B200C89F79 /* ReusableCell.xib in Resources */,
+				2C1CA46C2A8E70B200C89F79 /* GTA_ReusableCell.xib in Resources */,
 				2C686BD42A8E0E510078CFFD /* 22-16_7.png in Resources */,
 				2C686A482A8E0E510078CFFD /* 18-10_7.png in Resources */,
 				2C686B5C2A8E0E510078CFFD /* 27-13_7.png in Resources */,
@@ -9470,7 +9470,7 @@
 				2C6869342A8E0E500078CFFD /* 42-25_7.png in Resources */,
 				2C685DE52A8E0C790078CFFD /* 0-5_6.png in Resources */,
 				2C68671E2A8E0E500078CFFD /* 8-11_7.png in Resources */,
-				2C1CA46D2A8E70B200C89F79 /* ReusableView.xib in Resources */,
+				2C1CA46D2A8E70B200C89F79 /* GTA_ReusableView.xib in Resources */,
 				2C6867972A8E0E500078CFFD /* 25-35_7.png in Resources */,
 				2C6866C82A8E0E500078CFFD /* 16-2_7.png in Resources */,
 				2C6867512A8E0E500078CFFD /* 18-37_7.png in Resources */,
@@ -10428,7 +10428,7 @@
 				2C1CA45D2A8E70B200C89F79 /* ConstraintRelation.swift in Sources */,
 				2C1CA4632A8E70B200C89F79 /* ConstraintRelatableTarget.swift in Sources */,
 				2C1CA4492A8E70B200C89F79 /* ConstraintViewDSL.swift in Sources */,
-				2C1CA46E2A8E70B200C89F79 /* ReusableView.swift in Sources */,
+				2C1CA46E2A8E70B200C89F79 /* GTA_ReusableView.swift in Sources */,
 				2C1CA45E2A8E70B200C89F79 /* ConstraintLayoutGuideDSL.swift in Sources */,
 				2C1CA44E2A8E70B200C89F79 /* ConstraintMakerExtendable.swift in Sources */,
 				2C1CA4512A8E70B200C89F79 /* ConstraintDirectionalInsetTarget.swift in Sources */,
@@ -10440,7 +10440,7 @@
 				2C1CA4602A8E70B200C89F79 /* ConstraintItem.swift in Sources */,
 				2C1CA4442A8E70B200C89F79 /* ConstraintMultiplierTarget.swift in Sources */,
 				2C1CA4422A8E70B200C89F79 /* SwiftyGifManager.swift in Sources */,
-				2C1CA46B2A8E70B200C89F79 /* ReusableCell.swift in Sources */,
+				2C1CA46B2A8E70B200C89F79 /* GTA_ReusableCell.swift in Sources */,
 				2C1CA45C2A8E70B200C89F79 /* ConstraintMaker.swift in Sources */,
 				2C5CA6E62A924D78005F9D24 /* GTA_GameModesViewController.swift in Sources */,
 				2C1CA4552A8E70B200C89F79 /* ConstraintView.swift in Sources */,
@@ -10458,7 +10458,7 @@
 				2C45A53B2A76A7780023B3A8 /* GTAModes_ChecklistViewController.swift in Sources */,
 				2C1CA4342A8E70B200C89F79 /* validateLocalizable.swift in Sources */,
 				2C1CA4642A8E70B200C89F79 /* LayoutConstraint.swift in Sources */,
-				2C1CA4352A8E70B200C89F79 /* TransactionView.swift in Sources */,
+				2C1CA4352A8E70B200C89F79 /* GTA_TransactionView.swift in Sources */,
 				2C1CA4432A8E70B200C89F79 /* NSImageView+SwiftyGif.swift in Sources */,
 				2CBFE45B2A79080D00A50257 /* GTAModes_MapViewController.swift in Sources */,
 				2CA95FFC2A8512470039343E /* MainItemObject.swift in Sources */,

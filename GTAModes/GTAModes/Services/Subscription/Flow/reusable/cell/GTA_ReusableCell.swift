@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ReusableCell: UICollectionViewCell {
+class GTA_ReusableCell: UICollectionViewCell {
     
     @IBOutlet weak var cellImage: UIImageView!
     //

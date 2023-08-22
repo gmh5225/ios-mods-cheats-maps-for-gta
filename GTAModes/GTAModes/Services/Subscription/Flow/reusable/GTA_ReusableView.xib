@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReusableView" customModule="template" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GTA_ReusableView" customModule="GTAModes" customModuleProvider="target">
             <connections>
                 <outlet property="buttonBottom" destination="SYv-JQ-dYv" id="2tS-tU-BTA"/>
                 <outlet property="content" destination="xlT-b8-EFP" id="1B9-zj-TRE"/>
@@ -36,7 +36,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYq-fY-sEp" customClass="AnimatedButton" customModule="template" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYq-fY-sEp" customClass="AnimatedButton" customModule="GTAModes" customModuleProvider="target">
                             <rect key="frame" x="20" y="221" width="353" height="60"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>

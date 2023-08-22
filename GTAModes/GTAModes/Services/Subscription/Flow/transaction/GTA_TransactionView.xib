@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionView" customModule="template" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GTA_TransactionView" customModule="GTAModes" customModuleProvider="target">
             <connections>
                 <outlet property="conteinerWidth" destination="szR-4i-6Pz" id="QzF-n1-QEv"/>
                 <outlet property="contentView" destination="CfK-QA-lXg" id="A0I-rD-gH8"/>
@@ -80,7 +80,7 @@ THEN $4.99/WEEK</string>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8J-gz-TlO" customClass="AnimatedButton" customModule="template" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8J-gz-TlO" customClass="AnimatedButton" customModule="GTAModes" customModuleProvider="target">
                                             <rect key="frame" x="20" y="46" width="353" height="60"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
