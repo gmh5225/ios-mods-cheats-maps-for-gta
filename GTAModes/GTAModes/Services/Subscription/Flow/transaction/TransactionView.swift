@@ -4,17 +4,17 @@
 
 import UIKit
 
-protocol TransactionViewEvents : AnyObject {
-    func userSubscribed()
-    func transactionTreatment_TOC(title: String, message: String)
-    func transactionFailed()
-    func privacyOpen()
-    func termsOpen()
+protocol GTA_TransactionViewEvents : AnyObject {
+    func gta_userSubscribed()
+    func gta_transactionTreatment_TOC(title: String, message: String)
+    func gta_transactionFailed()
+    func gta_privacyOpen()
+    func gta_termsOpen()
 }
 
-class TransactionView: UIView,AnimatedButtonEvent,IAPManagerProtocol, NetworkStatusMonitorDelegate {
-    func showMess() {
-        transactionTreatment_TOC(title: NSLocalizedString( "ConnectivityTitle", comment: ""), message: NSLocalizedString("ConnectivityDescription", comment: ""))
+class TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol, GTA_NetworkStatusMonitorDelegate {
+    func gta_showMess() {
+        gta_transactionTreatment_TOC(title: NSLocalizedString( "ConnectivityTitle", comment: ""), message: NSLocalizedString("ConnectivityDescription", comment: ""))
     }
     
     
@@ -36,22 +36,22 @@ class TransactionView: UIView,AnimatedButtonEvent,IAPManagerProtocol, NetworkSta
     
     
     private let currentFont = "SFProText-Bold"
-    public let inapp = IAPManager.shared
+    public let inapp = GTA_IAPManager.shared
     private let locale = NSLocale.current.languageCode
-    public weak var delegate : TransactionViewEvents?
-    private let networkingMonitor = NetworkStatusMonitor.shared
+    public weak var delegate : GTA_TransactionViewEvents?
+    private let networkingMonitor = GTA_NetworkStatusMonitor.shared
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        Init()
+        gta_Init()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        Init()
+        gta_Init()
     }
     
-    private func Init() {
+    private func gta_Init() {
         Bundle.main.loadNibNamed(xib, owner: self, options: nil)
         if UIDevice.current.userInterfaceIdiom == .phone {
             // Устройство является iPhone
@@ -66,21 +66,21 @@ class TransactionView: UIView,AnimatedButtonEvent,IAPManagerProtocol, NetworkSta
             heightView.constant = 169
 //            sliderTop.constant = 45
         }
-        contentView.fixInView(self)
+        contentView.gta_fixInView(self)
         contentView.backgroundColor = .clear
-        buildConfigs_TOC()
+        gta_buildConfigs_TOC()
     }
     
-    private func buildConfigs_TOC(){
-        configScreen_TOC()
-        setSlider_TOC()
-        setConfigLabels_TOC()
-        setConfigButtons_TOC()
-        setLocalization_TOC()
-        configsInApp_TOC()
+    private func gta_buildConfigs_TOC(){
+        gta_configScreen_TOC()
+        gta_setSlider_TOC()
+        gta_setConfigLabels_TOC()
+        gta_setConfigButtons_TOC()
+        gta_setLocalization_TOC()
+        gta_configsInApp_TOC()
     }
     
-    private func setSlider_TOC(){
+    private func gta_setSlider_TOC(){
         
         title.text = (localizedString(forKey: "SliderID1").uppercased())
         var texts: [String] = ["\(localizedString(forKey: "SliderID2").uppercased())",
@@ -88,44 +88,44 @@ class TransactionView: UIView,AnimatedButtonEvent,IAPManagerProtocol, NetworkSta
                                "\(localizedString(forKey: "SliderID4").uppercased())",
                                ]
         for t in texts {
-            sliderStack.addArrangedSubview(SliderCellView(title: t, subTitle: t))
+            sliderStack.addArrangedSubview(GTA_SliderCellView(title: t, subTitle: t))
         }
     }
     
     //MARK: config labels
     
-    private func setConfigLabels_TOC(){
+    private func gta_setConfigLabels_TOC(){
         //slider
         title.textColor = .white
         title.font = UIFont(name: currentFont, size: 21)
 //        title.adjustsFontSizeToFitWidth = true
         title.numberOfLines = 4
-        title.setShadow()
+        title.gta_setShadow()
         title.lineBreakMode = .byClipping
         if UIDevice.current.userInterfaceIdiom == .pad {
             title.font = UIFont(name: currentFont, size: 21)
         }
-        trialLb.setShadow()
+        trialLb.gta_setShadow()
         trialLb.font = UIFont(name: currentFont, size: 13)
         trialLb.textColor = .white
         trialLb.textAlignment = .center
         trialLb.numberOfLines = 2
         trialLb.adjustsFontSizeToFitWidth = true
         
-        descriptLb.setShadow()
+        descriptLb.gta_setShadow()
         descriptLb.textColor = .white
         descriptLb.textAlignment = .center
         descriptLb.numberOfLines = 0
         descriptLb.font = UIFont.systemFont(ofSize: 15)
         
-        privacyBtn.titleLabel?.setShadow()
+        privacyBtn.titleLabel?.gta_setShadow()
         privacyBtn.titleLabel?.numberOfLines = 2
         privacyBtn.titleLabel?.textAlignment = .center
         
         privacyBtn.setTitleColor(.white, for: .normal)
         privacyBtn.tintColor = .white
         
-        policyBtn.titleLabel?.setShadow()
+        policyBtn.titleLabel?.gta_setShadow()
         policyBtn.titleLabel?.numberOfLines = 2
         policyBtn.titleLabel?.textAlignment = .center
         policyBtn.setTitleColor(.white, for: .normal)
@@ -134,19 +134,19 @@ class TransactionView: UIView,AnimatedButtonEvent,IAPManagerProtocol, NetworkSta
     
     //MARK: config button
     
-    private func setConfigButtons_TOC(){
+    private func gta_setConfigButtons_TOC(){
         self.purchaseBtn.delegate = self
         self.purchaseBtn.style = .native
     }
     
     //MARK: config localization
     
-    public func setLocalization_TOC() {
+    public func gta_setLocalization_TOC() {
         
 //        title.labelTextsForSlider = "\(localizedString(forKey: "SliderID1").uppercased())|n\(localizedString(forKey: "SliderID2").uppercased())|n\(localizedString(forKey: "SliderID3").uppercased()) |n\(localizedString(forKey: "SliderID4").uppercased()) |n\(localizedString(forKey: "SliderID5").uppercased())"
         
         let description = localizedString(forKey: "iOSAfterID")
-        let localizedPrice = inapp.localizedPrice()
+        let localizedPrice = inapp.gta_localizedPrice()
         descriptLb.text = String(format: description, localizedPrice)
         
         if locale == "en" {
@@ -162,7 +162,7 @@ class TransactionView: UIView,AnimatedButtonEvent,IAPManagerProtocol, NetworkSta
     
     //MARK: screen configs
     
-    private func configScreen_TOC(){
+    private func gta_configScreen_TOC(){
         if UIDevice.current.userInterfaceIdiom == .pad {
             trialWight.setValue(0.28, forKey: "multiplier")
             sliderWight.setValue(0.5, forKey: "multiplier")
@@ -174,52 +174,52 @@ class TransactionView: UIView,AnimatedButtonEvent,IAPManagerProtocol, NetworkSta
     
     //MARK: configs
     
-    private func configsInApp_TOC(){
+    private func gta_configsInApp_TOC(){
         self.inapp.transactionsDelegate = self
         self.networkingMonitor.delegate = self
     }
     
-    public func restoreAction(){
-        inapp.doRestore()
+    public func gta_restoreAction(){
+        inapp.gta_doRestore()
     }
     
     //MARK: actions
     
     @IBAction func privacyAction(_ sender: UIButton) {
         
-        self.delegate?.termsOpen()
+        self.delegate?.gta_termsOpen()
     }
     
     @IBAction func termsAction(_ sender: UIButton) {
-        self.delegate?.privacyOpen()
+        self.delegate?.gta_privacyOpen()
     }
     
-    func onClick() {
+    func gta_onClick() {
         UIApplication.shared.impactFeedbackGenerator(type: .heavy)
-        networkingMonitor.startMonitoring()
-        inapp.doPurchase()
+        networkingMonitor.gta_startMonitoring()
+        inapp.gta_doPurchase()
         purchaseBtn.isUserInteractionEnabled = false
     }
     
     //inapp
     
-    func transactionTreatment_TOC(title: String, message: String) {
+    func gta_transactionTreatment_TOC(title: String, message: String) {
         purchaseBtn.isUserInteractionEnabled = true
-        self.delegate?.transactionTreatment_TOC(title: title, message: message)
+        self.delegate?.gta_transactionTreatment_TOC(title: title, message: message)
     }
     
-    func infoAlert(title: String, message: String) {
+    func gta_infoAlert(title: String, message: String) {
         purchaseBtn.isUserInteractionEnabled = true
-        self.delegate?.transactionTreatment_TOC(title: title, message: message)
+        self.delegate?.gta_transactionTreatment_TOC(title: title, message: message)
     }
     
-    func goToTheApp() {
+    func gta_goToTheApp() {
         purchaseBtn.isUserInteractionEnabled = true
-        self.delegate?.userSubscribed()
+        self.delegate?.gta_userSubscribed()
     }
     
-    func failed() {
+    func gta_failed() {
         purchaseBtn.isUserInteractionEnabled = true
-        self.delegate?.transactionFailed()
+        self.delegate?.gta_transactionFailed()
     }
 }

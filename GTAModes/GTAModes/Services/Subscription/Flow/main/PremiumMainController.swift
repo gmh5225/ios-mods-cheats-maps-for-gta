@@ -6,8 +6,8 @@ enum PremiumMainControllerStyle {
     case mainProduct,unlockContentProduct,unlockFuncProduct,unlockOther
 }
 
-protocol PremiumMainControllerDelegate_MEX: AnyObject {
-    func funcProductBuyed()
+protocol GTA_PremiumMainControllerDelegate_MEX: AnyObject {
+    func gta_funcProductBuyed()
 }
 
 class PremiumMainController: UIViewController {
@@ -23,7 +23,7 @@ class PremiumMainController: UIViewController {
     @IBOutlet weak var closeBtn: UIButton!
     
     public var productBuy : PremiumMainControllerStyle = .mainProduct
-    weak var delegate: PremiumMainControllerDelegate_MEX?
+    weak var delegate: GTA_PremiumMainControllerDelegate_MEX?
     
     private var intScreenStatus = 0
     private var avPlayer: AVPlayer? = AVPlayer()
@@ -36,40 +36,40 @@ class PremiumMainController: UIViewController {
     
     override  func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        initVideoElement()
-        startMaked()
+        gta_initVideoElement()
+        gta_startMaked()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !NetworkStatusMonitor.shared.isNetworkAvailable {
-            showMess()
+        if !GTA_NetworkStatusMonitor.shared.isNetworkAvailable {
+            gta_showMess()
         }
     }
     
     override  func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        deinitOperation()
+        gta_deinitOperation()
     }
     
     override  func viewDidDisappear(_ animated: Bool) {
-        chageScreenStatus()
+        gta_chageScreenStatus()
     }
     
     deinit {
-        deinitOperation()
+        gta_deinitOperation()
     }
     
-    private func initVideoElement(){
+    private func gta_initVideoElement(){
         DispatchQueue.main.asyncAfter(deadline: .now()) { [self] in
-            BGPlayer()
+            GTA_BGPlayer()
         }
     }
     
     
     //MARK: System events
     
-    private func deinitOperation(){
+    private func gta_deinitOperation(){
         intScreenStatus = 1
         avPlayer?.pause()
         avPlayer?.replaceCurrentItem(with: nil)
@@ -84,7 +84,7 @@ class PremiumMainController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: AVAudioSession.interruptionNotification, object: nil)
     }
     
-    private func chageScreenStatus(){
+    private func gta_chageScreenStatus(){
         intScreenStatus = 1
         avPlayer?.pause()
     }
@@ -93,7 +93,7 @@ class PremiumMainController: UIViewController {
     
     // MARK: - Setup Video Player
     
-    private func BGPlayer(){
+    private func GTA_BGPlayer(){
         var pathUrl = Bundle.main.url(forResource: ConfigurationMediaSub.nameFileVideoForPhone, withExtension: ConfigurationMediaSub.videoFileType)
         if UIDevice.current.userInterfaceIdiom == .pad {
             pathUrl = Bundle.main.url(forResource: ConfigurationMediaSub.nameFileVideoForPad, withExtension: ConfigurationMediaSub.videoFileType)
@@ -113,26 +113,26 @@ class PremiumMainController: UIViewController {
         avPlayer?.play()
         
         if let avPlayer {
-            loopVideoMB(videoPlayer: avPlayer)
+            gta_loopVideoMB(videoPlayer: avPlayer)
         }
-        addPlayerNotifications()
+        gta_addPlayerNotifications()
     }
     
-    private func addPlayerNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidPlayToEnd), name: .AVPlayerItemDidPlayToEndTime, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleInterruption(notification:)), name: AVAudioSession.interruptionNotification, object: nil)
+    private func gta_addPlayerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(gta_playerItemDidPlayToEnd), name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(gta_applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(gta_applicationDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(gta_handleInterruption(notification:)), name: AVAudioSession.interruptionNotification, object: nil)
     }
     
-    private func loopVideoMB(videoPlayer:AVPlayer){
+    private func gta_loopVideoMB(videoPlayer:AVPlayer){
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
             videoPlayer.seek(to: .zero)
             videoPlayer.play()
         }
     }
     
-    @objc func handleInterruption(notification: Notification) {
+    @objc func gta_handleInterruption(notification: Notification) {
         guard let info = notification.userInfo,
               let typeValue = info[AVAudioSessionInterruptionTypeKey] as? UInt,
               let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
@@ -155,7 +155,7 @@ class PremiumMainController: UIViewController {
     }
     
     // Player end.
-    @objc  private func playerItemDidPlayToEnd(_ notification: Notification) {
+    @objc  private func gta_playerItemDidPlayToEnd(_ notification: Notification) {
         // Your Code.
         if intScreenStatus == 0{
             avPlayer?.seek(to: CMTime.zero)
@@ -163,7 +163,7 @@ class PremiumMainController: UIViewController {
     }
     
     //App enter in forground.
-    @objc private func applicationWillEnterForeground(_ notification: Notification) {
+    @objc private func gta_applicationWillEnterForeground(_ notification: Notification) {
         if intScreenStatus == 0 {
             avPlayer?.play()
         } else {
@@ -172,67 +172,67 @@ class PremiumMainController: UIViewController {
     }
     
     //App enter in forground.
-    @objc private func applicationDidEnterBackground(_ notification: Notification) {
+    @objc private func gta_applicationDidEnterBackground(_ notification: Notification) {
         avPlayer?.pause()
     }
     
     // MARK: - Make UI/UX
     
-    private func startMaked(){
-        setRestoreBtn()
+    private func gta_startMaked(){
+        gta_setRestoreBtn()
         if productBuy == .mainProduct {
-            setReusable(config: .first, isHide: false)
-            setReusable(config: .second, isHide: true)
-            setTransaction(isHide: true)
+            gta_setReusable(config: .first, isHide: false)
+            gta_setReusable(config: .second, isHide: true)
+            gta_setTransaction(isHide: true)
         } else {
-            setTransaction(isHide: false)
-            self.showRestore()
+            gta_setTransaction(isHide: false)
+            self.gta_showRestore()
         }
         
     }
     
     //reusable setup
     
-    private func generateContentForView(config: configView) -> [ReusableContentCell] {
-        var contentForCV : [ReusableContentCell] = []
+    private func generateContentForView(config: configView) -> [GTA_ReusableContentCell] {
+        var contentForCV : [GTA_ReusableContentCell] = []
         switch config {
         case .first:
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text1ID"), image: UIImage(named: "2_1des")!, selectedImage: UIImage(named: "2_1sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text2ID"), image: UIImage(named: "2_2des")!, selectedImage: UIImage(named: "2_2sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text3ID"), image: UIImage(named: "2_3des")!, selectedImage: UIImage(named: "2_3sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text4ID"), image: UIImage(named: "2_4des")!, selectedImage: UIImage(named: "2_4sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text5ID"), image: UIImage(named: "2_5des")!, selectedImage: UIImage(named: "2_5sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text1ID"), image: UIImage(named: "2_1des")!, selectedImage: UIImage(named: "2_1sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text2ID"), image: UIImage(named: "2_2des")!, selectedImage: UIImage(named: "2_2sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text3ID"), image: UIImage(named: "2_3des")!, selectedImage: UIImage(named: "2_3sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text4ID"), image: UIImage(named: "2_4des")!, selectedImage: UIImage(named: "2_4sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text5ID"), image: UIImage(named: "2_5des")!, selectedImage: UIImage(named: "2_5sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text1ID"), image: UIImage(named: "2_1des")!, selectedImage: UIImage(named: "2_1sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text2ID"), image: UIImage(named: "2_2des")!, selectedImage: UIImage(named: "2_2sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text3ID"), image: UIImage(named: "2_3des")!, selectedImage: UIImage(named: "2_3sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text4ID"), image: UIImage(named: "2_4des")!, selectedImage: UIImage(named: "2_4sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text5ID"), image: UIImage(named: "2_5des")!, selectedImage: UIImage(named: "2_5sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text1ID"), image: UIImage(named: "2_1des")!, selectedImage: UIImage(named: "2_1sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text2ID"), image: UIImage(named: "2_2des")!, selectedImage: UIImage(named: "2_2sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text3ID"), image: UIImage(named: "2_3des")!, selectedImage: UIImage(named: "2_3sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text4ID"), image: UIImage(named: "2_4des")!, selectedImage: UIImage(named: "2_4sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text5ID"), image: UIImage(named: "2_5des")!, selectedImage: UIImage(named: "2_5sel")!))
             return contentForCV
         case .second:
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text1ID"), image: UIImage(named: "2_1des")!, selectedImage: UIImage(named: "2_1sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text2ID"), image: UIImage(named: "2_2des")!, selectedImage: UIImage(named: "2_2sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text3ID"), image: UIImage(named: "2_3des")!, selectedImage: UIImage(named: "2_3sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text4ID"), image: UIImage(named: "2_4des")!, selectedImage: UIImage(named: "2_4sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text5ID"), image: UIImage(named: "2_5des")!, selectedImage: UIImage(named: "2_5sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text1ID"), image: UIImage(named: "2_1des")!, selectedImage: UIImage(named: "2_1sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text2ID"), image: UIImage(named: "2_2des")!, selectedImage: UIImage(named: "2_2sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text3ID"), image: UIImage(named: "2_3des")!, selectedImage: UIImage(named: "2_3sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text4ID"), image: UIImage(named: "2_4des")!, selectedImage: UIImage(named: "2_4sel")!))
-            contentForCV.append(ReusableContentCell(title: localizedString(forKey:"Text5ID"), image: UIImage(named: "2_5des")!, selectedImage: UIImage(named: "2_5sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text1ID"), image: UIImage(named: "2_1des")!, selectedImage: UIImage(named: "2_1sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text2ID"), image: UIImage(named: "2_2des")!, selectedImage: UIImage(named: "2_2sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text3ID"), image: UIImage(named: "2_3des")!, selectedImage: UIImage(named: "2_3sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text4ID"), image: UIImage(named: "2_4des")!, selectedImage: UIImage(named: "2_4sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text5ID"), image: UIImage(named: "2_5des")!, selectedImage: UIImage(named: "2_5sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text1ID"), image: UIImage(named: "2_1des")!, selectedImage: UIImage(named: "2_1sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text2ID"), image: UIImage(named: "2_2des")!, selectedImage: UIImage(named: "2_2sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text3ID"), image: UIImage(named: "2_3des")!, selectedImage: UIImage(named: "2_3sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text4ID"), image: UIImage(named: "2_4des")!, selectedImage: UIImage(named: "2_4sel")!))
+            contentForCV.append(GTA_ReusableContentCell(title: localizedString(forKey:"Text5ID"), image: UIImage(named: "2_5des")!, selectedImage: UIImage(named: "2_5sel")!))
             return contentForCV
         case .transaction: return contentForCV
         }
     }
     
-    private func setReusable(config : configView, isHide : Bool){
+    private func gta_setReusable(config : configView, isHide : Bool){
         var currentView : ReusableView? = nil
-        var viewModel : ReusableViewModel? = nil
+        var viewModel : GTA_ReusableViewModel? = nil
         switch config {
         case .first:
-            viewModel =  ReusableViewModel(title: localizedString(forKey: "TextTitle1ID").uppercased(), items: self.generateContentForView(config: config))
+            viewModel =  GTA_ReusableViewModel(title: localizedString(forKey: "TextTitle1ID").uppercased(), items: self.generateContentForView(config: config))
             currentView = self.view0
         case .second:
-            viewModel =  ReusableViewModel(title: localizedString(forKey: "TextTitle2ID").uppercased(), items: self.generateContentForView(config: config))
+            viewModel =  GTA_ReusableViewModel(title: localizedString(forKey: "TextTitle2ID").uppercased(), items: self.generateContentForView(config: config))
             currentView = self.view1
         case .transaction:
             currentView = nil
@@ -254,10 +254,10 @@ class PremiumMainController: UIViewController {
     }
     //transaction setup
     
-    private func setTransaction( isHide : Bool) {
+    private func gta_setTransaction( isHide : Bool) {
         self.viewTransaction.inapp.productBuy = self.productBuy
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            self.viewTransaction.setLocalization_TOC()
+            self.viewTransaction.gta_setLocalization_TOC()
         }
         freeform.addSubview(self.viewTransaction)
         freeform.bringSubviewToFront(self.viewTransaction)
@@ -274,21 +274,21 @@ class PremiumMainController: UIViewController {
     
     // restore button setup
     
-    private func setRestoreBtn(){
+    private func gta_setRestoreBtn(){
         self.restoreBtn.isHidden = true
         self.restoreBtn.setTitle(localizedString(forKey: "restore"), for: .normal)
         self.restoreBtn.titleLabel?.font = UIFont(name: "Poppins-Bold", size: 14)
-        self.restoreBtn.titleLabel?.setShadow()
+        self.restoreBtn.titleLabel?.gta_setShadow()
         self.restoreBtn.tintColor = .white
         self.restoreBtn.setTitleColor(.white, for: .normal)
     }
     
-    private func openApp(){
+    private func gta_openApp(){
         if productBuy == .mainProduct {
             gta_openMainFlow()
             
         } else {
-            delegate?.funcProductBuyed()
+            delegate?.gta_funcProductBuyed()
             dismiss(animated: true)
             
             
@@ -303,11 +303,11 @@ class PremiumMainController: UIViewController {
         let navigation = UINavigationController(rootViewController: controller)
         navigation.setNavigationBarHidden(true, animated: false)
         
-        UIApplication.shared.setRootVC(navigation)
-        UIApplication.shared.notificationFeedbackGenerator(type: .success)
+        UIApplication.shared.gta_setRootVC(navigation)
+        UIApplication.shared.gta_notificationFeedbackGenerator(type: .success)
     }
     
-    private func showRestore(){
+    private func gta_showRestore(){
         self.restoreBtn.isHidden = false
         if productBuy != .mainProduct {
             self.closeBtn.isHidden = false
@@ -315,26 +315,26 @@ class PremiumMainController: UIViewController {
     }
     
     @IBAction func restoreAction(_ sender: UIButton) {
-        self.viewTransaction.restoreAction()
+        self.viewTransaction.gta_restoreAction()
     }
     
     @IBAction func closeController(_ sender: UIButton) {
-        openApp()
+        gta_openApp()
     }
 }
 
-extension PremiumMainController : ReusableViewEvent {
-    func nextStep(config: configView) {
+extension PremiumMainController : GTA_ReusableViewEvent {
+    func gta_nextStep(config: configView) {
         switch config {
         case .first:
-            self.view0.fadeOut()
-            self.view1.fadeIn()
+            self.view0.gta_fadeOut()
+            self.view1.gta_fadeIn()
             UIApplication.shared.impactFeedbackGenerator(type: .medium)
-            ThirdPartyServicesManager.shared.makeATT()
+            GTA_ThirdPartyServicesManager.shared.gta_makeATT()
         case .second:
-            self.view1.fadeOut()
-            self.viewTransaction.fadeIn()
-            self.showRestore()
+            self.view1.gta_fadeOut()
+            self.viewTransaction.gta_fadeIn()
+            self.gta_showRestore()
             //            self.viewTransaction.title.restartpageControl()
             UIApplication.shared.impactFeedbackGenerator(type: .medium)
         case .transaction: break
@@ -342,35 +342,35 @@ extension PremiumMainController : ReusableViewEvent {
     }
 }
 
-extension PremiumMainController: NetworkStatusMonitorDelegate {
-    func showMess() {
-        transactionTreatment_TOC(title: NSLocalizedString( "ConnectivityTitle", comment: ""), message: NSLocalizedString("ConnectivityDescription", comment: ""))
+extension PremiumMainController: GTA_NetworkStatusMonitorDelegate {
+    func gta_showMess() {
+        gta_transactionTreatment_TOC(title: NSLocalizedString( "ConnectivityTitle", comment: ""), message: NSLocalizedString("ConnectivityDescription", comment: ""))
     }
 }
 
-extension PremiumMainController : TransactionViewEvents {
-    func userSubscribed() {
-        deinitOperation()
-        self.openApp()
+extension PremiumMainController : GTA_TransactionViewEvents {
+    func gta_userSubscribed() {
+        gta_deinitOperation()
+        self.gta_openApp()
     }
     
-    func transactionTreatment_TOC(title: String, message: String) {
+    func gta_transactionTreatment_TOC(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
-        UIApplication.shared.notificationFeedbackGenerator(type: .warning)
+        UIApplication.shared.gta_notificationFeedbackGenerator(type: .warning)
     }
     
-    func transactionFailed() {
+    func gta_transactionFailed() {
         print(#function)
-        UIApplication.shared.notificationFeedbackGenerator(type: .error)
+        UIApplication.shared.gta_notificationFeedbackGenerator(type: .error)
     }
     
-    func privacyOpen() {
-        Configurations.policyLink.openURL()
+    func gta_privacyOpen() {
+        GTA_Configurations.policyLink.gta_openURL()
     }
     
-    func termsOpen() {
-        Configurations.termsLink.openURL()
+    func gta_termsOpen() {
+        GTA_Configurations.termsLink.gta_openURL()
     }
 }

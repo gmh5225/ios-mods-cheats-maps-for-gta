@@ -1,5 +1,5 @@
 //
-//  ServicesManager.swift
+//  GTA_ServicesManager.swift
 //  template
 //
 //  Created by Melnykov Valerii on 14.07.2023.
@@ -12,12 +12,12 @@ import Pushwoosh
 import AppTrackingTransparency
 import AdSupport
 
-class ThirdPartyServicesManager {
+class GTA_ThirdPartyServicesManager {
     
-    static let shared = ThirdPartyServicesManager()
+    static let shared = GTA_ThirdPartyServicesManager()
     
-    func initializeAdjust() {
-        let yourAppToken = Configurations.adjustToken
+    func gta_initializeAdjust() {
+        let yourAppToken = GTA_Configurations.adjustToken
         #if DEBUG
         let environment = (ADJEnvironmentSandbox as? String)!
         #else
@@ -30,10 +30,10 @@ class ThirdPartyServicesManager {
         Adjust.appDidLaunch(adjustConfig)
     }
     
-    func initializePushwoosh(delegate: PWMessagingDelegate) {
+    func gta_initializePushwoosh(delegate: PWMessagingDelegate) {
         //set custom delegate for push handling, in our case AppDelegate
         Pushwoosh.sharedInstance().delegate = delegate;
-        PushNotificationManager.initialize(withAppCode: Configurations.pushwooshToken, appName: Configurations.pushwooshAppName)
+        PushNotificationManager.initialize(withAppCode: GTA_Configurations.pushwooshToken, appName: GTA_Configurations.pushwooshAppName)
         PWInAppManager.shared().resetBusinessCasesFrequencyCapping()
         PWGDPRManager.shared().showGDPRDeletionUI()
         Pushwoosh.sharedInstance().registerForPushNotifications()
@@ -41,13 +41,13 @@ class ThirdPartyServicesManager {
     }
     
     
-    func initializeInApps(){
-        IAPManager.shared.loadProductsFunc()
-        IAPManager.shared.completeAllTransactionsFunc()
+    func gta_initializeInApps(){
+        GTA_IAPManager.shared.gta_loadProductsFunc()
+        GTA_IAPManager.shared.gta_completeAllTransactionsFunc()
     }
     
     
-    func makeATT() {
+    func gta_makeATT() {
             if #available(iOS 14, *) {
                 ATTrackingManager.requestTrackingAuthorization { status in
                     switch status {

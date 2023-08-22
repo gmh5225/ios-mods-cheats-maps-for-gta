@@ -6,12 +6,12 @@ import UIKit
 
 
 
-protocol AnimatedButtonEvent : AnyObject {
-    func onClick()
+protocol GTA_AnimatedButtonEvent : AnyObject {
+    func gta_onClick()
 }
 
-enum animationButtonStyle {
-    case gif,native
+enum gta_animationButtonStyle {
+    case gif, native
 }
 
 class AnimatedButton: UIView {
@@ -20,31 +20,31 @@ class AnimatedButton: UIView {
     @IBOutlet private weak var backgroundSelf: UIImageView!
     @IBOutlet private weak var titleSelf: UILabel!
     
-    weak var delegate : AnimatedButtonEvent?
+    weak var delegate : GTA_AnimatedButtonEvent?
     private let currentFont = "SFProText-Bold"
     private var persistentAnimations: [String: CAAnimation] = [:]
     private var persistentSpeed: Float = 0.0
     private let xib = "AnimatedButton"
     
-    public var style : animationButtonStyle = .native
+    public var style : gta_animationButtonStyle = .native
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        Init()
+        gta_Init()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        Init()
+        gta_Init()
     }
     
     // Этот метод будет вызван, когда view добавляется к superview
       override func didMoveToSuperview() {
           super.didMoveToSuperview()
           if style == .native {
-              setPulseAnimation()
-              addNotificationObservers()
+              gta_setPulseAnimation()
+              gta_addNotificationObservers()
           }
         
       }
@@ -55,40 +55,40 @@ class AnimatedButton: UIView {
           if style == .native {
               if newSuperview == nil {
                   self.layer.removeAllAnimations()
-                  removeNotificationObservers()
+                  gta_removeNotificationObservers()
               }
           }
       }
 
-      private func addNotificationObservers() {
-          NotificationCenter.default.addObserver(self, selector: #selector(pauseAnimation), name: UIApplication.didEnterBackgroundNotification, object: nil)
-          NotificationCenter.default.addObserver(self, selector: #selector(resumeAnimation), name: UIApplication.willEnterForegroundNotification, object: nil)
+      private func gta_addNotificationObservers() {
+          NotificationCenter.default.addObserver(self, selector: #selector(gta_pauseAnimation), name: UIApplication.didEnterBackgroundNotification, object: nil)
+          NotificationCenter.default.addObserver(self, selector: #selector(gta_resumeAnimation), name: UIApplication.willEnterForegroundNotification, object: nil)
       }
 
-      private func removeNotificationObservers() {
+      private func gta_removeNotificationObservers() {
           NotificationCenter.default.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: nil)
           NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
       }
 
-      @objc private func pauseAnimation() {
+      @objc private func gta_pauseAnimation() {
           self.persistentSpeed = self.layer.speed
 
           self.layer.speed = 1.0 //in case layer was paused from outside, set speed to 1.0 to get all animations
-          self.persistAnimations(withKeys: self.layer.animationKeys())
+          self.gta_persistAnimations(withKeys: self.layer.animationKeys())
           self.layer.speed = self.persistentSpeed //restore original speed
 
-          self.layer.pause()
+          self.layer.gta_pause()
       }
 
-      @objc private func resumeAnimation() {
-          self.restoreAnimations(withKeys: Array(self.persistentAnimations.keys))
+      @objc private func gta_resumeAnimation() {
+          self.gta_restoreAnimations(withKeys: Array(self.persistentAnimations.keys))
           self.persistentAnimations.removeAll()
           if self.persistentSpeed == 1.0 { //if layer was plaiyng before backgorund, resume it
-              self.layer.resume()
+              self.layer.gta_resume()
           }
       }
     
-    func persistAnimations(withKeys: [String]?) {
+    func gta_persistAnimations(withKeys: [String]?) {
         withKeys?.forEach({ (key) in
             if let animation = self.layer.animation(forKey: key) {
                 self.persistentAnimations[key] = animation
@@ -96,7 +96,7 @@ class AnimatedButton: UIView {
         })
     }
 
-    func restoreAnimations(withKeys: [String]?) {
+    func gta_restoreAnimations(withKeys: [String]?) {
         withKeys?.forEach { key in
             if let persistentAnimation = self.persistentAnimations[key] {
                 self.layer.add(persistentAnimation, forKey: key)
@@ -104,22 +104,22 @@ class AnimatedButton: UIView {
         }
     }
     
-    private func Init() {
+    private func gta_Init() {
         Bundle.main.loadNibNamed(xib, owner: self, options: nil)
-        contentSelf.fixInView(self)
+        contentSelf.gta_fixInView(self)
         contentSelf.backgroundColor = .black
         contentSelf.layer.cornerRadius = 8
-        animationBackgroundInit()
+        gta_animationBackgroundInit()
         
     }
     
-    private func animationBackgroundInit() {
+    private func gta_animationBackgroundInit() {
         titleSelf.text = localizedString(forKey: "iOSButtonID")
         titleSelf.font = UIFont(name: currentFont, size: 29)
         titleSelf.textColor = .white
         titleSelf.minimumScaleFactor = 11/22
         if style == .native {
-           setPulseAnimation()
+           gta_setPulseAnimation()
         }else {
             do {
                 let gif = try UIImage(gifName: "btn_gif.gif")
@@ -129,11 +129,11 @@ class AnimatedButton: UIView {
             }
         }
         
-        self.onClick(target: self, #selector(click))
+        self.gta_onClick(target: self, #selector(gta_click))
     }
     
-    @objc func click(){
-        delegate?.onClick()
+    @objc func gta_click(){
+        delegate?.gta_onClick()
     }
     
 
@@ -141,7 +141,7 @@ class AnimatedButton: UIView {
 }
 
 extension UIView {
-    func setPulseAnimation(){
+    func gta_setPulseAnimation(){
         let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
         pulseAnimation.duration = 1
         pulseAnimation.toValue = 0.95
@@ -155,19 +155,19 @@ extension UIView {
 
 
 extension CALayer {
-    func pause() {
-        if self.isPaused() == false {
+    func gta_pause() {
+        if self.gta_isPaused() == false {
             let pausedTime: CFTimeInterval = self.convertTime(CACurrentMediaTime(), from: nil)
             self.speed = 0.0
             self.timeOffset = pausedTime
         }
     }
 
-    func isPaused() -> Bool {
+    func gta_isPaused() -> Bool {
         return self.speed == 0.0
     }
 
-    func resume() {
+    func gta_resume() {
         let pausedTime: CFTimeInterval = self.timeOffset
         self.speed = 1.0
         self.timeOffset = 0.0

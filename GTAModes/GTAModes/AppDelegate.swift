@@ -12,10 +12,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        NetworkStatusMonitor.shared.startMonitoring()
-        ThirdPartyServicesManager.shared.initializeAdjust()
-        ThirdPartyServicesManager.shared.initializePushwoosh(delegate: self)
-        ThirdPartyServicesManager.shared.initializeInApps()
+        GTA_NetworkStatusMonitor.shared.gta_startMonitoring()
+        GTA_ThirdPartyServicesManager.shared.gta_initializeAdjust()
+        GTA_ThirdPartyServicesManager.shared.gta_initializePushwoosh(delegate: self)
+        GTA_ThirdPartyServicesManager.shared.gta_initializeInApps()
         
         return true
     }

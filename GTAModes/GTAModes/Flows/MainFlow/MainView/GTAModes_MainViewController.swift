@@ -91,13 +91,13 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_MainTableViewCell = tableView.dequeueReusableCell(indexPath)
         if indexPath.row == 2 {
-            if IAPManager.shared.productBought.contains(.unlockFuncProduct) {
+            if GTA_IAPManager.shared.productBought.contains(.unlockFuncProduct) {
                 cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
             } else {
                 cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: true)
             }
         } else if indexPath.row == 3 {
-            if IAPManager.shared.productBought.contains(.unlockContentProduct) {
+            if GTA_IAPManager.shared.productBought.contains(.unlockContentProduct) {
                 cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
             } else {
                 cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: true)
@@ -118,10 +118,10 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == 2 {
-            if IAPManager.shared.productBought.contains(.unlockFuncProduct) {
+            if GTA_IAPManager.shared.productBought.contains(.unlockFuncProduct) {
                 model.gta_selectedItems(index: indexPath.row)
             } else if indexPath.row == 3 {
-                if IAPManager.shared.productBought.contains(.unlockContentProduct) {
+                if GTA_IAPManager.shared.productBought.contains(.unlockContentProduct) {
                     model.gta_selectedItems(index: indexPath.row)
                 } else {
                     showSub(.unlockContentProduct)
@@ -140,9 +140,9 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
         
     }
     
-    extension GTAModes_MainViewController: PremiumMainControllerDelegate_MEX {
+    extension GTAModes_MainViewController: GTA_PremiumMainControllerDelegate_MEX {
         
-        func funcProductBuyed() {
+        func gta_funcProductBuyed() {
             tableView.reloadData()
         }
         

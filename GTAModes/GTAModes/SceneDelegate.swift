@@ -11,9 +11,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
 //
-        if NetworkStatusMonitor.shared.isNetworkAvailable {
-            IAPManager.shared.validateSubscriptions(
-                productIdentifiers: [Configurations.mainSubscriptionID, Configurations.unlockFuncSubscriptionID, Configurations.unlockContentSubscriptionID], completion: { [weak self] userHaveSub in                    if userHaveSub[Configurations.mainSubscriptionID] ?? false {
+        if GTA_NetworkStatusMonitor.shared.isNetworkAvailable {
+            GTA_IAPManager.shared.gta_validateSubscriptions(
+                productIdentifiers: [GTA_Configurations.mainSubscriptionID, GTA_Configurations.unlockFuncSubscriptionID, GTA_Configurations.unlockContentSubscriptionID], completion: { [weak self] userHaveSub in                    if userHaveSub[GTA_Configurations.mainSubscriptionID] ?? false {
                     self?.gta_showMainFlow(window)
                 } else {
                     self?.gta_showSubPremiumFlow(window)

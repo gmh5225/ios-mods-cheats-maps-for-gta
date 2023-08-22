@@ -4,7 +4,7 @@
 import Foundation
 import UIKit
 
-class CustomPageControl: UIPageControl {
+class GTA_CustomPageControl: UIPageControl {
 
     @IBInspectable var currentPageImage: UIImage? = UIImage(named: "page_1")
     
@@ -12,20 +12,20 @@ class CustomPageControl: UIPageControl {
     
     override var numberOfPages: Int {
         didSet {
-            updateDots()
+            gta_updateDots()
         }
     }
     
     override var currentPage: Int {
         didSet {
-            updateDots()
+            gta_updateDots()
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         if #available(iOS 14.0, *) {
-            defaultConfigurationForiOS14AndAbove()
+            gta_defaultConfigurationForiOS14AndAbove()
         } else {
             pageIndicatorTintColor = .clear
             currentPageIndicatorTintColor = .clear
@@ -33,7 +33,7 @@ class CustomPageControl: UIPageControl {
         }
     }
     
-    private func defaultConfigurationForiOS14AndAbove() {
+    private func gta_defaultConfigurationForiOS14AndAbove() {
         if #available(iOS 14.0, *) {
             for index in 0..<numberOfPages {
                 let image = index == currentPage ? currentPageImage : otherPagesImage
@@ -54,13 +54,13 @@ class CustomPageControl: UIPageControl {
         }
     }
     
-    private func updateDots() {
+    private func gta_updateDots() {
         if #available(iOS 14.0, *) {
-            defaultConfigurationForiOS14AndAbove()
+            gta_defaultConfigurationForiOS14AndAbove()
         } else {
             for (index, subview) in subviews.enumerated() {
                 let imageView: UIImageView
-                if let existingImageview = getImageView(forSubview: subview) {
+                if let existingImageview = gta_getImageView(forSubview: subview) {
                     imageView = existingImageview
                 } else {
                     imageView = UIImageView(image: otherPagesImage)
@@ -74,7 +74,7 @@ class CustomPageControl: UIPageControl {
         }
     }
     
-    private func getImageView(forSubview view: UIView) -> UIImageView? {
+    private func gta_getImageView(forSubview view: UIView) -> UIImageView? {
         if let imageView = view as? UIImageView {
             return imageView
         } else {

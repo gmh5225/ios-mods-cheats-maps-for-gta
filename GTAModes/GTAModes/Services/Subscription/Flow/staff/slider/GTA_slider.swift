@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class SliderCellView: UIView {
+class GTA_SliderCellView: UIView {
     
     private var fontName: String = "SFProText-Bold"
     private var textColot: UIColor = UIColor.white
@@ -43,8 +43,8 @@ class SliderCellView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureView()
-        makeConstraints()
+        gta_configureView()
+        gta_makeConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -52,14 +52,14 @@ class SliderCellView: UIView {
         
     }
     
-    func configureView() {
+    func gta_configureView() {
         addSubview(stackView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subTitleLabel)
         addSubview(starIcon)
     }
     
-    func makeConstraints() {
+    func gta_makeConstraints() {
         starIcon.snp.remakeConstraints { make in
 //            make.height.equalTo(50)
             make.width.equalTo(starIcon.snp.height)

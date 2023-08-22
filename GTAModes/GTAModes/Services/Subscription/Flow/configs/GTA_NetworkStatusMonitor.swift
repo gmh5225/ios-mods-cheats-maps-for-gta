@@ -5,24 +5,24 @@ import Foundation
 import Network
 import UIKit
 
-protocol NetworkStatusMonitorDelegate : AnyObject {
-    func showMess()
+protocol GTA_NetworkStatusMonitorDelegate : AnyObject {
+    func gta_showMess()
 }
 
-class NetworkStatusMonitor {
-    static let shared = NetworkStatusMonitor()
+class GTA_NetworkStatusMonitor {
+    static let shared = GTA_NetworkStatusMonitor()
 
     private let queue = DispatchQueue.global()
     private let nwMonitor: NWPathMonitor
     
-    weak var delegate : NetworkStatusMonitorDelegate?
+    weak var delegate : GTA_NetworkStatusMonitorDelegate?
 
     public private(set) var isNetworkAvailable: Bool = false {
         didSet {
             if !isNetworkAvailable {
                 DispatchQueue.main.async {
                     print("No internet connection.")
-                    self.delegate?.showMess()
+                    self.delegate?.gta_showMess()
                 }
             } else {
                 print("Internet connection is active.")
@@ -34,14 +34,14 @@ class NetworkStatusMonitor {
         nwMonitor = NWPathMonitor()
     }
 
-    func startMonitoring() {
+    func gta_startMonitoring() {
         nwMonitor.start(queue: queue)
         nwMonitor.pathUpdateHandler = { path in
             self.isNetworkAvailable = path.status == .satisfied
         }
     }
 
-    func stopMonitoring() {
+    func gta_stopMonitoring() {
         nwMonitor.cancel()
     }
 }

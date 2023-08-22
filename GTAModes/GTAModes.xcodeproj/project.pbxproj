@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C0DC3772A8FADF800A03F44 /* Pushwoosh in Frameworks */ = {isa = PBXBuildFile; productRef = 2C0DC3762A8FADF800A03F44 /* Pushwoosh */; };
-		2C1CA42D2A8E70B200C89F79 /* ServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B02A8E70B200C89F79 /* ServicesManager.swift */; };
+		2C1CA42D2A8E70B200C89F79 /* GTA_ServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B02A8E70B200C89F79 /* GTA_ServicesManager.swift */; };
 		2C1CA42E2A8E70B200C89F79 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B22A8E70B200C89F79 /* Media.xcassets */; };
 		2C1CA42F2A8E70B200C89F79 /* phone.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B32A8E70B200C89F79 /* phone.mp4 */; };
 		2C1CA4302A8E70B200C89F79 /* pad.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B42A8E70B200C89F79 /* pad.mp4 */; };
@@ -18,11 +18,11 @@
 		2C1CA4342A8E70B200C89F79 /* validateLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3CF2A8E70B200C89F79 /* validateLocalizable.swift */; };
 		2C1CA4352A8E70B200C89F79 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3E72A8E70B200C89F79 /* TransactionView.swift */; };
 		2C1CA4362A8E70B200C89F79 /* TransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3E82A8E70B200C89F79 /* TransactionView.xib */; };
-		2C1CA4372A8E70B200C89F79 /* extensions-freeform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3EA2A8E70B200C89F79 /* extensions-freeform.swift */; };
-		2C1CA4382A8E70B200C89F79 /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3EC2A8E70B200C89F79 /* IAPHandler.swift */; };
-		2C1CA4392A8E70B200C89F79 /* NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3ED2A8E70B200C89F79 /* NetworkStatusMonitor.swift */; };
-		2C1CA43A2A8E70B200C89F79 /* PageControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F12A8E70B200C89F79 /* PageControll.swift */; };
-		2C1CA43B2A8E70B200C89F79 /* slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F22A8E70B200C89F79 /* slider.swift */; };
+		2C1CA4372A8E70B200C89F79 /* gta_extensions-freeform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3EA2A8E70B200C89F79 /* gta_extensions-freeform.swift */; };
+		2C1CA4382A8E70B200C89F79 /* GTA_IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3EC2A8E70B200C89F79 /* GTA_IAPHandler.swift */; };
+		2C1CA4392A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3ED2A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift */; };
+		2C1CA43A2A8E70B200C89F79 /* GTA_PageControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F12A8E70B200C89F79 /* GTA_PageControll.swift */; };
+		2C1CA43B2A8E70B200C89F79 /* GTA_slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F22A8E70B200C89F79 /* GTA_slider.swift */; };
 		2C1CA43C2A8E70B200C89F79 /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F42A8E70B200C89F79 /* AnimatedButton.swift */; };
 		2C1CA43D2A8E70B200C89F79 /* AnimatedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F52A8E70B200C89F79 /* AnimatedButton.xib */; };
 		2C1CA43E2A8E70B200C89F79 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F82A8E70B200C89F79 /* UIImageView+SwiftyGif.swift */; };
@@ -74,7 +74,7 @@
 		2C1CA46C2A8E70B200C89F79 /* ReusableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA42A2A8E70B200C89F79 /* ReusableCell.xib */; };
 		2C1CA46D2A8E70B200C89F79 /* ReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA42B2A8E70B200C89F79 /* ReusableView.xib */; };
 		2C1CA46E2A8E70B200C89F79 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA42C2A8E70B200C89F79 /* ReusableView.swift */; };
-		2C1CA4712A8E714F00C89F79 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4702A8E714F00C89F79 /* Configurations.swift */; };
+		2C1CA4712A8E714F00C89F79 /* GTA_Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4702A8E714F00C89F79 /* GTA_Configurations.swift */; };
 		2C1CA4742A8E720B00C89F79 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1CA4732A8E720A00C89F79 /* StoreKit.framework */; };
 		2C2A20512A7170E1002A6D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20502A7170E1002A6D3C /* AppDelegate.swift */; };
 		2C2A20532A7170E1002A6D3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20522A7170E1002A6D3C /* SceneDelegate.swift */; };
@@ -2483,7 +2483,7 @@
 
 /* Begin PBXFileReference section */
 		0C14A4FEA062255A39CFF41A /* Pods-GTAModes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTAModes.release.xcconfig"; path = "Target Support Files/Pods-GTAModes/Pods-GTAModes.release.xcconfig"; sourceTree = "<group>"; };
-		2C1CA3B02A8E70B200C89F79 /* ServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesManager.swift; sourceTree = "<group>"; };
+		2C1CA3B02A8E70B200C89F79 /* GTA_ServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_ServicesManager.swift; sourceTree = "<group>"; };
 		2C1CA3B22A8E70B200C89F79 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		2C1CA3B32A8E70B200C89F79 /* phone.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = phone.mp4; sourceTree = "<group>"; };
 		2C1CA3B42A8E70B200C89F79 /* pad.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = pad.mp4; sourceTree = "<group>"; };
@@ -2535,11 +2535,11 @@
 		2C1CA3E42A8E70B200C89F79 /* en-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-IN"; path = "en-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2C1CA3E72A8E70B200C89F79 /* TransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		2C1CA3E82A8E70B200C89F79 /* TransactionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionView.xib; sourceTree = "<group>"; };
-		2C1CA3EA2A8E70B200C89F79 /* extensions-freeform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "extensions-freeform.swift"; sourceTree = "<group>"; };
-		2C1CA3EC2A8E70B200C89F79 /* IAPHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHandler.swift; sourceTree = "<group>"; };
-		2C1CA3ED2A8E70B200C89F79 /* NetworkStatusMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusMonitor.swift; sourceTree = "<group>"; };
-		2C1CA3F12A8E70B200C89F79 /* PageControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControll.swift; sourceTree = "<group>"; };
-		2C1CA3F22A8E70B200C89F79 /* slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = slider.swift; sourceTree = "<group>"; };
+		2C1CA3EA2A8E70B200C89F79 /* gta_extensions-freeform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "gta_extensions-freeform.swift"; sourceTree = "<group>"; };
+		2C1CA3EC2A8E70B200C89F79 /* GTA_IAPHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_IAPHandler.swift; sourceTree = "<group>"; };
+		2C1CA3ED2A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_NetworkStatusMonitor.swift; sourceTree = "<group>"; };
+		2C1CA3F12A8E70B200C89F79 /* GTA_PageControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_PageControll.swift; sourceTree = "<group>"; };
+		2C1CA3F22A8E70B200C89F79 /* GTA_slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_slider.swift; sourceTree = "<group>"; };
 		2C1CA3F42A8E70B200C89F79 /* AnimatedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedButton.swift; sourceTree = "<group>"; };
 		2C1CA3F52A8E70B200C89F79 /* AnimatedButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimatedButton.xib; sourceTree = "<group>"; };
 		2C1CA3F82A8E70B200C89F79 /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
@@ -2591,7 +2591,7 @@
 		2C1CA42A2A8E70B200C89F79 /* ReusableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReusableCell.xib; sourceTree = "<group>"; };
 		2C1CA42B2A8E70B200C89F79 /* ReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReusableView.xib; sourceTree = "<group>"; };
 		2C1CA42C2A8E70B200C89F79 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
-		2C1CA4702A8E714F00C89F79 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
+		2C1CA4702A8E714F00C89F79 /* GTA_Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTA_Configurations.swift; sourceTree = "<group>"; };
 		2C1CA4722A8E71E200C89F79 /* GTAModes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GTAModes.entitlements; sourceTree = "<group>"; };
 		2C1CA4732A8E720A00C89F79 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2C2A204D2A7170E1002A6D3C /* GTAModes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTAModes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -5021,7 +5021,7 @@
 		2C1CA3AF2A8E70B200C89F79 /* Adjust+Pushwoosh */ = {
 			isa = PBXGroup;
 			children = (
-				2C1CA3B02A8E70B200C89F79 /* ServicesManager.swift */,
+				2C1CA3B02A8E70B200C89F79 /* GTA_ServicesManager.swift */,
 			);
 			path = "Adjust+Pushwoosh";
 			sourceTree = "<group>";
@@ -5072,7 +5072,7 @@
 		2C1CA3E92A8E70B200C89F79 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2C1CA3EA2A8E70B200C89F79 /* extensions-freeform.swift */,
+				2C1CA3EA2A8E70B200C89F79 /* gta_extensions-freeform.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -5080,8 +5080,8 @@
 		2C1CA3EB2A8E70B200C89F79 /* configs */ = {
 			isa = PBXGroup;
 			children = (
-				2C1CA3EC2A8E70B200C89F79 /* IAPHandler.swift */,
-				2C1CA3ED2A8E70B200C89F79 /* NetworkStatusMonitor.swift */,
+				2C1CA3EC2A8E70B200C89F79 /* GTA_IAPHandler.swift */,
+				2C1CA3ED2A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift */,
 			);
 			path = configs;
 			sourceTree = "<group>";
@@ -5100,7 +5100,7 @@
 			isa = PBXGroup;
 			children = (
 				2C1CA3F02A8E70B200C89F79 /* pageControll */,
-				2C1CA3F22A8E70B200C89F79 /* slider.swift */,
+				2C1CA3F22A8E70B200C89F79 /* GTA_slider.swift */,
 			);
 			path = slider;
 			sourceTree = "<group>";
@@ -5108,7 +5108,7 @@
 		2C1CA3F02A8E70B200C89F79 /* pageControll */ = {
 			isa = PBXGroup;
 			children = (
-				2C1CA3F12A8E70B200C89F79 /* PageControll.swift */,
+				2C1CA3F12A8E70B200C89F79 /* GTA_PageControll.swift */,
 			);
 			path = pageControll;
 			sourceTree = "<group>";
@@ -5219,7 +5219,7 @@
 		2C1CA46F2A8E713C00C89F79 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				2C1CA4702A8E714F00C89F79 /* Configurations.swift */,
+				2C1CA4702A8E714F00C89F79 /* GTA_Configurations.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -5271,7 +5271,6 @@
 			isa = PBXGroup;
 			children = (
 				2C1CA3AE2A8E70B200C89F79 /* Subscription */,
-				2CA082F02A8D848D00585479 /* Map */,
 				2CDEBEE82A82586500F976A3 /* DropBoxManager */,
 				2C2A20862A72A3C6002A6D3C /* DataBase */,
 			);
@@ -5281,6 +5280,7 @@
 		2C2A20662A717F13002A6D3C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CA082F02A8D848D00585479 /* Map */,
 				2CBFE4482A77CE6A00A50257 /* Fonts */,
 				2C2A205E2A7170E3002A6D3C /* Info.plist */,
 				2C2A20592A7170E3002A6D3C /* Assets.xcassets */,
@@ -7779,7 +7779,8 @@
 				2CA082F42A8D85E300585479 /* map.html */,
 				2CA082F62A8D85E300585479 /* markers.png */,
 			);
-			path = Map;
+			name = Map;
+			path = ../Services/Map;
 			sourceTree = "<group>";
 		};
 		2CA95FF62A84D4050039343E /* Models */ = {
@@ -10400,7 +10401,7 @@
 				2C1CA45B2A8E70B200C89F79 /* ConstraintMakerEditable.swift in Sources */,
 				2CBFE4552A77E28400A50257 /* GTAModes_FilterTableViewCell.swift in Sources */,
 				2C45A5402A76A7A50023B3A8 /* GTAModes_FilterViewController.swift in Sources */,
-				2C1CA43A2A8E70B200C89F79 /* PageControll.swift in Sources */,
+				2C1CA43A2A8E70B200C89F79 /* GTA_PageControll.swift in Sources */,
 				2C5CA6EA2A92514D005F9D24 /* ModObject.swift in Sources */,
 				2CA082EF2A8D152000585479 /* GTAModes_Reachability.swift in Sources */,
 				2C5CA6E82A924DFC005F9D24 /* GTAModes_GameModesModel.swift in Sources */,
@@ -10426,7 +10427,7 @@
 				2CA95FF82A84D4210039343E /* CheatsObject.swift in Sources */,
 				2C45A53D2A76A7800023B3A8 /* GTAModes_ChecklistModel.swift in Sources */,
 				2C7F39F42A7BF09800F575F7 /* GameModesHeaderView.swift in Sources */,
-				2C1CA43B2A8E70B200C89F79 /* slider.swift in Sources */,
+				2C1CA43B2A8E70B200C89F79 /* GTA_slider.swift in Sources */,
 				2C2A20762A7286EC002A6D3C /* GTAModes_FlowCoordinator.swift in Sources */,
 				2C1CA45D2A8E70B200C89F79 /* ConstraintRelation.swift in Sources */,
 				2C1CA4632A8E70B200C89F79 /* ConstraintRelatableTarget.swift in Sources */,
@@ -10438,7 +10439,7 @@
 				2C51E7362A8BA9570077C421 /* GTAModes_SearchBar.swift in Sources */,
 				2C2A20512A7170E1002A6D3C /* AppDelegate.swift in Sources */,
 				2C2A20B92A7556BF002A6D3C /* GTAModes_Reusable.swift in Sources */,
-				2C1CA4372A8E70B200C89F79 /* extensions-freeform.swift in Sources */,
+				2C1CA4372A8E70B200C89F79 /* gta_extensions-freeform.swift in Sources */,
 				2C2A20732A7285AA002A6D3C /* GTAModes_MainFlowCoordinator.swift in Sources */,
 				2C1CA4602A8E70B200C89F79 /* ConstraintItem.swift in Sources */,
 				2C1CA4442A8E70B200C89F79 /* ConstraintMultiplierTarget.swift in Sources */,
@@ -10477,12 +10478,12 @@
 				2CDEBF032A82586500F976A3 /* GTAModes_DropBoxManager.swift in Sources */,
 				2C1CA43E2A8E70B200C89F79 /* UIImageView+SwiftyGif.swift in Sources */,
 				2C1CA4682A8E70B200C89F79 /* ConstraintMakerRelatable.swift in Sources */,
-				2C1CA42D2A8E70B200C89F79 /* ServicesManager.swift in Sources */,
+				2C1CA42D2A8E70B200C89F79 /* GTA_ServicesManager.swift in Sources */,
 				2C1CA44C2A8E70B200C89F79 /* ConstraintMakerFinalizable.swift in Sources */,
-				2C1CA4392A8E70B200C89F79 /* NetworkStatusMonitor.swift in Sources */,
+				2C1CA4392A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift in Sources */,
 				2C2A207B2A729267002A6D3C /* GTAModes_MainViewController.swift in Sources */,
-				2C1CA4712A8E714F00C89F79 /* Configurations.swift in Sources */,
-				2C1CA4382A8E70B200C89F79 /* IAPHandler.swift in Sources */,
+				2C1CA4712A8E714F00C89F79 /* GTA_Configurations.swift in Sources */,
+				2C1CA4382A8E70B200C89F79 /* GTA_IAPHandler.swift in Sources */,
 				2C2A20C02A756AE0002A6D3C /* GSModel.swift in Sources */,
 				2C2A207F2A72927E002A6D3C /* GTAModes_MainModel.swift in Sources */,
 			);

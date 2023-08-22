@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Configurations {
+enum GTA_Configurations {
     static let adjustToken = "hfg1t85ufqbk"
     
     static let pushwooshToken = "22192-19DD0"

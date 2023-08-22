@@ -8,24 +8,24 @@ enum configView {
     case first,second,transaction
 }
 
-protocol ReusableViewEvent : AnyObject {
-    func nextStep(config: configView)
+protocol GTA_ReusableViewEvent : AnyObject {
+    func gta_nextStep(config: configView)
 }
 
-struct ReusableViewModel {
+struct GTA_ReusableViewModel {
     var title : String
-    var items : [ReusableContentCell]
+    var items : [GTA_ReusableContentCell]
 }
 
-struct ReusableContentCell {
+struct GTA_ReusableContentCell {
     var title : String
     var image : UIImage
     var selectedImage: UIImage
 }
 
-class ReusableView: UIView, AnimatedButtonEvent {
-    func onClick() {
-        self.protocolElement?.nextStep(config: self.configView)
+class ReusableView: UIView, GTA_AnimatedButtonEvent {
+    func gta_onClick() {
+        self.protocolElement?.gta_nextStep(config: self.configView)
     }
     
     @IBOutlet private var contentView: UIView!
@@ -35,10 +35,10 @@ class ReusableView: UIView, AnimatedButtonEvent {
     @IBOutlet private weak var titleWight: NSLayoutConstraint!
     @IBOutlet private weak var buttonBottom: NSLayoutConstraint!
     
-    weak var protocolElement : ReusableViewEvent?
+    weak var protocolElement : GTA_ReusableViewEvent?
     
     public var configView : configView = .first
-    public var viewModel : ReusableViewModel? = nil
+    public var viewModel : GTA_ReusableViewModel? = nil
     private let cellName = "ReusableCell"
     private var selectedStorage : [Int] = []
     private let multic: CGFloat = 0.94
@@ -48,15 +48,15 @@ class ReusableView: UIView, AnimatedButtonEvent {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        Init()
+        gta_Init()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        Init()
+        gta_Init()
     }
     
-    private func Init() {
+    private func gta_Init() {
         Bundle.main.loadNibNamed(xib, owner: self, options: nil)
         if UIDevice.current.userInterfaceIdiom == .phone {
             // Устройство является iPhone
@@ -70,16 +70,16 @@ class ReusableView: UIView, AnimatedButtonEvent {
             buttonBottom.constant = 63
         }
 
-        contentView.fixInView(self)
+        contentView.gta_fixInView(self)
         nextStepBtn.delegate = self
         nextStepBtn.style = .native
         contentView.backgroundColor = .clear
-        setContent()
-        setConfigLabels_TOC()
-        configScreen_TOC()
+        gta_setContent()
+        gta_setConfigLabels_TOC()
+        gta_configScreen_TOC()
     }
     
-    private func setContent(){
+    private func gta_setContent(){
         content.dataSource = self
         content.delegate = self
         content.register(UINib(nibName: cellName, bundle: nil), forCellWithReuseIdentifier: cellName)
@@ -87,8 +87,8 @@ class ReusableView: UIView, AnimatedButtonEvent {
         UIView.appearance().semanticContentAttribute = .forceLeftToRight
     }
     
-    private func setConfigLabels_TOC(){
-        titleLb.setShadow()
+    private func gta_setConfigLabels_TOC(){
+        titleLb.gta_setShadow()
         
         titleLb.textColor = .white
         titleLb.font = UIFont(name: "SFProText-Bold", size: 26)
@@ -96,17 +96,17 @@ class ReusableView: UIView, AnimatedButtonEvent {
         titleLb.adjustsFontSizeToFitWidth = true
     }
     
-    public func setConfigView(config: configView) {
+    public func gta_setConfigView(config: configView) {
         self.configView = config
     }
     
-    private func setLocalizable(){
+    private func gta_setLocalizable(){
         self.titleLb.text = viewModel?.title
     }
     
     //MARK: screen configs
     
-    private func configScreen_TOC(){
+    private func gta_configScreen_TOC(){
         if UIDevice.current.userInterfaceIdiom == .pad {
             titleWight.setValue(0.35, forKey: "multiplier")
         } else {
@@ -114,14 +114,14 @@ class ReusableView: UIView, AnimatedButtonEvent {
         }
     }
     
-    private func getLastElement() -> Int {
+    private func gta_getLastElement() -> Int {
         return (viewModel?.items.count ?? 0) - 1
     }
 }
 
 extension ReusableView : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        setLocalizable()
+        gta_setLocalizable()
         return viewModel?.items.count ?? 0
     }
     
@@ -148,8 +148,8 @@ extension ReusableView : UICollectionViewDataSource,UICollectionViewDelegate,UIC
         UIApplication.shared.impactFeedbackGenerator(type: .light)
         collectionView.reloadData()
         collectionView.performBatchUpdates(nil, completion: nil)
-        if indexPath.last == getLastElement() {
-            collectionView.scrollToLastItem(animated: false)
+        if indexPath.last == gta_getLastElement() {
+            collectionView.gta_scrollToLastItem(animated: false)
         }
         
     }

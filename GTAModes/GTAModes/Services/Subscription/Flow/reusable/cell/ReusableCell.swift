@@ -16,10 +16,10 @@ class ReusableCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupCell()
+        gta_setupCell()
     }
     
-    func setupCell() {
+    func gta_setupCell() {
         cellLabel.textColor = .white
         
         contentContainer.layer.cornerRadius = 8

@@ -132,7 +132,7 @@ public extension NSImageView {
             }
         }
         
-        task.resume()
+        task.gta_resume()
         
         return task
     }

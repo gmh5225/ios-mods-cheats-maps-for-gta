@@ -4,16 +4,16 @@ import StoreKit
 import Pushwoosh
 import Adjust
 
-protocol IAPManagerProtocol: AnyObject {
-    func infoAlert(title: String, message: String)
-    func goToTheApp()
-    func failed()
+protocol GTA_IAPManagerProtocol: AnyObject {
+    func gta_infoAlert(title: String, message: String)
+    func gta_goToTheApp()
+    func gta_failed()
 }
 
-class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDelegate {
+class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDelegate {
     
-    static let shared = IAPManager()
-    weak var  transactionsDelegate: IAPManagerProtocol?
+    static let shared = GTA_IAPManager()
+    weak var  transactionsDelegate: GTA_IAPManagerProtocol?
     
     public var  localizablePrice = "$4.99"
     public var productBuy : PremiumMainControllerStyle = .mainProduct
@@ -24,12 +24,12 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
     private var inUnlockFunc: SKProduct?
     private var inUnlockOther: SKProduct?
     
-    private var mainProduct = Configurations.mainSubscriptionID
-    private var unlockContentProduct = Configurations.unlockContentSubscriptionID
-    private var unlockFuncProduct = Configurations.unlockFuncSubscriptionID
-    private var unlockOther = Configurations.unlockerThreeSubscriptionID
+    private var mainProduct = GTA_Configurations.mainSubscriptionID
+    private var unlockContentProduct = GTA_Configurations.unlockContentSubscriptionID
+    private var unlockFuncProduct = GTA_Configurations.unlockFuncSubscriptionID
+    private var unlockOther = GTA_Configurations.unlockerThreeSubscriptionID
     
-    private var secretKey = Configurations.subscriptionSharedSecret
+    private var secretKey = GTA_Configurations.subscriptionSharedSecret
     
     private var isRestoreTransaction = true
     private var restoringTransactionProductId: [String] = []
@@ -39,7 +39,7 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
     private let restoreError  = NSLocalizedString("faledRestore", comment: "")
     private let purchaseError = NSLocalizedString("notPurchases", comment: "")
     
-    public func loadProductsFunc() {
+    public func gta_loadProductsFunc() {
         SKPaymentQueue.default().add(self)
         let request = SKProductsRequest(productIdentifiers:[mainProduct,unlockContentProduct,unlockFuncProduct,unlockOther])
         request.delegate = self
@@ -47,35 +47,35 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
     }
     
     
-    public func doPurchase() {
+    public func gta_doPurchase() {
         switch productBuy {
         case .mainProduct:
-            processPurchase(for: inMain, with: Configurations.mainSubscriptionID)
+            gta_processPurchase(for: inMain, with: GTA_Configurations.mainSubscriptionID)
         case .unlockContentProduct:
-            processPurchase(for: inUnlockContent, with: Configurations.unlockContentSubscriptionID)
+            gta_processPurchase(for: inUnlockContent, with: GTA_Configurations.unlockContentSubscriptionID)
         case .unlockFuncProduct:
-            processPurchase(for: inUnlockFunc, with: Configurations.unlockFuncSubscriptionID)
+            gta_processPurchase(for: inUnlockFunc, with: GTA_Configurations.unlockFuncSubscriptionID)
         case .unlockOther:
-            processPurchase(for: inUnlockOther, with: Configurations.unlockerThreeSubscriptionID)
+            gta_processPurchase(for: inUnlockOther, with: GTA_Configurations.unlockerThreeSubscriptionID)
         }
     }
     
-    public func localizedPrice() -> String {
-        guard NetworkStatusMonitor.shared.isNetworkAvailable else { return localizablePrice }
+    public func gta_localizedPrice() -> String {
+        guard GTA_NetworkStatusMonitor.shared.isNetworkAvailable else { return localizablePrice }
         switch productBuy {
           case .mainProduct:
-            processProductPrice(for: inMain)
+            gta_processProductPrice(for: inMain)
           case .unlockContentProduct:
-            processProductPrice(for: inUnlockContent)
+            gta_processProductPrice(for: inUnlockContent)
           case .unlockFuncProduct:
-            processProductPrice(for: inUnlockFunc)
+            gta_processProductPrice(for: inUnlockFunc)
         case .unlockOther:
-            processProductPrice(for: inUnlockOther)
+            gta_processProductPrice(for: inUnlockOther)
         }
         return localizablePrice
     }
     
-    private func getCurrentProduct() -> SKProduct? {
+    private func gta_getCurrentProduct() -> SKProduct? {
         switch productBuy {
         case .mainProduct:
             return self.inMain
@@ -88,14 +88,14 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
         }
     }
     
-    private func processPurchase(for product: SKProduct?, with configurationId: String) {
+    private func gta_processPurchase(for product: SKProduct?, with configurationId: String) {
         guard let product = product else {
-            self.transactionsDelegate?.infoAlert(title: iapError, message: prodIDError)
+            self.transactionsDelegate?.gta_infoAlert(title: iapError, message: prodIDError)
             return
         }
         if product.productIdentifier.isEmpty {
             
-            self.transactionsDelegate?.infoAlert(title: iapError, message: prodIDError)
+            self.transactionsDelegate?.gta_infoAlert(title: iapError, message: prodIDError)
         } else if product.productIdentifier == configurationId {
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
@@ -103,18 +103,18 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
     }
     
     
-    public func doRestore() {
+    public func gta_doRestore() {
         guard isRestoreTransaction else { return }
         SKPaymentQueue.default().restoreCompletedTransactions()
         isRestoreTransaction = false
     }
     
     
-    private func completeRestoredStatusFunc(restoreProductID : String, transaction: SKPaymentTransaction) {
+    private func gta_completeRestoredStatusFunc(restoreProductID : String, transaction: SKPaymentTransaction) {
         if restoringTransactionProductId.contains(restoreProductID) { return }
         restoringTransactionProductId.append(restoreProductID)
         
-        validateSubscriptionWithCompletionHandler(productIdentifier: restoreProductID) { [weak self] result in
+        gta_validateSubscriptionWithCompletionHandler(productIdentifier: restoreProductID) { [weak self] result in
             guard let self = self else {
                 return
             }
@@ -123,26 +123,26 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
             if result {
                 
                 if let mainProd = self.inMain, restoreProductID == mainProd.productIdentifier {
-                    self.transactionsDelegate?.goToTheApp()
-                    trackSubscription(transaction: transaction, product: mainProd)
+                    self.transactionsDelegate?.gta_goToTheApp()
+                    gta_trackSubscription(transaction: transaction, product: mainProd)
                     
                 }
                 else if let firstProd = self.inUnlockFunc, restoreProductID == firstProd.productIdentifier {
-                    trackSubscription(transaction: transaction, product: firstProd)
+                    gta_trackSubscription(transaction: transaction, product: firstProd)
                     
                 }
                 else if let unlockContent = self.inUnlockContent, restoreProductID == unlockContent.productIdentifier {
-                    trackSubscription(transaction: transaction, product: unlockContent)
+                    gta_trackSubscription(transaction: transaction, product: unlockContent)
                     
                 }
             } else {
-                self.transactionsDelegate?.infoAlert(title: self.restoreError, message: self.purchaseError)
+                self.transactionsDelegate?.gta_infoAlert(title: self.restoreError, message: self.purchaseError)
             }
         }
     }
     
     
-    public func completeAllTransactionsFunc() {
+    public func gta_completeAllTransactionsFunc() {
         let transactions = SKPaymentQueue.default().transactions
         for transaction in transactions {
             let transactionState = transaction.transactionState
@@ -153,12 +153,12 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
     }
     
     // Ваша собственная функция для проверки подписки.
-    public func validateSubscriptionWithCompletionHandler(productIdentifier: String,_ resultExamination: @escaping (Bool) -> Void) {
+    public func gta_validateSubscriptionWithCompletionHandler(productIdentifier: String,_ resultExamination: @escaping (Bool) -> Void) {
         SKReceiptRefreshRequest().start()
         
         guard let receiptUrl = Bundle.main.appStoreReceiptURL,
               let receiptData = try? Data(contentsOf: receiptUrl) else {
-            pushwooshSetSubTag(value: false)
+            gta_pushwooshSetSubTag(value: false)
             resultExamination(false)
             return
         }
@@ -176,7 +176,7 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
             requestData = try JSONSerialization.data(withJSONObject: jsonRequestBody)
         } catch {
             print("Failed to serialize JSON: \(error)")
-            pushwooshSetSubTag(value: false)
+            gta_pushwooshSetSubTag(value: false)
             resultExamination(false)
             return
         }
@@ -193,14 +193,14 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Failed to validate receipt: \(error) IAPManager")
-                self.pushwooshSetSubTag(value: false)
+                self.gta_pushwooshSetSubTag(value: false)
                 resultExamination(false)
                 return
             }
             
             guard let data = data else {
                 print("No data received from receipt validation IAPManager")
-                self.pushwooshSetSubTag(value: false)
+                self.gta_pushwooshSetSubTag(value: false)
                 resultExamination(false)
                 return
             }
@@ -216,7 +216,7 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
                             let expiresDate = Date(timeIntervalSince1970: expiresDateMs / 1000)
                             if expiresDate > Date() {
                                 DispatchQueue.main.async {
-                                    self.pushwooshSetSubTag(value: true)
+                                    self.gta_pushwooshSetSubTag(value: true)
                                     resultExamination(true)
                                 }
                                 return
@@ -229,7 +229,7 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
             }
             
             DispatchQueue.main.async {
-                self.pushwooshSetSubTag(value: false)
+                self.gta_pushwooshSetSubTag(value: false)
                 resultExamination(false)
             }
         }
@@ -237,13 +237,13 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
     }
     
     
-    func validateSubscriptions(productIdentifiers: [String], completion: @escaping ([String: Bool]) -> Void) {
+    func gta_validateSubscriptions(productIdentifiers: [String], completion: @escaping ([String: Bool]) -> Void) {
         var results = [String: Bool]()
         let dispatchGroup = DispatchGroup()
         
         for productIdentifier in productIdentifiers {
             dispatchGroup.enter()
-            validateSubscriptionWithCompletionHandler(productIdentifier: productIdentifier) { isValid in
+            gta_validateSubscriptionWithCompletionHandler(productIdentifier: productIdentifier) { isValid in
                 results[productIdentifier] = isValid
                 dispatchGroup.leave()
             }
@@ -270,22 +270,22 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
             
             switch transaction.transactionState {
             case .purchased:
-                if let product = getCurrentProduct() {
+                if let product = gta_getCurrentProduct() {
                     if transaction.payment.productIdentifier == product.productIdentifier {
                         SKPaymentQueue.default().finishTransaction(transaction)
-                        trackSubscription(transaction: transaction, product: product)
-                        transactionsDelegate?.goToTheApp()
+                        gta_trackSubscription(transaction: transaction, product: product)
+                        transactionsDelegate?.gta_goToTheApp()
                     }
                 }
             case .failed:
                 SKPaymentQueue.default().finishTransaction(transaction)
-                transactionsDelegate?.failed()
-                transactionsDelegate?.infoAlert(title: "error", message: "something went wrong")
+                transactionsDelegate?.gta_failed()
+                transactionsDelegate?.gta_infoAlert(title: "error", message: "something went wrong")
                 print("Failed IAPManager")
                 
             case .restored:
                 SKPaymentQueue.default().finishTransaction(transaction)
-                completeRestoredStatusFunc(restoreProductID: transaction.payment.productIdentifier, transaction: transaction)
+                gta_completeRestoredStatusFunc(restoreProductID: transaction.payment.productIdentifier, transaction: transaction)
                 
             case .purchasing, .deferred:
                 print("Purchasing IAPManager")
@@ -294,7 +294,7 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
                 print("Default IAPManager")
             }
         }
-        completeAllTransactionsFunc()
+        gta_completeAllTransactionsFunc()
     }
     
     
@@ -312,13 +312,13 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
         
         response.products.forEach({ productFromRequest in
             switch productFromRequest.productIdentifier {
-            case Configurations.mainSubscriptionID:
+            case GTA_Configurations.mainSubscriptionID:
                 inMain = productFromRequest
-            case Configurations.unlockContentSubscriptionID:
+            case GTA_Configurations.unlockContentSubscriptionID:
                 inUnlockContent = productFromRequest
-            case Configurations.unlockFuncSubscriptionID:
+            case GTA_Configurations.unlockFuncSubscriptionID:
                 inUnlockFunc = productFromRequest
-            case Configurations.unlockerThreeSubscriptionID:
+            case GTA_Configurations.unlockerThreeSubscriptionID:
                 inUnlockOther = productFromRequest
             default:
                 print("error IAPManager")
@@ -328,7 +328,7 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
         })
     }
     
-    private func processProductPrice(for product: SKProduct?) {
+    private func gta_processProductPrice(for product: SKProduct?) {
         guard let product = product else {
             self.localizablePrice = "4.99 $"
             return
@@ -344,19 +344,19 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
         }
     }
     
-    private func pushwooshSetSubTag(value : Bool) {
+    private func gta_pushwooshSetSubTag(value : Bool) {
         
-        var tag = Configurations.mainSubscriptionPushTag
+        var tag = GTA_Configurations.mainSubscriptionPushTag
         
         switch productBuy {
         case .mainProduct:
             print("continue IAPManager")
         case .unlockContentProduct:
-            tag = Configurations.unlockContentSubscriptionPushTag
+            tag = GTA_Configurations.unlockContentSubscriptionPushTag
         case .unlockFuncProduct:
-            tag = Configurations.unlockFuncSubscriptionPushTag
+            tag = GTA_Configurations.unlockFuncSubscriptionPushTag
         case .unlockOther:
-            tag = Configurations.unlockerThreeSubscriptionPushTag
+            tag = GTA_Configurations.unlockerThreeSubscriptionPushTag
         }
         
         Pushwoosh.sharedInstance().setTags([tag: value]) { error in
@@ -367,7 +367,7 @@ class IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestDeleg
         }
     }
     
-    private func trackSubscription(transaction: SKPaymentTransaction, product: SKProduct) {
+    private func gta_trackSubscription(transaction: SKPaymentTransaction, product: SKProduct) {
         if let receiptURL = Bundle.main.appStoreReceiptURL,
            let receiptData = try? Data(contentsOf: receiptURL) {
             
