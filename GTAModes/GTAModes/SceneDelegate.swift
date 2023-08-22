@@ -10,21 +10,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         self.window = window
-        
-        gta_showMainFlow(window)
 //
-//        if NetworkStatusMonitor.shared.isNetworkAvailable {
-//            IAPManager.shared.validateSubscriptions(
-//                productIdentifiers: [Configurations.mainSubscriptionID, Configurations.unlockFuncSubscriptionID, Configurations.unlockContentSubscriptionID], completion: { [weak self] userHaveSub in                    if userHaveSub[Configurations.mainSubscriptionID] ?? false {
-//                    self?.gta_showMainFlow(window)
-//                } else {
-//                    self?.gta_showSubPremiumFlow(window)
-//
-//                }
-//                })
-//        } else {
-//            self.gta_showSubPremiumFlow(window)
-//        }
+        if NetworkStatusMonitor.shared.isNetworkAvailable {
+            IAPManager.shared.validateSubscriptions(
+                productIdentifiers: [Configurations.mainSubscriptionID, Configurations.unlockFuncSubscriptionID, Configurations.unlockContentSubscriptionID], completion: { [weak self] userHaveSub in                    if userHaveSub[Configurations.mainSubscriptionID] ?? false {
+                    self?.gta_showMainFlow(window)
+                } else {
+                    self?.gta_showSubPremiumFlow(window)
+
+                }
+                })
+        } else {
+            self.gta_showSubPremiumFlow(window)
+        }
     }
     
     private func gta_showMainFlow(_ window: UIWindow) {

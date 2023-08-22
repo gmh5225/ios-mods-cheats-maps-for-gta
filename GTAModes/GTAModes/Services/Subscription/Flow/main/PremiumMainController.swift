@@ -296,7 +296,6 @@ class PremiumMainController: UIViewController {
     }
     
     private func gta_openMainFlow() {
-        GTAModes_DBManager.shared.gta_setupDropBox()
         let flowCoordinator = GTAModes_MainFlowCoordinator()
         let controller = flowCoordinator.gta_createFlow()
         controller.modalPresentationStyle = .fullScreen
