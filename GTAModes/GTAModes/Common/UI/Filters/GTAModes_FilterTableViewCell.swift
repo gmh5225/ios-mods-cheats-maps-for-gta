@@ -36,14 +36,14 @@ final class GTAModes_FilterTableViewCell: UITableViewCell, GTAModes_Reusable {
     private func gta_setupLayout() {
         contentView.backgroundColor = .clear
         contentView.addSubview(containerView)
-        containerView.layout {
+        containerView.gta_layout {
             $0.top.equal(to: contentView.topAnchor)
             $0.bottom.equal(to: contentView.bottomAnchor)
             $0.leading.equal(to: contentView.leadingAnchor)
             $0.trailing.equal(to: contentView.trailingAnchor)
         }
         containerView.addSubview(checkImage)
-        checkImage.layout {
+        checkImage.gta_layout {
             $0.trailing.equal(to: containerView.trailingAnchor, offsetBy: -20.0)
             $0.centerY.equal(to: containerView.centerYAnchor)
             $0.height.equal(to: 24.0)
@@ -52,13 +52,13 @@ final class GTAModes_FilterTableViewCell: UITableViewCell, GTAModes_Reusable {
         checkImage.image = .init(named: "checkIcon")
         
         containerView.addSubview(titleLabel)
-        titleLabel.layout {
+        titleLabel.gta_layout {
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 16.0)
             $0.trailing.equal(to: checkImage.leadingAnchor, offsetBy: -4.0)
             $0.centerY.equal(to: containerView.centerYAnchor)
         }
         containerView.addSubview(borderLineView)
-        borderLineView.layout {
+        borderLineView.gta_layout {
             $0.trailing.equal(to: containerView.trailingAnchor)
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 20.0)
             $0.bottom.equal(to: containerView.bottomAnchor)

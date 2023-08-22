@@ -148,7 +148,7 @@ final class GTAModes_GameModesModel {
     
 }
 
-extension GTAModes_GameModesModel: DropBoxManagerDelegate {
+extension GTAModes_GameModesModel: GTA_DropBoxManagerDelegate {
     
     func gta_currentProgressOperation(progress: Progress) {
         print("OK")

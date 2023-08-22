@@ -33,7 +33,6 @@ final class GTAModes_MainModel {
     private let reloadDataSubject = PassthroughSubject<Void, Never>()
     private let defaults = UserDefaults.standard
     var notificationToken: NotificationToken?
-    private let reachability = GTAModes_Reachability()
     
     init(
         navigationHandler: MainModelNavigationHandler
@@ -85,7 +84,7 @@ final class GTAModes_MainModel {
     
 }
 
-extension GTAModes_MainModel: DropBoxManagerDelegate {
+extension GTAModes_MainModel: GTA_DropBoxManagerDelegate {
     
     func gta_currentProgressOperation(progress: Progress) {
         print("OK")

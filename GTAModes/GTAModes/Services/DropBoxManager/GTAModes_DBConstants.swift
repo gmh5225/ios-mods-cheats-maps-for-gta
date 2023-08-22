@@ -1,6 +1,6 @@
 import Foundation
 
-struct DBKeys {
+struct GTA_DBKeys {
     
     static let RefreshTokenSaveVar = "refresh_token"
     

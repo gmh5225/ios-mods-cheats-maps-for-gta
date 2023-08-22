@@ -4,7 +4,7 @@ import Foundation
 import SwiftyDropbox
 import RealmSwift
 
-protocol DropBoxManagerDelegate: AnyObject {
+protocol GTA_DropBoxManagerDelegate: AnyObject {
     
     func gta_currentProgressOperation(progress : Progress)
     func gta_isReadyAllContent()
@@ -22,7 +22,7 @@ final class GTAModes_DBManager: NSObject {
     
     static let shared = GTAModes_DBManager()
     var client: DropboxClient?
-    weak var delegate: DropBoxManagerDelegate?
+    weak var delegate: GTA_DropBoxManagerDelegate?
     
     
     // MARK: - For CoreData
@@ -41,15 +41,15 @@ final class GTAModes_DBManager: NSObject {
         if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, !isLoadedData {
             gta_clearAllThings()
             
-            if let refresh = defaults.value(forKey: DBKeys.RefreshTokenSaveVar) as? String {
+            if let refresh = defaults.value(forKey: GTA_DBKeys.RefreshTokenSaveVar) as? String {
                 gta_getAllContent()
             } else {
                 print("start resetting token operation")
-                gta_reshreshToken(code: DBKeys.token) { [weak self] refresh_token in
+                gta_reshreshToken(code: GTA_DBKeys.token) { [weak self] refresh_token in
                     guard let self = self else { return }
                     if let rToken = refresh_token {
                         print(rToken)
-                        self.defaults.setValue(rToken, forKey: DBKeys.RefreshTokenSaveVar)
+                        self.defaults.setValue(rToken, forKey: GTA_DBKeys.RefreshTokenSaveVar)
                     }
                     
                     gta_getAllContent()
@@ -96,7 +96,7 @@ final class GTAModes_DBManager: NSObject {
     }
     
     func downloadFileBy(urlPath: String, completion: @escaping (Data?) -> Void) {
-        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: GTA_DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
@@ -156,13 +156,13 @@ private extension GTAModes_DBManager {
     }
     
     func gta_reshreshToken(code: String, completion: @escaping (String?) -> ()) {
-        let username = DBKeys.appkey
-        let password = DBKeys.appSecret
+        let username = GTA_DBKeys.appkey
+        let password = GTA_DBKeys.appSecret
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
         let parameters: Data = "code=\(code)&grant_type=authorization_code".data(using: .utf8)!
-        let url = URL(string: DBKeys.apiLink)!
+        let url = URL(string: GTA_DBKeys.apiLink)!
         var apiRequest = URLRequest(url: url)
         apiRequest.httpMethod = "POST"
         apiRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type")
@@ -176,7 +176,7 @@ private extension GTAModes_DBManager {
             }
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseJSON = responseJSON as? [String: Any] {
-                completion(responseJSON[DBKeys.RefreshTokenSaveVar] as? String)
+                completion(responseJSON[GTA_DBKeys.RefreshTokenSaveVar] as? String)
             } else {
                 print("error")
             }
@@ -185,11 +185,11 @@ private extension GTAModes_DBManager {
     }
     
     func gta_getTokenBy(refresh_token: String, completion: @escaping (String?) -> ()) {
-        let loginString = String(format: "%@:%@", DBKeys.appkey, DBKeys.appSecret)
+        let loginString = String(format: "%@:%@", GTA_DBKeys.appkey, GTA_DBKeys.appSecret)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
         let parameters: Data = "refresh_token=\(refresh_token)&grant_type=refresh_token".data(using: .utf8)!
-        let url = URL(string: DBKeys.apiLink)!
+        let url = URL(string: GTA_DBKeys.apiLink)!
         var apiRequest = URLRequest(url: url)
         apiRequest.httpMethod = "POST"
         apiRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type")
@@ -259,11 +259,11 @@ private extension GTAModes_DBManager {
     }
     
     func gta_fetchMainInfo(completion: @escaping () -> (Void)) {
-        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: GTA_DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: DBKeys.Path.main.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.Path.main.rawValue)
                     .response(completionHandler: { responce, error in
                         if let data = responce?.1 {
                             do {
@@ -287,11 +287,11 @@ private extension GTAModes_DBManager {
     }
     
     func fetchGameListInfo(completion: @escaping () -> (Void)) {
-        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: GTA_DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: DBKeys.Path.gameList.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.Path.gameList.rawValue)
                     .response(completionHandler: { responce, error in
                         if let data = responce?.1 {
                             do {
@@ -378,11 +378,11 @@ private extension GTAModes_DBManager {
 extension GTAModes_DBManager {
     
     func fetchGTA5Codes(completion: @escaping () -> (Void)) {
-        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: GTA_DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: DBKeys.Path.gta5_modes.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.Path.gta5_modes.rawValue)
                     .response(completionHandler: { [weak self] responce, error in
                         guard let self = self else { return }
                         
@@ -409,11 +409,11 @@ extension GTAModes_DBManager {
     }
     
     func fetchGTA6Codes(completion: @escaping () -> (Void)) {
-        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: GTA_DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: DBKeys.Path.gta6_modes.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.Path.gta6_modes.rawValue)
                     .response(completionHandler: { responce, error in
                         if let data = responce?.1 {
                             do {
@@ -438,11 +438,11 @@ extension GTAModes_DBManager {
     }
     
     func fetchGTAVCCodes(completion: @escaping () -> (Void)) {
-        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: GTA_DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: DBKeys.Path.gtavc_modes.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.Path.gtavc_modes.rawValue)
                     .response(completionHandler: { responce, error in
                         if let data = responce?.1 {
                             do {
@@ -467,11 +467,11 @@ extension GTAModes_DBManager {
     }
     
     func fetchGTASACodes(completion: @escaping () -> (Void)) {
-        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: GTA_DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: DBKeys.Path.gtasa_modes.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.Path.gtasa_modes.rawValue)
                     .response(completionHandler: { [weak self] responce, error in
                         guard let self = self else { return }
                         
@@ -498,11 +498,11 @@ extension GTAModes_DBManager {
     }
     
     func fetchMissions(completion: @escaping () -> (Void)) {
-        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: GTA_DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: DBKeys.Path.checkList.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.Path.checkList.rawValue)
                     .response(completionHandler: { [weak self] responce, error in
                         guard let self = self else { return }
                         
@@ -548,11 +548,11 @@ extension GTAModes_DBManager {
     }
     
     func fetchGTA5Mods(completion: @escaping () -> (Void)) {
-        gta_validateAccessToken(token: DBKeys.refresh_token) { [weak self] validator in
+        gta_validateAccessToken(token: GTA_DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: DBKeys.Path.modsGTA5List.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.Path.modsGTA5List.rawValue)
                     .response(completionHandler: { [weak self] responce, error in
                         guard let self = self else { return }
                         

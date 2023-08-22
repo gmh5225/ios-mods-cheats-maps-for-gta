@@ -40,7 +40,7 @@ class GTAModes_MapViewController: GTAModes_NiblessViewController {
     private func gta_setupView() {
         
         view.addSubview(customNavigation)
-        customNavigation.layout {
+        customNavigation.gta_layout {
             $0.top.equal(to: view.safeAreaLayoutGuide.topAnchor, offsetBy: 21.0)
             $0.leading.equal(to: view.leadingAnchor, offsetBy: 20.0)
             $0.trailing.equal(to: view.trailingAnchor, offsetBy: -20.0)
@@ -48,7 +48,7 @@ class GTAModes_MapViewController: GTAModes_NiblessViewController {
         }
         
         view.addSubview(gtaModes_webView)
-        gtaModes_webView.layout {
+        gtaModes_webView.gta_layout {
             $0.leading.equal(to: view.leadingAnchor, offsetBy: 30.0)
             $0.trailing.greaterThanOrEqual(to: view.trailingAnchor, offsetBy: -30.0)
             $0.top.equal(to: customNavigation.bottomAnchor, offsetBy: 20.0)

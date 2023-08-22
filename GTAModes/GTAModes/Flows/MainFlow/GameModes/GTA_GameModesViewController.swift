@@ -44,7 +44,7 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
     
     private func gta_setupView() {
         view.addSubview(customNavigation)
-        customNavigation.layout {
+        customNavigation.gta_layout {
             $0.top.equal(to: view.safeAreaLayoutGuide.topAnchor, offsetBy: 21.0)
             $0.leading.equal(to: view.leadingAnchor, offsetBy: 20.0)
             $0.trailing.equal(to: view.trailingAnchor, offsetBy: -20.0)
@@ -52,7 +52,7 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         }
         
         view.addSubview(searchContainer)
-        searchContainer.layout {
+        searchContainer.gta_layout {
             $0.top.equal(to: customNavigation.bottomAnchor, offsetBy: 16.0)
             $0.leading.equal(to: view.safeAreaLayoutGuide.leadingAnchor, offsetBy: 20.0)
             $0.trailing.equal(to: view.safeAreaLayoutGuide.trailingAnchor, offsetBy: -20.0)
@@ -63,7 +63,7 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         
         view.addSubview(tableView)
         tableView.backgroundColor = .clear
-        tableView.layout {
+        tableView.gta_layout {
             $0.top.equal(to: searchContainer.bottomAnchor, offsetBy: 8.0)
             $0.leading.equal(to: view.leadingAnchor)
             $0.trailing.equal(to: view.trailingAnchor)
@@ -101,7 +101,7 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         let searchViewModel = GameModesSearchViewModel()
         searchBar = GTAModes_SearchBar(viewModel: searchViewModel)
         searchContainer.addSubview(searchBar!)
-        searchBar?.layout {
+        searchBar?.gta_layout {
             $0.top.equal(to: searchContainer.topAnchor, offsetBy: -1.0)
             $0.leading.equal(to: searchContainer.leadingAnchor, offsetBy: -1.0)
             $0.trailing.equal(to: searchContainer.trailingAnchor, offsetBy: 1.0)

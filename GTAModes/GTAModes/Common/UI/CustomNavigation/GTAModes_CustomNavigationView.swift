@@ -62,7 +62,7 @@ extension GTAModes_CustomNavigationView {
     }
     
     private func gta_addFilterButton() {
-        rightButton.layout {
+        rightButton.gta_layout {
             $0.trailing.equal(to: self.trailingAnchor)
             $0.top.equal(to: self.topAnchor)
             $0.bottom.equal(to: self.bottomAnchor)
@@ -75,7 +75,7 @@ extension GTAModes_CustomNavigationView {
     }
     
     private func gta_addLeftButton(_ image: UIImage) {
-        leftButton.layout {
+        leftButton.gta_layout {
             $0.leading.equal(to: self.leadingAnchor)
             $0.top.equal(to: self.topAnchor)
             $0.bottom.equal(to: self.bottomAnchor)
@@ -87,7 +87,7 @@ extension GTAModes_CustomNavigationView {
     }
     
     private func gta_addTitle(_ title: String) {
-        titleLabel.layout {
+        titleLabel.gta_layout {
             $0.leading.equal(to: leftButton.trailingAnchor, offsetBy: 20.0)
             $0.centerY.equal(to: leftButton.centerYAnchor)
             $0.trailing.greaterThanOrEqual(to: rightButton.leadingAnchor, offsetBy: 20.0)

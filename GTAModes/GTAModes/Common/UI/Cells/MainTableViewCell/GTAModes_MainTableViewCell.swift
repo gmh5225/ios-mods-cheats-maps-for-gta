@@ -41,11 +41,11 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
         backgroundImageView.kf.setImage(with: URL(string: value.imagePath))
         lockImageView.isHidden = !isLock
         if isLock {
-            lockImageView.layout {
+            lockImageView.gta_layout {
                 $0.width.equal(to: 32.0)
             }
         } else {
-            lockImageView.layout {
+            lockImageView.gta_layout {
                 $0.width.equal(to: 0.0)
             }
         }
@@ -54,7 +54,7 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
     private func gta_setupLayout() {
         contentView.backgroundColor = .clear
         contentView.addSubview(containerView)
-        containerView.layout {
+        containerView.gta_layout {
             $0.top.equal(to: contentView.topAnchor, offsetBy: 6.0)
             $0.bottom.equal(to: contentView.bottomAnchor, offsetBy: -6.0)
             $0.leading.equal(to: contentView.leadingAnchor, offsetBy: 20.0)
@@ -64,7 +64,7 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
         containerView.backgroundColor = .clear
         
         containerView.addSubview(backgroundImageView)
-        backgroundImageView.layout {
+        backgroundImageView.gta_layout {
             $0.top.equal(to: containerView.topAnchor)
             $0.bottom.equal(to: containerView.bottomAnchor)
             $0.leading.equal(to: containerView.leadingAnchor)
@@ -72,7 +72,7 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
         }
         
         backgroundImageView.addSubview(bottomBlackView)
-        bottomBlackView.layout {
+        bottomBlackView.gta_layout {
             $0.bottom.equal(to: backgroundImageView.bottomAnchor)
             $0.leading.equal(to: backgroundImageView.leadingAnchor)
             $0.trailing.equal(to: backgroundImageView.trailingAnchor)
@@ -88,7 +88,7 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
         bottomBlackView.backgroundColor = UIColor(named: "mainBlackColor")?.withAlphaComponent(0.5)
         
         bottomBlackView.addSubview(lockImageView)
-        lockImageView.layout {
+        lockImageView.gta_layout {
             $0.bottom.equal(to: bottomBlackView.bottomAnchor, offsetBy: -12.0)
             $0.leading.equal(to: bottomBlackView.leadingAnchor, offsetBy: 18.0)
             $0.top.equal(to: bottomBlackView.topAnchor, offsetBy: 12.0)
@@ -99,14 +99,14 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
         lockImageView.contentMode = .scaleAspectFill
         
         bottomBlackView.addSubview(titleLabel)
-        titleLabel.layout {
+        titleLabel.gta_layout {
             $0.bottom.equal(to: bottomBlackView.bottomAnchor, offsetBy: -12.0)
             $0.leading.equal(to: lockImageView.trailingAnchor, offsetBy: 8.0)
             $0.top.equal(to: bottomBlackView.topAnchor, offsetBy: 12.0)
         }
         
         bottomBlackView.addSubview(rightImageView)
-        rightImageView.layout {
+        rightImageView.gta_layout {
             $0.bottom.equal(to: bottomBlackView.bottomAnchor, offsetBy: -12.0)
             $0.trailing.equal(to: bottomBlackView.trailingAnchor, offsetBy: -18.0)
             $0.top.equal(to: bottomBlackView.topAnchor, offsetBy: 12.0)

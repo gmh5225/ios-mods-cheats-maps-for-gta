@@ -65,7 +65,7 @@ final class GTAModes_GameCheatsTableViewCell: UITableViewCell, GTAModes_Reusable
     private func gta_setupLayout() {
         contentView.backgroundColor = .clear
         contentView.addSubview(containerView)
-        containerView.layout {
+        containerView.gta_layout {
             $0.top.equal(to: contentView.topAnchor, offsetBy: 6.0)
             $0.bottom.equal(to: contentView.bottomAnchor, offsetBy: -6.0)
             $0.leading.equal(to: contentView.leadingAnchor, offsetBy: 20.0)
@@ -76,7 +76,7 @@ final class GTAModes_GameCheatsTableViewCell: UITableViewCell, GTAModes_Reusable
         containerView.backgroundColor = UIColor(named: "checkCellBlue")?.withAlphaComponent(0.1)
         
         containerView.addSubview(favoriteImage)
-        favoriteImage.layout {
+        favoriteImage.gta_layout {
             $0.trailing.equal(to: containerView.trailingAnchor, offsetBy: -8.0)
             $0.top.equal(to: containerView.topAnchor, offsetBy: 8.0)
             $0.height.equal(to: 28.0)
@@ -87,19 +87,19 @@ final class GTAModes_GameCheatsTableViewCell: UITableViewCell, GTAModes_Reusable
         containerView.addSubview(firstStackView)
         containerView.addSubview(secondStackView)
         containerView.addSubview(titleLabel)
-        titleLabel.layout {
+        titleLabel.gta_layout {
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.equal(to: favoriteImage.leadingAnchor, offsetBy: -8.0)
             $0.top.equal(to: containerView.topAnchor, offsetBy: 12.0)
             $0.bottom.equal(to: firstStackView.topAnchor, offsetBy: -8.0)
         }
         
-        firstStackView.layout {
+        firstStackView.gta_layout {
             $0.top.equal(to: titleLabel.bottomAnchor, offsetBy: 8.0)
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.lessThanOrEqual(to: containerView.trailingAnchor, offsetBy: -8.0)
         }
-        secondStackView.layout {
+        secondStackView.gta_layout {
             $0.top.equal(to: firstStackView.bottomAnchor, offsetBy: 8.0)
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.lessThanOrEqual(to: containerView.trailingAnchor, offsetBy: -8.0)
@@ -109,7 +109,7 @@ final class GTAModes_GameCheatsTableViewCell: UITableViewCell, GTAModes_Reusable
         gta_configureStackView(secondStackView)
         
         containerView.addSubview(contentModeView)
-        contentModeView.layout {
+        contentModeView.gta_layout {
             $0.top.equal(to: titleLabel.bottomAnchor, offsetBy: 8.0)
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.lessThanOrEqual(to: containerView.trailingAnchor, offsetBy: -8.0)
@@ -117,7 +117,7 @@ final class GTAModes_GameCheatsTableViewCell: UITableViewCell, GTAModes_Reusable
         }
         
         contentModeView.addSubview(modeTitleLabel)
-        modeTitleLabel.layout {
+        modeTitleLabel.gta_layout {
             $0.top.equal(to: contentModeView.topAnchor, offsetBy: 4.0)
             $0.bottom.equal(to: contentModeView.bottomAnchor, offsetBy: -4.0)
             $0.leading.equal(to: contentModeView.leadingAnchor, offsetBy: 8.0)
@@ -136,7 +136,7 @@ final class GTAModes_GameCheatsTableViewCell: UITableViewCell, GTAModes_Reusable
             let imageView = UIImageView(image: UIImage(named: image))
             imageView.contentMode = .scaleAspectFit
             imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.layout {
+            imageView.gta_layout {
                 $0.height.equal(to: 25.0)
                 $0.width.equal(to: 25.0)
             }

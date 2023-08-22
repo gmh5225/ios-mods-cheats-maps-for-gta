@@ -186,7 +186,7 @@ extension GTAModes_SearchBar {
         gta_configureCancelButton()
         
         addSubview(textField)
-        textField.layout {
+        textField.gta_layout {
             $0.top.equal(to: topAnchor)
             $0.bottom.equal(to: bottomAnchor)
             $0.leading.equal(to: leadingAnchor)
@@ -217,7 +217,7 @@ extension GTAModes_SearchBar {
         cancelButton.setContentCompressionResistancePriority(
             UILayoutPriority(rawValue: textFieldContentResistancePriority + 1), for: .horizontal
         )
-        cancelButton.layout {
+        cancelButton.gta_layout {
             $0.centerY.equal(to: centerYAnchor)
             $0.trailing.equal(to: trailingAnchor)
             $0.height.equal(to: 42.0)
@@ -229,11 +229,11 @@ extension GTAModes_SearchBar {
     private func gta_leftView() -> UIView {
         let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 42.0, height: 42.0)))
         view.addSubview(leftImageView)
-        view.layout {
+        view.gta_layout {
             $0.height.equal(to:42.0)
             $0.width.equal(to:42.0)
         }
-        leftImageView.layout {
+        leftImageView.gta_layout {
             $0.height.equal(to:16.0)
             $0.width.equal(to: 16.0)
             $0.centerX.equal(to: view.centerXAnchor)
@@ -247,7 +247,7 @@ extension GTAModes_SearchBar {
         let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 42.0, height: 42.0)))
         clearButton.setImage(UIImage(systemName: "clear"), for: .normal)
         view.addSubview(clearButton)
-        clearButton.layout {
+        clearButton.gta_layout {
             $0.width.equal(to: 42.0)
             $0.height.equal(to: 42.0)
             $0.top.equal(to: view.topAnchor)

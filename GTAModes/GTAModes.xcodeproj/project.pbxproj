@@ -2423,7 +2423,6 @@
 		2C686C622A8E0E520078CFFD /* 26-5_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C6865DF2A8E0E4F0078CFFD /* 26-5_7.png */; };
 		2C7F39F42A7BF09800F575F7 /* GameModesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */; };
 		2C7F39F62A7BF0BF00F575F7 /* GTAModes_GameCheatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F39F52A7BF0BF00F575F7 /* GTAModes_GameCheatsTableViewCell.swift */; };
-		2CA082EF2A8D152000585479 /* GTAModes_Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA082EE2A8D152000585479 /* GTAModes_Reachability.swift */; };
 		2CA082F72A8D85E300585479 /* locations.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CA082F12A8D85E300585479 /* locations.js */; };
 		2CA082F82A8D85E300585479 /* leaflet.css in Resources */ = {isa = PBXBuildFile; fileRef = 2CA082F22A8D85E300585479 /* leaflet.css */; };
 		2CA082F92A8D85E300585479 /* jquery-2.1.4.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CA082F32A8D85E300585479 /* jquery-2.1.4.min.js */; };
@@ -4941,7 +4940,6 @@
 		2C6865DF2A8E0E4F0078CFFD /* 26-5_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "26-5_7.png"; sourceTree = "<group>"; };
 		2C7F39F32A7BF09800F575F7 /* GameModesHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesHeaderView.swift; sourceTree = "<group>"; };
 		2C7F39F52A7BF0BF00F575F7 /* GTAModes_GameCheatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_GameCheatsTableViewCell.swift; sourceTree = "<group>"; };
-		2CA082EE2A8D152000585479 /* GTAModes_Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_Reachability.swift; sourceTree = "<group>"; };
 		2CA082F12A8D85E300585479 /* locations.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = locations.js; sourceTree = "<group>"; };
 		2CA082F22A8D85E300585479 /* leaflet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = leaflet.css; sourceTree = "<group>"; };
 		2CA082F32A8D85E300585479 /* jquery-2.1.4.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-2.1.4.min.js"; sourceTree = "<group>"; };
@@ -7832,7 +7830,6 @@
 			children = (
 				2CDEBEF62A82586500F976A3 /* GTAModes_DropBoxManager.swift */,
 				2CDEBEF72A82586500F976A3 /* GTAModes_DBConstants.swift */,
-				2CA082EE2A8D152000585479 /* GTAModes_Reachability.swift */,
 			);
 			path = DropBoxManager;
 			sourceTree = "<group>";
@@ -10403,7 +10400,6 @@
 				2C45A5402A76A7A50023B3A8 /* GTAModes_FilterViewController.swift in Sources */,
 				2C1CA43A2A8E70B200C89F79 /* GTA_PageControll.swift in Sources */,
 				2C5CA6EA2A92514D005F9D24 /* ModObject.swift in Sources */,
-				2CA082EF2A8D152000585479 /* GTAModes_Reachability.swift in Sources */,
 				2C5CA6E82A924DFC005F9D24 /* GTAModes_GameModesModel.swift in Sources */,
 				2C1CA4542A8E70B200C89F79 /* UILayoutSupport+Extensions.swift in Sources */,
 				2C1CA43C2A8E70B200C89F79 /* AnimatedButton.swift in Sources */,

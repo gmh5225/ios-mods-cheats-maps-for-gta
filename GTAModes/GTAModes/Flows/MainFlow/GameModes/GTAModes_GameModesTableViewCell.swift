@@ -56,12 +56,12 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         descriprionLabel.textColor = .white
         descriprionLabel.text = value.description
         downloadButtonView.backgroundColor = isLoaded ? UIColor(named: "greenColor")?.withAlphaComponent(0.4) : UIColor(named: "blueColor")?.withAlphaComponent(0.4)
-        setImageMod(value)
+        gta_setImageMod(value)
     }
     
-    private func setImageMod(_ mode: ModItem) {
+    private func gta_setImageMod(_ mode: ModItem) {
         if ImageCache.default.isCached(forKey: mode.imagePath) {
-            setImage(with: mode.imagePath)
+            gta_setImage(with: mode.imagePath)
         } else {
             guard let imageModUrl = URL(string: mode.imagePath) else { return }
             
@@ -70,14 +70,14 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
                     guard case .success(let value) = result  else { return }
                     guard let self = self else { return }
                     
-                    if !self.isLocalCachePhoto(with: mode.imagePath) {
-                        self.saveImage(
+                    if !self.gta_isLocalCachePhoto(with: mode.imagePath) {
+                        self.gta_saveImage(
                             image: value.image,
                             cacheKey: imageModUrl.absoluteString) { [weak self] in
-                                self?.setImage(with: mode.imagePath)
+                                self?.gta_setImage(with: mode.imagePath)
                         }
                     } else {
-                        self.setImage(with: mode.imagePath)
+                        self.gta_setImage(with: mode.imagePath)
                     }
             }
         }
@@ -86,7 +86,7 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
     private func gta_setupLayout() {
         contentView.backgroundColor = .clear
         contentView.addSubview(containerView)
-        containerView.layout {
+        containerView.gta_layout {
             $0.top.equal(to: contentView.topAnchor, offsetBy: 6.0)
             $0.bottom.equal(to: contentView.bottomAnchor, offsetBy: -6.0)
             $0.leading.equal(to: contentView.leadingAnchor, offsetBy: 20.0)
@@ -97,14 +97,14 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         containerView.backgroundColor = UIColor(named: "checkCellBlue")?.withAlphaComponent(0.1)
         
         containerView.addSubview(titleLabel)
-        titleLabel.layout {
+        titleLabel.gta_layout {
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.equal(to: containerView.trailingAnchor, offsetBy: -8.0)
             $0.top.equal(to: containerView.topAnchor, offsetBy: 12.0)
         }
         
         containerView.addSubview(modeImage)
-        modeImage.layout {
+        modeImage.gta_layout {
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.equal(to: containerView.trailingAnchor, offsetBy: -8.0)
             $0.top.equal(to: titleLabel.bottomAnchor, offsetBy: 8.0)
@@ -113,7 +113,7 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         modeImage.contentMode = .scaleAspectFill
         
         containerView.addSubview(descriprionLabel)
-        descriprionLabel.layout {
+        descriprionLabel.gta_layout {
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.equal(to: containerView.trailingAnchor, offsetBy: -8.0)
             $0.top.equal(to: modeImage.bottomAnchor, offsetBy: 8.0)
@@ -122,7 +122,7 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         descriprionLabel.numberOfLines = 0
         
         containerView.addSubview(stackView)
-        stackView.layout {
+        stackView.gta_layout {
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.equal(to: containerView.trailingAnchor, offsetBy: -8.0)
             $0.top.equal(to: descriprionLabel.bottomAnchor, offsetBy: 12.0)
@@ -139,29 +139,29 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         
         let shareView = configureButtonView(title: "Share", imageName: "shareIcon")
         shareButtonView.addSubview(shareView)
-        shareView.layout {
+        shareView.gta_layout {
             $0.centerX.equal(to: shareButtonView.centerXAnchor)
             $0.centerY.equal(to: shareButtonView.centerYAnchor)
         }
         
         let downloadView = configureButtonView(title: "Download", imageName: "downloadIcon")
         downloadButtonView.addSubview(downloadView)
-        downloadView.layout {
+        downloadView.gta_layout {
             $0.centerX.equal(to: downloadButtonView.centerXAnchor)
             $0.centerY.equal(to: downloadButtonView.centerYAnchor)
         }
         
-        shareButtonView.layout {
+        shareButtonView.gta_layout {
             $0.height.equal(to: 42.0)
         }
-        downloadButtonView.layout {
+        downloadButtonView.gta_layout {
             $0.height.equal(to: 42.0)
         }
-        let shareGestrure = UITapGestureRecognizer(target: self, action: #selector(shareActionProceed))
+        let shareGestrure = UITapGestureRecognizer(target: self, action: #selector(gta_shareActionProceed))
         shareButtonView.addGestureRecognizer(shareGestrure)
         
         
-        let downloadGestrure = UITapGestureRecognizer(target: self, action: #selector(downloadActionProceed))
+        let downloadGestrure = UITapGestureRecognizer(target: self, action: #selector(gta_downloadActionProceed))
         downloadButtonView.addGestureRecognizer(downloadGestrure)
         
         stackView.addArrangedSubview(shareButtonView)
@@ -181,13 +181,13 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         let imageView = UIImageView()
         buttonView.addSubview(titleLabel)
         buttonView.addSubview(imageView)
-        titleLabel.layout {
+        titleLabel.gta_layout {
             $0.top.equal(to: buttonView.topAnchor)
             $0.leading.equal(to: buttonView.leadingAnchor)
             $0.trailing.equal(to: imageView.leadingAnchor, offsetBy: -10.0)
             $0.bottom.equal(to: buttonView.bottomAnchor)
         }
-        imageView.layout {
+        imageView.gta_layout {
             $0.height.equal(to: 26.0)
             $0.width.equal(to: 26.0)
             
@@ -204,27 +204,27 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         return buttonView
     }
     
-    @objc func shareActionProceed() {
+    @objc func gta_shareActionProceed() {
         shareAction?()
     }
     
-    @objc func downloadActionProceed() {
+    @objc func gta_downloadActionProceed() {
         downloadAction?()
     }
     
-    private func isLocalCachePhoto(with path: String?) -> Bool {
+    private func gta_isLocalCachePhoto(with path: String?) -> Bool {
         guard let localPath = path, let localUrl = URL(string: localPath) else { return false }
         
         return ImageCache.default.isCached(forKey: localUrl.absoluteString)
     }
     
-    private func saveImage(image: UIImage, cacheKey: String, completion: (() -> Void)? = nil) {
+    private func gta_saveImage(image: UIImage, cacheKey: String, completion: (() -> Void)? = nil) {
         ImageCache.default.store(image, forKey: cacheKey, options: KingfisherParsedOptionsInfo(nil)) { _ in
             completion?()
         }
     }
     
-    private func setImage(with urlPath: String, completionHandler: (() -> Void)? = nil) {
+    private func gta_setImage(with urlPath: String, completionHandler: (() -> Void)? = nil) {
         guard let urlImage = URL(string: urlPath) else {
             completionHandler?()
             return

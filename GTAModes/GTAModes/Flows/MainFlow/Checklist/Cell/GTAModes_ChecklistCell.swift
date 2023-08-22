@@ -40,7 +40,7 @@ final class GTAModes_ChecklistCell: UITableViewCell, GTAModes_Reusable {
     private func gta_setupLayout() {
         contentView.backgroundColor = .clear
         contentView.addSubview(containerView)
-        containerView.layout {
+        containerView.gta_layout {
             $0.top.equal(to: contentView.topAnchor, offsetBy: 6.0)
             $0.bottom.equal(to: contentView.bottomAnchor, offsetBy: -6.0)
             $0.leading.equal(to: contentView.leadingAnchor, offsetBy: 20.0)
@@ -51,7 +51,7 @@ final class GTAModes_ChecklistCell: UITableViewCell, GTAModes_Reusable {
         containerView.backgroundColor = UIColor(named: "checkCellBlue")?.withAlphaComponent(0.1)
         
         containerView.addSubview(switcher)
-        switcher.layout {
+        switcher.gta_layout {
             $0.trailing.equal(to: containerView.trailingAnchor, offsetBy: -16.0)
             $0.centerY.equal(to: containerView.centerYAnchor)
             $0.height.equal(to: 31.0)
@@ -61,7 +61,7 @@ final class GTAModes_ChecklistCell: UITableViewCell, GTAModes_Reusable {
         switcher.addTarget(self, action: #selector(gta_switchValueChanged(_:)), for: .valueChanged)
         
         containerView.addSubview(titleLabel)
-        titleLabel.layout {
+        titleLabel.gta_layout {
             $0.top.equal(to: containerView.topAnchor, offsetBy: 20.0)
             $0.bottom.equal(to: containerView.bottomAnchor, offsetBy: -20.0)
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 16.0)

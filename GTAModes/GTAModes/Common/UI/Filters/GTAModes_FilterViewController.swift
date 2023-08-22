@@ -40,7 +40,7 @@ public class PanDragIndicator: GTAModes_NiblessView {
     
     private func gta_setupView() {
         withCornerRadius(Self.height / 2.0)
-        layout {
+        gta_layout {
             $0.width.equal(to: 32.0)
             $0.height.equal(to: PanDragIndicator.height)
         }
@@ -90,13 +90,13 @@ final class GTAModes_FilterViewController: NiblessFilterViewController {
         titleLabel.textColor = .white
         
         view.addSubview(titleLabel)
-        titleLabel.layout {
+        titleLabel.gta_layout {
             $0.centerX.equal(to: view.centerXAnchor)
             $0.top.equal(to: view.topAnchor, offsetBy: 24.0)
         }
         
         view.addSubview(closeButton)
-        closeButton.layout {
+        closeButton.gta_layout {
             $0.trailing.equal(to: view.trailingAnchor, offsetBy: -20.0)
             $0.centerY.equal(to: titleLabel.centerYAnchor)
             $0.height.equal(to: 24.0)
@@ -107,7 +107,7 @@ final class GTAModes_FilterViewController: NiblessFilterViewController {
         
         tableView.accessibilityIdentifier = "tableView"
         view.addSubview(tableView)
-        tableView.layout {
+        tableView.gta_layout {
             $0.leading.equal(to: view.leadingAnchor)
             $0.trailing.equal(to: view.trailingAnchor)
             $0.top.equal(to: titleLabel.bottomAnchor)

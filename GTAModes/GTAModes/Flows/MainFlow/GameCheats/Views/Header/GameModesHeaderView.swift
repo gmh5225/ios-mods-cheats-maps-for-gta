@@ -36,7 +36,7 @@ final class GameModesHeaderView: UITableViewHeaderFooterView, GTAModes_Reusable 
     
     private func gta_setupView() {
         contentView.addSubview(stackView)
-        stackView.layout {
+        stackView.gta_layout {
             $0.leading.equal(to: contentView.leadingAnchor, offsetBy: 20.0)
             $0.trailing.equal(to: contentView.trailingAnchor, offsetBy: -20.0)
             $0.top.equal(to: contentView.topAnchor)
@@ -56,7 +56,7 @@ final class GameModesHeaderView: UITableViewHeaderFooterView, GTAModes_Reusable 
                 button.backgroundColor = UIColor(named: "blueColor")?.withAlphaComponent(0.4)
                 selectedButton = button
             }
-            button.layout {
+            button.gta_layout {
                 $0.height.equal(to: 79.0)
                 $0.width.equal(to: 79.0)
             }

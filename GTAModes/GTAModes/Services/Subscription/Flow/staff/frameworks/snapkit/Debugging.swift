@@ -117,7 +117,7 @@ private func descriptionForAttribute(_ attribute: LayoutAttributeSub) -> String 
         #endif
     }
     #else
-        switch attribute {
+        switch gta_attribute {
         case .notAnAttribute:       return "notAnAttribute"
         case .top:                  return "top"
         case .left:                 return "left"
