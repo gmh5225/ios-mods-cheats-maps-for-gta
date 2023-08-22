@@ -8,7 +8,7 @@ import Adjust
 import AVFoundation
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class GTA_AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-extension AppDelegate : PWMessagingDelegate {
+extension GTA_AppDelegate : PWMessagingDelegate {
     
     //handle token received from APNS
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

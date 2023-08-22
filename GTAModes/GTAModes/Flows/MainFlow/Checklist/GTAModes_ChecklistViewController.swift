@@ -1,9 +1,3 @@
-//
-//  ChecklistViewController.swift
-//  GTAModes
-//
-//  Created by Максим Педько on 30.07.2023.
-//
 
 import UIKit
 import Combine
@@ -16,19 +10,45 @@ class GTAModes_ChecklistViewController: GTAModes_NiblessViewController {
     private let customNavigation: GTAModes_CustomNavigationView
     
     init(model: GTAModes_ChecklistModel) {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         self.model = model
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         self.customNavigation = GTAModes_CustomNavigationView(.checkList)
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         super.init()
         
         customNavigation.leftButtonAction = { [weak self] in
             self?.model.gta_backActionProceed()
         }
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         customNavigation.rightButtonAction = { [weak self] in
             self?.model.gta_filterActionProceed()
         }
+        //
     }
     
     private func gta_setupBindings() {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         model.reloadData
             .sink { [weak self] in
                 guard let self = self else { return }
@@ -39,8 +59,14 @@ class GTAModes_ChecklistViewController: GTAModes_NiblessViewController {
     }
     
     override func viewDidLoad() {
+        //
         super.viewDidLoad()
-        
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
+        //
         gta_setupView()
         //
         gta_setupBindings()
@@ -62,6 +88,11 @@ class GTAModes_ChecklistViewController: GTAModes_NiblessViewController {
             $0.trailing.equal(to: view.trailingAnchor)
             $0.bottom.equal(to: view.bottomAnchor)
         }
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         tableView.registerReusableCell(cellType: GTAModes_ChecklistCell.self)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 82.0
@@ -76,6 +107,11 @@ extension GTAModes_ChecklistViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_ChecklistCell = tableView.dequeueReusableCell(indexPath)
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         cell.gta_configure_cell(model.missionList[indexPath.row])
         cell.backgroundColor = .clear
         
@@ -89,7 +125,12 @@ extension GTAModes_ChecklistViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //
-        model.missionList.count
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
+       return model.missionList.count
         //
         //
     }

@@ -1,9 +1,3 @@
-//
-//  MapViewController.swift
-//  GTAModes
-//
-//  Created by Максим Педько on 01.08.2023.
-//
 
 import UIKit
 import WebKit

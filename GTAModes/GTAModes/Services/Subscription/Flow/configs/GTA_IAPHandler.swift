@@ -148,11 +148,18 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     }
     
     public func gta_completeAllTransactionsFunc() {
+        // some comment for trash
         let transactions = SKPaymentQueue.default().transactions
+        // some comment for trash
         for transaction in transactions {
+            // some comment for trash
             let transactionState = transaction.transactionState
+            // some comment for trash
             if transactionState == .purchased || transactionState == .restored {
+                // some comment for trash
                 SKPaymentQueue.default().finishTransaction(transaction)
+                // some comment for trash
+                
             }
         }
     }

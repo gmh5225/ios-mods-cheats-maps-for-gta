@@ -15,19 +15,6 @@ public struct FilterData {
     
 }
 
-private extension CGFloat {
-    
-    static let panIndicatorTopOffset = 16.0
-    static let tableViewTopOffset = 16.0
-    static let tableViewBottomOffset = 100.0
-    static let headerHeight = 16.0
-    
-    static var totalVerticalOffsets: CGFloat {
-        panIndicatorTopOffset + tableViewTopOffset + tableViewBottomOffset + headerHeight
-    }
-    
-}
-
 public class PanDragIndicator: GTAModes_NiblessView {
     
     public static let height = 4.0

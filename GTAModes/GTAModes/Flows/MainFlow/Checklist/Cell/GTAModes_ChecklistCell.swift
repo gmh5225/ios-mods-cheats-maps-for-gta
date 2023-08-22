@@ -1,10 +1,3 @@
-//
-//  ChecklistCell.swift
-//  GTAModes
-//
-//  Created by Максим Педько on 31.07.2023.
-//
-
 
 //import
 import Foundation

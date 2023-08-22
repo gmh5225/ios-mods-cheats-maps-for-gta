@@ -1,9 +1,3 @@
-//
-//  ChecklistModel.swift
-//  GTAModes
-//
-//  Created by Максим Педько on 30.07.2023.
-//
 
 import Foundation
 import RealmSwift
@@ -38,19 +32,58 @@ final class GTAModes_ChecklistModel {
     init(
         navigationHandler: ChecklistModelNavigationHandler
     ) {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         self.navigationHandler = navigationHandler
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         gta_fetchData()
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
     }
     
     func gta_backActionProceed() {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         navigationHandler.checklistModelDidRequestToBack(self)
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
     }
     
     func gta_filterActionProceed() {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         let filterList = allMissionListItems.map { $0.categoryName }
         let uniqueList = Array(Set(filterList))
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         let filterListData = FilterListData(filterList: uniqueList, selectedItem: filterSelected)
-        
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         navigationHandler.checklistModelDidRequestToFilter(
             self,
             filterListData: filterListData) { [weak self] selectedFilter in
@@ -65,9 +98,19 @@ final class GTAModes_ChecklistModel {
                 }
                 self.reloadDataSubject.send()
             }
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
     }
     
     func gta_fetchData() {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         do {
             let realm = try Realm()
             let missionsItem = realm.objects(MissionObject.self)
@@ -86,6 +129,11 @@ final class GTAModes_ChecklistModel {
     }
     
     func gta_missionIsCheck(_ index: Int, isCheck: Bool) {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         let selectedItem = missionList[index]
         do {
             let realm = try Realm()
@@ -104,6 +152,11 @@ final class GTAModes_ChecklistModel {
         } catch {
             print("Error saving data to Realm: \(error)")
         }
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
     }
     
 }

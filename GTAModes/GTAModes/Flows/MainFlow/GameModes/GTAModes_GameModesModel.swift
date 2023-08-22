@@ -1,9 +1,3 @@
-//
-//  GTAModes_GameModesModel.swift
-//  GTAModes
-//
-//  Created by Максим Педько on 20.08.2023.
-//
 
 import Foundation
 import RealmSwift

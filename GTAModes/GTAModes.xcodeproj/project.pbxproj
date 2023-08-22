@@ -76,7 +76,7 @@
 		2C1CA46E2A8E70B200C89F79 /* GTA_ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA42C2A8E70B200C89F79 /* GTA_ReusableView.swift */; };
 		2C1CA4712A8E714F00C89F79 /* GTA_Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4702A8E714F00C89F79 /* GTA_Configurations.swift */; };
 		2C1CA4742A8E720B00C89F79 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1CA4732A8E720A00C89F79 /* StoreKit.framework */; };
-		2C2A20512A7170E1002A6D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20502A7170E1002A6D3C /* AppDelegate.swift */; };
+		2C2A20512A7170E1002A6D3C /* GTA_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20502A7170E1002A6D3C /* GTA_AppDelegate.swift */; };
 		2C2A20532A7170E1002A6D3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20522A7170E1002A6D3C /* SceneDelegate.swift */; };
 		2C2A206F2A727E88002A6D3C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C2A206E2A727E88002A6D3C /* RealmSwift */; };
 		2C2A20732A7285AA002A6D3C /* GTAModes_MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20722A7285AA002A6D3C /* GTAModes_MainFlowCoordinator.swift */; };
@@ -2594,7 +2594,7 @@
 		2C1CA4722A8E71E200C89F79 /* GTAModes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GTAModes.entitlements; sourceTree = "<group>"; };
 		2C1CA4732A8E720A00C89F79 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2C2A204D2A7170E1002A6D3C /* GTAModes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTAModes.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C2A20502A7170E1002A6D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2C2A20502A7170E1002A6D3C /* GTA_AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTA_AppDelegate.swift; sourceTree = "<group>"; };
 		2C2A20522A7170E1002A6D3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2C2A20592A7170E3002A6D3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C2A205E2A7170E3002A6D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -5247,7 +5247,7 @@
 			children = (
 				2C1CA4722A8E71E200C89F79 /* GTAModes.entitlements */,
 				2C1CA46F2A8E713C00C89F79 /* Configurations */,
-				2C2A20502A7170E1002A6D3C /* AppDelegate.swift */,
+				2C2A20502A7170E1002A6D3C /* GTA_AppDelegate.swift */,
 				2C2A20522A7170E1002A6D3C /* SceneDelegate.swift */,
 				2C2A20642A717EA4002A6D3C /* Flows */,
 				2C2A20652A717EF7002A6D3C /* Services */,
@@ -10433,7 +10433,7 @@
 				2C1CA44E2A8E70B200C89F79 /* ConstraintMakerExtendable.swift in Sources */,
 				2C1CA4512A8E70B200C89F79 /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				2C51E7362A8BA9570077C421 /* GTAModes_SearchBar.swift in Sources */,
-				2C2A20512A7170E1002A6D3C /* AppDelegate.swift in Sources */,
+				2C2A20512A7170E1002A6D3C /* GTA_AppDelegate.swift in Sources */,
 				2C2A20B92A7556BF002A6D3C /* GTAModes_Reusable.swift in Sources */,
 				2C1CA4372A8E70B200C89F79 /* gta_extensions-freeform.swift in Sources */,
 				2C2A20732A7285AA002A6D3C /* GTAModes_MainFlowCoordinator.swift in Sources */,

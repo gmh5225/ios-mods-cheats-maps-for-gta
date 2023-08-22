@@ -1,9 +1,3 @@
-//
-//  GSViewController.swift
-//  GTAModes
-//
-//  Created by Максим Педько on 29.07.2023.
-//
 
 import UIKit
 import Combine

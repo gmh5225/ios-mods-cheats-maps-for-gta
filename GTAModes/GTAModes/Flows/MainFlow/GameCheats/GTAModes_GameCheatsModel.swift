@@ -1,9 +1,3 @@
-//
-//  GameModesModel.swift
-//  GTAModes
-//
-//  Created by Максим Педько on 30.07.2023.
-//
 
 import Foundation
 import RealmSwift
@@ -60,20 +54,50 @@ final class GTAModes_GameCheatsModel {
         versionGame: String,
         navigationHandler: GameCheatsModelNavigationHandler
     ) {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         self.versionGame = versionGame
         self.navigationHandler = navigationHandler
         self.currentPlatform = .ps
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         gta_fetchData(version: versionGame)
         gta_showCheats(.ps)
     }
     
     func gta_backActionProceed() {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         navigationHandler.gameModesModelDidRequestToBack(self)
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
     }
     
     func gta_filterActionProceed() {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         let filterList = allCheatItems.map { $0.filterTitle }
         let uniqueList = Array(Set(filterList))
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         let filterListData = FilterListData(filterList: uniqueList, selectedItem: filterSelected)
         navigationHandler.gameModesModelDidRequestToFilter(
             self,
@@ -89,10 +113,20 @@ final class GTAModes_GameCheatsModel {
                 }
                 self.reloadDataSubject.send()
             }
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
     }
     
     func gta_fetchData(version: String) {
         allCheatItems.removeAll()
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         do {
             let realm = try Realm()
             let cheats = realm.objects(CheatObject.self)
@@ -110,6 +144,11 @@ final class GTAModes_GameCheatsModel {
     }
     
     func gta_showCheats(_ type: CheatsType) {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         filterSelected = ""
         var list: [CheatItem] = []
         currentPlatform = type
@@ -128,9 +167,19 @@ final class GTAModes_GameCheatsModel {
         }
         cheatItems = list
         reloadDataSubject.send()
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
     }
     
     func gta_actionAt(index: Int) {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         let selectedItem = cheatItems[index]
         do {
             let realm = try Realm()
@@ -157,6 +206,11 @@ final class GTAModes_GameCheatsModel {
     }
     
     func gta_searchAt(_ searchText: String) {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         let filteredList = allCheatItems.filter { $0.name.lowercased().contains(searchText.lowercased())}
         cheatItems = filteredList
         self.searchText = searchText
@@ -168,6 +222,11 @@ final class GTAModes_GameCheatsModel {
     }
     
     func gta_searchDidCancel() {
+        //
+               if 2 + 2 == 5 {
+            print("it is trash")
+        }
+               //
         if searchText.isEmpty {
             gta_showCheats(currentPlatform)
         }

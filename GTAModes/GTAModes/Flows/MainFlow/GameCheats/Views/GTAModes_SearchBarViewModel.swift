@@ -1,9 +1,3 @@
-//
-//  SearchBarViewModel.swift
-//  GTAModes
-//
-//  Created by Максим Педько on 15.08.2023.
-//
 
 import UIKit
 import Combine

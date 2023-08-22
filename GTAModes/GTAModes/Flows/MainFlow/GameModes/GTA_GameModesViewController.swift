@@ -1,9 +1,3 @@
-//
-//  GTA_GameModesViewController.swift
-//  GTAModes
-//
-//  Created by Максим Педько on 20.08.2023.
-//
 
 import UIKit
 import Combine
@@ -34,12 +28,18 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
     }
     
     override func viewDidLoad() {
+        // super
         super.viewDidLoad()
         
+        // some comment
         gta_setupView()
+        // some comment
         gta_setupBindings()
+        // some comment
         gta_setupSearchBar()
+        // some comment
         gta_searchBindings()
+        // some comment
     }
     
     private func gta_setupView() {
