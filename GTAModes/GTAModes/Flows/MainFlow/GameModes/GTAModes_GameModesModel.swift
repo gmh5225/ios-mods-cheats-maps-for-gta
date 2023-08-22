@@ -49,7 +49,7 @@ final class GTAModes_GameModesModel {
     ) {
         self.navigationHandler = navigationHandler
         gta_fetchData()
-        showMods()
+        gta_showMods()
         GTAModes_DBManager.shared.delegate = self
     }
     
@@ -94,11 +94,11 @@ final class GTAModes_GameModesModel {
         }
     }
     
-    func downloadMode(index: Int) {
+    func gta_downloadMode(index: Int) {
         let mode = modeItems[index]
         showSpinnerSubject.send(true)
-        if !checkIsLoadData(mode.title) {
-            GTAModes_DBManager.shared.downloadMode(mode: mode) { [weak self] localUrl in
+        if !gta_checkIsLoadData(mode.title) {
+            GTAModes_DBManager.shared.gta_downloadMode(mode: mode) { [weak self] localUrl in
                 if let localUrl = localUrl {
                     print("File downloaded to: \(localUrl)")
                     self?.showSpinnerSubject.send(false)
@@ -118,14 +118,14 @@ final class GTAModes_GameModesModel {
         
     }
     
-    func checkIsLoadData(_ modeName: String) -> Bool {
+    func gta_checkIsLoadData(_ modeName: String) -> Bool {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fileURL = documentsDirectory.appendingPathComponent(modeName)
         
         return FileManager.default.fileExists(atPath: fileURL.path)
     }
 
-    func showMods() {
+    func gta_showMods() {
         modeItems = allModeItems
         reloadDataSubject.send()
     }

@@ -2,7 +2,7 @@ import UIKit
 import AVKit
 import AVFoundation
 
-enum PremiumMainControllerStyle {
+enum gta_PremiumMainControllerStyle {
     case mainProduct,unlockContentProduct,unlockFuncProduct,unlockOther
 }
 
@@ -22,7 +22,7 @@ class PremiumMainController: UIViewController {
     @IBOutlet private weak var restoreBtn: UIButton!
     @IBOutlet weak var closeBtn: UIButton!
     
-    public var productBuy : PremiumMainControllerStyle = .mainProduct
+    public var productBuy : gta_PremiumMainControllerStyle = .mainProduct
     weak var delegate: GTA_PremiumMainControllerDelegate_MEX?
     
     private var intScreenStatus = 0
@@ -94,11 +94,11 @@ class PremiumMainController: UIViewController {
     // MARK: - Setup Video Player
     
     private func GTA_BGPlayer(){
-        var pathUrl = Bundle.main.url(forResource: ConfigurationMediaSub.nameFileVideoForPhone, withExtension: ConfigurationMediaSub.videoFileType)
+        var pathUrl = Bundle.main.url(forResource: gta_ConfigurationMediaSub.nameFileVideoForPhone, withExtension: gta_ConfigurationMediaSub.videoFileType)
         if UIDevice.current.userInterfaceIdiom == .pad {
-            pathUrl = Bundle.main.url(forResource: ConfigurationMediaSub.nameFileVideoForPad, withExtension: ConfigurationMediaSub.videoFileType)
+            pathUrl = Bundle.main.url(forResource: gta_ConfigurationMediaSub.nameFileVideoForPad, withExtension: gta_ConfigurationMediaSub.videoFileType)
         }else{
-            pathUrl = Bundle.main.url(forResource: ConfigurationMediaSub.nameFileVideoForPhone, withExtension: ConfigurationMediaSub.videoFileType)
+            pathUrl = Bundle.main.url(forResource: gta_ConfigurationMediaSub.nameFileVideoForPhone, withExtension: gta_ConfigurationMediaSub.videoFileType)
         }
         
         avPlayer = AVPlayer(url: pathUrl!)

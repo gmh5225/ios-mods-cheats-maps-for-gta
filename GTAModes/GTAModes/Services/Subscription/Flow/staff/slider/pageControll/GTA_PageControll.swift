@@ -10,26 +10,9 @@ class GTA_CustomPageControl: UIPageControl {
     
     @IBInspectable var otherPagesImage: UIImage? = UIImage(named: "page_0")
     
-    override var numberOfPages: Int {
-        didSet {
-            gta_updateDots()
-        }
-    }
-    
     override var currentPage: Int {
         didSet {
             gta_updateDots()
-        }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        if #available(iOS 14.0, *) {
-            gta_defaultConfigurationForiOS14AndAbove()
-        } else {
-            pageIndicatorTintColor = .clear
-            currentPageIndicatorTintColor = .clear
-            clipsToBounds = false
         }
     }
     
@@ -54,6 +37,12 @@ class GTA_CustomPageControl: UIPageControl {
         }
     }
     
+    override var numberOfPages: Int {
+        didSet {
+            gta_updateDots()
+        }
+    }
+    
     private func gta_updateDots() {
         if #available(iOS 14.0, *) {
             gta_defaultConfigurationForiOS14AndAbove()
@@ -71,6 +60,20 @@ class GTA_CustomPageControl: UIPageControl {
                 }
                 imageView.image = currentPage == index ? currentPageImage : otherPagesImage
             }
+        }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        //
+        
+        if #available(iOS 14.0, *) {
+            gta_defaultConfigurationForiOS14AndAbove()
+            //
+        } else {
+            pageIndicatorTintColor = .clear
+            currentPageIndicatorTintColor = .clear
+            clipsToBounds = false
         }
     }
     

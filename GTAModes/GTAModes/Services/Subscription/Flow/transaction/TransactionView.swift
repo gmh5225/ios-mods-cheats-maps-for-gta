@@ -41,10 +41,7 @@ class TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol, GT
     public weak var delegate : GTA_TransactionViewEvents?
     private let networkingMonitor = GTA_NetworkStatusMonitor.shared
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        gta_Init()
-    }
+
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -69,6 +66,11 @@ class TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol, GT
         contentView.gta_fixInView(self)
         contentView.backgroundColor = .clear
         gta_buildConfigs_TOC()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        gta_Init()
     }
     
     private func gta_buildConfigs_TOC(){
@@ -190,15 +192,17 @@ class TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol, GT
         self.delegate?.gta_termsOpen()
     }
     
-    @IBAction func termsAction(_ sender: UIButton) {
-        self.delegate?.gta_privacyOpen()
-    }
+    
     
     func gta_onClick() {
         UIApplication.shared.impactFeedbackGenerator(type: .heavy)
         networkingMonitor.gta_startMonitoring()
         inapp.gta_doPurchase()
         purchaseBtn.isUserInteractionEnabled = false
+    }
+    
+    @IBAction func termsAction(_ sender: UIButton) {
+        self.delegate?.gta_privacyOpen()
     }
     
     //inapp
@@ -213,13 +217,15 @@ class TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol, GT
         self.delegate?.gta_transactionTreatment_TOC(title: title, message: message)
     }
     
+    func gta_failed() {
+        purchaseBtn.isUserInteractionEnabled = true
+        self.delegate?.gta_transactionFailed()
+    }
+    
     func gta_goToTheApp() {
         purchaseBtn.isUserInteractionEnabled = true
         self.delegate?.gta_userSubscribed()
     }
     
-    func gta_failed() {
-        purchaseBtn.isUserInteractionEnabled = true
-        self.delegate?.gta_transactionFailed()
-    }
+   
 }

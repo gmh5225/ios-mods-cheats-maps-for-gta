@@ -29,7 +29,7 @@ enum GTA_Configurations {
 }
 
 
-enum ConfigurationMediaSub {
+enum gta_ConfigurationMediaSub {
     static let nameFileVideoForPhone = "phone"
     static let nameFileVideoForPad = "pad"
     static let videoFileType = "mp4"

@@ -140,8 +140,8 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         alert?.dismiss(animated: false)
     }
     
-    func shareFile(at mode: ModItem) {
-        if model.checkIsLoadData(mode.title) {
+    func gta_shareFile(at mode: ModItem) {
+        if model.gta_checkIsLoadData(mode.title) {
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             let fileURL = documentsDirectory.appendingPathComponent(mode.title)
             
@@ -158,15 +158,15 @@ extension GTA_GameModesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_GameModesTableViewCell = tableView.dequeueReusableCell(indexPath)
         let mode = model.modeItems[indexPath.row]
-        cell.gameMode_configure_cell(mode, isLoaded: model.checkIsLoadData(mode.title))
+        cell.gameMode_configure_cell(mode, isLoaded: model.gta_checkIsLoadData(mode.title))
         cell.backgroundColor = .clear
         
         cell.downloadAction = { [weak self] in
-            self?.model.downloadMode(index: indexPath.row)
+            self?.model.gta_downloadMode(index: indexPath.row)
         }
         
         cell.shareAction = { [weak self] in
-            self?.shareFile(at: mode)
+            self?.gta_shareFile(at: mode)
         }
         
         return cell

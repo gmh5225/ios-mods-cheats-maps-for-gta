@@ -48,11 +48,8 @@ class ReusableView: UIView, GTA_AnimatedButtonEvent {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        gta_Init()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        
+        //
         gta_Init()
     }
     
@@ -77,6 +74,11 @@ class ReusableView: UIView, GTA_AnimatedButtonEvent {
         gta_setContent()
         gta_setConfigLabels_TOC()
         gta_configScreen_TOC()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        gta_Init()
     }
     
     private func gta_setContent(){

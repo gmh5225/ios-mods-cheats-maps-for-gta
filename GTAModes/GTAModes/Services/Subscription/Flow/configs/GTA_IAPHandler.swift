@@ -16,8 +16,8 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     weak var  transactionsDelegate: GTA_IAPManagerProtocol?
     
     public var  localizablePrice = "$4.99"
-    public var productBuy : PremiumMainControllerStyle = .mainProduct
-    public var productBought: [PremiumMainControllerStyle] = []
+    public var productBuy : gta_PremiumMainControllerStyle = .mainProduct
+    public var productBought: [gta_PremiumMainControllerStyle] = []
     
     private var inMain: SKProduct?
     private var inUnlockContent: SKProduct?
@@ -39,12 +39,7 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     private let restoreError  = NSLocalizedString("faledRestore", comment: "")
     private let purchaseError = NSLocalizedString("notPurchases", comment: "")
     
-    public func gta_loadProductsFunc() {
-        SKPaymentQueue.default().add(self)
-        let request = SKProductsRequest(productIdentifiers:[mainProduct,unlockContentProduct,unlockFuncProduct,unlockOther])
-        request.delegate = self
-        request.start()
-    }
+
     
     
     public func gta_doPurchase() {
@@ -57,6 +52,28 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
             gta_processPurchase(for: inUnlockFunc, with: GTA_Configurations.unlockFuncSubscriptionID)
         case .unlockOther:
             gta_processPurchase(for: inUnlockOther, with: GTA_Configurations.unlockerThreeSubscriptionID)
+        }
+    }
+    
+    public func gta_loadProductsFunc() {
+        SKPaymentQueue.default().add(self)
+        let request = SKProductsRequest(productIdentifiers:[mainProduct,unlockContentProduct,unlockFuncProduct,unlockOther])
+        request.delegate = self
+        request.start()
+    }
+    
+
+    
+    private func gta_getCurrentProduct() -> SKProduct? {
+        switch productBuy {
+        case .mainProduct:
+            return self.inMain
+        case .unlockContentProduct:
+            return self.inUnlockContent
+        case .unlockFuncProduct:
+            return self.inUnlockFunc
+        case .unlockOther:
+            return self.inUnlockOther
         }
     }
     
@@ -75,19 +92,6 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
         return localizablePrice
     }
     
-    private func gta_getCurrentProduct() -> SKProduct? {
-        switch productBuy {
-        case .mainProduct:
-            return self.inMain
-        case .unlockContentProduct:
-            return self.inUnlockContent
-        case .unlockFuncProduct:
-            return self.inUnlockFunc
-        case .unlockOther:
-            return self.inUnlockOther
-        }
-    }
-    
     private func gta_processPurchase(for product: SKProduct?, with configurationId: String) {
         guard let product = product else {
             self.transactionsDelegate?.gta_infoAlert(title: iapError, message: prodIDError)
@@ -103,11 +107,7 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     }
     
     
-    public func gta_doRestore() {
-        guard isRestoreTransaction else { return }
-        SKPaymentQueue.default().restoreCompletedTransactions()
-        isRestoreTransaction = false
-    }
+
     
     
     private func gta_completeRestoredStatusFunc(restoreProductID : String, transaction: SKPaymentTransaction) {
@@ -141,6 +141,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
         }
     }
     
+    public func gta_doRestore() {
+        guard isRestoreTransaction else { return }
+        SKPaymentQueue.default().restoreCompletedTransactions()
+        isRestoreTransaction = false
+    }
     
     public func gta_completeAllTransactionsFunc() {
         let transactions = SKPaymentQueue.default().transactions

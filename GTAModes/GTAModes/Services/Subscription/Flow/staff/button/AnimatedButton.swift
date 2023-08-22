@@ -29,10 +29,7 @@ class AnimatedButton: UIView {
     public var style : gta_animationButtonStyle = .native
     
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        gta_Init()
-    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -48,17 +45,13 @@ class AnimatedButton: UIView {
           }
         
       }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        gta_Init()
+    }
 
-      // Этот метод будет вызван перед тем, как view будет удален из superview
-      override func willMove(toSuperview newSuperview: UIView?) {
-          super.willMove(toSuperview: newSuperview)
-          if style == .native {
-              if newSuperview == nil {
-                  self.layer.removeAllAnimations()
-                  gta_removeNotificationObservers()
-              }
-          }
-      }
+
 
       private func gta_addNotificationObservers() {
           NotificationCenter.default.addObserver(self, selector: #selector(gta_pauseAnimation), name: UIApplication.didEnterBackgroundNotification, object: nil)
@@ -69,6 +62,17 @@ class AnimatedButton: UIView {
           NotificationCenter.default.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: nil)
           NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
       }
+    
+    // Этот метод будет вызван перед тем, как view будет удален из superview
+    override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        if style == .native {
+            if newSuperview == nil {
+                self.layer.removeAllAnimations()
+                gta_removeNotificationObservers()
+            }
+        }
+    }
 
       @objc private func gta_pauseAnimation() {
           self.persistentSpeed = self.layer.speed

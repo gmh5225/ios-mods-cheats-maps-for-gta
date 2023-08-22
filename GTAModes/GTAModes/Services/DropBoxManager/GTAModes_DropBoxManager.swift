@@ -85,17 +85,17 @@ final class GTAModes_DBManager: NSObject {
     //    }
     
     //
-    func downloadMode(mode: ModItem, completion: @escaping (String?) -> ()) {
-        downloadFileBy(urlPath: mode.modPath) { [weak self] modeData in
+    func gta_downloadMode(mode: ModItem, completion: @escaping (String?) -> ()) {
+        gta_downloadFileBy(urlPath: mode.modPath) { [weak self] modeData in
             if let modeData = modeData {
-                self?.saveDataLocal(modeName: mode.title, data: modeData, completion: completion)
+                self?.gta_saveDataLocal(modeName: mode.title, data: modeData, completion: completion)
             } else {
                 completion(nil)
             }
         }
     }
     
-    func downloadFileBy(urlPath: String, completion: @escaping (Data?) -> Void) {
+    func gta_downloadFileBy(urlPath: String, completion: @escaping (Data?) -> Void) {
         gta_validateAccessToken(token: GTA_DBKeys.refresh_token) { [weak self] validator in
             guard let self = self else { return }
             
@@ -115,7 +115,7 @@ final class GTAModes_DBManager: NSObject {
         }
     }
     
-    func saveDataLocal(modeName: String, data: Data, completion: @escaping (String?) -> ()) {
+    func gta_saveDataLocal(modeName: String, data: Data, completion: @escaping (String?) -> ()) {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fileURL = documentsDirectory.appendingPathComponent(modeName)
         do {
@@ -263,7 +263,7 @@ private extension GTAModes_DBManager {
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: GTA_DBKeys.Path.main.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.gta_Path.main.rawValue)
                     .response(completionHandler: { responce, error in
                         if let data = responce?.1 {
                             do {
@@ -291,7 +291,7 @@ private extension GTAModes_DBManager {
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: GTA_DBKeys.Path.gameList.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.gta_Path.gameList.rawValue)
                     .response(completionHandler: { responce, error in
                         if let data = responce?.1 {
                             do {
@@ -382,7 +382,7 @@ extension GTAModes_DBManager {
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: GTA_DBKeys.Path.gta5_modes.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.gta_Path.gta5_modes.rawValue)
                     .response(completionHandler: { [weak self] responce, error in
                         guard let self = self else { return }
                         
@@ -413,7 +413,7 @@ extension GTAModes_DBManager {
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: GTA_DBKeys.Path.gta6_modes.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.gta_Path.gta6_modes.rawValue)
                     .response(completionHandler: { responce, error in
                         if let data = responce?.1 {
                             do {
@@ -442,7 +442,7 @@ extension GTAModes_DBManager {
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: GTA_DBKeys.Path.gtavc_modes.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.gta_Path.gtavc_modes.rawValue)
                     .response(completionHandler: { responce, error in
                         if let data = responce?.1 {
                             do {
@@ -471,7 +471,7 @@ extension GTAModes_DBManager {
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: GTA_DBKeys.Path.gtasa_modes.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.gta_Path.gtasa_modes.rawValue)
                     .response(completionHandler: { [weak self] responce, error in
                         guard let self = self else { return }
                         
@@ -502,7 +502,7 @@ extension GTAModes_DBManager {
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: GTA_DBKeys.Path.checkList.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.gta_Path.checkList.rawValue)
                     .response(completionHandler: { [weak self] responce, error in
                         guard let self = self else { return }
                         
@@ -552,7 +552,7 @@ extension GTAModes_DBManager {
             guard let self = self else { return }
             
             if validator {
-                self.client?.files.download(path: GTA_DBKeys.Path.modsGTA5List.rawValue)
+                self.client?.files.download(path: GTA_DBKeys.gta_Path.modsGTA5List.rawValue)
                     .response(completionHandler: { [weak self] responce, error in
                         guard let self = self else { return }
                         
