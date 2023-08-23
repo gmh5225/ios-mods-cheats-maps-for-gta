@@ -52,7 +52,7 @@ class GSViewController: GTAModes_NiblessViewController {
             $0.bottom.equal(to: view.bottomAnchor)
         }
         tableView.registerReusableCell(cellType: GTAModes_MainTableViewCell.self)
-        tableView.rowHeight = 160.0
+        tableView.rowHeight = UIDevice.current.userInterfaceIdiom == .pad ? 360.0 : 160.0
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none

@@ -21,7 +21,7 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
                 GTA_Configurations.unlockFuncSubscriptionID,
                 GTA_Configurations.unlockContentSubscriptionID
             ]) { [weak self] results in
-                
+
                 self?.mapIsLock = results[GTA_Configurations.unlockFuncSubscriptionID] ?? false
                 self?.modeIsLock = results[GTA_Configurations.unlockContentSubscriptionID] ?? false
                 self?.tableView.reloadData()
@@ -41,7 +41,7 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
             $0.bottom.equal(to: view.bottomAnchor)
         }
         tableView.registerReusableCell(cellType: GTAModes_MainTableViewCell.self)
-        tableView.rowHeight = 228.0
+        tableView.rowHeight = UIDevice.current.userInterfaceIdiom == .pad ? 360.0 : 228.0
         tableView.delegate = self
         tableView.dataSource = self
     }

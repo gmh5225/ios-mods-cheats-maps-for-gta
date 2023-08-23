@@ -10,7 +10,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         self.window = window
-        //
+        
+        
         if GTA_NetworkStatusMonitor.shared.isNetworkAvailable {
             GTA_IAPManager.shared.gta_validateSubscriptions(
                 productIdentifiers: [
@@ -20,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     self?.gta_showMainFlow(window)
                 } else {
                     self?.gta_showSubPremiumFlow(window)
-                    
+
                 }
                 })
         } else {

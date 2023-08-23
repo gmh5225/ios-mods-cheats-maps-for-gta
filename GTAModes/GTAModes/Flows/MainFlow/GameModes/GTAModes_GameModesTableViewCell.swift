@@ -13,11 +13,28 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
     
     private let containerView = UIView()
     private let titleLabel = UILabel()
-    private let modeImage = UIImageView()
+    private let modeImage: UIImageView = {
+        var imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }()
     private let descriprionLabel = UILabel()
     private let shareButtonView = UIView()
     private let downloadButtonView = UIView()
     private let stackView = UIStackView()
+    
+    private var imageOptions: KingfisherOptionsInfo = [
+        .processor(ResizingImageProcessor(
+            referenceSize: CGSize(
+                width: UIScreen.main.bounds.width - 48.0,
+                height: UIDevice.current.userInterfaceIdiom == .pad ? 400.0 : 218
+            ),
+            mode: .aspectFill
+            )
+        )
+    ]
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.kingfisherManager = KingfisherManager.shared
@@ -45,7 +62,6 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         titleLabel.font = UIFont(name: "Inter-Regular", size: 20)
         titleLabel.textColor = .white
         titleLabel.text = value.title
-        
         descriprionLabel.font = UIFont(name: "Inter-Regular", size: 20)
         descriprionLabel.textColor = .white
         descriprionLabel.text = value.description
@@ -58,12 +74,12 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
             gta_setImage(with: mode.imagePath)
         } else {
             guard let imageModUrl = URL(string: mode.imagePath) else { return }
-            
+
             downloadTask = self.kingfisherManager.retrieveImage(
-                with: imageModUrl) { [weak self] result in
+                with: imageModUrl, options: imageOptions) { [weak self] result in
                     guard case .success(let value) = result  else { return }
                     guard let self = self else { return }
-                    
+
                     if !self.gta_isLocalCachePhoto(with: mode.imagePath) {
                         self.gta_saveImage(
                             image: value.image,
@@ -92,26 +108,27 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         
         containerView.addSubview(titleLabel)
         titleLabel.gta_layout {
+            $0.top.equal(to: containerView.topAnchor, offsetBy: 12.0)
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.equal(to: containerView.trailingAnchor, offsetBy: -8.0)
-            $0.top.equal(to: containerView.topAnchor, offsetBy: 12.0)
         }
+        titleLabel.numberOfLines = 0
         
         containerView.addSubview(modeImage)
+        
         modeImage.gta_layout {
+            $0.top.equal(to: titleLabel.bottomAnchor, offsetBy: 8.0)
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.equal(to: containerView.trailingAnchor, offsetBy: -8.0)
-            $0.top.equal(to: titleLabel.bottomAnchor, offsetBy: 8.0)
-            $0.height.equal(to: 218.0)
+            $0.height.equal(to: UIDevice.current.userInterfaceIdiom == .pad ? 400.0 : 218.0)
         }
-        modeImage.contentMode = .scaleAspectFill
+        
         
         containerView.addSubview(descriprionLabel)
         descriprionLabel.gta_layout {
+            $0.top.equal(to: modeImage.bottomAnchor, offsetBy: 8.0)
             $0.leading.equal(to: containerView.leadingAnchor, offsetBy: 8.0)
             $0.trailing.equal(to: containerView.trailingAnchor, offsetBy: -8.0)
-            $0.top.equal(to: modeImage.bottomAnchor, offsetBy: 8.0)
-            
         }
         descriprionLabel.numberOfLines = 0
         
@@ -160,6 +177,7 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         
         stackView.addArrangedSubview(shareButtonView)
         stackView.addArrangedSubview(downloadButtonView)
+        containerView.layoutIfNeeded()
     }
     
     func gta_configureStackView(_ stackView: UIStackView) {
@@ -225,7 +243,7 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
             
         }
         
-        downloadTask = kingfisherManager.retrieveImage(with: urlImage) { [weak self] result in
+        downloadTask = kingfisherManager.retrieveImage(with: urlImage, options: imageOptions) { [weak self] result in
                 guard let self = self else { return }
                 
                 switch result {

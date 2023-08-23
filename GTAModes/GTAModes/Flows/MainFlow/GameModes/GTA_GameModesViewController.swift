@@ -71,7 +71,7 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         }
         tableView.registerReusableCell(cellType: GTAModes_GameModesTableViewCell.self)
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 96.0
+        tableView.estimatedRowHeight = UIDevice.current.userInterfaceIdiom == .pad ? 496.0 : 296.0
         tableView.keyboardDismissMode = .onDrag
         tableView.dataSource = self
         tableView.separatorStyle = .none
