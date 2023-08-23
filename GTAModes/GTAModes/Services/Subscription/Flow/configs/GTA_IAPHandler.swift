@@ -107,8 +107,6 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     }
     
     
-
-    
     
     private func gta_completeRestoredStatusFunc(restoreProductID : String, transaction: SKPaymentTransaction) {
         if restoringTransactionProductId.contains(restoreProductID) { return }
@@ -292,7 +290,7 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
             case .failed:
                 SKPaymentQueue.default().finishTransaction(transaction)
                 transactionsDelegate?.gta_failed()
-                transactionsDelegate?.gta_infoAlert(title: "error", message: "something went wrong")
+//                transactionsDelegate?.gta_infoAlert(title: "error", message: "something went wrong")
                 print("Failed IAPManager")
                 
             case .restored:

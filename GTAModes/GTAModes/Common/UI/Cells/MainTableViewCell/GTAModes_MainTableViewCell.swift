@@ -20,6 +20,9 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
     private let rightImageView = UIImageView()
     private let lockImageView = UIImageView()
     
+    private var lockConstraints: [NSLayoutConstraint] = []
+    private var notLockConstraints: [NSLayoutConstraint] = []
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.kingfisherManager = KingfisherManager.shared
         
@@ -39,16 +42,22 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
         titleLabel.font = UIFont(name: "Inter-Bold", size: fontSize)
         titleLabel.textColor = .white
         backgroundImageView.kf.setImage(with: URL(string: value.imagePath))
-        lockImageView.isHidden = !isLock
         if isLock {
-            lockImageView.gta_layout {
-                $0.width.equal(to: 32.0)
-            }
+            NSLayoutConstraint.deactivate(notLockConstraints)
+            NSLayoutConstraint.activate(lockConstraints)
         } else {
-            lockImageView.gta_layout {
-                $0.width.equal(to: 0.0)
-            }
+            NSLayoutConstraint.deactivate(lockConstraints)
+            NSLayoutConstraint.activate(notLockConstraints)
         }
+        lockImageView.image = isLock ? UIImage(named: "lockIcon") : nil
+    }
+    
+    public override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        backgroundImageView.image = nil
+        lockImageView.image = nil
+        titleLabel.text = ""
     }
     
     private func gta_setupLayout() {
@@ -93,10 +102,19 @@ final class GTAModes_MainTableViewCell: UITableViewCell, GTAModes_Reusable {
             $0.leading.equal(to: bottomBlackView.leadingAnchor, offsetBy: 18.0)
             $0.top.equal(to: bottomBlackView.topAnchor, offsetBy: 12.0)
             $0.height.equal(to: 32.0)
-            $0.width.equal(to: 32.0)
+            
+            lockConstraints = [
+                $0.width.equal(to: 32.0, isActive: false)
+            ]
+            
+            notLockConstraints = [
+                $0.width.equal(to: 0.0, isActive: false)
+            ]
+            
         }
-        lockImageView.image = UIImage(named: "lockIcon")
         lockImageView.contentMode = .scaleAspectFill
+        
+        
         
         bottomBlackView.addSubview(titleLabel)
         titleLabel.gta_layout {

@@ -12,7 +12,21 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
     //
     var alert: UIAlertController?
     
+    var mapIsLock: Bool = false
+    var modeIsLock: Bool = false
     
+    private func gta_checkSub() {
+        GTA_IAPManager.shared.gta_validateSubscriptions(
+            productIdentifiers: [
+                GTA_Configurations.unlockFuncSubscriptionID,
+                GTA_Configurations.unlockContentSubscriptionID
+            ]) { [weak self] results in
+                
+                self?.mapIsLock = results[GTA_Configurations.unlockFuncSubscriptionID] ?? false
+                self?.modeIsLock = results[GTA_Configurations.unlockContentSubscriptionID] ?? false
+                self?.tableView.reloadData()
+            }
+    }
     
     private func gta_setupView() {
         navigationItem.title = ""
@@ -58,6 +72,7 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        gta_checkSub()
         if model.menuItems.isEmpty {
             gta_showSpiner()
         }
@@ -90,17 +105,9 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_MainTableViewCell = tableView.dequeueReusableCell(indexPath)
         if indexPath.row == 2 {
-            if GTA_IAPManager.shared.productBought.contains(.unlockFuncProduct) {
-                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
-            } else {
-                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: true)
-            }
+            cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: !mapIsLock)
         } else if indexPath.row == 3 {
-            if GTA_IAPManager.shared.productBought.contains(.unlockContentProduct) {
-                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
-            } else {
-                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: true)
-            }
+            cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: !modeIsLock)
         } else {
             cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
         }
@@ -115,34 +122,37 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if indexPath.row == 2 {
-            if GTA_IAPManager.shared.productBought.contains(.unlockFuncProduct) {
+            if mapIsLock {
                 model.gta_selectedItems(index: indexPath.row)
-            } else if indexPath.row == 3 {
-                if GTA_IAPManager.shared.productBought.contains(.unlockContentProduct) {
-                    model.gta_selectedItems(index: indexPath.row)
-                } else {
-                    showSub(.unlockContentProduct)
-                }
+            } else {
+                showSub(.unlockFuncProduct)
             }
-            
+        } else if indexPath.row == 3 {
+            if modeIsLock {
+                model.gta_selectedItems(index: indexPath.row)
+            } else {
+                showSub(.unlockContentProduct)
+            }
+        } else {
+            model.gta_selectedItems(index: indexPath.row)
         }
-    }
-        
-        func showSub(_ premiumSub: gta_PremiumMainControllerStyle) {
-            let withPremiumVC = GTA_PremiumMainController()
-            withPremiumVC.productBuy = premiumSub
-            withPremiumVC.delegate = self
-            navigationController?.present(withPremiumVC, animated: false)
-        }
-        
     }
     
-    extension GTAModes_MainViewController: GTA_PremiumMainControllerDelegate_MEX {
-        
-        func gta_funcProductBuyed() {
-            tableView.reloadData()
-        }
-        
+    func showSub(_ premiumSub: gta_PremiumMainControllerStyle) {
+        let withPremiumVC = GTA_PremiumMainController()
+        withPremiumVC.productBuy = premiumSub
+        withPremiumVC.delegate = self
+        navigationController?.present(withPremiumVC, animated: false)
     }
+    
+}
+
+extension GTAModes_MainViewController: GTA_PremiumMainControllerDelegate_MEX {
+    
+    func gta_funcProductBuyed() {
+        gta_checkSub()
+        tableView.reloadData()
+    }
+    
+}

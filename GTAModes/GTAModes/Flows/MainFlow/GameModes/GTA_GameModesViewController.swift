@@ -91,7 +91,7 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
             if isShowSpinner {
                 self.gta_showSpiner()
             } else {
-                self.gta_hideSpiner()
+                self.gta_hideAlert()
             }
         }.store(in: &subscriptions)
         
@@ -136,7 +136,7 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         
     }
     
-    private func gta_hideSpiner() {
+    private func gta_hideAlert() {
         alert?.dismiss(animated: false)
     }
     
@@ -148,8 +148,21 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
             let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
             activityViewController.popoverPresentationController?.sourceView = self.view
             present(activityViewController, animated: true, completion: nil)
+        } else {
+            gta_showTextAlert("To share, you must first download")
         }
     }
+    
+    
+    func gta_showTextAlert(_ text: String) {
+        alert = UIAlertController(title: nil, message: text, preferredStyle: .alert)
+        present(alert!, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+            self?.gta_hideAlert()
+            
+        }
+    }
+    
     
 }
 
@@ -162,7 +175,11 @@ extension GTA_GameModesViewController: UITableViewDataSource {
         cell.backgroundColor = .clear
         
         cell.downloadAction = { [weak self] in
-            self?.model.gta_downloadMode(index: indexPath.row)
+            if GTA_NetworkStatusMonitor.shared.isNetworkAvailable {
+                self?.model.gta_downloadMode(index: indexPath.row)
+            } else {
+                self?.gta_showTextAlert("No internet")
+            }
         }
         
         cell.shareAction = { [weak self] in
