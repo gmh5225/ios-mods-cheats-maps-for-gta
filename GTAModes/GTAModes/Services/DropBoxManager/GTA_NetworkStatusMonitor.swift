@@ -1,4 +1,8 @@
-//  Created by Melnykov Valerii on 14.07.2023
+//
+//  GTA_NetworkStatusMonitor.swift
+//  GTAModes
+//
+//  Created by Максим Педько on 24.08.2023.
 //
 
 import Foundation
@@ -47,3 +51,4 @@ class GTA_NetworkStatusMonitor {
 protocol GTA_NetworkStatusMonitorDelegate : AnyObject {
     func gta_showMess()
 }
+

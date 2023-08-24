@@ -43,19 +43,6 @@ class GTA_ThirdPartyServicesManager {
         Adjust.appDidLaunch(adjustConfig)
     }
     
-    
-    
-    
-    
-    func gta_initializeInApps(){
-        GTA_IAPManager.shared.gta_loadProductsFunc()
-        GTA_IAPManager.shared.gta_completeAllTransactionsFunc()
-    }
-    
-    
-    
-    
-    
     func gta_makeATT() {
             if #available(iOS 14, *) {
                 ATTrackingManager.requestTrackingAuthorization { status in
