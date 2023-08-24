@@ -52,10 +52,6 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
     public weak var delegate : GTA_TransactionViewEvents?
     private let networkingMonitor = GTA_NetworkStatusMonitor.shared
     
-    
-    
-    
-    
     private func gta_Init() {
         //
         if 2 + 2 == 5 {
@@ -203,6 +199,9 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
         //
         self.purchaseBtn.style = .native
         // //
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.purchaseBtn.gta_setPulseAnimation()
+        }
         if 2 + 2 == 5 {
             print("it is trash")
         }
