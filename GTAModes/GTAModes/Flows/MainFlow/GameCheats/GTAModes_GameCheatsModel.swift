@@ -199,7 +199,7 @@ final class GTAModes_GameCheatsModel {
             }
             gta_fetchData(version: versionGame)
             cheatItems[index].isFavorite = !cheatItems[index].isFavorite
-            reloadDataSubject.send()
+            gta_showCheats(currentPlatform)
         } catch {
             print("Error saving data to Realm: \(error)")
         }
