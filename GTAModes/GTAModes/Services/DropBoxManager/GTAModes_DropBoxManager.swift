@@ -88,7 +88,7 @@ final class GTAModes_DBManager: NSObject {
     func gta_downloadMode(mode: ModItem, completion: @escaping (String?) -> ()) {
         gta_downloadFileBy(urlPath: mode.modPath) { [weak self] modeData in
             if let modeData = modeData {
-                self?.gta_saveDataLocal(modeName: mode.title, data: modeData, completion: completion)
+                self?.gta_saveDataLocal(modeName: mode.modPath, data: modeData, completion: completion)
             } else {
                 completion(nil)
             }

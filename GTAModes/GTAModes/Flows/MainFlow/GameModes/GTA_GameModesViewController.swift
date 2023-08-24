@@ -6,11 +6,12 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
     
     private var subscriptions = Set<AnyCancellable>()
     private let model: GTAModes_GameModesModel
-    private let tableView = UITableView(frame: .zero, style: .grouped)
+    private let tableView = UITableView(frame: .zero)
     private let customNavigation: GTAModes_CustomNavigationView
     private let searchContainer = UIView()
     private var searchBar: GTAModes_SearchBar?
     
+    var activityVC: UIActivityViewController?
     var alert: UIAlertController?
     
     init(model: GTAModes_GameModesModel) {
@@ -42,6 +43,15 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         // some comment
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            // 2. set its sourceRect here. It's the same as in step 4
+            activityVC?.popoverPresentationController?.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+        }
+    }
+    
     private func gta_setupView() {
         view.addSubview(customNavigation)
         customNavigation.gta_layout {
@@ -64,7 +74,7 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         view.addSubview(tableView)
         tableView.backgroundColor = .clear
         tableView.gta_layout {
-            $0.top.equal(to: searchContainer.bottomAnchor, offsetBy: 8.0)
+            $0.top.equal(to: searchContainer.bottomAnchor, offsetBy: 20.0)
             $0.leading.equal(to: view.leadingAnchor)
             $0.trailing.equal(to: view.trailingAnchor)
             $0.bottom.equal(to: view.bottomAnchor)
@@ -141,13 +151,48 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
     }
     
     func gta_shareFile(at mode: ModItem) {
-        if model.gta_checkIsLoadData(mode.title) {
-            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-            let fileURL = documentsDirectory.appendingPathComponent(mode.title)
+        if model.gta_checkIsLoadData(mode.modPath) {
             
-            let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = self.view
-            present(activityViewController, animated: true, completion: nil)
+            if let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(mode.modPath) {
+                do {
+                    activityVC = nil
+                    activityVC = UIActivityViewController(
+                        activityItems: [fileURL],
+                        applicationActivities: nil
+                    )
+                    activityVC?.popoverPresentationController?.sourceView = self.view
+                    
+                    if UIDevice.current.userInterfaceIdiom == .phone {
+                        activityVC?.modalPresentationStyle = .overFullScreen
+                    }
+                    
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        activityVC?.popoverPresentationController?.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+                        activityVC?.popoverPresentationController?.permittedArrowDirections = []
+                    }
+                    
+                    present(activityVC!, animated: true, completion: nil)
+                    
+                    activityVC?.completionWithItemsHandler = { [weak self] (
+                        activityType,
+                        completed: Bool,
+                        returnedItems: [Any]?,
+                        error: Error?
+                    ) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                            return
+                        }
+                        
+                        DispatchQueue.main.async { [weak self] in
+                            self?.activityVC = nil
+                        }
+                    }
+                } catch {
+                    gta_showTextAlert("Error creating sharable URL: \(error)")
+                    //                    print("Error creating sharable URL: \(error)")
+                }
+            }
         } else {
             gta_showTextAlert("To share, you must first download")
         }
@@ -171,7 +216,7 @@ extension GTA_GameModesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_GameModesTableViewCell = tableView.dequeueReusableCell(indexPath)
         let mode = model.modeItems[indexPath.row]
-        cell.gameMode_configure_cell(mode, isLoaded: model.gta_checkIsLoadData(mode.title))
+        cell.gameMode_configure_cell(mode, isLoaded: model.gta_checkIsLoadData(mode.modPath))
         cell.backgroundColor = .clear
         
         cell.downloadAction = { [weak self] in
@@ -201,4 +246,10 @@ final class GameModesSearchViewModel: GTAModes_SearchBarViewModelApplicable {
         false
     }
     
+}
+
+extension GTA_GameModesViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
 }
