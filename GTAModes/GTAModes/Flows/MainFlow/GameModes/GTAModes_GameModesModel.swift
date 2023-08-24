@@ -91,7 +91,7 @@ final class GTAModes_GameModesModel {
     func gta_downloadMode(index: Int) {
         let mode = modeItems[index]
         showSpinnerSubject.send(true)
-        if !gta_checkIsLoadData(mode.title) {
+        if !gta_checkIsLoadData(mode.modPath) {
             GTAModes_DBManager.shared.gta_downloadMode(mode: mode) { [weak self] localUrl in
                 if let localUrl = localUrl {
                     print("File downloaded to: \(localUrl)")

@@ -97,7 +97,7 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         contentView.backgroundColor = .clear
         contentView.addSubview(containerView)
         containerView.gta_layout {
-            $0.top.equal(to: contentView.topAnchor, offsetBy: 6.0)
+            $0.top.equal(to: contentView.topAnchor)
             $0.bottom.equal(to: contentView.bottomAnchor, offsetBy: -6.0)
             $0.leading.equal(to: contentView.leadingAnchor, offsetBy: 20.0)
             $0.trailing.equal(to: contentView.trailingAnchor, offsetBy: -20.0)
