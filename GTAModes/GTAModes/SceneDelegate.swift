@@ -27,4 +27,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
     }
     
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            GTA_ThirdPartyServicesManager.shared.gta_makeATT()
+        }
+    }
+    
 }
