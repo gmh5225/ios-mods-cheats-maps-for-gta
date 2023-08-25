@@ -27,6 +27,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             self.gta_showSubPremiumFlow(window)
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            GTA_ThirdPartyServicesManager.shared.gta_makeATT()
+        }
     }
     
     private func gta_showMainFlow(_ window: UIWindow) {

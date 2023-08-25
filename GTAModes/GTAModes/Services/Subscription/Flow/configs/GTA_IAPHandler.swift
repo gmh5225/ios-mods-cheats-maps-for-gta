@@ -137,6 +137,7 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
                 self.transactionsDelegate?.gta_infoAlert(title: self.restoreError, message: self.purchaseError)
             }
         }
+        self.transactionsDelegate?.gta_infoAlert(title: self.restoreError, message: self.purchaseError)
     }
     
     public func gta_doRestore() {
