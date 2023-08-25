@@ -15,6 +15,7 @@ class GTA_AppDelegate: UIResponder, UIApplicationDelegate {
         GTA_NetworkStatusMonitor.shared.gta_startMonitoring()
         GTA_ThirdPartyServicesManager.shared.gta_initializeAdjust()
         GTA_ThirdPartyServicesManager.shared.gta_initializePushwoosh(delegate: self)
+        GTA_ThirdPartyServicesManager.shared.gta_makeATT()
         GTA_ThirdPartyServicesManager.shared.gta_initializeInApps()
         
         return true

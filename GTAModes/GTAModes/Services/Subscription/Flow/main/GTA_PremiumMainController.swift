@@ -330,7 +330,7 @@ extension GTA_PremiumMainController : GTA_ReusableViewEvent {
             self.view0.gta_fadeOut()
             self.view1.gta_fadeIn()
             UIApplication.shared.gta_impactFeedbackGenerator(type: .medium)
-            GTA_ThirdPartyServicesManager.shared.gta_makeATT()
+//            GTA_ThirdPartyServicesManager.shared.gta_makeATT()
         case .second:
             self.view1.gta_fadeOut()
             self.viewTransaction.gta_fadeIn()
