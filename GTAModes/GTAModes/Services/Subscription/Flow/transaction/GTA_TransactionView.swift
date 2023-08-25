@@ -139,6 +139,9 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
     private func gta_setConfigButtons_TOC(){
         self.purchaseBtn.delegate = self
         self.purchaseBtn.style = .native
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.purchaseBtn.gta_setPulseAnimation()
+        }
     }
     
     //MARK: config localization
