@@ -11,7 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
-        
         if GTA_NetworkStatusMonitor.shared.isNetworkAvailable {
             GTA_IAPManager.shared.gta_validateSubscriptions(
                 productIdentifiers: [
@@ -27,8 +26,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             self.gta_showSubPremiumFlow(window)
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+    }
+    
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             GTA_ThirdPartyServicesManager.shared.gta_makeATT()
         }
     }
@@ -43,6 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigation.setNavigationBarHidden(true, animated: false)
         window.rootViewController = navigation
         window.makeKeyAndVisible()
+
     }
     
     private func gta_showSubPremiumFlow(_ window: UIWindow) {

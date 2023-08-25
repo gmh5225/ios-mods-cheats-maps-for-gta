@@ -16,7 +16,6 @@ class GTA_AppDelegate: UIResponder, UIApplicationDelegate {
         GTA_ThirdPartyServicesManager.shared.gta_initializeAdjust()
         GTA_ThirdPartyServicesManager.shared.gta_initializePushwoosh(delegate: self)
         GTA_ThirdPartyServicesManager.shared.gta_initializeInApps()
-        
         return true
     }
 
