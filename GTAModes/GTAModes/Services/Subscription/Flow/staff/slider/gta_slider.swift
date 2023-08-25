@@ -3,22 +3,8 @@ import UIKit
 
 class GTA_SliderCellView: UIView {
     
-    private var fontName: String = "SFProText-Bold"
+    private var fontName: String = GTA_Configurations.fontName
     private var textColot: UIColor = UIColor.white
-    
-    lazy var starIcon: UIImageView = {
-       var image = UIImageView()
-        image.image = UIImage(named: "star")
-        return image
-    }()
-    
-    lazy var subTitleLabel: UILabel = {
-       var label = UILabel()
-        label.font = UIFont(name: fontName, size: 10)
-        label.textColor = textColot
-        label.textAlignment = .left
-        return label
-    }()
     
     lazy var titleLabel: UILabel = {
        var label = UILabel()
@@ -28,7 +14,19 @@ class GTA_SliderCellView: UIView {
         return label
     }()
     
-
+    lazy var subTitleLabel: UILabel = {
+       var label = UILabel()
+        label.font = UIFont(name: fontName, size: 12)
+        label.textColor = textColot
+        label.textAlignment = .left
+        return label
+    }()
+    
+    lazy var starIcon: UIImageView = {
+       var image = UIImageView()
+        image.image = UIImage(named: "star")
+        return image
+    }()
     
     lazy var stackView: UIStackView = {
        var stack = UIStackView()
@@ -37,14 +35,16 @@ class GTA_SliderCellView: UIView {
         return stack
     }()
     
-
-    
-
-    
     convenience init(title: String, subTitle: String) {
         self.init()
         self.titleLabel.text = title
         self.subTitleLabel.text = subTitle
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        gta_configureView()
+        gta_makeConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -57,12 +57,6 @@ class GTA_SliderCellView: UIView {
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subTitleLabel)
         addSubview(starIcon)
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        gta_configureView()
-        gta_makeConstraints()
     }
     
     func gta_makeConstraints() {

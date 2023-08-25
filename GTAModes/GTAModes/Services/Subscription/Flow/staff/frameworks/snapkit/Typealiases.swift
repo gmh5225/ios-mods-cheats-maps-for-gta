@@ -27,16 +27,16 @@ import Foundation
     import UIKit
 #if swift(>=4.2)
     typealias LayoutRelation = NSLayoutConstraint.Relation
-    typealias LayoutAttributeSub = NSLayoutConstraint.Attribute
+    typealias LayoutAttribute = NSLayoutConstraint.Attribute
 #else
     typealias LayoutRelation = NSLayoutRelation
-    typealias LayoutAttributeSub = NSLayoutAttribute
+    typealias LayoutAttribute = NSLayoutAttribute
 #endif
     typealias LayoutPriority = UILayoutPriority
 #else
     import AppKit
     typealias LayoutRelation = NSLayoutConstraint.Relation
-    typealias LayoutAttributeSub = NSLayoutConstraint.Attribute
+    typealias LayoutAttribute = NSLayoutConstraint.Attribute
     typealias LayoutPriority = NSLayoutConstraint.Priority
 #endif
 

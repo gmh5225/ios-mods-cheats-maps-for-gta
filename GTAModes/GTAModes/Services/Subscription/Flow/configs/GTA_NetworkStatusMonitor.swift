@@ -5,15 +5,17 @@ import Foundation
 import Network
 import UIKit
 
+protocol GTA_NetworkStatusMonitorDelegate : AnyObject {
+    func gta_showMess()
+}
+
 class GTA_NetworkStatusMonitor {
     static let shared = GTA_NetworkStatusMonitor()
 
     private let queue = DispatchQueue.global()
-    
+    private let nwMonitor: NWPathMonitor
     
     weak var delegate : GTA_NetworkStatusMonitorDelegate?
-    
-    private let nwMonitor: NWPathMonitor
 
     public private(set) var isNetworkAvailable: Bool = false {
         didSet {
@@ -28,22 +30,18 @@ class GTA_NetworkStatusMonitor {
         }
     }
 
+    private init() {
+        nwMonitor = NWPathMonitor()
+    }
+
     func gta_startMonitoring() {
         nwMonitor.start(queue: queue)
         nwMonitor.pathUpdateHandler = { path in
             self.isNetworkAvailable = path.status == .satisfied
         }
     }
-    
-    private init() {
-        nwMonitor = NWPathMonitor()
-    }
 
     func gta_stopMonitoring() {
         nwMonitor.cancel()
     }
-}
-
-protocol GTA_NetworkStatusMonitorDelegate : AnyObject {
-    func gta_showMess()
 }

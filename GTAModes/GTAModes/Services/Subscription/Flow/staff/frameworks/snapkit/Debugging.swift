@@ -88,7 +88,7 @@ private func descriptionForRelation(_ relation: LayoutRelation) -> String {
     }
 }
 
-private func descriptionForAttribute(_ attribute: LayoutAttributeSub) -> String {
+private func descriptionForAttribute(_ attribute: LayoutAttribute) -> String {
     #if os(iOS) || os(tvOS)
         switch attribute {
         case .notAnAttribute:       return "notAnAttribute"
@@ -117,7 +117,7 @@ private func descriptionForAttribute(_ attribute: LayoutAttributeSub) -> String 
         #endif
     }
     #else
-        switch gta_attribute {
+        switch attribute {
         case .notAnAttribute:       return "notAnAttribute"
         case .top:                  return "top"
         case .left:                 return "left"

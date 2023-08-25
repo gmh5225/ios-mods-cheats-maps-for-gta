@@ -5,13 +5,33 @@ import Foundation
 import UIKit
 
 class GTA_CustomPageControl: UIPageControl {
-    
-    @IBInspectable var otherPagesImage: UIImage? = UIImage(named: "page_0")
-    //
 
     @IBInspectable var currentPageImage: UIImage? = UIImage(named: "page_1")
     
-    //
+    @IBInspectable var otherPagesImage: UIImage? = UIImage(named: "page_0")
+    
+    override var numberOfPages: Int {
+        didSet {
+            gta_updateDots()
+        }
+    }
+    
+    override var currentPage: Int {
+        didSet {
+            gta_updateDots()
+        }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        if #available(iOS 14.0, *) {
+            gta_defaultConfigurationForiOS14AndAbove()
+        } else {
+            pageIndicatorTintColor = .clear
+            currentPageIndicatorTintColor = .clear
+            clipsToBounds = false
+        }
+    }
     
     private func gta_defaultConfigurationForiOS14AndAbove() {
         if #available(iOS 14.0, *) {
@@ -31,12 +51,6 @@ class GTA_CustomPageControl: UIPageControl {
             /*
              Note: If Tint color set to default, Indicator image is not showing. So, give the same tint color based on your Custome Image.
              */
-        }
-    }
-    
-    override var numberOfPages: Int {
-        didSet {
-            gta_updateDots()
         }
     }
     
@@ -60,20 +74,6 @@ class GTA_CustomPageControl: UIPageControl {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        //
-        
-        if #available(iOS 14.0, *) {
-            gta_defaultConfigurationForiOS14AndAbove()
-            //
-        } else {
-            pageIndicatorTintColor = .clear
-            currentPageIndicatorTintColor = .clear
-            clipsToBounds = false
-        }
-    }
-    
     private func gta_getImageView(forSubview view: UIView) -> UIImageView? {
         if let imageView = view as? UIImageView {
             return imageView
@@ -83,12 +83,6 @@ class GTA_CustomPageControl: UIPageControl {
             } as? UIImageView
             
             return view
-        }
-    }
-    
-    override var currentPage: Int {
-        didSet {
-            gta_updateDots()
         }
     }
 }

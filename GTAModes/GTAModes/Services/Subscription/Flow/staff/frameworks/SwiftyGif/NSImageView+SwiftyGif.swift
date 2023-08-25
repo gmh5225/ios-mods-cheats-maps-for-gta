@@ -149,19 +149,19 @@ public extension NSImageView {
         
         addConstraint(NSLayoutConstraint(
             item: loader,
-            gta_attribute: .centerX,
+            attribute: .centerX,
             relatedBy: .equal,
             toItem: self,
-            gta_attribute: .centerX,
+            attribute: .centerX,
             multiplier: 1,
             constant: 0))
         
         addConstraint(NSLayoutConstraint(
             item: loader,
-            gta_attribute: .centerY,
+            attribute: .centerY,
             relatedBy: .equal,
             toItem: self,
-            gta_attribute: .centerY,
+            attribute: .centerY,
             multiplier: 1,
             constant: 0))
         

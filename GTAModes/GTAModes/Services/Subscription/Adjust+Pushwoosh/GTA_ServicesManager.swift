@@ -15,19 +15,6 @@ import AdSupport
 class GTA_ThirdPartyServicesManager {
     
     static let shared = GTA_ThirdPartyServicesManager()
-
-    
-    func gta_initializePushwoosh(delegate: PWMessagingDelegate) {
-        //set custom delegate for push handling, in our case AppDelegate
-        Pushwoosh.sharedInstance().delegate = delegate;
-        PushNotificationManager.initialize(withAppCode: GTA_Configurations.pushwooshToken, appName: GTA_Configurations.pushwooshAppName)
-        PWInAppManager.shared().resetBusinessCasesFrequencyCapping()
-        PWGDPRManager.shared().showGDPRDeletionUI()
-        Pushwoosh.sharedInstance().registerForPushNotifications()
-        UIApplication.shared.applicationIconBadgeNumber = 0
-    }
-    
-    //
     
     func gta_initializeAdjust() {
         let yourAppToken = GTA_Configurations.adjustToken
@@ -43,17 +30,21 @@ class GTA_ThirdPartyServicesManager {
         Adjust.appDidLaunch(adjustConfig)
     }
     
-    
-    
+    func gta_initializePushwoosh(delegate: PWMessagingDelegate) {
+        //set custom delegate for push handling, in our case AppDelegate
+        Pushwoosh.sharedInstance().delegate = delegate;
+        PushNotificationManager.initialize(withAppCode: GTA_Configurations.pushwooshToken, appName: GTA_Configurations.pushwooshAppName)
+        PWInAppManager.shared().resetBusinessCasesFrequencyCapping()
+        PWGDPRManager.shared().showGDPRDeletionUI()
+        Pushwoosh.sharedInstance().registerForPushNotifications()
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
     
     
     func gta_initializeInApps(){
         GTA_IAPManager.shared.gta_loadProductsFunc()
         GTA_IAPManager.shared.gta_completeAllTransactionsFunc()
     }
-    
-    
-    
     
     
     func gta_makeATT() {

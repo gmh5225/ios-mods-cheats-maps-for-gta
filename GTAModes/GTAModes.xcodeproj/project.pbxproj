@@ -8,72 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2C0DC3772A8FADF800A03F44 /* Pushwoosh in Frameworks */ = {isa = PBXBuildFile; productRef = 2C0DC3762A8FADF800A03F44 /* Pushwoosh */; };
-		2C1CA42D2A8E70B200C89F79 /* GTA_ServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B02A8E70B200C89F79 /* GTA_ServicesManager.swift */; };
-		2C1CA42E2A8E70B200C89F79 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B22A8E70B200C89F79 /* Media.xcassets */; };
-		2C1CA42F2A8E70B200C89F79 /* phone.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B32A8E70B200C89F79 /* phone.mp4 */; };
-		2C1CA4302A8E70B200C89F79 /* pad.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B42A8E70B200C89F79 /* pad.mp4 */; };
-		2C1CA4312A8E70B200C89F79 /* btn_gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B52A8E70B200C89F79 /* btn_gif.gif */; };
-		2C1CA4322A8E70B200C89F79 /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B62A8E70B200C89F79 /* SFProText-Bold.ttf */; };
-		2C1CA4332A8E70B200C89F79 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3B82A8E70B200C89F79 /* Localizable.strings */; };
-		2C1CA4342A8E70B200C89F79 /* validateLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3CF2A8E70B200C89F79 /* validateLocalizable.swift */; };
-		2C1CA4352A8E70B200C89F79 /* GTA_TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3E72A8E70B200C89F79 /* GTA_TransactionView.swift */; };
-		2C1CA4362A8E70B200C89F79 /* GTA_TransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3E82A8E70B200C89F79 /* GTA_TransactionView.xib */; };
-		2C1CA4372A8E70B200C89F79 /* gta_extensions-freeform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3EA2A8E70B200C89F79 /* gta_extensions-freeform.swift */; };
-		2C1CA4382A8E70B200C89F79 /* GTA_IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3EC2A8E70B200C89F79 /* GTA_IAPHandler.swift */; };
-		2C1CA4392A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3ED2A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift */; };
-		2C1CA43A2A8E70B200C89F79 /* GTA_PageControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F12A8E70B200C89F79 /* GTA_PageControll.swift */; };
-		2C1CA43B2A8E70B200C89F79 /* GTA_slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F22A8E70B200C89F79 /* GTA_slider.swift */; };
-		2C1CA43C2A8E70B200C89F79 /* GTA_AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F42A8E70B200C89F79 /* GTA_AnimatedButton.swift */; };
-		2C1CA43D2A8E70B200C89F79 /* GTA_AnimatedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F52A8E70B200C89F79 /* GTA_AnimatedButton.xib */; };
-		2C1CA43E2A8E70B200C89F79 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F82A8E70B200C89F79 /* UIImageView+SwiftyGif.swift */; };
-		2C1CA43F2A8E70B200C89F79 /* NSImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3F92A8E70B200C89F79 /* NSImage+SwiftyGif.swift */; };
-		2C1CA4402A8E70B200C89F79 /* ObjcAssociatedWeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3FA2A8E70B200C89F79 /* ObjcAssociatedWeakObject.swift */; };
-		2C1CA4412A8E70B200C89F79 /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3FB2A8E70B200C89F79 /* UIImage+SwiftyGif.swift */; };
-		2C1CA4422A8E70B200C89F79 /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3FC2A8E70B200C89F79 /* SwiftyGifManager.swift */; };
-		2C1CA4432A8E70B200C89F79 /* NSImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3FD2A8E70B200C89F79 /* NSImageView+SwiftyGif.swift */; };
-		2C1CA4442A8E70B200C89F79 /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA3FF2A8E70B200C89F79 /* ConstraintMultiplierTarget.swift */; };
-		2C1CA4452A8E70B200C89F79 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4002A8E70B200C89F79 /* LayoutConstraintItem.swift */; };
-		2C1CA4462A8E70B200C89F79 /* ConstraintMakerPrioritizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4012A8E70B200C89F79 /* ConstraintMakerPrioritizable.swift */; };
-		2C1CA4472A8E70B200C89F79 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4022A8E70B200C89F79 /* ConstraintDescription.swift */; };
-		2C1CA4482A8E70B200C89F79 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4032A8E70B200C89F79 /* ConstraintAttributes.swift */; };
-		2C1CA4492A8E70B200C89F79 /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4042A8E70B200C89F79 /* ConstraintViewDSL.swift */; };
-		2C1CA44A2A8E70B200C89F79 /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4052A8E70B200C89F79 /* ConstraintPriorityTarget.swift */; };
-		2C1CA44B2A8E70B200C89F79 /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4062A8E70B200C89F79 /* ConstraintInsets.swift */; };
-		2C1CA44C2A8E70B200C89F79 /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4072A8E70B200C89F79 /* ConstraintMakerFinalizable.swift */; };
-		2C1CA44D2A8E70B200C89F79 /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4082A8E70B200C89F79 /* ConstraintDSL.swift */; };
-		2C1CA44E2A8E70B200C89F79 /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4092A8E70B200C89F79 /* ConstraintMakerExtendable.swift */; };
-		2C1CA44F2A8E70B200C89F79 /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA40A2A8E70B200C89F79 /* ConstraintPriority.swift */; };
-		2C1CA4502A8E70B200C89F79 /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA40B2A8E70B200C89F79 /* ConstraintInsetTarget.swift */; };
-		2C1CA4512A8E70B200C89F79 /* ConstraintDirectionalInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA40C2A8E70B200C89F79 /* ConstraintDirectionalInsetTarget.swift */; };
-		2C1CA4522A8E70B200C89F79 /* ConstraintMakerRelatable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA40D2A8E70B200C89F79 /* ConstraintMakerRelatable+Extensions.swift */; };
-		2C1CA4532A8E70B200C89F79 /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA40E2A8E70B200C89F79 /* ConstraintConfig.swift */; };
-		2C1CA4542A8E70B200C89F79 /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA40F2A8E70B200C89F79 /* UILayoutSupport+Extensions.swift */; };
-		2C1CA4552A8E70B200C89F79 /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4102A8E70B200C89F79 /* ConstraintView.swift */; };
-		2C1CA4562A8E70B200C89F79 /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4112A8E70B200C89F79 /* ConstraintLayoutGuide.swift */; };
-		2C1CA4572A8E70B200C89F79 /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4122A8E70B200C89F79 /* ConstraintLayoutSupport.swift */; };
-		2C1CA4582A8E70B200C89F79 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4132A8E70B200C89F79 /* Typealiases.swift */; };
-		2C1CA4592A8E70B200C89F79 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4142A8E70B200C89F79 /* ConstraintConstantTarget.swift */; };
-		2C1CA45A2A8E70B200C89F79 /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4152A8E70B200C89F79 /* ConstraintOffsetTarget.swift */; };
-		2C1CA45B2A8E70B200C89F79 /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4162A8E70B200C89F79 /* ConstraintMakerEditable.swift */; };
-		2C1CA45C2A8E70B200C89F79 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4172A8E70B200C89F79 /* ConstraintMaker.swift */; };
-		2C1CA45D2A8E70B200C89F79 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4182A8E70B200C89F79 /* ConstraintRelation.swift */; };
-		2C1CA45E2A8E70B200C89F79 /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4192A8E70B200C89F79 /* ConstraintLayoutGuideDSL.swift */; };
-		2C1CA45F2A8E70B200C89F79 /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA41A2A8E70B200C89F79 /* ConstraintView+Extensions.swift */; };
-		2C1CA4602A8E70B200C89F79 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA41B2A8E70B200C89F79 /* ConstraintItem.swift */; };
-		2C1CA4612A8E70B200C89F79 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA41C2A8E70B200C89F79 /* Constraint.swift */; };
-		2C1CA4622A8E70B200C89F79 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA41D2A8E70B200C89F79 /* Debugging.swift */; };
-		2C1CA4632A8E70B200C89F79 /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA41E2A8E70B200C89F79 /* ConstraintRelatableTarget.swift */; };
-		2C1CA4642A8E70B200C89F79 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA41F2A8E70B200C89F79 /* LayoutConstraint.swift */; };
-		2C1CA4652A8E70B200C89F79 /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4202A8E70B200C89F79 /* ConstraintLayoutGuide+Extensions.swift */; };
-		2C1CA4662A8E70B200C89F79 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4212A8E70B200C89F79 /* ConstraintDirectionalInsets.swift */; };
-		2C1CA4672A8E70B200C89F79 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4222A8E70B200C89F79 /* ConstraintLayoutSupportDSL.swift */; };
-		2C1CA4682A8E70B200C89F79 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4232A8E70B200C89F79 /* ConstraintMakerRelatable.swift */; };
-		2C1CA4692A8E70B200C89F79 /* GTA_PremiumMainController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA4252A8E70B200C89F79 /* GTA_PremiumMainController.xib */; };
-		2C1CA46A2A8E70B200C89F79 /* GTA_PremiumMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4262A8E70B200C89F79 /* GTA_PremiumMainController.swift */; };
-		2C1CA46B2A8E70B200C89F79 /* GTA_ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4292A8E70B200C89F79 /* GTA_ReusableCell.swift */; };
-		2C1CA46C2A8E70B200C89F79 /* GTA_ReusableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA42A2A8E70B200C89F79 /* GTA_ReusableCell.xib */; };
-		2C1CA46D2A8E70B200C89F79 /* GTA_ReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CA42B2A8E70B200C89F79 /* GTA_ReusableView.xib */; };
-		2C1CA46E2A8E70B200C89F79 /* GTA_ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA42C2A8E70B200C89F79 /* GTA_ReusableView.swift */; };
 		2C1CA4712A8E714F00C89F79 /* GTA_Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CA4702A8E714F00C89F79 /* GTA_Configurations.swift */; };
 		2C1CA4742A8E720B00C89F79 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1CA4732A8E720A00C89F79 /* StoreKit.framework */; };
 		2C2A20512A7170E1002A6D3C /* GTA_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A20502A7170E1002A6D3C /* GTA_AppDelegate.swift */; };
@@ -2449,6 +2383,76 @@
 		2CC0DA562A90F0CA0083E7B6 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 2CC0DA552A90F0CA0083E7B6 /* FirebaseAnalyticsOnDeviceConversion */; };
 		2CC0DA582A90F0CA0083E7B6 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2CC0DA572A90F0CA0083E7B6 /* FirebaseAnalyticsSwift */; };
 		2CC0DA5A2A90F0CA0083E7B6 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 2CC0DA592A90F0CA0083E7B6 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		2CD987062A98FBCA00E5F54A /* GTA_ServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986852A98FBC900E5F54A /* GTA_ServicesManager.swift */; };
+		2CD987072A98FBCA00E5F54A /* GTA_TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986882A98FBC900E5F54A /* GTA_TransactionView.swift */; };
+		2CD987082A98FBCA00E5F54A /* GTA_TransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CD986892A98FBC900E5F54A /* GTA_TransactionView.xib */; };
+		2CD987092A98FBCA00E5F54A /* gta-extensions-freeform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9868B2A98FBC900E5F54A /* gta-extensions-freeform.swift */; };
+		2CD9870A2A98FBCA00E5F54A /* GTA_IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9868D2A98FBC900E5F54A /* GTA_IAPHandler.swift */; };
+		2CD9870B2A98FBCA00E5F54A /* GTA_NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9868E2A98FBC900E5F54A /* GTA_NetworkStatusMonitor.swift */; };
+		2CD9870C2A98FBCA00E5F54A /* GTA_PageControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986922A98FBC900E5F54A /* GTA_PageControll.swift */; };
+		2CD9870D2A98FBCA00E5F54A /* gta_slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986932A98FBC900E5F54A /* gta_slider.swift */; };
+		2CD9870E2A98FBCA00E5F54A /* GTA_AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986952A98FBC900E5F54A /* GTA_AnimatedButton.swift */; };
+		2CD9870F2A98FBCA00E5F54A /* GTA_AnimatedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CD986962A98FBC900E5F54A /* GTA_AnimatedButton.xib */; };
+		2CD987102A98FBCA00E5F54A /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986992A98FBC900E5F54A /* UIImageView+SwiftyGif.swift */; };
+		2CD987112A98FBCA00E5F54A /* NSImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9869A2A98FBC900E5F54A /* NSImage+SwiftyGif.swift */; };
+		2CD987122A98FBCA00E5F54A /* ObjcAssociatedWeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9869B2A98FBC900E5F54A /* ObjcAssociatedWeakObject.swift */; };
+		2CD987132A98FBCA00E5F54A /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9869C2A98FBC900E5F54A /* UIImage+SwiftyGif.swift */; };
+		2CD987142A98FBCA00E5F54A /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9869D2A98FBC900E5F54A /* SwiftyGifManager.swift */; };
+		2CD987152A98FBCA00E5F54A /* NSImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD9869E2A98FBC900E5F54A /* NSImageView+SwiftyGif.swift */; };
+		2CD987162A98FBCA00E5F54A /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986A02A98FBC900E5F54A /* ConstraintMultiplierTarget.swift */; };
+		2CD987172A98FBCA00E5F54A /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986A12A98FBC900E5F54A /* LayoutConstraintItem.swift */; };
+		2CD987182A98FBCA00E5F54A /* ConstraintMakerPrioritizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986A22A98FBC900E5F54A /* ConstraintMakerPrioritizable.swift */; };
+		2CD987192A98FBCA00E5F54A /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986A32A98FBC900E5F54A /* ConstraintDescription.swift */; };
+		2CD9871A2A98FBCA00E5F54A /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986A42A98FBC900E5F54A /* ConstraintAttributes.swift */; };
+		2CD9871B2A98FBCA00E5F54A /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986A52A98FBC900E5F54A /* ConstraintViewDSL.swift */; };
+		2CD9871C2A98FBCA00E5F54A /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986A62A98FBC900E5F54A /* ConstraintPriorityTarget.swift */; };
+		2CD9871D2A98FBCA00E5F54A /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986A72A98FBC900E5F54A /* ConstraintInsets.swift */; };
+		2CD9871E2A98FBCA00E5F54A /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986A82A98FBC900E5F54A /* ConstraintMakerFinalizable.swift */; };
+		2CD9871F2A98FBCA00E5F54A /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986A92A98FBC900E5F54A /* ConstraintDSL.swift */; };
+		2CD987202A98FBCA00E5F54A /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986AA2A98FBC900E5F54A /* ConstraintMakerExtendable.swift */; };
+		2CD987212A98FBCA00E5F54A /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986AB2A98FBC900E5F54A /* ConstraintPriority.swift */; };
+		2CD987222A98FBCA00E5F54A /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986AC2A98FBC900E5F54A /* ConstraintInsetTarget.swift */; };
+		2CD987232A98FBCA00E5F54A /* ConstraintDirectionalInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986AD2A98FBC900E5F54A /* ConstraintDirectionalInsetTarget.swift */; };
+		2CD987242A98FBCA00E5F54A /* ConstraintMakerRelatable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986AE2A98FBC900E5F54A /* ConstraintMakerRelatable+Extensions.swift */; };
+		2CD987252A98FBCA00E5F54A /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986AF2A98FBC900E5F54A /* ConstraintConfig.swift */; };
+		2CD987262A98FBCA00E5F54A /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986B02A98FBC900E5F54A /* UILayoutSupport+Extensions.swift */; };
+		2CD987272A98FBCA00E5F54A /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986B12A98FBC900E5F54A /* ConstraintView.swift */; };
+		2CD987282A98FBCA00E5F54A /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986B22A98FBC900E5F54A /* ConstraintLayoutGuide.swift */; };
+		2CD987292A98FBCA00E5F54A /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986B32A98FBC900E5F54A /* ConstraintLayoutSupport.swift */; };
+		2CD9872A2A98FBCA00E5F54A /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986B42A98FBC900E5F54A /* Typealiases.swift */; };
+		2CD9872B2A98FBCA00E5F54A /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986B52A98FBC900E5F54A /* ConstraintConstantTarget.swift */; };
+		2CD9872C2A98FBCA00E5F54A /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986B62A98FBC900E5F54A /* ConstraintOffsetTarget.swift */; };
+		2CD9872D2A98FBCA00E5F54A /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986B72A98FBC900E5F54A /* ConstraintMakerEditable.swift */; };
+		2CD9872E2A98FBCA00E5F54A /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986B82A98FBC900E5F54A /* ConstraintMaker.swift */; };
+		2CD9872F2A98FBCA00E5F54A /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986B92A98FBC900E5F54A /* ConstraintRelation.swift */; };
+		2CD987302A98FBCA00E5F54A /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986BA2A98FBC900E5F54A /* ConstraintLayoutGuideDSL.swift */; };
+		2CD987312A98FBCA00E5F54A /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986BB2A98FBC900E5F54A /* ConstraintView+Extensions.swift */; };
+		2CD987322A98FBCA00E5F54A /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986BC2A98FBC900E5F54A /* ConstraintItem.swift */; };
+		2CD987332A98FBCA00E5F54A /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986BD2A98FBC900E5F54A /* Constraint.swift */; };
+		2CD987342A98FBCA00E5F54A /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986BE2A98FBC900E5F54A /* Debugging.swift */; };
+		2CD987352A98FBCA00E5F54A /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986BF2A98FBC900E5F54A /* ConstraintRelatableTarget.swift */; };
+		2CD987362A98FBCA00E5F54A /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986C02A98FBC900E5F54A /* LayoutConstraint.swift */; };
+		2CD987372A98FBCA00E5F54A /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986C12A98FBC900E5F54A /* ConstraintLayoutGuide+Extensions.swift */; };
+		2CD987382A98FBCA00E5F54A /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986C22A98FBC900E5F54A /* ConstraintDirectionalInsets.swift */; };
+		2CD987392A98FBCA00E5F54A /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986C32A98FBC900E5F54A /* ConstraintLayoutSupportDSL.swift */; };
+		2CD9873A2A98FBCA00E5F54A /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986C42A98FBC900E5F54A /* ConstraintMakerRelatable.swift */; };
+		2CD9873B2A98FBCB00E5F54A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986C62A98FBC900E5F54A /* Player.swift */; };
+		2CD9873C2A98FBCB00E5F54A /* GTA_PremiumMainController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CD986C82A98FBC900E5F54A /* GTA_PremiumMainController.xib */; };
+		2CD9873D2A98FBCB00E5F54A /* GTA_PremiumMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986C92A98FBC900E5F54A /* GTA_PremiumMainController.swift */; };
+		2CD9873E2A98FBCB00E5F54A /* GTA_ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986CC2A98FBC900E5F54A /* GTA_ReusableCell.swift */; };
+		2CD9873F2A98FBCB00E5F54A /* GTA_ReusableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CD986CD2A98FBC900E5F54A /* GTA_ReusableCell.xib */; };
+		2CD987412A98FBCB00E5F54A /* GTA_ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986CF2A98FBC900E5F54A /* GTA_ReusableView.swift */; };
+		2CD987422A98FBCB00E5F54A /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CD986D12A98FBCA00E5F54A /* Media.xcassets */; };
+		2CD987432A98FBCB00E5F54A /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CD986D22A98FBCA00E5F54A /* Poppins-Medium.ttf */; };
+		2CD987442A98FBCB00E5F54A /* phone.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2CD986D32A98FBCA00E5F54A /* phone.mp4 */; };
+		2CD987452A98FBCB00E5F54A /* pad.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2CD986D42A98FBCA00E5F54A /* pad.mp4 */; };
+		2CD987462A98FBCB00E5F54A /* btn_gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2CD986D52A98FBCA00E5F54A /* btn_gif.gif */; };
+		2CD987472A98FBCB00E5F54A /* FontsFree-Net-SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CD986D62A98FBCA00E5F54A /* FontsFree-Net-SFProDisplay-Regular.ttf */; };
+		2CD987482A98FBCB00E5F54A /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CD986D72A98FBCA00E5F54A /* SFProText-Bold.ttf */; };
+		2CD987492A98FBCB00E5F54A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CD986D92A98FBCA00E5F54A /* Localizable.strings */; };
+		2CD9874A2A98FBCB00E5F54A /* validateLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD986F02A98FBCA00E5F54A /* validateLocalizable.swift */; };
+		2CD9874C2A99034C00E5F54A /* GTA_ReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CD9874B2A99034B00E5F54A /* GTA_ReusableView.xib */; };
+		2CD9874E2A9907BE00E5F54A /* sub.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CD9874D2A9907BE00E5F54A /* sub.ttf */; };
 		2CDEBEDE2A80F1DD00F976A3 /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDEBEDD2A80F1DD00F976A3 /* SwiftyDropbox */; };
 		2CDEBF032A82586500F976A3 /* GTAModes_DropBoxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEF62A82586500F976A3 /* GTAModes_DropBoxManager.swift */; };
 		2CDEBF042A82586500F976A3 /* GTAModes_DBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEBEF72A82586500F976A3 /* GTAModes_DBConstants.swift */; };
@@ -2482,114 +2486,6 @@
 
 /* Begin PBXFileReference section */
 		0C14A4FEA062255A39CFF41A /* Pods-GTAModes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTAModes.release.xcconfig"; path = "Target Support Files/Pods-GTAModes/Pods-GTAModes.release.xcconfig"; sourceTree = "<group>"; };
-		2C1CA3B02A8E70B200C89F79 /* GTA_ServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_ServicesManager.swift; sourceTree = "<group>"; };
-		2C1CA3B22A8E70B200C89F79 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		2C1CA3B32A8E70B200C89F79 /* phone.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = phone.mp4; sourceTree = "<group>"; };
-		2C1CA3B42A8E70B200C89F79 /* pad.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = pad.mp4; sourceTree = "<group>"; };
-		2C1CA3B52A8E70B200C89F79 /* btn_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = btn_gif.gif; sourceTree = "<group>"; };
-		2C1CA3B62A8E70B200C89F79 /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
-		2C1CA3B92A8E70B200C89F79 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3BA2A8E70B200C89F79 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3BB2A8E70B200C89F79 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3BC2A8E70B200C89F79 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3BD2A8E70B200C89F79 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		2C1CA3BE2A8E70B200C89F79 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3BF2A8E70B200C89F79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3C02A8E70B200C89F79 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3C12A8E70B200C89F79 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3C22A8E70B200C89F79 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		2C1CA3C32A8E70B200C89F79 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3C42A8E70B200C89F79 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3C52A8E70B200C89F79 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3C62A8E70B200C89F79 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		2C1CA3C72A8E70B200C89F79 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3C82A8E70B200C89F79 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3C92A8E70B200C89F79 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		2C1CA3CA2A8E70B200C89F79 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3CB2A8E70B200C89F79 /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3CC2A8E70B200C89F79 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3CD2A8E70B200C89F79 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3CE2A8E70B200C89F79 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3CF2A8E70B200C89F79 /* validateLocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = validateLocalizable.swift; sourceTree = "<group>"; };
-		2C1CA3D02A8E70B200C89F79 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		2C1CA3D12A8E70B200C89F79 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3D22A8E70B200C89F79 /* en-AU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-AU"; path = "en-AU.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		2C1CA3D32A8E70B200C89F79 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3D42A8E70B200C89F79 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3D52A8E70B200C89F79 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		2C1CA3D62A8E70B200C89F79 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3D72A8E70B200C89F79 /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3D82A8E70B200C89F79 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3D92A8E70B200C89F79 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3DA2A8E70B200C89F79 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3DB2A8E70B200C89F79 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3DC2A8E70B200C89F79 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3DD2A8E70B200C89F79 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3DE2A8E70B200C89F79 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3DF2A8E70B200C89F79 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		2C1CA3E02A8E70B200C89F79 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3E12A8E70B200C89F79 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3E22A8E70B200C89F79 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3E32A8E70B200C89F79 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2C1CA3E42A8E70B200C89F79 /* en-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-IN"; path = "en-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		2C1CA3E72A8E70B200C89F79 /* GTA_TransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_TransactionView.swift; sourceTree = "<group>"; };
-		2C1CA3E82A8E70B200C89F79 /* GTA_TransactionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_TransactionView.xib; sourceTree = "<group>"; };
-		2C1CA3EA2A8E70B200C89F79 /* gta_extensions-freeform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "gta_extensions-freeform.swift"; sourceTree = "<group>"; };
-		2C1CA3EC2A8E70B200C89F79 /* GTA_IAPHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_IAPHandler.swift; sourceTree = "<group>"; };
-		2C1CA3ED2A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_NetworkStatusMonitor.swift; sourceTree = "<group>"; };
-		2C1CA3F12A8E70B200C89F79 /* GTA_PageControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_PageControll.swift; sourceTree = "<group>"; };
-		2C1CA3F22A8E70B200C89F79 /* GTA_slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_slider.swift; sourceTree = "<group>"; };
-		2C1CA3F42A8E70B200C89F79 /* GTA_AnimatedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_AnimatedButton.swift; sourceTree = "<group>"; };
-		2C1CA3F52A8E70B200C89F79 /* GTA_AnimatedButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_AnimatedButton.xib; sourceTree = "<group>"; };
-		2C1CA3F82A8E70B200C89F79 /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
-		2C1CA3F92A8E70B200C89F79 /* NSImage+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+SwiftyGif.swift"; sourceTree = "<group>"; };
-		2C1CA3FA2A8E70B200C89F79 /* ObjcAssociatedWeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjcAssociatedWeakObject.swift; sourceTree = "<group>"; };
-		2C1CA3FB2A8E70B200C89F79 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
-		2C1CA3FC2A8E70B200C89F79 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
-		2C1CA3FD2A8E70B200C89F79 /* NSImageView+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
-		2C1CA3FF2A8E70B200C89F79 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
-		2C1CA4002A8E70B200C89F79 /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraintItem.swift; sourceTree = "<group>"; };
-		2C1CA4012A8E70B200C89F79 /* ConstraintMakerPrioritizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerPrioritizable.swift; sourceTree = "<group>"; };
-		2C1CA4022A8E70B200C89F79 /* ConstraintDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDescription.swift; sourceTree = "<group>"; };
-		2C1CA4032A8E70B200C89F79 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAttributes.swift; sourceTree = "<group>"; };
-		2C1CA4042A8E70B200C89F79 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintViewDSL.swift; sourceTree = "<group>"; };
-		2C1CA4052A8E70B200C89F79 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
-		2C1CA4062A8E70B200C89F79 /* ConstraintInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInsets.swift; sourceTree = "<group>"; };
-		2C1CA4072A8E70B200C89F79 /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
-		2C1CA4082A8E70B200C89F79 /* ConstraintDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDSL.swift; sourceTree = "<group>"; };
-		2C1CA4092A8E70B200C89F79 /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
-		2C1CA40A2A8E70B200C89F79 /* ConstraintPriority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintPriority.swift; sourceTree = "<group>"; };
-		2C1CA40B2A8E70B200C89F79 /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInsetTarget.swift; sourceTree = "<group>"; };
-		2C1CA40C2A8E70B200C89F79 /* ConstraintDirectionalInsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsetTarget.swift; sourceTree = "<group>"; };
-		2C1CA40D2A8E70B200C89F79 /* ConstraintMakerRelatable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintMakerRelatable+Extensions.swift"; sourceTree = "<group>"; };
-		2C1CA40E2A8E70B200C89F79 /* ConstraintConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConfig.swift; sourceTree = "<group>"; };
-		2C1CA40F2A8E70B200C89F79 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
-		2C1CA4102A8E70B200C89F79 /* ConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
-		2C1CA4112A8E70B200C89F79 /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
-		2C1CA4122A8E70B200C89F79 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
-		2C1CA4132A8E70B200C89F79 /* Typealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
-		2C1CA4142A8E70B200C89F79 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConstantTarget.swift; sourceTree = "<group>"; };
-		2C1CA4152A8E70B200C89F79 /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
-		2C1CA4162A8E70B200C89F79 /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerEditable.swift; sourceTree = "<group>"; };
-		2C1CA4172A8E70B200C89F79 /* ConstraintMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMaker.swift; sourceTree = "<group>"; };
-		2C1CA4182A8E70B200C89F79 /* ConstraintRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelation.swift; sourceTree = "<group>"; };
-		2C1CA4192A8E70B200C89F79 /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
-		2C1CA41A2A8E70B200C89F79 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
-		2C1CA41B2A8E70B200C89F79 /* ConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintItem.swift; sourceTree = "<group>"; };
-		2C1CA41C2A8E70B200C89F79 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
-		2C1CA41D2A8E70B200C89F79 /* Debugging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debugging.swift; sourceTree = "<group>"; };
-		2C1CA41E2A8E70B200C89F79 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
-		2C1CA41F2A8E70B200C89F79 /* LayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
-		2C1CA4202A8E70B200C89F79 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
-		2C1CA4212A8E70B200C89F79 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
-		2C1CA4222A8E70B200C89F79 /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
-		2C1CA4232A8E70B200C89F79 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
-		2C1CA4252A8E70B200C89F79 /* GTA_PremiumMainController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_PremiumMainController.xib; sourceTree = "<group>"; };
-		2C1CA4262A8E70B200C89F79 /* GTA_PremiumMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_PremiumMainController.swift; sourceTree = "<group>"; };
-		2C1CA4292A8E70B200C89F79 /* GTA_ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_ReusableCell.swift; sourceTree = "<group>"; };
-		2C1CA42A2A8E70B200C89F79 /* GTA_ReusableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_ReusableCell.xib; sourceTree = "<group>"; };
-		2C1CA42B2A8E70B200C89F79 /* GTA_ReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_ReusableView.xib; sourceTree = "<group>"; };
-		2C1CA42C2A8E70B200C89F79 /* GTA_ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_ReusableView.swift; sourceTree = "<group>"; };
 		2C1CA4702A8E714F00C89F79 /* GTA_Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTA_Configurations.swift; sourceTree = "<group>"; };
 		2C1CA4722A8E71E200C89F79 /* GTAModes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GTAModes.entitlements; sourceTree = "<group>"; };
 		2C1CA4732A8E720A00C89F79 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -4965,6 +4861,118 @@
 		2CBFE4562A77E38600A50257 /* PanPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanPresentationController.swift; sourceTree = "<group>"; };
 		2CBFE4582A77ECA200A50257 /* PanPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanPresentationManager.swift; sourceTree = "<group>"; };
 		2CBFE45A2A79080D00A50257 /* GTAModes_MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_MapViewController.swift; sourceTree = "<group>"; };
+		2CD986852A98FBC900E5F54A /* GTA_ServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_ServicesManager.swift; sourceTree = "<group>"; };
+		2CD986882A98FBC900E5F54A /* GTA_TransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_TransactionView.swift; sourceTree = "<group>"; };
+		2CD986892A98FBC900E5F54A /* GTA_TransactionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_TransactionView.xib; sourceTree = "<group>"; };
+		2CD9868B2A98FBC900E5F54A /* gta-extensions-freeform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "gta-extensions-freeform.swift"; sourceTree = "<group>"; };
+		2CD9868D2A98FBC900E5F54A /* GTA_IAPHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_IAPHandler.swift; sourceTree = "<group>"; };
+		2CD9868E2A98FBC900E5F54A /* GTA_NetworkStatusMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_NetworkStatusMonitor.swift; sourceTree = "<group>"; };
+		2CD986922A98FBC900E5F54A /* GTA_PageControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_PageControll.swift; sourceTree = "<group>"; };
+		2CD986932A98FBC900E5F54A /* gta_slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gta_slider.swift; sourceTree = "<group>"; };
+		2CD986952A98FBC900E5F54A /* GTA_AnimatedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_AnimatedButton.swift; sourceTree = "<group>"; };
+		2CD986962A98FBC900E5F54A /* GTA_AnimatedButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_AnimatedButton.xib; sourceTree = "<group>"; };
+		2CD986992A98FBC900E5F54A /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
+		2CD9869A2A98FBC900E5F54A /* NSImage+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+SwiftyGif.swift"; sourceTree = "<group>"; };
+		2CD9869B2A98FBC900E5F54A /* ObjcAssociatedWeakObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjcAssociatedWeakObject.swift; sourceTree = "<group>"; };
+		2CD9869C2A98FBC900E5F54A /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
+		2CD9869D2A98FBC900E5F54A /* SwiftyGifManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
+		2CD9869E2A98FBC900E5F54A /* NSImageView+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
+		2CD986A02A98FBC900E5F54A /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
+		2CD986A12A98FBC900E5F54A /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraintItem.swift; sourceTree = "<group>"; };
+		2CD986A22A98FBC900E5F54A /* ConstraintMakerPrioritizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerPrioritizable.swift; sourceTree = "<group>"; };
+		2CD986A32A98FBC900E5F54A /* ConstraintDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDescription.swift; sourceTree = "<group>"; };
+		2CD986A42A98FBC900E5F54A /* ConstraintAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAttributes.swift; sourceTree = "<group>"; };
+		2CD986A52A98FBC900E5F54A /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintViewDSL.swift; sourceTree = "<group>"; };
+		2CD986A62A98FBC900E5F54A /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
+		2CD986A72A98FBC900E5F54A /* ConstraintInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInsets.swift; sourceTree = "<group>"; };
+		2CD986A82A98FBC900E5F54A /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
+		2CD986A92A98FBC900E5F54A /* ConstraintDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDSL.swift; sourceTree = "<group>"; };
+		2CD986AA2A98FBC900E5F54A /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
+		2CD986AB2A98FBC900E5F54A /* ConstraintPriority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintPriority.swift; sourceTree = "<group>"; };
+		2CD986AC2A98FBC900E5F54A /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInsetTarget.swift; sourceTree = "<group>"; };
+		2CD986AD2A98FBC900E5F54A /* ConstraintDirectionalInsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsetTarget.swift; sourceTree = "<group>"; };
+		2CD986AE2A98FBC900E5F54A /* ConstraintMakerRelatable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintMakerRelatable+Extensions.swift"; sourceTree = "<group>"; };
+		2CD986AF2A98FBC900E5F54A /* ConstraintConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConfig.swift; sourceTree = "<group>"; };
+		2CD986B02A98FBC900E5F54A /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
+		2CD986B12A98FBC900E5F54A /* ConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
+		2CD986B22A98FBC900E5F54A /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
+		2CD986B32A98FBC900E5F54A /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
+		2CD986B42A98FBC900E5F54A /* Typealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		2CD986B52A98FBC900E5F54A /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConstantTarget.swift; sourceTree = "<group>"; };
+		2CD986B62A98FBC900E5F54A /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
+		2CD986B72A98FBC900E5F54A /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerEditable.swift; sourceTree = "<group>"; };
+		2CD986B82A98FBC900E5F54A /* ConstraintMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMaker.swift; sourceTree = "<group>"; };
+		2CD986B92A98FBC900E5F54A /* ConstraintRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelation.swift; sourceTree = "<group>"; };
+		2CD986BA2A98FBC900E5F54A /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
+		2CD986BB2A98FBC900E5F54A /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
+		2CD986BC2A98FBC900E5F54A /* ConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintItem.swift; sourceTree = "<group>"; };
+		2CD986BD2A98FBC900E5F54A /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
+		2CD986BE2A98FBC900E5F54A /* Debugging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debugging.swift; sourceTree = "<group>"; };
+		2CD986BF2A98FBC900E5F54A /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
+		2CD986C02A98FBC900E5F54A /* LayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
+		2CD986C12A98FBC900E5F54A /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
+		2CD986C22A98FBC900E5F54A /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
+		2CD986C32A98FBC900E5F54A /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
+		2CD986C42A98FBC900E5F54A /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
+		2CD986C62A98FBC900E5F54A /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		2CD986C82A98FBC900E5F54A /* GTA_PremiumMainController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_PremiumMainController.xib; sourceTree = "<group>"; };
+		2CD986C92A98FBC900E5F54A /* GTA_PremiumMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_PremiumMainController.swift; sourceTree = "<group>"; };
+		2CD986CC2A98FBC900E5F54A /* GTA_ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_ReusableCell.swift; sourceTree = "<group>"; };
+		2CD986CD2A98FBC900E5F54A /* GTA_ReusableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_ReusableCell.xib; sourceTree = "<group>"; };
+		2CD986CF2A98FBC900E5F54A /* GTA_ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTA_ReusableView.swift; sourceTree = "<group>"; };
+		2CD986D12A98FBCA00E5F54A /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		2CD986D22A98FBCA00E5F54A /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		2CD986D32A98FBCA00E5F54A /* phone.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = phone.mp4; sourceTree = "<group>"; };
+		2CD986D42A98FBCA00E5F54A /* pad.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = pad.mp4; sourceTree = "<group>"; };
+		2CD986D52A98FBCA00E5F54A /* btn_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = btn_gif.gif; sourceTree = "<group>"; };
+		2CD986D62A98FBCA00E5F54A /* FontsFree-Net-SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		2CD986D72A98FBCA00E5F54A /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
+		2CD986DA2A98FBCA00E5F54A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986DB2A98FBCA00E5F54A /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986DC2A98FBCA00E5F54A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986DD2A98FBCA00E5F54A /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986DE2A98FBCA00E5F54A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2CD986DF2A98FBCA00E5F54A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986E02A98FBCA00E5F54A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986E12A98FBCA00E5F54A /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986E22A98FBCA00E5F54A /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986E32A98FBCA00E5F54A /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2CD986E42A98FBCA00E5F54A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986E52A98FBCA00E5F54A /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986E62A98FBCA00E5F54A /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986E72A98FBCA00E5F54A /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2CD986E82A98FBCA00E5F54A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986E92A98FBCA00E5F54A /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986EA2A98FBCA00E5F54A /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2CD986EB2A98FBCA00E5F54A /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986EC2A98FBCA00E5F54A /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986ED2A98FBCA00E5F54A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986EE2A98FBCA00E5F54A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986EF2A98FBCA00E5F54A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986F02A98FBCA00E5F54A /* validateLocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = validateLocalizable.swift; sourceTree = "<group>"; };
+		2CD986F12A98FBCA00E5F54A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2CD986F22A98FBCA00E5F54A /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986F32A98FBCA00E5F54A /* en-AU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-AU"; path = "en-AU.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2CD986F42A98FBCA00E5F54A /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986F52A98FBCA00E5F54A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986F62A98FBCA00E5F54A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2CD986F72A98FBCA00E5F54A /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986F82A98FBCA00E5F54A /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986F92A98FBCA00E5F54A /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986FA2A98FBCA00E5F54A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986FB2A98FBCA00E5F54A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986FC2A98FBCA00E5F54A /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986FD2A98FBCA00E5F54A /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986FE2A98FBCA00E5F54A /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD986FF2A98FBCA00E5F54A /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD987002A98FBCA00E5F54A /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2CD987012A98FBCA00E5F54A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD987022A98FBCA00E5F54A /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD987032A98FBCA00E5F54A /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD987042A98FBCA00E5F54A /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2CD987052A98FBCA00E5F54A /* en-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-IN"; path = "en-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2CD9874B2A99034B00E5F54A /* GTA_ReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTA_ReusableView.xib; sourceTree = "<group>"; };
+		2CD9874D2A9907BE00E5F54A /* sub.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sub.ttf; sourceTree = "<group>"; };
 		2CDEBEF62A82586500F976A3 /* GTAModes_DropBoxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTAModes_DropBoxManager.swift; sourceTree = "<group>"; };
 		2CDEBEF72A82586500F976A3 /* GTAModes_DBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTAModes_DBConstants.swift; sourceTree = "<group>"; };
 		2CDEBF062A82F57100F976A3 /* GTAModes_CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTAModes_CustomNavigationView.swift; sourceTree = "<group>"; };
@@ -5005,215 +5013,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C1CA3AE2A8E70B200C89F79 /* Subscription */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3AF2A8E70B200C89F79 /* Adjust+Pushwoosh */,
-				2C1CA3B12A8E70B200C89F79 /* assets */,
-				2C1CA3B72A8E70B200C89F79 /* localizable */,
-				2C1CA3E52A8E70B200C89F79 /* Flow */,
-			);
-			path = Subscription;
-			sourceTree = "<group>";
-		};
-		2C1CA3AF2A8E70B200C89F79 /* Adjust+Pushwoosh */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3B02A8E70B200C89F79 /* GTA_ServicesManager.swift */,
-			);
-			path = "Adjust+Pushwoosh";
-			sourceTree = "<group>";
-		};
-		2C1CA3B12A8E70B200C89F79 /* assets */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3B22A8E70B200C89F79 /* Media.xcassets */,
-				2C1CA3B32A8E70B200C89F79 /* phone.mp4 */,
-				2C1CA3B42A8E70B200C89F79 /* pad.mp4 */,
-				2C1CA3B52A8E70B200C89F79 /* btn_gif.gif */,
-				2C1CA3B62A8E70B200C89F79 /* SFProText-Bold.ttf */,
-			);
-			path = assets;
-			sourceTree = "<group>";
-		};
-		2C1CA3B72A8E70B200C89F79 /* localizable */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3B82A8E70B200C89F79 /* Localizable.strings */,
-				2C1CA3CF2A8E70B200C89F79 /* validateLocalizable.swift */,
-			);
-			path = localizable;
-			sourceTree = "<group>";
-		};
-		2C1CA3E52A8E70B200C89F79 /* Flow */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3E62A8E70B200C89F79 /* transaction */,
-				2C1CA3E92A8E70B200C89F79 /* extensions */,
-				2C1CA3EB2A8E70B200C89F79 /* configs */,
-				2C1CA3EE2A8E70B200C89F79 /* staff */,
-				2C1CA4242A8E70B200C89F79 /* main */,
-				2C1CA4272A8E70B200C89F79 /* reusable */,
-			);
-			path = Flow;
-			sourceTree = "<group>";
-		};
-		2C1CA3E62A8E70B200C89F79 /* transaction */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3E72A8E70B200C89F79 /* GTA_TransactionView.swift */,
-				2C1CA3E82A8E70B200C89F79 /* GTA_TransactionView.xib */,
-			);
-			path = transaction;
-			sourceTree = "<group>";
-		};
-		2C1CA3E92A8E70B200C89F79 /* extensions */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3EA2A8E70B200C89F79 /* gta_extensions-freeform.swift */,
-			);
-			path = extensions;
-			sourceTree = "<group>";
-		};
-		2C1CA3EB2A8E70B200C89F79 /* configs */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3EC2A8E70B200C89F79 /* GTA_IAPHandler.swift */,
-				2C1CA3ED2A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift */,
-			);
-			path = configs;
-			sourceTree = "<group>";
-		};
-		2C1CA3EE2A8E70B200C89F79 /* staff */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3EF2A8E70B200C89F79 /* slider */,
-				2C1CA3F32A8E70B200C89F79 /* button */,
-				2C1CA3F62A8E70B200C89F79 /* frameworks */,
-			);
-			path = staff;
-			sourceTree = "<group>";
-		};
-		2C1CA3EF2A8E70B200C89F79 /* slider */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3F02A8E70B200C89F79 /* pageControll */,
-				2C1CA3F22A8E70B200C89F79 /* GTA_slider.swift */,
-			);
-			path = slider;
-			sourceTree = "<group>";
-		};
-		2C1CA3F02A8E70B200C89F79 /* pageControll */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3F12A8E70B200C89F79 /* GTA_PageControll.swift */,
-			);
-			path = pageControll;
-			sourceTree = "<group>";
-		};
-		2C1CA3F32A8E70B200C89F79 /* button */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3F42A8E70B200C89F79 /* GTA_AnimatedButton.swift */,
-				2C1CA3F52A8E70B200C89F79 /* GTA_AnimatedButton.xib */,
-			);
-			path = button;
-			sourceTree = "<group>";
-		};
-		2C1CA3F62A8E70B200C89F79 /* frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3F72A8E70B200C89F79 /* SwiftyGif */,
-				2C1CA3FE2A8E70B200C89F79 /* snapkit */,
-			);
-			path = frameworks;
-			sourceTree = "<group>";
-		};
-		2C1CA3F72A8E70B200C89F79 /* SwiftyGif */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3F82A8E70B200C89F79 /* UIImageView+SwiftyGif.swift */,
-				2C1CA3F92A8E70B200C89F79 /* NSImage+SwiftyGif.swift */,
-				2C1CA3FA2A8E70B200C89F79 /* ObjcAssociatedWeakObject.swift */,
-				2C1CA3FB2A8E70B200C89F79 /* UIImage+SwiftyGif.swift */,
-				2C1CA3FC2A8E70B200C89F79 /* SwiftyGifManager.swift */,
-				2C1CA3FD2A8E70B200C89F79 /* NSImageView+SwiftyGif.swift */,
-			);
-			path = SwiftyGif;
-			sourceTree = "<group>";
-		};
-		2C1CA3FE2A8E70B200C89F79 /* snapkit */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA3FF2A8E70B200C89F79 /* ConstraintMultiplierTarget.swift */,
-				2C1CA4002A8E70B200C89F79 /* LayoutConstraintItem.swift */,
-				2C1CA4012A8E70B200C89F79 /* ConstraintMakerPrioritizable.swift */,
-				2C1CA4022A8E70B200C89F79 /* ConstraintDescription.swift */,
-				2C1CA4032A8E70B200C89F79 /* ConstraintAttributes.swift */,
-				2C1CA4042A8E70B200C89F79 /* ConstraintViewDSL.swift */,
-				2C1CA4052A8E70B200C89F79 /* ConstraintPriorityTarget.swift */,
-				2C1CA4062A8E70B200C89F79 /* ConstraintInsets.swift */,
-				2C1CA4072A8E70B200C89F79 /* ConstraintMakerFinalizable.swift */,
-				2C1CA4082A8E70B200C89F79 /* ConstraintDSL.swift */,
-				2C1CA4092A8E70B200C89F79 /* ConstraintMakerExtendable.swift */,
-				2C1CA40A2A8E70B200C89F79 /* ConstraintPriority.swift */,
-				2C1CA40B2A8E70B200C89F79 /* ConstraintInsetTarget.swift */,
-				2C1CA40C2A8E70B200C89F79 /* ConstraintDirectionalInsetTarget.swift */,
-				2C1CA40D2A8E70B200C89F79 /* ConstraintMakerRelatable+Extensions.swift */,
-				2C1CA40E2A8E70B200C89F79 /* ConstraintConfig.swift */,
-				2C1CA40F2A8E70B200C89F79 /* UILayoutSupport+Extensions.swift */,
-				2C1CA4102A8E70B200C89F79 /* ConstraintView.swift */,
-				2C1CA4112A8E70B200C89F79 /* ConstraintLayoutGuide.swift */,
-				2C1CA4122A8E70B200C89F79 /* ConstraintLayoutSupport.swift */,
-				2C1CA4132A8E70B200C89F79 /* Typealiases.swift */,
-				2C1CA4142A8E70B200C89F79 /* ConstraintConstantTarget.swift */,
-				2C1CA4152A8E70B200C89F79 /* ConstraintOffsetTarget.swift */,
-				2C1CA4162A8E70B200C89F79 /* ConstraintMakerEditable.swift */,
-				2C1CA4172A8E70B200C89F79 /* ConstraintMaker.swift */,
-				2C1CA4182A8E70B200C89F79 /* ConstraintRelation.swift */,
-				2C1CA4192A8E70B200C89F79 /* ConstraintLayoutGuideDSL.swift */,
-				2C1CA41A2A8E70B200C89F79 /* ConstraintView+Extensions.swift */,
-				2C1CA41B2A8E70B200C89F79 /* ConstraintItem.swift */,
-				2C1CA41C2A8E70B200C89F79 /* Constraint.swift */,
-				2C1CA41D2A8E70B200C89F79 /* Debugging.swift */,
-				2C1CA41E2A8E70B200C89F79 /* ConstraintRelatableTarget.swift */,
-				2C1CA41F2A8E70B200C89F79 /* LayoutConstraint.swift */,
-				2C1CA4202A8E70B200C89F79 /* ConstraintLayoutGuide+Extensions.swift */,
-				2C1CA4212A8E70B200C89F79 /* ConstraintDirectionalInsets.swift */,
-				2C1CA4222A8E70B200C89F79 /* ConstraintLayoutSupportDSL.swift */,
-				2C1CA4232A8E70B200C89F79 /* ConstraintMakerRelatable.swift */,
-			);
-			path = snapkit;
-			sourceTree = "<group>";
-		};
-		2C1CA4242A8E70B200C89F79 /* main */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA4252A8E70B200C89F79 /* GTA_PremiumMainController.xib */,
-				2C1CA4262A8E70B200C89F79 /* GTA_PremiumMainController.swift */,
-			);
-			path = main;
-			sourceTree = "<group>";
-		};
-		2C1CA4272A8E70B200C89F79 /* reusable */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA4282A8E70B200C89F79 /* cell */,
-				2C1CA42B2A8E70B200C89F79 /* GTA_ReusableView.xib */,
-				2C1CA42C2A8E70B200C89F79 /* GTA_ReusableView.swift */,
-			);
-			path = reusable;
-			sourceTree = "<group>";
-		};
-		2C1CA4282A8E70B200C89F79 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				2C1CA4292A8E70B200C89F79 /* GTA_ReusableCell.swift */,
-				2C1CA42A2A8E70B200C89F79 /* GTA_ReusableCell.xib */,
-			);
-			path = cell;
-			sourceTree = "<group>";
-		};
 		2C1CA46F2A8E713C00C89F79 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -5225,6 +5024,7 @@
 		2C2A20442A7170E1002A6D3C = {
 			isa = PBXGroup;
 			children = (
+				2CD9874D2A9907BE00E5F54A /* sub.ttf */,
 				2C2A204F2A7170E1002A6D3C /* GTAModes */,
 				2CB88FD42A90CAC7006B9301 /* NotificationService */,
 				2C2A204E2A7170E1002A6D3C /* Products */,
@@ -5268,8 +5068,8 @@
 		2C2A20652A717EF7002A6D3C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2CD986832A98FB6400E5F54A /* Subscription */,
 				2C5F21302A951B640092B4BB /* Map */,
-				2C1CA3AE2A8E70B200C89F79 /* Subscription */,
 				2CDEBEE82A82586500F976A3 /* DropBoxManager */,
 				2C2A20862A72A3C6002A6D3C /* DataBase */,
 			);
@@ -7824,6 +7624,226 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		2CD986832A98FB6400E5F54A /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986842A98FBC900E5F54A /* Adjust+Pushwoosh */,
+				2CD986D02A98FBCA00E5F54A /* assets */,
+				2CD986862A98FBC900E5F54A /* Flow */,
+				2CD986D82A98FBCA00E5F54A /* localizable */,
+			);
+			path = Subscription;
+			sourceTree = "<group>";
+		};
+		2CD986842A98FBC900E5F54A /* Adjust+Pushwoosh */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986852A98FBC900E5F54A /* GTA_ServicesManager.swift */,
+			);
+			path = "Adjust+Pushwoosh";
+			sourceTree = "<group>";
+		};
+		2CD986862A98FBC900E5F54A /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986872A98FBC900E5F54A /* transaction */,
+				2CD9868A2A98FBC900E5F54A /* extensions */,
+				2CD9868C2A98FBC900E5F54A /* configs */,
+				2CD9868F2A98FBC900E5F54A /* staff */,
+				2CD986C72A98FBC900E5F54A /* main */,
+				2CD986CA2A98FBC900E5F54A /* reusable */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		2CD986872A98FBC900E5F54A /* transaction */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986882A98FBC900E5F54A /* GTA_TransactionView.swift */,
+				2CD986892A98FBC900E5F54A /* GTA_TransactionView.xib */,
+			);
+			path = transaction;
+			sourceTree = "<group>";
+		};
+		2CD9868A2A98FBC900E5F54A /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2CD9868B2A98FBC900E5F54A /* gta-extensions-freeform.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		2CD9868C2A98FBC900E5F54A /* configs */ = {
+			isa = PBXGroup;
+			children = (
+				2CD9868D2A98FBC900E5F54A /* GTA_IAPHandler.swift */,
+				2CD9868E2A98FBC900E5F54A /* GTA_NetworkStatusMonitor.swift */,
+			);
+			path = configs;
+			sourceTree = "<group>";
+		};
+		2CD9868F2A98FBC900E5F54A /* staff */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986902A98FBC900E5F54A /* slider */,
+				2CD986942A98FBC900E5F54A /* button */,
+				2CD986972A98FBC900E5F54A /* frameworks */,
+				2CD986C52A98FBC900E5F54A /* player */,
+			);
+			path = staff;
+			sourceTree = "<group>";
+		};
+		2CD986902A98FBC900E5F54A /* slider */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986912A98FBC900E5F54A /* pageControll */,
+				2CD986932A98FBC900E5F54A /* gta_slider.swift */,
+			);
+			path = slider;
+			sourceTree = "<group>";
+		};
+		2CD986912A98FBC900E5F54A /* pageControll */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986922A98FBC900E5F54A /* GTA_PageControll.swift */,
+			);
+			path = pageControll;
+			sourceTree = "<group>";
+		};
+		2CD986942A98FBC900E5F54A /* button */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986952A98FBC900E5F54A /* GTA_AnimatedButton.swift */,
+				2CD986962A98FBC900E5F54A /* GTA_AnimatedButton.xib */,
+			);
+			path = button;
+			sourceTree = "<group>";
+		};
+		2CD986972A98FBC900E5F54A /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986982A98FBC900E5F54A /* SwiftyGif */,
+				2CD9869F2A98FBC900E5F54A /* snapkit */,
+			);
+			path = frameworks;
+			sourceTree = "<group>";
+		};
+		2CD986982A98FBC900E5F54A /* SwiftyGif */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986992A98FBC900E5F54A /* UIImageView+SwiftyGif.swift */,
+				2CD9869A2A98FBC900E5F54A /* NSImage+SwiftyGif.swift */,
+				2CD9869B2A98FBC900E5F54A /* ObjcAssociatedWeakObject.swift */,
+				2CD9869C2A98FBC900E5F54A /* UIImage+SwiftyGif.swift */,
+				2CD9869D2A98FBC900E5F54A /* SwiftyGifManager.swift */,
+				2CD9869E2A98FBC900E5F54A /* NSImageView+SwiftyGif.swift */,
+			);
+			path = SwiftyGif;
+			sourceTree = "<group>";
+		};
+		2CD9869F2A98FBC900E5F54A /* snapkit */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986A02A98FBC900E5F54A /* ConstraintMultiplierTarget.swift */,
+				2CD986A12A98FBC900E5F54A /* LayoutConstraintItem.swift */,
+				2CD986A22A98FBC900E5F54A /* ConstraintMakerPrioritizable.swift */,
+				2CD986A32A98FBC900E5F54A /* ConstraintDescription.swift */,
+				2CD986A42A98FBC900E5F54A /* ConstraintAttributes.swift */,
+				2CD986A52A98FBC900E5F54A /* ConstraintViewDSL.swift */,
+				2CD986A62A98FBC900E5F54A /* ConstraintPriorityTarget.swift */,
+				2CD986A72A98FBC900E5F54A /* ConstraintInsets.swift */,
+				2CD986A82A98FBC900E5F54A /* ConstraintMakerFinalizable.swift */,
+				2CD986A92A98FBC900E5F54A /* ConstraintDSL.swift */,
+				2CD986AA2A98FBC900E5F54A /* ConstraintMakerExtendable.swift */,
+				2CD986AB2A98FBC900E5F54A /* ConstraintPriority.swift */,
+				2CD986AC2A98FBC900E5F54A /* ConstraintInsetTarget.swift */,
+				2CD986AD2A98FBC900E5F54A /* ConstraintDirectionalInsetTarget.swift */,
+				2CD986AE2A98FBC900E5F54A /* ConstraintMakerRelatable+Extensions.swift */,
+				2CD986AF2A98FBC900E5F54A /* ConstraintConfig.swift */,
+				2CD986B02A98FBC900E5F54A /* UILayoutSupport+Extensions.swift */,
+				2CD986B12A98FBC900E5F54A /* ConstraintView.swift */,
+				2CD986B22A98FBC900E5F54A /* ConstraintLayoutGuide.swift */,
+				2CD986B32A98FBC900E5F54A /* ConstraintLayoutSupport.swift */,
+				2CD986B42A98FBC900E5F54A /* Typealiases.swift */,
+				2CD986B52A98FBC900E5F54A /* ConstraintConstantTarget.swift */,
+				2CD986B62A98FBC900E5F54A /* ConstraintOffsetTarget.swift */,
+				2CD986B72A98FBC900E5F54A /* ConstraintMakerEditable.swift */,
+				2CD986B82A98FBC900E5F54A /* ConstraintMaker.swift */,
+				2CD986B92A98FBC900E5F54A /* ConstraintRelation.swift */,
+				2CD986BA2A98FBC900E5F54A /* ConstraintLayoutGuideDSL.swift */,
+				2CD986BB2A98FBC900E5F54A /* ConstraintView+Extensions.swift */,
+				2CD986BC2A98FBC900E5F54A /* ConstraintItem.swift */,
+				2CD986BD2A98FBC900E5F54A /* Constraint.swift */,
+				2CD986BE2A98FBC900E5F54A /* Debugging.swift */,
+				2CD986BF2A98FBC900E5F54A /* ConstraintRelatableTarget.swift */,
+				2CD986C02A98FBC900E5F54A /* LayoutConstraint.swift */,
+				2CD986C12A98FBC900E5F54A /* ConstraintLayoutGuide+Extensions.swift */,
+				2CD986C22A98FBC900E5F54A /* ConstraintDirectionalInsets.swift */,
+				2CD986C32A98FBC900E5F54A /* ConstraintLayoutSupportDSL.swift */,
+				2CD986C42A98FBC900E5F54A /* ConstraintMakerRelatable.swift */,
+			);
+			path = snapkit;
+			sourceTree = "<group>";
+		};
+		2CD986C52A98FBC900E5F54A /* player */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986C62A98FBC900E5F54A /* Player.swift */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		2CD986C72A98FBC900E5F54A /* main */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986C82A98FBC900E5F54A /* GTA_PremiumMainController.xib */,
+				2CD986C92A98FBC900E5F54A /* GTA_PremiumMainController.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		2CD986CA2A98FBC900E5F54A /* reusable */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986CB2A98FBC900E5F54A /* cell */,
+				2CD986CF2A98FBC900E5F54A /* GTA_ReusableView.swift */,
+				2CD9874B2A99034B00E5F54A /* GTA_ReusableView.xib */,
+			);
+			path = reusable;
+			sourceTree = "<group>";
+		};
+		2CD986CB2A98FBC900E5F54A /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986CC2A98FBC900E5F54A /* GTA_ReusableCell.swift */,
+				2CD986CD2A98FBC900E5F54A /* GTA_ReusableCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		2CD986D02A98FBCA00E5F54A /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986D12A98FBCA00E5F54A /* Media.xcassets */,
+				2CD986D22A98FBCA00E5F54A /* Poppins-Medium.ttf */,
+				2CD986D32A98FBCA00E5F54A /* phone.mp4 */,
+				2CD986D42A98FBCA00E5F54A /* pad.mp4 */,
+				2CD986D52A98FBCA00E5F54A /* btn_gif.gif */,
+				2CD986D62A98FBCA00E5F54A /* FontsFree-Net-SFProDisplay-Regular.ttf */,
+				2CD986D72A98FBCA00E5F54A /* SFProText-Bold.ttf */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		2CD986D82A98FBCA00E5F54A /* localizable */ = {
+			isa = PBXGroup;
+			children = (
+				2CD986D92A98FBCA00E5F54A /* Localizable.strings */,
+				2CD986F02A98FBCA00E5F54A /* validateLocalizable.swift */,
+			);
+			path = localizable;
+			sourceTree = "<group>";
+		};
 		2CDEBEE82A82586500F976A3 /* DropBoxManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -7992,6 +8012,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CD9874E2A9907BE00E5F54A /* sub.ttf in Resources */,
 				2C5F2D402A951B700092B4BB /* 4-0_5.png in Resources */,
 				2C5F2BDD2A951B700092B4BB /* 10-8_5.png in Resources */,
 				2C5F31402A951B710092B4BB /* 3-4_4.png in Resources */,
@@ -8243,6 +8264,7 @@
 				2C5F2BB52A951B700092B4BB /* 5-7_6.png in Resources */,
 				2C5F32C42A951B710092B4BB /* 0-3_6.png in Resources */,
 				2C5F31782A951B710092B4BB /* 11-18_6.png in Resources */,
+				2CD987452A98FBCB00E5F54A /* pad.mp4 in Resources */,
 				2C5F2B742A951B700092B4BB /* 29-37_7.png in Resources */,
 				2C5F31EE2A951B710092B4BB /* 0-33_7.png in Resources */,
 				2C5F31072A951B710092B4BB /* 12-3_6.png in Resources */,
@@ -8253,7 +8275,6 @@
 				2C5F2C282A951B700092B4BB /* 39-28_7.png in Resources */,
 				2C5F2D022A951B700092B4BB /* 8-8_6.png in Resources */,
 				2C5F2FC62A951B710092B4BB /* 30-32_7.png in Resources */,
-				2C1CA42E2A8E70B200C89F79 /* Media.xcassets in Resources */,
 				2C5F2D302A951B700092B4BB /* 17-14_7.png in Resources */,
 				2C5F326C2A951B710092B4BB /* 25-38_7.png in Resources */,
 				2C5F2F672A951B710092B4BB /* 2-3_7.png in Resources */,
@@ -8336,6 +8357,7 @@
 				2C5F2BAF2A951B700092B4BB /* 6-6_6.png in Resources */,
 				2C5F2DC32A951B700092B4BB /* 9-15_7.png in Resources */,
 				2C5F2EEA2A951B700092B4BB /* 25-24_7.png in Resources */,
+				2CD987462A98FBCB00E5F54A /* btn_gif.gif in Resources */,
 				2C5F2F292A951B710092B4BB /* 20-8_7.png in Resources */,
 				2C5F2B582A951B6F0092B4BB /* 12-19_7.png in Resources */,
 				2C5F2C092A951B700092B4BB /* 39-0_7.png in Resources */,
@@ -8450,14 +8472,13 @@
 				2C5F30102A951B710092B4BB /* 41-13_7.png in Resources */,
 				2C5F2BD52A951B700092B4BB /* 16-11_6.png in Resources */,
 				2C5F2B3D2A951B6F0092B4BB /* 30-3_7.png in Resources */,
-				2C1CA4692A8E70B200C89F79 /* GTA_PremiumMainController.xib in Resources */,
 				2C5F33222A951B720092B4BB /* 2-4_4.png in Resources */,
 				2C5F2CEB2A951B700092B4BB /* 34-8_7.png in Resources */,
 				2C5F2CF52A951B700092B4BB /* 16-2_6.png in Resources */,
 				2C5F30A72A951B710092B4BB /* 3-3_4.png in Resources */,
+				2CD987082A98FBCA00E5F54A /* GTA_TransactionView.xib in Resources */,
 				2C5F31A42A951B710092B4BB /* 33-42_7.png in Resources */,
 				2C5F2F122A951B700092B4BB /* 15-13_6.png in Resources */,
-				2C1CA4312A8E70B200C89F79 /* btn_gif.gif in Resources */,
 				2C5F327C2A951B710092B4BB /* 9-42_7.png in Resources */,
 				2C5F318B2A951B710092B4BB /* 36-29_7.png in Resources */,
 				2C5F2CDA2A951B700092B4BB /* 16-2_7.png in Resources */,
@@ -8510,6 +8531,7 @@
 				2C5F31AB2A951B710092B4BB /* 12-1_7.png in Resources */,
 				2C5F2D9C2A951B700092B4BB /* 2-33_7.png in Resources */,
 				2C5F32C72A951B710092B4BB /* 3-23_7.png in Resources */,
+				2CD9874C2A99034C00E5F54A /* GTA_ReusableView.xib in Resources */,
 				2C5F2DED2A951B700092B4BB /* 3-9_7.png in Resources */,
 				2C5F2BD22A951B700092B4BB /* 13-26_7.png in Resources */,
 				2C5F2BA02A951B700092B4BB /* 4-13_6.png in Resources */,
@@ -8562,7 +8584,6 @@
 				2C5F31222A951B710092B4BB /* 1-31_7.png in Resources */,
 				2C5F2EFF2A951B700092B4BB /* 31-10_7.png in Resources */,
 				2C5F2D942A951B700092B4BB /* 21-0_6.png in Resources */,
-				2C1CA4362A8E70B200C89F79 /* GTA_TransactionView.xib in Resources */,
 				2C5F2A932A951B6F0092B4BB /* 13-22_7.png in Resources */,
 				2C5F2B592A951B6F0092B4BB /* 7-0_6.png in Resources */,
 				2C5F2DB72A951B700092B4BB /* 15-7_7.png in Resources */,
@@ -8779,6 +8800,7 @@
 				2C5F2B192A951B6F0092B4BB /* 40-21_7.png in Resources */,
 				2C5F32E62A951B710092B4BB /* 0-1_4.png in Resources */,
 				2C5F2CC62A951B700092B4BB /* 32-15_7.png in Resources */,
+				2CD987442A98FBCB00E5F54A /* phone.mp4 in Resources */,
 				2C5F30712A951B710092B4BB /* 25-20_7.png in Resources */,
 				2C5F2D132A951B700092B4BB /* 21-4_7.png in Resources */,
 				2C5F2FB52A951B710092B4BB /* 21-8_7.png in Resources */,
@@ -8786,6 +8808,7 @@
 				2C5F2B0C2A951B6F0092B4BB /* 6-2_5.png in Resources */,
 				2C5F2B392A951B6F0092B4BB /* 31-19_7.png in Resources */,
 				2C5F32272A951B710092B4BB /* 15-14_6.png in Resources */,
+				2CD9870F2A98FBCA00E5F54A /* GTA_AnimatedButton.xib in Resources */,
 				2C5F2B262A951B6F0092B4BB /* 16-17_6.png in Resources */,
 				2C5F2D272A951B700092B4BB /* 15-26_7.png in Resources */,
 				2C5F2FA02A951B710092B4BB /* 6-35_7.png in Resources */,
@@ -8804,6 +8827,7 @@
 				2C5F33002A951B720092B4BB /* 1-7_7.png in Resources */,
 				2C5F2AF62A951B6F0092B4BB /* 0-22_7.png in Resources */,
 				2C5F305D2A951B710092B4BB /* 0-12_6.png in Resources */,
+				2CD987472A98FBCB00E5F54A /* FontsFree-Net-SFProDisplay-Regular.ttf in Resources */,
 				2C5F2E682A951B700092B4BB /* 3-5_6.png in Resources */,
 				2C5F32192A951B710092B4BB /* 19-17_6.png in Resources */,
 				2C5F32CB2A951B710092B4BB /* 40-8_7.png in Resources */,
@@ -8882,6 +8906,7 @@
 				2C5F2E162A951B700092B4BB /* 34-32_7.png in Resources */,
 				2C5F2AF02A951B6F0092B4BB /* 38-29_7.png in Resources */,
 				2C5F30592A951B710092B4BB /* 30-29_7.png in Resources */,
+				2CD987422A98FBCB00E5F54A /* Media.xcassets in Resources */,
 				2C5F2D222A951B700092B4BB /* 24-37_7.png in Resources */,
 				2C5F2B042A951B6F0092B4BB /* 4-15_6.png in Resources */,
 				2C5F2EB32A951B700092B4BB /* 18-16_6.png in Resources */,
@@ -8998,7 +9023,6 @@
 				2C5F2EBB2A951B700092B4BB /* 36-7_7.png in Resources */,
 				2C5F30662A951B710092B4BB /* 26-12_7.png in Resources */,
 				2C5F31132A951B710092B4BB /* 25-27_7.png in Resources */,
-				2C1CA4322A8E70B200C89F79 /* SFProText-Bold.ttf in Resources */,
 				2C5F32182A951B710092B4BB /* 39-40_7.png in Resources */,
 				2C5F2C762A951B700092B4BB /* 6-1_7.png in Resources */,
 				2C5F33552A951B720092B4BB /* 3-2_7.png in Resources */,
@@ -9038,7 +9062,6 @@
 				2C5F2C582A951B700092B4BB /* 4-29_7.png in Resources */,
 				2C5F315E2A951B710092B4BB /* 1-15_7.png in Resources */,
 				2C5F2CF12A951B700092B4BB /* 27-9_7.png in Resources */,
-				2C1CA46C2A8E70B200C89F79 /* GTA_ReusableCell.xib in Resources */,
 				2C5F2E502A951B700092B4BB /* 3-28_7.png in Resources */,
 				2C5F2D242A951B700092B4BB /* 32-31_7.png in Resources */,
 				2C5F2F102A951B700092B4BB /* 12-16_7.png in Resources */,
@@ -9429,7 +9452,6 @@
 				2C5F32652A951B710092B4BB /* 36-2_7.png in Resources */,
 				2C5F2F282A951B710092B4BB /* 17-40_7.png in Resources */,
 				2C5F2F652A951B710092B4BB /* 18-1_6.png in Resources */,
-				2C1CA46D2A8E70B200C89F79 /* GTA_ReusableView.xib in Resources */,
 				2C5F32252A951B710092B4BB /* 4-9_6.png in Resources */,
 				2C5F33452A951B720092B4BB /* 24-23_7.png in Resources */,
 				2C5F2B942A951B700092B4BB /* 7-21_6.png in Resources */,
@@ -9614,7 +9636,6 @@
 				2C5F30142A951B710092B4BB /* 28-18_7.png in Resources */,
 				2C5F2A6A2A951B6F0092B4BB /* 6-0_5.png in Resources */,
 				2C5F2C822A951B700092B4BB /* 24-11_7.png in Resources */,
-				2C1CA42F2A8E70B200C89F79 /* phone.mp4 in Resources */,
 				2C5F2EE22A951B700092B4BB /* 11-26_7.png in Resources */,
 				2C5F31372A951B710092B4BB /* 0-5_4.png in Resources */,
 				2C5F32AC2A951B710092B4BB /* 31-31_7.png in Resources */,
@@ -9776,6 +9797,7 @@
 				2C5F31EF2A951B710092B4BB /* 21-36_7.png in Resources */,
 				2C5F2FF92A951B710092B4BB /* 11-7_6.png in Resources */,
 				2C5F2B272A951B6F0092B4BB /* 17-5_6.png in Resources */,
+				2CD9873C2A98FBCB00E5F54A /* GTA_PremiumMainController.xib in Resources */,
 				2C5F2AF32A951B6F0092B4BB /* 32-32_7.png in Resources */,
 				2C5F2D2F2A951B700092B4BB /* 6-3_6.png in Resources */,
 				2C5F2D1A2A951B700092B4BB /* 36-22_7.png in Resources */,
@@ -9873,7 +9895,6 @@
 				2C5F2CAA2A951B700092B4BB /* 5-2_7.png in Resources */,
 				2C5F2EA12A951B700092B4BB /* 2-19_7.png in Resources */,
 				2C5F30C82A951B710092B4BB /* 10-1_6.png in Resources */,
-				2C1CA4302A8E70B200C89F79 /* pad.mp4 in Resources */,
 				2C5F2B3F2A951B6F0092B4BB /* 11-8_6.png in Resources */,
 				2C5F2B502A951B6F0092B4BB /* 0-9_7.png in Resources */,
 				2C5F32442A951B710092B4BB /* 32-27_7.png in Resources */,
@@ -9974,6 +9995,7 @@
 				2C5F33272A951B720092B4BB /* 40-12_7.png in Resources */,
 				2C5F2BFA2A951B700092B4BB /* 30-22_7.png in Resources */,
 				2C5F2A8B2A951B6F0092B4BB /* 3-36_7.png in Resources */,
+				2CD987482A98FBCB00E5F54A /* SFProText-Bold.ttf in Resources */,
 				2C5F30112A951B710092B4BB /* 12-12_7.png in Resources */,
 				2C5F31662A951B710092B4BB /* 6-10_6.png in Resources */,
 				2C5F2AE82A951B6F0092B4BB /* 14-4_7.png in Resources */,
@@ -10115,7 +10137,6 @@
 				2C5F2B552A951B6F0092B4BB /* 23-6_7.png in Resources */,
 				2C5F31EA2A951B710092B4BB /* 1-33_7.png in Resources */,
 				2C5F2D1E2A951B700092B4BB /* 37-22_7.png in Resources */,
-				2C1CA43D2A8E70B200C89F79 /* GTA_AnimatedButton.xib in Resources */,
 				2C5F2A5F2A951B6F0092B4BB /* 7-18_7.png in Resources */,
 				2C5F307F2A951B710092B4BB /* 36-35_7.png in Resources */,
 				2C5F2E8E2A951B700092B4BB /* 14-11_7.png in Resources */,
@@ -10135,7 +10156,6 @@
 				2C5F32522A951B710092B4BB /* 5-19_7.png in Resources */,
 				2C5F320A2A951B710092B4BB /* 12-28_7.png in Resources */,
 				2C5F30462A951B710092B4BB /* 14-9_6.png in Resources */,
-				2C1CA4332A8E70B200C89F79 /* Localizable.strings in Resources */,
 				2C5F2BC12A951B700092B4BB /* 3-8_5.png in Resources */,
 				2C5F2FA22A951B710092B4BB /* 7-35_7.png in Resources */,
 				2C5F301F2A951B710092B4BB /* 1-34_7.png in Resources */,
@@ -10185,6 +10205,7 @@
 				2C5F2CC92A951B700092B4BB /* 39-33_7.png in Resources */,
 				2C5F2F7A2A951B710092B4BB /* 40-33_7.png in Resources */,
 				2CBF47242A79153200A50257 /* Assets.xcassets in Resources */,
+				2CD9873F2A98FBCB00E5F54A /* GTA_ReusableCell.xib in Resources */,
 				2C5F2AAC2A951B6F0092B4BB /* 5-1_4.png in Resources */,
 				2C5F2CD62A951B700092B4BB /* 4-4_4.png in Resources */,
 				2C5F2C532A951B700092B4BB /* 11-9_6.png in Resources */,
@@ -10208,6 +10229,7 @@
 				2C5F30002A951B710092B4BB /* 15-33_7.png in Resources */,
 				2C5F2C642A951B700092B4BB /* 8-13_7.png in Resources */,
 				2C5F2E3B2A951B700092B4BB /* 36-24_7.png in Resources */,
+				2CD987432A98FBCB00E5F54A /* Poppins-Medium.ttf in Resources */,
 				2C5F2CFB2A951B700092B4BB /* 20-0_6.png in Resources */,
 				2C5F2FCB2A951B710092B4BB /* 31-32_7.png in Resources */,
 				2C5F30AA2A951B710092B4BB /* 24-6_7.png in Resources */,
@@ -10236,6 +10258,7 @@
 				2C5F30C92A951B710092B4BB /* 1-4_7.png in Resources */,
 				2C5F32F82A951B720092B4BB /* 8-40_7.png in Resources */,
 				2C5F313A2A951B710092B4BB /* 27-0_7.png in Resources */,
+				2CD987492A98FBCB00E5F54A /* Localizable.strings in Resources */,
 				2C5F32602A951B710092B4BB /* 29-26_7.png in Resources */,
 				2C5F2E8D2A951B700092B4BB /* 37-3_7.png in Resources */,
 				2C5F31702A951B710092B4BB /* 34-19_7.png in Resources */,
@@ -10389,98 +10412,99 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C1CA4522A8E70B200C89F79 /* ConstraintMakerRelatable+Extensions.swift in Sources */,
-				2C1CA4612A8E70B200C89F79 /* Constraint.swift in Sources */,
-				2C1CA4572A8E70B200C89F79 /* ConstraintLayoutSupport.swift in Sources */,
-				2C1CA4582A8E70B200C89F79 /* Typealiases.swift in Sources */,
-				2C1CA4402A8E70B200C89F79 /* ObjcAssociatedWeakObject.swift in Sources */,
-				2C1CA45B2A8E70B200C89F79 /* ConstraintMakerEditable.swift in Sources */,
 				2CBFE4552A77E28400A50257 /* GTAModes_FilterTableViewCell.swift in Sources */,
 				2C45A5402A76A7A50023B3A8 /* GTAModes_FilterViewController.swift in Sources */,
-				2C1CA43A2A8E70B200C89F79 /* GTA_PageControll.swift in Sources */,
 				2C5CA6EA2A92514D005F9D24 /* ModObject.swift in Sources */,
 				2C5CA6E82A924DFC005F9D24 /* GTAModes_GameModesModel.swift in Sources */,
-				2C1CA4542A8E70B200C89F79 /* UILayoutSupport+Extensions.swift in Sources */,
-				2C1CA43C2A8E70B200C89F79 /* GTA_AnimatedButton.swift in Sources */,
-				2C1CA45A2A8E70B200C89F79 /* ConstraintOffsetTarget.swift in Sources */,
 				2C45A5392A76A7620023B3A8 /* GTAModes_GameCheatsModel.swift in Sources */,
+				2CD987222A98FBCA00E5F54A /* ConstraintInsetTarget.swift in Sources */,
+				2CD9872D2A98FBCA00E5F54A /* ConstraintMakerEditable.swift in Sources */,
+				2CD987232A98FBCA00E5F54A /* ConstraintDirectionalInsetTarget.swift in Sources */,
+				2CD9870C2A98FBCA00E5F54A /* GTA_PageControll.swift in Sources */,
+				2CD987122A98FBCA00E5F54A /* ObjcAssociatedWeakObject.swift in Sources */,
+				2CD9871D2A98FBCA00E5F54A /* ConstraintInsets.swift in Sources */,
+				2CD9872C2A98FBCA00E5F54A /* ConstraintOffsetTarget.swift in Sources */,
+				2CD9873E2A98FBCB00E5F54A /* GTA_ReusableCell.swift in Sources */,
+				2CD987212A98FBCA00E5F54A /* ConstraintPriority.swift in Sources */,
 				2C2A20B72A7551E8002A6D3C /* GTAModes_MainTableViewCell.swift in Sources */,
-				2C1CA4452A8E70B200C89F79 /* LayoutConstraintItem.swift in Sources */,
+				2CD9871B2A98FBCA00E5F54A /* ConstraintViewDSL.swift in Sources */,
 				2C45A5432A771A050023B3A8 /* GTAModes_ChecklistCell.swift in Sources */,
-				2C1CA44F2A8E70B200C89F79 /* ConstraintPriority.swift in Sources */,
-				2C1CA4592A8E70B200C89F79 /* ConstraintConstantTarget.swift in Sources */,
+				2CD9871A2A98FBCA00E5F54A /* ConstraintAttributes.swift in Sources */,
+				2CD9871F2A98FBCA00E5F54A /* ConstraintDSL.swift in Sources */,
+				2CD987092A98FBCA00E5F54A /* gta-extensions-freeform.swift in Sources */,
+				2CD987322A98FBCA00E5F54A /* ConstraintItem.swift in Sources */,
 				2C45A5372A76A7550023B3A8 /* GTAModes_GameCheatsViewController.swift in Sources */,
-				2C1CA44B2A8E70B200C89F79 /* ConstraintInsets.swift in Sources */,
-				2C1CA4622A8E70B200C89F79 /* Debugging.swift in Sources */,
+				2CD987262A98FBCA00E5F54A /* UILayoutSupport+Extensions.swift in Sources */,
+				2CD987202A98FBCA00E5F54A /* ConstraintMakerExtendable.swift in Sources */,
 				2CDEBF072A82F57100F976A3 /* GTAModes_CustomNavigationView.swift in Sources */,
-				2C1CA4532A8E70B200C89F79 /* ConstraintConfig.swift in Sources */,
-				2C1CA4652A8E70B200C89F79 /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				2C4F877A2A92DEB9006DC2CD /* GTAModes_GameModesTableViewCell.swift in Sources */,
+				2CD9872F2A98FBCA00E5F54A /* ConstraintRelation.swift in Sources */,
 				2CDEBF042A82586500F976A3 /* GTAModes_DBConstants.swift in Sources */,
-				2C1CA4462A8E70B200C89F79 /* ConstraintMakerPrioritizable.swift in Sources */,
-				2C1CA4412A8E70B200C89F79 /* UIImage+SwiftyGif.swift in Sources */,
+				2CD9872E2A98FBCA00E5F54A /* ConstraintMaker.swift in Sources */,
+				2CD9872B2A98FBCA00E5F54A /* ConstraintConstantTarget.swift in Sources */,
+				2CD9870E2A98FBCA00E5F54A /* GTA_AnimatedButton.swift in Sources */,
 				2CA95FF82A84D4210039343E /* CheatsObject.swift in Sources */,
+				2CD987142A98FBCA00E5F54A /* SwiftyGifManager.swift in Sources */,
+				2CD987342A98FBCA00E5F54A /* Debugging.swift in Sources */,
 				2C45A53D2A76A7800023B3A8 /* GTAModes_ChecklistModel.swift in Sources */,
+				2CD987242A98FBCA00E5F54A /* ConstraintMakerRelatable+Extensions.swift in Sources */,
+				2CD987252A98FBCA00E5F54A /* ConstraintConfig.swift in Sources */,
+				2CD9873B2A98FBCB00E5F54A /* Player.swift in Sources */,
 				2C7F39F42A7BF09800F575F7 /* GameModesHeaderView.swift in Sources */,
-				2C1CA43B2A8E70B200C89F79 /* GTA_slider.swift in Sources */,
+				2CD9871E2A98FBCA00E5F54A /* ConstraintMakerFinalizable.swift in Sources */,
+				2CD987392A98FBCA00E5F54A /* ConstraintLayoutSupportDSL.swift in Sources */,
 				2C2A20762A7286EC002A6D3C /* GTAModes_FlowCoordinator.swift in Sources */,
-				2C1CA45D2A8E70B200C89F79 /* ConstraintRelation.swift in Sources */,
-				2C1CA4632A8E70B200C89F79 /* ConstraintRelatableTarget.swift in Sources */,
-				2C1CA4492A8E70B200C89F79 /* ConstraintViewDSL.swift in Sources */,
-				2C1CA46E2A8E70B200C89F79 /* GTA_ReusableView.swift in Sources */,
-				2C1CA45E2A8E70B200C89F79 /* ConstraintLayoutGuideDSL.swift in Sources */,
-				2C1CA44E2A8E70B200C89F79 /* ConstraintMakerExtendable.swift in Sources */,
-				2C1CA4512A8E70B200C89F79 /* ConstraintDirectionalInsetTarget.swift in Sources */,
+				2CD9872A2A98FBCA00E5F54A /* Typealiases.swift in Sources */,
+				2CD9870A2A98FBCA00E5F54A /* GTA_IAPHandler.swift in Sources */,
+				2CD987312A98FBCA00E5F54A /* ConstraintView+Extensions.swift in Sources */,
 				2C51E7362A8BA9570077C421 /* GTAModes_SearchBar.swift in Sources */,
 				2C2A20512A7170E1002A6D3C /* GTA_AppDelegate.swift in Sources */,
+				2CD987132A98FBCA00E5F54A /* UIImage+SwiftyGif.swift in Sources */,
 				2C2A20B92A7556BF002A6D3C /* GTAModes_Reusable.swift in Sources */,
-				2C1CA4372A8E70B200C89F79 /* gta_extensions-freeform.swift in Sources */,
 				2C2A20732A7285AA002A6D3C /* GTAModes_MainFlowCoordinator.swift in Sources */,
-				2C1CA4602A8E70B200C89F79 /* ConstraintItem.swift in Sources */,
-				2C1CA4442A8E70B200C89F79 /* ConstraintMultiplierTarget.swift in Sources */,
-				2C1CA4422A8E70B200C89F79 /* SwiftyGifManager.swift in Sources */,
-				2C1CA46B2A8E70B200C89F79 /* GTA_ReusableCell.swift in Sources */,
-				2C1CA45C2A8E70B200C89F79 /* ConstraintMaker.swift in Sources */,
+				2CD9870D2A98FBCA00E5F54A /* gta_slider.swift in Sources */,
+				2CD9874A2A98FBCB00E5F54A /* validateLocalizable.swift in Sources */,
 				2C5CA6E62A924D78005F9D24 /* GTA_GameModesViewController.swift in Sources */,
-				2C1CA4552A8E70B200C89F79 /* ConstraintView.swift in Sources */,
+				2CD9873A2A98FBCA00E5F54A /* ConstraintMakerRelatable.swift in Sources */,
+				2CD987072A98FBCA00E5F54A /* GTA_TransactionView.swift in Sources */,
+				2CD987112A98FBCA00E5F54A /* NSImage+SwiftyGif.swift in Sources */,
+				2CD987412A98FBCB00E5F54A /* GTA_ReusableView.swift in Sources */,
 				2C51E73A2A8BD5590077C421 /* MissionObject.swift in Sources */,
-				2C1CA4662A8E70B200C89F79 /* ConstraintDirectionalInsets.swift in Sources */,
-				2C1CA46A2A8E70B200C89F79 /* GTA_PremiumMainController.swift in Sources */,
-				2C1CA43F2A8E70B200C89F79 /* NSImage+SwiftyGif.swift in Sources */,
-				2C1CA44A2A8E70B200C89F79 /* ConstraintPriorityTarget.swift in Sources */,
+				2CD987152A98FBCA00E5F54A /* NSImageView+SwiftyGif.swift in Sources */,
 				2C2A20532A7170E1002A6D3C /* SceneDelegate.swift in Sources */,
-				2C1CA44D2A8E70B200C89F79 /* ConstraintDSL.swift in Sources */,
-				2C1CA4502A8E70B200C89F79 /* ConstraintInsetTarget.swift in Sources */,
 				2C7F39F62A7BF0BF00F575F7 /* GTAModes_GameCheatsTableViewCell.swift in Sources */,
 				2C2A20BE2A756AD4002A6D3C /* GSViewController.swift in Sources */,
 				2CBFE4572A77E38600A50257 /* PanPresentationController.swift in Sources */,
+				2CD987182A98FBCA00E5F54A /* ConstraintMakerPrioritizable.swift in Sources */,
 				2C45A53B2A76A7780023B3A8 /* GTAModes_ChecklistViewController.swift in Sources */,
-				2C1CA4342A8E70B200C89F79 /* validateLocalizable.swift in Sources */,
-				2C1CA4642A8E70B200C89F79 /* LayoutConstraint.swift in Sources */,
-				2C1CA4352A8E70B200C89F79 /* GTA_TransactionView.swift in Sources */,
-				2C1CA4432A8E70B200C89F79 /* NSImageView+SwiftyGif.swift in Sources */,
+				2CD987382A98FBCA00E5F54A /* ConstraintDirectionalInsets.swift in Sources */,
+				2CD987292A98FBCA00E5F54A /* ConstraintLayoutSupport.swift in Sources */,
 				2CBFE45B2A79080D00A50257 /* GTAModes_MapViewController.swift in Sources */,
+				2CD987102A98FBCA00E5F54A /* UIImageView+SwiftyGif.swift in Sources */,
+				2CD987302A98FBCA00E5F54A /* ConstraintLayoutGuideDSL.swift in Sources */,
 				2CA95FFC2A8512470039343E /* MainItemObject.swift in Sources */,
 				2C51E7382A8BB19E0077C421 /* GTAModes_SearchBarViewModel.swift in Sources */,
-				2C1CA4472A8E70B200C89F79 /* ConstraintDescription.swift in Sources */,
-				2C1CA4672A8E70B200C89F79 /* ConstraintLayoutSupportDSL.swift in Sources */,
 				2C2A20812A729337002A6D3C /* GTAModes_NiblessViewController.swift in Sources */,
-				2C1CA4562A8E70B200C89F79 /* ConstraintLayoutGuide.swift in Sources */,
+				2CD9873D2A98FBCB00E5F54A /* GTA_PremiumMainController.swift in Sources */,
+				2CD987172A98FBCA00E5F54A /* LayoutConstraintItem.swift in Sources */,
 				2C2A20BB2A755AFA002A6D3C /* GTAModes_Autolayout.swift in Sources */,
+				2CD987362A98FBCA00E5F54A /* LayoutConstraint.swift in Sources */,
 				2CBFE4592A77ECA200A50257 /* PanPresentationManager.swift in Sources */,
-				2C1CA4482A8E70B200C89F79 /* ConstraintAttributes.swift in Sources */,
-				2C1CA45F2A8E70B200C89F79 /* ConstraintView+Extensions.swift in Sources */,
+				2CD9870B2A98FBCA00E5F54A /* GTA_NetworkStatusMonitor.swift in Sources */,
+				2CD9871C2A98FBCA00E5F54A /* ConstraintPriorityTarget.swift in Sources */,
 				2CDEBF032A82586500F976A3 /* GTAModes_DropBoxManager.swift in Sources */,
-				2C1CA43E2A8E70B200C89F79 /* UIImageView+SwiftyGif.swift in Sources */,
-				2C1CA4682A8E70B200C89F79 /* ConstraintMakerRelatable.swift in Sources */,
-				2C1CA42D2A8E70B200C89F79 /* GTA_ServicesManager.swift in Sources */,
-				2C1CA44C2A8E70B200C89F79 /* ConstraintMakerFinalizable.swift in Sources */,
-				2C1CA4392A8E70B200C89F79 /* GTA_NetworkStatusMonitor.swift in Sources */,
 				2C2A207B2A729267002A6D3C /* GTAModes_MainViewController.swift in Sources */,
+				2CD987332A98FBCA00E5F54A /* Constraint.swift in Sources */,
 				2C1CA4712A8E714F00C89F79 /* GTA_Configurations.swift in Sources */,
-				2C1CA4382A8E70B200C89F79 /* GTA_IAPHandler.swift in Sources */,
+				2CD987272A98FBCA00E5F54A /* ConstraintView.swift in Sources */,
+				2CD987352A98FBCA00E5F54A /* ConstraintRelatableTarget.swift in Sources */,
+				2CD987162A98FBCA00E5F54A /* ConstraintMultiplierTarget.swift in Sources */,
 				2C2A20C02A756AE0002A6D3C /* GSModel.swift in Sources */,
 				2C2A207F2A72927E002A6D3C /* GTAModes_MainModel.swift in Sources */,
+				2CD987372A98FBCA00E5F54A /* ConstraintLayoutGuide+Extensions.swift in Sources */,
+				2CD987062A98FBCA00E5F54A /* GTA_ServicesManager.swift in Sources */,
+				2CD987192A98FBCA00E5F54A /* ConstraintDescription.swift in Sources */,
+				2CD987282A98FBCA00E5F54A /* ConstraintLayoutGuide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10503,62 +10527,62 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2C1CA3B82A8E70B200C89F79 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2C1CA3B92A8E70B200C89F79 /* de */,
-				2C1CA3BA2A8E70B200C89F79 /* he */,
-				2C1CA3BB2A8E70B200C89F79 /* ar */,
-				2C1CA3BC2A8E70B200C89F79 /* el */,
-				2C1CA3BD2A8E70B200C89F79 /* zh-Hans */,
-				2C1CA3BE2A8E70B200C89F79 /* ja */,
-				2C1CA3BF2A8E70B200C89F79 /* en */,
-				2C1CA3C02A8E70B200C89F79 /* uk */,
-				2C1CA3C12A8E70B200C89F79 /* nb */,
-				2C1CA3C22A8E70B200C89F79 /* en-GB */,
-				2C1CA3C32A8E70B200C89F79 /* es */,
-				2C1CA3C42A8E70B200C89F79 /* sl */,
-				2C1CA3C52A8E70B200C89F79 /* da */,
-				2C1CA3C62A8E70B200C89F79 /* es-419 */,
-				2C1CA3C72A8E70B200C89F79 /* it */,
-				2C1CA3C82A8E70B200C89F79 /* sk */,
-				2C1CA3C92A8E70B200C89F79 /* fr-CA */,
-				2C1CA3CA2A8E70B200C89F79 /* sr */,
-				2C1CA3CB2A8E70B200C89F79 /* ms */,
-				2C1CA3CC2A8E70B200C89F79 /* sv */,
-				2C1CA3CD2A8E70B200C89F79 /* cs */,
-				2C1CA3CE2A8E70B200C89F79 /* ko */,
-				2C1CA3D02A8E70B200C89F79 /* zh-Hant */,
-				2C1CA3D12A8E70B200C89F79 /* hu */,
-				2C1CA3D22A8E70B200C89F79 /* en-AU */,
-				2C1CA3D32A8E70B200C89F79 /* tr */,
-				2C1CA3D42A8E70B200C89F79 /* pl */,
-				2C1CA3D52A8E70B200C89F79 /* pt-BR */,
-				2C1CA3D62A8E70B200C89F79 /* vi */,
-				2C1CA3D72A8E70B200C89F79 /* lv */,
-				2C1CA3D82A8E70B200C89F79 /* lt */,
-				2C1CA3D92A8E70B200C89F79 /* ru */,
-				2C1CA3DA2A8E70B200C89F79 /* fr */,
-				2C1CA3DB2A8E70B200C89F79 /* fi */,
-				2C1CA3DC2A8E70B200C89F79 /* id */,
-				2C1CA3DD2A8E70B200C89F79 /* nl */,
-				2C1CA3DE2A8E70B200C89F79 /* th */,
-				2C1CA3DF2A8E70B200C89F79 /* pt-PT */,
-				2C1CA3E02A8E70B200C89F79 /* ro */,
-				2C1CA3E12A8E70B200C89F79 /* hr */,
-				2C1CA3E22A8E70B200C89F79 /* hi */,
-				2C1CA3E32A8E70B200C89F79 /* ca */,
-				2C1CA3E42A8E70B200C89F79 /* en-IN */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		2C2A205B2A7170E3002A6D3C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2CBFE4472A77BE0200A50257 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2CD986D92A98FBCA00E5F54A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CD986DA2A98FBCA00E5F54A /* de */,
+				2CD986DB2A98FBCA00E5F54A /* he */,
+				2CD986DC2A98FBCA00E5F54A /* ar */,
+				2CD986DD2A98FBCA00E5F54A /* el */,
+				2CD986DE2A98FBCA00E5F54A /* zh-Hans */,
+				2CD986DF2A98FBCA00E5F54A /* ja */,
+				2CD986E02A98FBCA00E5F54A /* en */,
+				2CD986E12A98FBCA00E5F54A /* uk */,
+				2CD986E22A98FBCA00E5F54A /* nb */,
+				2CD986E32A98FBCA00E5F54A /* en-GB */,
+				2CD986E42A98FBCA00E5F54A /* es */,
+				2CD986E52A98FBCA00E5F54A /* sl */,
+				2CD986E62A98FBCA00E5F54A /* da */,
+				2CD986E72A98FBCA00E5F54A /* es-419 */,
+				2CD986E82A98FBCA00E5F54A /* it */,
+				2CD986E92A98FBCA00E5F54A /* sk */,
+				2CD986EA2A98FBCA00E5F54A /* fr-CA */,
+				2CD986EB2A98FBCA00E5F54A /* sr */,
+				2CD986EC2A98FBCA00E5F54A /* ms */,
+				2CD986ED2A98FBCA00E5F54A /* sv */,
+				2CD986EE2A98FBCA00E5F54A /* cs */,
+				2CD986EF2A98FBCA00E5F54A /* ko */,
+				2CD986F12A98FBCA00E5F54A /* zh-Hant */,
+				2CD986F22A98FBCA00E5F54A /* hu */,
+				2CD986F32A98FBCA00E5F54A /* en-AU */,
+				2CD986F42A98FBCA00E5F54A /* tr */,
+				2CD986F52A98FBCA00E5F54A /* pl */,
+				2CD986F62A98FBCA00E5F54A /* pt-BR */,
+				2CD986F72A98FBCA00E5F54A /* vi */,
+				2CD986F82A98FBCA00E5F54A /* lv */,
+				2CD986F92A98FBCA00E5F54A /* lt */,
+				2CD986FA2A98FBCA00E5F54A /* ru */,
+				2CD986FB2A98FBCA00E5F54A /* fr */,
+				2CD986FC2A98FBCA00E5F54A /* fi */,
+				2CD986FD2A98FBCA00E5F54A /* id */,
+				2CD986FE2A98FBCA00E5F54A /* nl */,
+				2CD986FF2A98FBCA00E5F54A /* th */,
+				2CD987002A98FBCA00E5F54A /* pt-PT */,
+				2CD987012A98FBCA00E5F54A /* ro */,
+				2CD987022A98FBCA00E5F54A /* hr */,
+				2CD987032A98FBCA00E5F54A /* hi */,
+				2CD987042A98FBCA00E5F54A /* ca */,
+				2CD987052A98FBCA00E5F54A /* en-IN */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

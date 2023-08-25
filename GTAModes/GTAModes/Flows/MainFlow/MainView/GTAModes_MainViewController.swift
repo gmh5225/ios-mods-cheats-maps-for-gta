@@ -139,7 +139,7 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    func showSub(_ premiumSub: gta_PremiumMainControllerStyle) {
+    func showSub(_ premiumSub: GTA_PremiumMainControllerStyle) {
         let withPremiumVC = GTA_PremiumMainController()
         withPremiumVC.modalPresentationStyle = .overFullScreen
         withPremiumVC.productBuy = premiumSub

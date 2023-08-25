@@ -10,6 +10,10 @@
 	<array>
 		<string>SFProText-Bold.ttf</string>
 		<string>Inter-Bold.ttf</string>
+		<string>Poppins-Medium.ttf</string>
+		<string>FontsFree-Net-SFProDisplay-Regular.ttf</string>
+		<string>SFProText-Bold.ttf</string>
+		<string>sub.ttf</string>
 		<string>Inter-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

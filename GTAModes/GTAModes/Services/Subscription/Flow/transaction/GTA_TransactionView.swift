@@ -13,122 +13,82 @@ protocol GTA_TransactionViewEvents : AnyObject {
 }
 
 class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol, GTA_NetworkStatusMonitorDelegate {
-    
+    func gta_showMess() {
+        gta_transactionTreatment_TOC(title: NSLocalizedString( "ConnectivityTitle", comment: ""), message: NSLocalizedString("ConnectivityDescription", comment: ""))
+    }
     
     
     private let xib = "GTA_TransactionView"
     
     @IBOutlet private var contentView: UIView!
-    
-    func gta_showMess() {
-        gta_transactionTreatment_TOC(title: NSLocalizedString( "ConnectivityTitle", comment: ""), message: NSLocalizedString("ConnectivityDescription", comment: ""))
-    }
-    
     @IBOutlet private(set) weak var title: UILabel!
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        gta_Init()
-    }
     @IBOutlet private weak var sliderStack: UIStackView!
-    
     @IBOutlet private weak var trialLb: UILabel!
-    
     @IBOutlet private weak var descriptLb: UILabel!
-    //
-    @IBOutlet private weak var trialWight: NSLayoutConstraint!
-    @IBOutlet private weak var sliderWight: NSLayoutConstraint!
     @IBOutlet private weak var purchaseBtn: GTA_AnimatedButton!
     @IBOutlet private weak var privacyBtn: UIButton!
     @IBOutlet private weak var policyBtn: UIButton!
-    
+    @IBOutlet private weak var trialWight: NSLayoutConstraint!
+    @IBOutlet private weak var sliderWight: NSLayoutConstraint!
     @IBOutlet private weak var sliderTop: NSLayoutConstraint!
     @IBOutlet private weak var conteinerWidth: NSLayoutConstraint!
     @IBOutlet private weak var heightView: NSLayoutConstraint!
     
     
-    private let currentFont = "SFProText-Bold"
+    private let currentFont = GTA_Configurations.fontName
     public let inapp = GTA_IAPManager.shared
     private let locale = NSLocale.current.languageCode
     public weak var delegate : GTA_TransactionViewEvents?
     private let networkingMonitor = GTA_NetworkStatusMonitor.shared
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        gta_Init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        gta_Init()
+    }
+    
     private func gta_Init() {
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         Bundle.main.loadNibNamed(xib, owner: self, options: nil)
         if UIDevice.current.userInterfaceIdiom == .phone {
             // Устройство является iPhone
             if UIScreen.main.nativeBounds.height >= 2436 {
                 heightView.constant = 163
             } else {
-                //                sliderTop.constant = 60
-                heightView.constant = 153
+//                sliderTop.constant = 60
+                heightView.constant = 152
             }
         } else {
             conteinerWidth.constant = 400
-            heightView.constant = 169
-            //            sliderTop.constant = 45
+            heightView.constant = 167
+//            sliderTop.constant = 45
         }
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         contentView.gta_fixInView(self)
         contentView.backgroundColor = .clear
         gta_buildConfigs_TOC()
     }
     
-    override init(frame: CGRect) {
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
-        super.init(frame: frame)
-        gta_Init()
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
-    }
-    
     private func gta_buildConfigs_TOC(){
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         gta_configScreen_TOC()
         gta_setSlider_TOC()
         gta_setConfigLabels_TOC()
         gta_setConfigButtons_TOC()
         gta_setLocalization_TOC()
         gta_configsInApp_TOC()
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
     }
     
     private func gta_setSlider_TOC(){
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
+        
         title.text = (localizedString(forKey: "SliderID1").uppercased())
-        var texts: [String] = ["\(localizedString(forKey: "SliderID2").uppercased())",
-                               "\(localizedString(forKey: "SliderID3").uppercased())",
-                               "\(localizedString(forKey: "SliderID4").uppercased())",
-        ]
+        var texts: [String] = ["\(localizedString(forKey: "SliderID2"))",
+                               "\(localizedString(forKey: "SliderID3"))",
+                               "\(localizedString(forKey: "SliderID4"))",
+                               ]
         for t in texts {
-            sliderStack.addArrangedSubview(GTA_SliderCellView(title: t, subTitle: t))
+            sliderStack.addArrangedSubview(GTA_SliderCellView(title: t, subTitle: t.lowercased()))
         }
     }
     
@@ -136,25 +96,15 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
     
     private func gta_setConfigLabels_TOC(){
         //slider
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         title.textColor = .white
-        title.font = UIFont(name: currentFont, size: 21)
-        //        title.adjustsFontSizeToFitWidth = true
+        title.font = UIFont(name: currentFont, size: 24)
+//        title.adjustsFontSizeToFitWidth = true
         title.numberOfLines = 4
         title.gta_setShadow()
         title.lineBreakMode = .byClipping
         if UIDevice.current.userInterfaceIdiom == .pad {
-            title.font = UIFont(name: currentFont, size: 21)
+            title.font = UIFont(name: currentFont, size: 24)
         }
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         trialLb.gta_setShadow()
         trialLb.font = UIFont(name: currentFont, size: 13)
         trialLb.textColor = .white
@@ -171,11 +121,7 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
         privacyBtn.titleLabel?.gta_setShadow()
         privacyBtn.titleLabel?.numberOfLines = 2
         privacyBtn.titleLabel?.textAlignment = .center
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
+        
         privacyBtn.setTitleColor(.white, for: .normal)
         privacyBtn.tintColor = .white
         
@@ -184,44 +130,27 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
         policyBtn.titleLabel?.textAlignment = .center
         policyBtn.setTitleColor(.white, for: .normal)
         policyBtn.tintColor = .white
+        privacyBtn.titleLabel?.font = UIFont(name: "Poppins-Medium", size: 12)
+        policyBtn.titleLabel?.font = UIFont(name: "Poppins-Medium", size: 12)
     }
     
     //MARK: config button
     
     private func gta_setConfigButtons_TOC(){
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
-        //
         self.purchaseBtn.delegate = self
-        //
         self.purchaseBtn.style = .native
-        // //
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.purchaseBtn.gta_setPulseAnimation()
-        }
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
     }
     
     //MARK: config localization
     
     public func gta_setLocalization_TOC() {
         
-        //        title.labelTextsForSlider = "\(localizedString(forKey: "SliderID1").uppercased())|n\(localizedString(forKey: "SliderID2").uppercased())|n\(localizedString(forKey: "SliderID3").uppercased()) |n\(localizedString(forKey: "SliderID4").uppercased()) |n\(localizedString(forKey: "SliderID5").uppercased())"
+//        title.labelTextsForSlider = "\(localizedString(forKey: "SliderID1").uppercased())|n\(localizedString(forKey: "SliderID2").uppercased())|n\(localizedString(forKey: "SliderID3").uppercased()) |n\(localizedString(forKey: "SliderID4").uppercased()) |n\(localizedString(forKey: "SliderID5").uppercased())"
         
         let description = localizedString(forKey: "iOSAfterID")
         let localizedPrice = inapp.gta_localizedPrice()
         descriptLb.text = String(format: description, localizedPrice)
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
+        
         if locale == "en" {
             trialLb.text = "Start 3-days for FREE\n Then \(localizedPrice)/week".uppercased()
         } else {
@@ -230,22 +159,12 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
         privacyBtn.titleLabel?.lineBreakMode = .byWordWrapping
         privacyBtn.setAttributedTitle(localizedString(forKey: "TermsID").underLined, for: .normal)
         policyBtn.titleLabel?.lineBreakMode = .byWordWrapping
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         policyBtn.setAttributedTitle(localizedString(forKey: "PrivacyID").underLined, for: .normal)
     }
     
     //MARK: screen configs
     
     private func gta_configScreen_TOC(){
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         if UIDevice.current.userInterfaceIdiom == .pad {
             trialWight.setValue(0.28, forKey: "multiplier")
             sliderWight.setValue(0.5, forKey: "multiplier")
@@ -253,129 +172,56 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
             trialWight.setValue(0.46, forKey: "multiplier")
             sliderWight.setValue(0.8, forKey: "multiplier")
         }
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
     }
     
     //MARK: configs
     
     private func gta_configsInApp_TOC(){
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         self.inapp.transactionsDelegate = self
         self.networkingMonitor.delegate = self
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
     }
     
     public func gta_restoreAction(){
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         inapp.gta_doRestore()
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
     }
     
     //MARK: actions
     
     @IBAction func gta_privacyAction(_ sender: UIButton) {
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
+        
         self.delegate?.gta_termsOpen()
     }
     
-    
+    @IBAction func gta_termsAction(_ sender: UIButton) {
+        self.delegate?.gta_privacyOpen()
+    }
     
     func gta_onClick() {
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         UIApplication.shared.gta_impactFeedbackGenerator(type: .heavy)
         networkingMonitor.gta_startMonitoring()
         inapp.gta_doPurchase()
         purchaseBtn.isUserInteractionEnabled = false
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
-    }
-    
-    @IBAction func gta_termsAction(_ sender: UIButton) {
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
-        self.delegate?.gta_privacyOpen()
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
     }
     
     //inapp
     
     func gta_transactionTreatment_TOC(title: String, message: String) {
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         purchaseBtn.isUserInteractionEnabled = true
         self.delegate?.gta_transactionTreatment_TOC(title: title, message: message)
     }
     
     func gta_infoAlert(title: String, message: String) {
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         purchaseBtn.isUserInteractionEnabled = true
         self.delegate?.gta_transactionTreatment_TOC(title: title, message: message)
     }
     
-    func gta_failed() {
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
-        purchaseBtn.isUserInteractionEnabled = true
-        self.delegate?.gta_transactionFailed()
-    }
-    
     func gta_goToTheApp() {
-        //
-        if 2 + 2 == 5 {
-            print("it is trash")
-        }
-        //
         purchaseBtn.isUserInteractionEnabled = true
         self.delegate?.gta_userSubscribed()
     }
     
-    
+    func gta_failed() {
+        purchaseBtn.isUserInteractionEnabled = true
+        self.delegate?.gta_transactionFailed()
+    }
 }
