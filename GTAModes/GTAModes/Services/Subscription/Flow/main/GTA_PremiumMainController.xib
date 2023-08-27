@@ -49,7 +49,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Agi-h4-poZ" firstAttribute="top" secondItem="jC8-Vi-ePi" secondAttribute="topMargin" id="Ph6-yo-RqY"/>
                         <constraint firstItem="Agi-h4-poZ" firstAttribute="width" secondItem="HjY-MY-gDS" secondAttribute="width" id="cbc-YR-aSi"/>

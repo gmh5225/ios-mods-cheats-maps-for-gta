@@ -64,7 +64,8 @@ class GTA_SliderCellView: UIView {
 //            make.height.equalTo(50)
             make.width.equalTo(starIcon.snp.height)
             make.leading.equalToSuperview()
-            make.top.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(8)
+            make.bottom.equalToSuperview().offset(-8)
         }
         stackView.snp.remakeConstraints { make in
             make.trailing.top.bottom.equalToSuperview()
