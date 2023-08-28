@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,6 +24,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3f-jS-63F">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jC8-Vi-ePi">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -49,7 +49,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Agi-h4-poZ" firstAttribute="top" secondItem="jC8-Vi-ePi" secondAttribute="topMargin" id="Ph6-yo-RqY"/>
                         <constraint firstItem="Agi-h4-poZ" firstAttribute="width" secondItem="HjY-MY-gDS" secondAttribute="width" id="cbc-YR-aSi"/>
@@ -61,7 +61,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jC8-Vi-ePi" secondAttribute="trailing" id="I3D-w8-H7f"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="S3f-jS-63F" secondAttribute="trailing" id="JGg-Mz-rbR"/>
@@ -77,8 +77,5 @@
     </objects>
     <resources>
         <image name="close_btn" width="24" height="24"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

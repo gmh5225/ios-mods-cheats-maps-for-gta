@@ -4853,7 +4853,6 @@
 		2CB88FE42A90D174006B9301 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 		2CB88FE62A90D188006B9301 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		2CB88FE82A90D19E006B9301 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		2CBFE4442A77BDD400A50257 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2CBFE4472A77BE0200A50257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CBFE44B2A77CEDA00A50257 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		2CBFE44C2A77CEDA00A50257 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
@@ -5083,7 +5082,6 @@
 				2C2A205E2A7170E3002A6D3C /* Info.plist */,
 				2C2A20592A7170E3002A6D3C /* Assets.xcassets */,
 				2C2A205B2A7170E3002A6D3C /* LaunchScreen.storyboard */,
-				2CBFE4442A77BDD400A50257 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

@@ -78,7 +78,7 @@ class GTA_PremiumMainController: UIViewController {
         }
 
        let player = Player()
-        player.muted = true
+//        player.muted = true
         player.playerDelegate = self
         player.playbackDelegate = self
         player.view.frame = self.view.bounds
