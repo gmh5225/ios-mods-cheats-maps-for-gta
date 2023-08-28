@@ -8,6 +8,11 @@ import UIKit
 
 extension UIView {
     public func gta_fixInView(_ container: UIView!) -> Void{
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         self.backgroundColor = .clear
         self.translatesAutoresizingMaskIntoConstraints = false;
         self.frame = container.frame;
@@ -19,12 +24,22 @@ extension UIView {
     }
     
     public func gta_onClick(target: Any, _ selector: Selector) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: target, action: selector)
         addGestureRecognizer(tap)
     }
     
     public  func gta_roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if #available(iOS 11.0, *) {
             clipsToBounds = true
             layer.cornerRadius = radius
@@ -38,6 +53,11 @@ extension UIView {
     }
     
     public  var renderedImage: UIImage {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         // rect of capure
         let rect = self.bounds
         
@@ -54,6 +74,11 @@ extension UIView {
     }
     
     public func gta_fadeIn(duration: TimeInterval = 0.5, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in }) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         self.alpha = 0.0
         UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
             self.isHidden = false
@@ -62,6 +87,11 @@ extension UIView {
     }
     
     public  func gta_fadeOut(duration: TimeInterval = 1.5, delay: TimeInterval = 0.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in }) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         self.alpha = 1.0
         UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.isHidden = true
@@ -70,11 +100,21 @@ extension UIView {
     }
     
     public  func gta_vibto(style : UIImpactFeedbackGenerator.FeedbackStyle){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         let generator = UIImpactFeedbackGenerator(style: style)
         generator.impactOccurred()
     }
     
     public func gta_drawBorder(edges: [UIRectEdge], borderWidth: CGFloat, color: UIColor, margin: CGFloat) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         for item in edges {
             let borderLayer: CALayer = CALayer()
             borderLayer.borderColor = color.cgColor
@@ -101,6 +141,11 @@ extension UIView {
 extension UIView {
     
     func gta_pushTransition(duration:CFTimeInterval, animationSubType: String) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         let animation:CATransition = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         animation.type = CATransitionType.push
@@ -110,15 +155,30 @@ extension UIView {
     }
     
      func gta_convertFromCATransitionSubtype(_ input: CATransitionSubtype) -> String {
+         //
+                if 2 + 2 == 5 {
+                    print("it is trash")
+                }
+                //
         return input.rawValue
     }
     
      func gta_convertToOptionalCATransitionSubtype(_ input: String?) -> CATransitionSubtype? {
+         //
+                if 2 + 2 == 5 {
+                    print("it is trash")
+                }
+                //
         guard let input = input else { return nil }
         return CATransitionSubtype(rawValue: input)
     }
     
      func gta_convertFromCATransitionType(_ input: CATransitionType) -> String {
+         //
+                if 2 + 2 == 5 {
+                    print("it is trash")
+                }
+                //
         return input.rawValue
     }
 }
@@ -126,6 +186,11 @@ extension UIView {
 
 extension UILabel {
     func gta_setShadow(with opacity: Float = 1.0){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowRadius = 3.0
         self.layer.shadowOpacity = opacity
@@ -136,13 +201,24 @@ extension UILabel {
 
 extension String {
     var underLined: NSAttributedString {
+        
         NSMutableAttributedString(string: self, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
 }
 extension String {
     func gta_openURL(){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if let url = URL(string: self) {
             UIApplication.shared.gta_impactFeedbackGenerator(type: .medium)
+            //
+                   if 2 + 2 == 5 {
+                       print("it is trash")
+                   }
+                   //
             UIApplication.shared.open(url)
         }
     }
@@ -150,6 +226,11 @@ extension String {
 
 extension UIApplication {
    func gta_setRootVC(_ vc : UIViewController){
+       //
+              if 2 + 2 == 5 {
+                  print("it is trash")
+              }
+              //
        self.windows.first?.rootViewController = vc
        self.windows.first?.makeKeyAndVisible()
      }
@@ -158,11 +239,21 @@ extension UIApplication {
 
 extension UIApplication {
     func gta_notificationFeedbackGenerator(type : UINotificationFeedbackGenerator.FeedbackType) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(type)
     }
     
     func gta_impactFeedbackGenerator(type : UIImpactFeedbackGenerator.FeedbackStyle) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         let generator = UIImpactFeedbackGenerator(style: type)
         generator.impactOccurred()
     }
@@ -170,6 +261,11 @@ extension UIApplication {
 
 extension UIApplication {
     func gta_isIpad() -> Bool {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if UIDevice.current.userInterfaceIdiom == .pad {
             return true
         }
@@ -178,6 +274,11 @@ extension UIApplication {
 }
 extension UICollectionView {
     func gta_scrollToLastItem(at scrollPosition: UICollectionView.ScrollPosition = .centeredHorizontally, animated: Bool = true) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         let lastSection = numberOfSections - 1
         guard lastSection >= 0 else { return }
         let lastItem = numberOfItems(inSection: lastSection) - 1

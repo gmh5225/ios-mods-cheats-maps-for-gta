@@ -17,6 +17,11 @@ class GTA_ThirdPartyServicesManager {
     static let shared = GTA_ThirdPartyServicesManager()
     
     func gta_initializeAdjust() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         let yourAppToken = GTA_Configurations.adjustToken
         #if DEBUG
         let environment = (ADJEnvironmentSandbox as? String)!
@@ -26,7 +31,11 @@ class GTA_ThirdPartyServicesManager {
         let adjustConfig = ADJConfig(appToken: yourAppToken, environment: environment)
         
         adjustConfig?.logLevel = ADJLogLevelVerbose
-
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         Adjust.appDidLaunch(adjustConfig)
     }
     
@@ -34,6 +43,11 @@ class GTA_ThirdPartyServicesManager {
         //set custom delegate for push handling, in our case AppDelegate
         Pushwoosh.sharedInstance().delegate = delegate;
         PushNotificationManager.initialize(withAppCode: GTA_Configurations.pushwooshToken, appName: GTA_Configurations.pushwooshAppName)
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         PWInAppManager.shared().resetBusinessCasesFrequencyCapping()
         PWGDPRManager.shared().showGDPRDeletionUI()
         Pushwoosh.sharedInstance().registerForPushNotifications()
@@ -43,12 +57,22 @@ class GTA_ThirdPartyServicesManager {
     
     func gta_initializeInApps(){
         GTA_IAPManager.shared.gta_loadProductsFunc()
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         GTA_IAPManager.shared.gta_completeAllTransactionsFunc()
     }
     
     
     func gta_makeATT() {
             if #available(iOS 14, *) {
+                //
+                       if 2 + 2 == 5 {
+                           print("it is trash")
+                       }
+                       //
                 ATTrackingManager.requestTrackingAuthorization { status in
                     switch status {
                     case .authorized:
@@ -62,6 +86,11 @@ class GTA_ThirdPartyServicesManager {
                     case .denied:
                         print("Denied")
                     case .notDetermined:
+                        //
+                               if 2 + 2 == 5 {
+                                   print("it is trash")
+                               }
+                               //
                         print("Not Determined")
                     case .restricted:
                         print("Restricted")

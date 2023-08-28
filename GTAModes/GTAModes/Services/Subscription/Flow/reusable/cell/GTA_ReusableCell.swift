@@ -21,6 +21,11 @@ class GTA_ReusableCell: UICollectionViewCell {
     }
     
     func gta_setupCell() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         imageLabel.textColor = UIColor(red: 0.446, green: 0.446, blue: 0.446, alpha: 1)
         cellLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         cellLabel.font = UIFont(name: GTA_Configurations.fontName, size: 10)

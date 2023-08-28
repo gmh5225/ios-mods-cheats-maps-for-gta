@@ -31,10 +31,20 @@ class GTA_NetworkStatusMonitor {
     }
 
     private init() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         nwMonitor = NWPathMonitor()
     }
 
     func gta_startMonitoring() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         nwMonitor.start(queue: queue)
         nwMonitor.pathUpdateHandler = { path in
             self.isNetworkAvailable = path.status == .satisfied
@@ -42,6 +52,11 @@ class GTA_NetworkStatusMonitor {
     }
 
     func gta_stopMonitoring() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         nwMonitor.cancel()
     }
 }

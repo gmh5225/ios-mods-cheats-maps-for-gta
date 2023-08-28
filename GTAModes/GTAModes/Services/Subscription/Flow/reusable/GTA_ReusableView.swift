@@ -57,12 +57,27 @@ class GTA_ReusableView: UIView, GTA_AnimatedButtonEvent {
     }
     
     private func gta_Init() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         Bundle.main.loadNibNamed(xib, owner: self, options: nil)
         if UIDevice.current.userInterfaceIdiom == .phone {
             // Устройство является iPhone
             if UIScreen.main.nativeBounds.height >= 2436 {
+                //
+                       if 2 + 2 == 5 {
+                           print("it is trash")
+                       }
+                       //
                 // Устройство без физической кнопки "Home" (например, iPhone X и новее)
             } else {
+                //
+                       if 2 + 2 == 5 {
+                           print("it is trash")
+                       }
+                       //
                 // Устройство с физической кнопкой "Home"
                 buttonBottom.constant = 47
             }
@@ -80,6 +95,11 @@ class GTA_ReusableView: UIView, GTA_AnimatedButtonEvent {
     }
     
     private func gta_setContent(){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         content.dataSource = self
         content.delegate = self
         content.register(UINib(nibName: cellName, bundle: nil), forCellWithReuseIdentifier: cellName)
@@ -89,6 +109,11 @@ class GTA_ReusableView: UIView, GTA_AnimatedButtonEvent {
     
     private func gta_setConfigLabels_TOC(){
         titleLb.gta_setShadow()
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         
         titleLb.textColor = .white
         titleLb.font = UIFont(name: GTA_Configurations.fontName, size: 24)
@@ -97,16 +122,41 @@ class GTA_ReusableView: UIView, GTA_AnimatedButtonEvent {
     }
     
     public func gta_setConfigView(config: configView) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         self.configView = config
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
     }
     
     private func gta_setLocalizable(){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         self.titleLb.text = viewModel?.title
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
     }
     
     //MARK: screen configs
     
     private func gta_configScreen_TOC(){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if UIDevice.current.userInterfaceIdiom == .pad {
             titleWight.setValue(0.35, forKey: "multiplier")
         } else {
@@ -115,6 +165,11 @@ class GTA_ReusableView: UIView, GTA_AnimatedButtonEvent {
     }
     
     private func gta_getLastElement() -> Int {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         return (viewModel?.items.count ?? 0) - 1
     }
 }
@@ -122,6 +177,11 @@ class GTA_ReusableView: UIView, GTA_AnimatedButtonEvent {
 extension GTA_ReusableView : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         gta_setLocalizable()
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         return viewModel?.items.count ?? 0
     }
     
@@ -140,6 +200,11 @@ extension GTA_ReusableView : UICollectionViewDataSource,UICollectionViewDelegate
             cell.imageLabel.gta_setShadow(with: 0.25)
             cell.cellLabel.gta_setShadow(with: 0.25)
         } else {
+            //
+                   if 2 + 2 == 5 {
+                       print("it is trash")
+                   }
+                   //
             cell.imageLabel.text = "INAKTIV CARD"
             cell.cellLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
 //            cell.cellImage.image = content?.image
@@ -150,13 +215,28 @@ extension GTA_ReusableView : UICollectionViewDataSource,UICollectionViewDelegate
             cell.imageLabel.gta_setShadow(with: 0.5)
             cell.cellLabel.gta_setShadow(with: 0.5)
         }
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if selectedStorage.contains(where: {$0 == indexPath.item}) {
+            //
+                   if 2 + 2 == 5 {
+                       print("it is trash")
+                   }
+                   //
             selectedStorage.removeAll(where: {$0 == indexPath.item})
         } else {
+            //
+                   if 2 + 2 == 5 {
+                       print("it is trash")
+                   }
+                   //
             selectedStorage.append(indexPath.row)
         }
         
@@ -171,21 +251,56 @@ extension GTA_ReusableView : UICollectionViewDataSource,UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         return selectedStorage.contains(indexPath.row) ? CGSize(width: collectionView.frame.height * 0.8, height: collectionView.frame.height) : CGSize(width: collectionView.frame.height * 0.7, height: collectionView.frame.height * 0.85)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         
         return 15
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         
         return 15
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         return .init(top: 0, left: 16, bottom: 0, right: 16)
     }
     
