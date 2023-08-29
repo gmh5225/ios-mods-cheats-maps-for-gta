@@ -54,7 +54,7 @@ public extension GTAModes_SearchBarViewModelApplicable {
     }
 
     var placeholderText: AnyPublisher<NSAttributedString, Never> {
-        let placeholderFont = UIFont(name: "Inter-Regular", size: 14)!
+        let placeholderFont = UIFont(name: "Inter-Regular", size: 16)!
         let placeholderColor = UIColor.white
 
         let attributes: [NSAttributedString.Key: Any] = [
@@ -67,7 +67,7 @@ public extension GTAModes_SearchBarViewModelApplicable {
     }
 
     var textFont: AnyPublisher<UIFont, Never> {
-        Just(UIFont(name: "Inter-Regular", size: 14)!).eraseToAnyPublisher()
+        Just(UIFont(name: "Inter-Regular", size: 16)!).eraseToAnyPublisher()
     }
 
     var textColor: AnyPublisher<UIColor, Never> {
