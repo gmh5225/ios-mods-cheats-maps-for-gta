@@ -11,27 +11,8 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
     private let tableView = UITableView(frame: .zero)
     //
     var alert: UIAlertController?
-    
-    var mapIsLock: Bool = false
-    var modeIsLock: Bool = false
-    
-    private func gta_checkSub() {
-        //
-               if 2 + 2 == 5 {
-                   print("it is trash")
-               }
-               //
-        GTA_IAPManager.shared.gta_validateSubscriptions(
-            productIdentifiers: [
-                GTA_Configurations.unlockFuncSubscriptionID,
-                GTA_Configurations.unlockContentSubscriptionID
-            ]) { [weak self] results in
 
-                self?.mapIsLock = results[GTA_Configurations.unlockFuncSubscriptionID] ?? false
-                self?.modeIsLock = results[GTA_Configurations.unlockContentSubscriptionID] ?? false
-                self?.tableView.reloadData()
-            }
-    }
+    private let defaults = UserDefaults.standard
     
     private func gta_setupView() {
         //
@@ -98,7 +79,6 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
                }
                //
         
-        gta_checkSub()
         if model.menuItems.isEmpty {
             gta_showSpiner()
         }
@@ -135,13 +115,18 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_MainTableViewCell = tableView.dequeueReusableCell(indexPath)
-        if indexPath.row == 2 {
-            cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: !mapIsLock)
-        } else if indexPath.row == 3 {
-            cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: !modeIsLock)
-        } else {
-            cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
+        if let isMapLock = defaults.value(forKey: "isMapLock") as? Bool,
+           let isModeLock = defaults.value(forKey: "isModesLock") as? Bool {
+            
+            if indexPath.row == 2 {
+                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: !isMapLock)
+            } else if indexPath.row == 3 {
+                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: !isModeLock)
+            } else {
+                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
+            }
         }
+
         
         cell.backgroundColor = .clear
         //
@@ -172,21 +157,40 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
                    print("it is trash")
                }
                //
-        if indexPath.row == 2 {
-            if mapIsLock {
-                model.gta_selectedItems(index: indexPath.row)
+        
+        if let isMapLock = defaults.value(forKey: "isMapLock") as? Bool,
+           let isModeLock = defaults.value(forKey: "isModesLock") as? Bool {
+            if indexPath.row == 2 {
+                if isMapLock {
+                    model.gta_selectedItems(index: indexPath.row)
+                } else {
+                    showSub(.unlockFuncProduct)
+                }
+            } else if indexPath.row == 3 {
+                if isModeLock {
+                    model.gta_selectedItems(index: indexPath.row)
+                } else {
+                    showSub(.unlockContentProduct)
+                }
             } else {
-                showSub(.unlockFuncProduct)
-            }
-        } else if indexPath.row == 3 {
-            if modeIsLock {
                 model.gta_selectedItems(index: indexPath.row)
-            } else {
-                showSub(.unlockContentProduct)
             }
-        } else {
-            model.gta_selectedItems(index: indexPath.row)
         }
+//        if indexPath.row == 2 {
+//            if mapIsLock {
+//                model.gta_selectedItems(index: indexPath.row)
+//            } else {
+//                showSub(.unlockFuncProduct)
+//            }
+//        } else if indexPath.row == 3 {
+//            if modeIsLock {
+//                model.gta_selectedItems(index: indexPath.row)
+//            } else {
+//                showSub(.unlockContentProduct)
+//            }
+//        } else {
+//            model.gta_selectedItems(index: indexPath.row)
+//        }
     }
     
     func showSub(_ premiumSub: GTA_PremiumMainControllerStyle) {
@@ -212,7 +216,6 @@ extension GTAModes_MainViewController: GTA_PremiumMainControllerDelegate_MEX {
                    print("it is trash")
                }
                //
-        gta_checkSub()
         //
                if 2 + 2 == 5 {
                    print("it is trash")

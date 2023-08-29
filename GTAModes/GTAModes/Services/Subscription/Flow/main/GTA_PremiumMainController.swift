@@ -25,6 +25,7 @@ class GTA_PremiumMainController: UIViewController {
     
     public var productBuy : GTA_PremiumMainControllerStyle = .mainProduct
     weak var delegate: GTA_PremiumMainControllerDelegate_MEX?
+    private let defaults = UserDefaults.standard
 
     private var intScreenStatus = 0
     
@@ -291,13 +292,29 @@ class GTA_PremiumMainController: UIViewController {
         if productBuy == .mainProduct {
             gta_openMainFlow()
             gta_deinitPlayer()
-            
         } else {
-            delegate?.gta_funcProductBuyed()
-            dismiss(animated: true)
-            
-            
+            gta_checkSub { [ weak self] in
+                self?.delegate?.gta_funcProductBuyed()
+                self?.dismiss(animated: true)
+            }
         }
+            
+    }
+    
+    private func gta_checkSub(completion: @escaping () -> (Void)) {
+        GTA_IAPManager.shared.gta_validateSubscriptions(
+            productIdentifiers: [
+                GTA_Configurations.unlockFuncSubscriptionID,
+                GTA_Configurations.unlockContentSubscriptionID
+            ]) { [weak self] results in
+
+                let isMapLock = results[GTA_Configurations.unlockFuncSubscriptionID] ?? false
+                let isModeIsLock = results[GTA_Configurations.unlockContentSubscriptionID] ?? false
+                
+                self?.defaults.set(isMapLock, forKey: "isMapLock")
+                self?.defaults.set(isModeIsLock, forKey: "isModesLock")
+                completion()
+            }
     }
     
     private func gta_openMainFlow() {

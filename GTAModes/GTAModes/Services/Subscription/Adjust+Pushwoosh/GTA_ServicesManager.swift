@@ -15,7 +15,7 @@ import AdSupport
 class GTA_ThirdPartyServicesManager {
     
     static let shared = GTA_ThirdPartyServicesManager()
-    
+    private let defaults = UserDefaults.standard
     func gta_initializeAdjust() {
         //
                if 2 + 2 == 5 {
@@ -63,6 +63,18 @@ class GTA_ThirdPartyServicesManager {
                }
                //
         GTA_IAPManager.shared.gta_completeAllTransactionsFunc()
+        GTA_IAPManager.shared.gta_validateSubscriptions(
+            productIdentifiers: [
+                GTA_Configurations.unlockFuncSubscriptionID,
+                GTA_Configurations.unlockContentSubscriptionID
+            ]) { [weak self] results in
+
+                let isMapLock = results[GTA_Configurations.unlockFuncSubscriptionID] ?? false
+                let isModeIsLock = results[GTA_Configurations.unlockContentSubscriptionID] ?? false
+                
+                self?.defaults.set(isMapLock, forKey: "isMapLock")
+                self?.defaults.set(isModeIsLock, forKey: "isModesLock")
+            }
     }
     
     
