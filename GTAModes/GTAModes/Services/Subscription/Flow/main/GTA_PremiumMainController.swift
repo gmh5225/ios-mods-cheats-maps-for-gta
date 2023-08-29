@@ -203,7 +203,7 @@ class GTA_PremiumMainController: UIViewController {
     
     private func gta_setRestoreBtn(){
         self.restoreBtn.isHidden = true
-        self.restoreBtn.titleLabel?.font = UIFont(name: "SFProDisplay-Regular", size: 12)
+        self.restoreBtn.titleLabel?.font = UIFont(name: "SFProDisplay-Regular", size: 15)
         self.restoreBtn.setTitle(localizedString(forKey: "restore"), for: .normal)
         self.restoreBtn.titleLabel?.gta_setShadow()
         self.restoreBtn.tintColor = .white

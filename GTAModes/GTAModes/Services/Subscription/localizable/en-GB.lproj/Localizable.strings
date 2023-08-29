@@ -7,61 +7,59 @@
 */
 
 /**/
-"iOSAfterID"="* This trial automatically renews into a paid subscription and will continue to automatically renew until you cancel. * You need to be subscribed to use this app. No free content. * Subscription payments will be charged to your iTunes account at confirmation of your purchase. * Subscriptions will automatically renew and payment will be charged to your iTunes account unless auto-renew is turned off at least 24 hours prior to the end of the current period. The cost of the renewal depends on your Subscription Plan. Our standard Subscription Plans are: * 1-week Subscription (%@) For other currencies, the price corresponds to the same price tier on the App Store Pricing Matrix. * Subscription with a free trial period will automatically renew to a paid subscription. You can cancel or manage your free trial’s auto-renewal in your Account Settings after purchase. The cancellation will take effect 24-hours after the last day of the current subscription period and you will be downgraded to the free service. * Please note: any unused portion of a free trial period of 3 days(if offered) will be forfeited when you purchase a premium subscription during the free trial period. Please, for more information see our Privacy Policy and Terms of Use.";
+"iOSAfterID" = "* This trial automatically renews into a paid subscription and will continue to automatically renew until you cancel. * You need to be subscribed to use this app. No free content. * Subscription payments will be charged to your iTunes account at confirmation of your purchase. * Subscriptions will automatically renew and payment will be charged to your iTunes account unless auto-renew is turned off at least 24 hours prior to the end of the current period. The cost of the renewal depends on your Subscription Plan. Our standard Subscription Plans are: * 1-week Subscription (%@) For other currencies, the price corresponds to the same price tier on the App Store Pricing Matrix. * Subscription with a free trial period will automatically renew to a paid subscription. You can cancel or manage your free trial’s auto-renewal in your Account Settings after purchase. The cancellation will take effect 24-hours after the last day of the current subscription period and you will be downgraded to the free service. * Please note: any unused portion of a free trial period of 3 days(if offered) will be forfeited when you purchase a premium subscription during the free trial period. Please, for more information see our Privacy Policy and Terms of Use.";
 /**/
-"iOSButtonID"="CONTINUE";
+"iOSButtonID" = "CONTINUE";
 /**/
-"iOSStart3daysTitleID"="START 3-DAYS FOR FREE THEN $4.99/WEEK";
+"iOSStart3daysTitleID" = "START 3-DAYS FOR FREE \nTHEN $4.99/WEEK";
 
 /**/
-"LoadingID"="LOADING";
+"LoadingID" = "LOADING";
 
 /**/
-"PrivacyID"="Privacy Policy";
+"PrivacyID" = "Privacy Policy";
 
 /**/
-"restore"="Restore";
+"restore" = "Restore";
 
 /**/
-"TermsID"="Terms of Use";
+"TermsID" = "Terms of Use";
 
 /**/
-"SliderID1"="GET FIERCE DEITY ARMOR LOCATION";
+"SliderID1" = "TEXT TEXT TEXT TEXT TEXT TEXT TEXT";
 /**/
-"SliderID2"="FIND 5 ABILITIES OF THE SAGES AND KOROK FOREST";
+"SliderID2" = "TEXT TEXT TEXT TEXT TEXT TEXT";
 /**/
-"SliderID3"="ALL CAVES AND WELLS ON THE MAP";
+"SliderID3" = "TEXT TEXT TEXT TEXT TEXT TEXT";
 /**/
-"SliderID4"="ALL 152 SHRINES ON THE INTERACTIVE MAP";
+"SliderID4" = "TEXT TEXT TEXT TEXT TEXT TEXT";
 /**/
-"SliderID5"="COLLECT ALL ARMOR SETS BY LOCATIONS";
+"SliderID5" = "COLLECT ALL ARMOR SETS BY LOCATIONS";
 
 /**/
-"TextTitle1ID"="CHOOSE YOUR ARMOR SET";
+"TextTitle1ID" = "TEXT TEXT TEXT TEXT TEXT TEXT TEXT";
 
 /**/
-"TextTitle2ID"="CHOOSE THE DESIRED ABILITY";
+"TextTitle2ID" = "TEXT TEXT TEXT TEXT TEXT TEXT TEXT";
 
 /**/
-"Text1ID"="Amiibo ability";
+"Text1ID" = "Card Name";
 
 /**/
-"Text2ID"="Fuse ability";
+"Text2ID" = "Card Name";
 
 /**/
-"Text3ID"="Ascend ability";
+"Text3ID" = "Card Name";
 
 /**/
-"Text4ID"="Recall ability";
+"Text4ID" = "Card Name";
 
 /**/
-"Text5ID"="Camera ability";
+"Text5ID" = "Card Name";
 
 /**/
 
-"ConnectivityTitle"="Connectivity Issue";
-"ConnectivityDescription"="Internet connection appears to be offline ☹️";
-
-
+"ConnectivityTitle" = "Connectivity Issue";
+"ConnectivityDescription" = "Internet connection appears to be offline ☹️";
 
 
