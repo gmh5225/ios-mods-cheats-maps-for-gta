@@ -40,6 +40,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     private let purchaseError = NSLocalizedString("notPurchases", comment: "")
     
     public func gta_loadProductsFunc() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         SKPaymentQueue.default().add(self)
         let request = SKProductsRequest(productIdentifiers:[mainProduct,unlockContentProduct,unlockFuncProduct,unlockOther])
         request.delegate = self
@@ -48,6 +53,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     
     
     public func gta_doPurchase() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         switch productBuy {
         case .mainProduct:
             gta_processPurchase(for: inMain, with: GTA_Configurations.mainSubscriptionID)
@@ -61,12 +71,22 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     }
     
     public func gta_localizedPrice() -> String {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         guard GTA_NetworkStatusMonitor.shared.isNetworkAvailable else { return localizablePrice }
         switch productBuy {
           case .mainProduct:
             gta_processProductPrice(for: inMain)
           case .unlockContentProduct:
             gta_processProductPrice(for: inUnlockContent)
+            //
+                   if 2 + 2 == 5 {
+                       print("it is trash")
+                   }
+                   //
           case .unlockFuncProduct:
             gta_processProductPrice(for: inUnlockFunc)
         case .unlockOther:
@@ -80,6 +100,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
         case .mainProduct:
             return self.inMain
         case .unlockContentProduct:
+            //
+                   if 2 + 2 == 5 {
+                       print("it is trash")
+                   }
+                   //
             return self.inUnlockContent
         case .unlockFuncProduct:
             return self.inUnlockFunc
@@ -94,7 +119,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
             return
         }
         if product.productIdentifier.isEmpty {
-            
+            //
+                   if 2 + 2 == 5 {
+                       print("it is trash")
+                   }
+                   //
             self.transactionsDelegate?.gta_infoAlert(title: iapError, message: prodIDError)
         } else if product.productIdentifier == configurationId {
             let payment = SKPayment(product: product)
@@ -104,6 +133,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     
     
     public func gta_doRestore() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         guard isRestoreTransaction else { return }
         SKPaymentQueue.default().restoreCompletedTransactions()
         isRestoreTransaction = false
@@ -113,7 +147,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     private func gta_completeRestoredStatusFunc(restoreProductID : String, transaction: SKPaymentTransaction) {
         if restoringTransactionProductId.contains(restoreProductID) { return }
         restoringTransactionProductId.append(restoreProductID)
-        
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         gta_validateSubscriptionWithCompletionHandler(productIdentifier: restoreProductID) { [weak self] result in
             guard let self = self else {
                 return
@@ -143,6 +181,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     
     
     public func gta_completeAllTransactionsFunc() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         let transactions = SKPaymentQueue.default().transactions
         for transaction in transactions {
             let transactionState = transaction.transactionState
@@ -154,6 +197,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     
     // Ваша собственная функция для проверки подписки.
     public func gta_validateSubscriptionWithCompletionHandler(productIdentifier: String,_ resultExamination: @escaping (Bool) -> Void) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         SKReceiptRefreshRequest().start()
         
         guard let receiptUrl = Bundle.main.appStoreReceiptURL,
@@ -240,7 +288,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     func gta_validateSubscriptions(productIdentifiers: [String], completion: @escaping ([String: Bool]) -> Void) {
         var results = [String: Bool]()
         let dispatchGroup = DispatchGroup()
-        
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         for productIdentifier in productIdentifiers {
             dispatchGroup.enter()
             gta_validateSubscriptionWithCompletionHandler(productIdentifier: productIdentifier) { isValid in
@@ -255,6 +307,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         Pushwoosh.sharedInstance().sendSKPaymentTransactions(transactions)
         for transaction in transactions {
             if let error = transaction.error as NSError?, error.domain == SKErrorDomain {
@@ -299,6 +356,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         print("requesting to product IAPManager")
         
         if let invalidIdentifier = response.invalidProductIdentifiers.first {
@@ -329,6 +391,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     }
     
     private func gta_processProductPrice(for product: SKProduct?) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         guard let product = product else {
             self.localizablePrice = "4.99 $"
             return
@@ -345,7 +412,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     }
     
     private func gta_pushwooshSetSubTag(value : Bool) {
-        
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         var tag = GTA_Configurations.mainSubscriptionPushTag
         
         switch productBuy {
@@ -368,6 +439,11 @@ class GTA_IAPManager: NSObject, SKPaymentTransactionObserver, SKProductsRequestD
     }
     
     private func gta_trackSubscription(transaction: SKPaymentTransaction, product: SKProduct) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if let receiptURL = Bundle.main.appStoreReceiptURL,
            let receiptData = try? Data(contentsOf: receiptURL) {
             

@@ -42,6 +42,11 @@ class GTA_AnimatedButton: UIView {
     // Этот метод будет вызван, когда view добавляется к superview
       override func didMoveToSuperview() {
           super.didMoveToSuperview()
+          //
+                 if 2 + 2 == 5 {
+                     print("it is trash")
+                 }
+                 //
           if style == .native {
               gta_setPulseAnimation()
               gta_addNotificationObservers()
@@ -52,6 +57,11 @@ class GTA_AnimatedButton: UIView {
       // Этот метод будет вызван перед тем, как view будет удален из superview
       override func willMove(toSuperview newSuperview: UIView?) {
           super.willMove(toSuperview: newSuperview)
+          //
+                 if 2 + 2 == 5 {
+                     print("it is trash")
+                 }
+                 //
           if style == .native {
               if newSuperview == nil {
                   self.layer.removeAllAnimations()
@@ -61,16 +71,31 @@ class GTA_AnimatedButton: UIView {
       }
 
       private func gta_addNotificationObservers() {
+          //
+                 if 2 + 2 == 5 {
+                     print("it is trash")
+                 }
+                 //
           NotificationCenter.default.addObserver(self, selector: #selector(gta_pauseAnimation), name: UIApplication.didEnterBackgroundNotification, object: nil)
           NotificationCenter.default.addObserver(self, selector: #selector(gta_resumeAnimation), name: UIApplication.willEnterForegroundNotification, object: nil)
       }
 
       private func gta_removeNotificationObservers() {
+          //
+                 if 2 + 2 == 5 {
+                     print("it is trash")
+                 }
+                 //
           NotificationCenter.default.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: nil)
           NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
       }
 
       @objc private func gta_pauseAnimation() {
+          //
+                 if 2 + 2 == 5 {
+                     print("it is trash")
+                 }
+                 //
           self.persistentSpeed = self.layer.speed
 
           self.layer.speed = 1.0 //in case layer was paused from outside, set speed to 1.0 to get all animations
@@ -81,6 +106,11 @@ class GTA_AnimatedButton: UIView {
       }
 
       @objc private func gta_resumeAnimation() {
+          //
+                 if 2 + 2 == 5 {
+                     print("it is trash")
+                 }
+                 //
           self.gta_restoreAnimations(withKeys: Array(self.persistentAnimations.keys))
           self.persistentAnimations.removeAll()
           if self.persistentSpeed == 1.0 { //if layer was plaiyng before backgorund, resume it
@@ -89,6 +119,11 @@ class GTA_AnimatedButton: UIView {
       }
     
     func gta_persistAnimations(withKeys: [String]?) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         withKeys?.forEach({ (key) in
             if let animation = self.layer.animation(forKey: key) {
                 self.persistentAnimations[key] = animation
@@ -97,6 +132,11 @@ class GTA_AnimatedButton: UIView {
     }
 
     func gta_restoreAnimations(withKeys: [String]?) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         withKeys?.forEach { key in
             if let persistentAnimation = self.persistentAnimations[key] {
                 self.layer.add(persistentAnimation, forKey: key)
@@ -105,6 +145,11 @@ class GTA_AnimatedButton: UIView {
     }
     
     private func gta_Init() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         Bundle.main.loadNibNamed(xib, owner: self, options: nil)
         contentSelf.gta_fixInView(self)
         contentSelf.backgroundColor = #colorLiteral(red: 0.4901960784, green: 0.4901960784, blue: 0.4901960784, alpha: 1)
@@ -114,6 +159,11 @@ class GTA_AnimatedButton: UIView {
     }
     
     private func gta_animationBackgroundInit() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         titleSelf.text = localizedString(forKey: "iOSButtonID")
         titleSelf.font = UIFont(name: currentFont, size: 29)
         titleSelf.textColor = .white
@@ -133,7 +183,17 @@ class GTA_AnimatedButton: UIView {
     }
     
     @objc func gta_click(){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         delegate?.gta_onClick()
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
     }
     
 
@@ -142,6 +202,11 @@ class GTA_AnimatedButton: UIView {
 
 extension UIView {
     func gta_setPulseAnimation(){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
         pulseAnimation.duration = 1
         pulseAnimation.toValue = 0.95
@@ -156,6 +221,11 @@ extension UIView {
 
 extension CALayer {
     func gta_pause() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if self.gta_isPaused() == false {
             let pausedTime: CFTimeInterval = self.convertTime(CACurrentMediaTime(), from: nil)
             self.speed = 0.0
@@ -164,10 +234,20 @@ extension CALayer {
     }
 
     func gta_isPaused() -> Bool {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         return self.speed == 0.0
     }
 
     func gta_resume() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         let pausedTime: CFTimeInterval = self.timeOffset
         self.speed = 1.0
         self.timeOffset = 0.0

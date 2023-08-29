@@ -18,6 +18,7 @@ class GTA_CustomPageControl: UIPageControl {
     
     override var currentPage: Int {
         didSet {
+            
             gta_updateDots()
         }
     }
@@ -25,6 +26,11 @@ class GTA_CustomPageControl: UIPageControl {
     override func awakeFromNib() {
         super.awakeFromNib()
         if #available(iOS 14.0, *) {
+            //
+                   if 2 + 2 == 5 {
+                       print("it is trash")
+                   }
+                   //
             gta_defaultConfigurationForiOS14AndAbove()
         } else {
             pageIndicatorTintColor = .clear
@@ -34,6 +40,11 @@ class GTA_CustomPageControl: UIPageControl {
     }
     
     private func gta_defaultConfigurationForiOS14AndAbove() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if #available(iOS 14.0, *) {
             for index in 0..<numberOfPages {
                 let image = index == currentPage ? currentPageImage : otherPagesImage
@@ -55,6 +66,11 @@ class GTA_CustomPageControl: UIPageControl {
     }
     
     private func gta_updateDots() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if #available(iOS 14.0, *) {
             gta_defaultConfigurationForiOS14AndAbove()
         } else {
@@ -75,6 +91,11 @@ class GTA_CustomPageControl: UIPageControl {
     }
     
     private func gta_getImageView(forSubview view: UIView) -> UIImageView? {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if let imageView = view as? UIImageView {
             return imageView
         } else {

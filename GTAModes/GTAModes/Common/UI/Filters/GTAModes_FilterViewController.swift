@@ -66,11 +66,20 @@ final class GTAModes_FilterViewController: NiblessFilterViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         gta_setupView()
     }
     
     private func gta_setupView() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         view.withCornerRadius()
         titleLabel.text = "Filter"
         titleLabel.font = UIFont(name: "Inter-Regular", size: 20)
@@ -126,10 +135,20 @@ extension GTAModes_FilterViewController: PanPresentable {
     }
     
     func minContentHeight(presentingController: UIViewController) -> CGFloat {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         contentSize.height
     }
     
     func maxContentHeight(presentingController: UIViewController) -> CGFloat {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         contentSize.height
     }
     
@@ -139,6 +158,11 @@ extension GTAModes_FilterViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         filterListData.filterList.count
         //
     }
@@ -150,10 +174,20 @@ extension GTAModes_FilterViewController: UITableViewDataSource {
         cell.gta_configure_cell(filterDataCell)
         cell.backgroundColor = .black
         
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         return cell
     }
     
     private func isCheckFilter(_ titleCell: String) -> Bool {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if titleCell == filterListData.selectedItem, titleCell == selectedValue {
             return true
         }
@@ -174,6 +208,11 @@ extension GTAModes_FilterViewController: UITableViewDataSource {
 extension GTAModes_FilterViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         tableView.deselectRow(at: indexPath, animated: true)
         if selectedValue == filterListData.filterList[indexPath.row] {
             selectedValue = ""

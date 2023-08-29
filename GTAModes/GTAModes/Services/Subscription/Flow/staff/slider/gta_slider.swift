@@ -53,6 +53,11 @@ class GTA_SliderCellView: UIView {
     }
     
     func gta_configureView() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         addSubview(stackView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subTitleLabel)
@@ -60,6 +65,11 @@ class GTA_SliderCellView: UIView {
     }
     
     func gta_makeConstraints() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         starIcon.snp.remakeConstraints { make in
 //            make.height.equalTo(50)
             make.width.equalTo(starIcon.snp.height)

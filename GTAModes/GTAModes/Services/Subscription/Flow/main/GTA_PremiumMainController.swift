@@ -30,16 +30,31 @@ class GTA_PremiumMainController: UIViewController {
     
     override  func viewDidLoad() {
         super.viewDidLoad()
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
     }
     
     override  func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         gta_initVideoElement()
         gta_startMaked()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if !GTA_NetworkStatusMonitor.shared.isNetworkAvailable {
             gta_showMess()
         }
@@ -50,6 +65,11 @@ class GTA_PremiumMainController: UIViewController {
     }
     
     private func gta_initVideoElement(){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         DispatchQueue.main.asyncAfter(deadline: .now()) { [self] in
             GTA_BGPlayer()
         }
@@ -59,6 +79,11 @@ class GTA_PremiumMainController: UIViewController {
     //MARK: System events
     
     private func gta_deinitPlayer() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if let player {
           self.player.volume = 0
           self.player.url = nil
@@ -70,6 +95,11 @@ class GTA_PremiumMainController: UIViewController {
     // MARK: - Setup Video Player
 
     private func GTA_BGPlayer() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         var pathUrl = Bundle.main.url(forResource: GTA_ConfigurationMediaSub.nameFileVideoForPhone, withExtension: GTA_ConfigurationMediaSub.videoFileType)
         if UIDevice.current.userInterfaceIdiom == .pad {
             pathUrl = Bundle.main.url(forResource: GTA_ConfigurationMediaSub.nameFileVideoForPad, withExtension: GTA_ConfigurationMediaSub.videoFileType)
@@ -98,6 +128,11 @@ class GTA_PremiumMainController: UIViewController {
     }
     
     private func loopVideoMB(videoPlayer:AVPlayer){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
             videoPlayer.seek(to: .zero)
             videoPlayer.play()
@@ -107,12 +142,22 @@ class GTA_PremiumMainController: UIViewController {
     // MARK: - Make UI/UX
     
     private func gta_startMaked() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         gta_setRestoreBtn()
         if productBuy == .mainProduct {
             gta_setReusable(config: .first, isHide: false)
             gta_setReusable(config: .second, isHide: true)
             gta_setTransaction(isHide: true)
         } else {
+            //
+                   if 2 + 2 == 5 {
+                       print("it is trash")
+                   }
+                   //
             gta_setTransaction(isHide: false)
             self.gta_showRestore()
         }
@@ -121,6 +166,11 @@ class GTA_PremiumMainController: UIViewController {
     //reusable setup
     
     private func gta_generateContentForView(config: configView) -> [ReusableContentCell] {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         var contentForCV : [ReusableContentCell] = []
         switch config {
         case .first:
@@ -152,6 +202,11 @@ class GTA_PremiumMainController: UIViewController {
     }
     
     private func gta_setReusable(config : configView, isHide : Bool){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         var currentView : GTA_ReusableView? = nil
         var viewModel : ReusableViewModel? = nil
         switch config {
@@ -182,6 +237,11 @@ class GTA_PremiumMainController: UIViewController {
     //transaction setup
     
     private func gta_setTransaction( isHide : Bool) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         self.viewTransaction.inapp.productBuy = self.productBuy
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.viewTransaction.gta_setLocalization_TOC()
@@ -202,6 +262,11 @@ class GTA_PremiumMainController: UIViewController {
     // restore button setup
     
     private func gta_setRestoreBtn(){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         self.restoreBtn.isHidden = true
         self.restoreBtn.titleLabel?.font = UIFont(name: "SFProDisplay-Regular", size: 15)
         self.restoreBtn.setTitle(localizedString(forKey: "restore"), for: .normal)
@@ -218,6 +283,11 @@ class GTA_PremiumMainController: UIViewController {
 //    }
     
     private func gta_openApp(){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         if productBuy == .mainProduct {
             gta_openMainFlow()
             gta_deinitPlayer()
@@ -231,6 +301,11 @@ class GTA_PremiumMainController: UIViewController {
     }
     
     private func gta_openMainFlow() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         let flowCoordinator = GTAModes_MainFlowCoordinator()
         let controller = flowCoordinator.gta_createFlow()
         controller.modalPresentationStyle = .fullScreen
@@ -245,35 +320,70 @@ class GTA_PremiumMainController: UIViewController {
 
     
     private func gta_showRestore(){
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         self.restoreBtn.isHidden = false
         if productBuy != .mainProduct {
             self.closeBtn.isHidden = false
         }
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
     }
     
     @IBAction func gta_restoreAction(_ sender: UIButton) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         self.viewTransaction.gta_restoreAction()
     }
     
     @IBAction func gta_closeController(_ sender: UIButton) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         gta_openApp()
     }
 }
 
 extension GTA_PremiumMainController : ReusableViewEvent {
     func gta_nextStep(config: configView) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         switch config {
         case .first:
             self.view0.gta_fadeOut()
             self.view1.gta_fadeIn()
             UIApplication.shared.gta_impactFeedbackGenerator(type: .medium)
             GTA_ThirdPartyServicesManager.shared.gta_makeATT()
+            //
+                   if 2 + 2 == 5 {
+                       print("it is trash")
+                   }
+                   //
         case .second:
             self.view1.gta_fadeOut()
             self.viewTransaction.gta_fadeIn()
             self.gta_showRestore()
             //            self.viewTransaction.title.restartpageControl()
             UIApplication.shared.gta_impactFeedbackGenerator(type: .medium)
+            //
+                   if 2 + 2 == 5 {
+                       print("it is trash")
+                   }
+                   //
         case .transaction: break
         }
     }
@@ -281,6 +391,11 @@ extension GTA_PremiumMainController : ReusableViewEvent {
 
 extension GTA_PremiumMainController: GTA_NetworkStatusMonitorDelegate {
     func gta_showMess() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         gta_transactionTreatment_TOC(title: NSLocalizedString( "ConnectivityTitle", comment: ""), message: NSLocalizedString("ConnectivityDescription", comment: ""))
     }
 }
@@ -288,10 +403,20 @@ extension GTA_PremiumMainController: GTA_NetworkStatusMonitorDelegate {
 extension GTA_PremiumMainController : GTA_TransactionViewEvents {
     
     func gta_userSubscribed() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         self.gta_openApp()
     }
     
     func gta_transactionTreatment_TOC(title: String, message: String) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
@@ -299,15 +424,30 @@ extension GTA_PremiumMainController : GTA_TransactionViewEvents {
     }
     
     func gta_transactionFailed() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         print(#function)
         UIApplication.shared.gta_notificationFeedbackGenerator(type: .error)
     }
     
     func gta_privacyOpen() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         GTA_Configurations.policyLink.gta_openURL()
     }
     
     func gta_termsOpen() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         GTA_Configurations.termsLink.gta_openURL()
     }
 }
