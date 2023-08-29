@@ -163,7 +163,7 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
                    print("it is trash")
                }
                //
-        model.menuItems.count
+        return model.menuItems.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

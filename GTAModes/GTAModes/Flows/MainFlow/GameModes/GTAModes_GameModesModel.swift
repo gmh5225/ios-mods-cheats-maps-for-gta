@@ -26,12 +26,24 @@ final class GTAModes_GameModesModel {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    var showDocumentSaverData: AnyPublisher<String, Never> {
+        showDocumentSaverSubject
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    var showAlertSaverData: AnyPublisher<String, Never> {
+        showAlertSaverSubject
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
     var modeItems: [ModItem] = []
     var title: String {
         "Mods Version 5"
     }
     private let navigationHandler: GameModesModelNavigationHandler
     private let reloadDataSubject = PassthroughSubject<Void, Never>()
+    private let showDocumentSaverSubject = PassthroughSubject<String, Never>()
+    private let showAlertSaverSubject = PassthroughSubject<String, Never>()
     private let showSpinnerSubject = PassthroughSubject<Bool, Never>()
     var allModeItems: [ModItem] = []
     private var filterSelected: String = ""
@@ -90,22 +102,27 @@ final class GTAModes_GameModesModel {
     
     func gta_downloadMode(index: Int) {
         let mode = modeItems[index]
-        showSpinnerSubject.send(true)
+//
         if !gta_checkIsLoadData(mode.modPath) {
+            showSpinnerSubject.send(true)
             GTAModes_DBManager.shared.gta_downloadMode(mode: mode) { [weak self] localUrl in
                 if let localUrl = localUrl {
                     print("File downloaded to: \(localUrl)")
                     self?.showSpinnerSubject.send(false)
+                    self?.showDocumentSaverSubject.send(localUrl)
                     self?.reloadDataSubject.send()
                 } else {
                     self?.showSpinnerSubject.send(false)
                     self?.reloadDataSubject.send()
-                    print("ERROR")
+                    self?.showAlertSaverSubject.send("Some problem with file")
                 }
                 
             }
         } else {
-            showSpinnerSubject.send(false)
+//            showSpinnerSubject.send(false)
+            
+            showDocumentSaverSubject.send(mode.modPath)
+            
             reloadDataSubject.send()
             print("FILE IS LOCALY")
         }

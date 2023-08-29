@@ -140,7 +140,7 @@ extension GTAModes_FilterViewController: PanPresentable {
                    print("it is trash")
                }
                //
-        contentSize.height
+        return contentSize.height
     }
     
     func maxContentHeight(presentingController: UIViewController) -> CGFloat {
@@ -149,7 +149,7 @@ extension GTAModes_FilterViewController: PanPresentable {
                    print("it is trash")
                }
                //
-        contentSize.height
+        return contentSize.height
     }
     
 }
@@ -163,7 +163,7 @@ extension GTAModes_FilterViewController: UITableViewDataSource {
                    print("it is trash")
                }
                //
-        filterListData.filterList.count
+        return filterListData.filterList.count
         //
     }
     
