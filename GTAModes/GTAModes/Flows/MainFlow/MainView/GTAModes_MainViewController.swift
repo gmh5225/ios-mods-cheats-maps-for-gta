@@ -13,6 +13,11 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
     var alert: UIAlertController?
     
     private func gta_setupView() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         navigationItem.title = ""
         view.addSubview(tableView)
         tableView.backgroundColor = .clear
@@ -34,9 +39,19 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
         self.model = model
         
         super.init()
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
     }
     
     private func gta_setupBindings() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         model.reloadData
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
@@ -56,6 +71,12 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
+        
         if model.menuItems.isEmpty {
             gta_showSpiner()
         }
@@ -64,6 +85,11 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
     }
     
     private func gta_showSpiner() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         alert = UIAlertController(title: nil, message: "Load Data", preferredStyle: .alert)
         
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
@@ -87,20 +113,38 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_MainTableViewCell = tableView.dequeueReusableCell(indexPath)
-
         cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
         cell.backgroundColor = .clear
-        
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        model.menuItems.count
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
+        return model.menuItems.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
         model.gta_selectedItems(index: indexPath.row)
     }
-
+    
     
 }

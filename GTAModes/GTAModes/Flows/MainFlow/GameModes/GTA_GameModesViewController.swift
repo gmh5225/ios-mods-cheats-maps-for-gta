@@ -28,6 +28,16 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            // 2. set its sourceRect here. It's the same as in step 4
+            activityVC?.popoverPresentationController?.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+        }
+    }
+    
+    
     override func viewDidLoad() {
         // super
         super.viewDidLoad()
@@ -41,15 +51,6 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         // some comment
         gta_searchBindings()
         // some comment
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            // 2. set its sourceRect here. It's the same as in step 4
-            activityVC?.popoverPresentationController?.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
-        }
     }
     
     private func gta_setupView() {
@@ -105,6 +106,24 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
             }
         }.store(in: &subscriptions)
         
+        model.showDocumentSaverData.sink { [weak self] localUrl in
+            guard let self = self else { return }
+            
+            print(localUrl)
+            self.presentDocumentsPickerForExport(urlPath: localUrl)
+            
+            
+            
+        }.store(in: &subscriptions)
+        
+        model.showAlertSaverData.sink { [weak self] textAlert in
+            guard let self = self else { return }
+            
+            self.gta_showTextAlert(textAlert)
+            
+            
+            
+        }.store(in: &subscriptions)
     }
     
     private func gta_setupSearchBar() {
@@ -252,4 +271,33 @@ extension GTA_GameModesViewController: UIPopoverPresentationControllerDelegate {
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
+}
+
+extension GTA_GameModesViewController: UIDocumentPickerDelegate, UINavigationControllerDelegate {
+    
+    func presentDocumentsPickerForExport(urlPath: String) {
+        
+        if let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(urlPath) {
+            DispatchQueue.main.async { [weak self] in
+                do {
+                    let documentPicker = UIDocumentPickerViewController(forExporting: [fileURL])
+                    documentPicker.delegate = self
+                    documentPicker.shouldShowFileExtensions = true
+                    self?.present(documentPicker, animated: true, completion: nil)
+                } catch {
+                    self?.gta_showTextAlert("ERROR")
+                }
+            }
+        }
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        print("File exported successfully to Files app.")
+        
+    }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        print("Document picker was cancelled by the user.")
+    }
+    
 }

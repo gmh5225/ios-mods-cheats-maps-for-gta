@@ -13,6 +13,9 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
     
     private let containerView = UIView()
     private let titleLabel = UILabel()
+    private let downloadTitleLabel = UILabel()
+    private let shareTitleLabel = UILabel()
+    
     private let modeImage: UIImageView = {
         var imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -65,7 +68,12 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         descriprionLabel.font = UIFont(name: "Inter-Regular", size: 20)
         descriprionLabel.textColor = .white
         descriprionLabel.text = value.description
+        
         downloadButtonView.backgroundColor = isLoaded ? UIColor(named: "greenColor")?.withAlphaComponent(0.4) : UIColor(named: "blueColor")?.withAlphaComponent(0.4)
+        downloadTitleLabel.font = UIFont(name: "Inter-Regular", size: 16)
+        downloadTitleLabel.textColor = .white
+        downloadTitleLabel.text = isLoaded ? "Downloaded" : "Download"
+        
         gta_setImageMod(value)
     }
     
@@ -148,14 +156,14 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         downloadButtonView.withCornerRadius(4.0)
         downloadButtonView.withBorder()
         
-        let shareView = configureButtonView(title: "Share", imageName: "shareIcon")
+        let shareView = configureButtonView(title: "Share", imageName: "shareIcon", isShare: true)
         shareButtonView.addSubview(shareView)
         shareView.gta_layout {
             $0.centerX.equal(to: shareButtonView.centerXAnchor)
             $0.centerY.equal(to: shareButtonView.centerYAnchor)
         }
         
-        let downloadView = configureButtonView(title: "Download", imageName: "downloadIcon")
+        let downloadView = configureButtonView(title: "Download", imageName: "downloadIcon", isShare: false)
         downloadButtonView.addSubview(downloadView)
         downloadView.gta_layout {
             $0.centerX.equal(to: downloadButtonView.centerXAnchor)
@@ -187,9 +195,9 @@ final class GTAModes_GameModesTableViewCell: UITableViewCell, GTAModes_Reusable 
         stackView.alignment = .center
     }
     
-    func configureButtonView(title: String, imageName: String) -> UIView {
+    func configureButtonView(title: String, imageName: String, isShare: Bool) -> UIView {
         let buttonView = UIView()
-        let titleLabel = UILabel()
+        let titleLabel = isShare ? shareTitleLabel : downloadTitleLabel
         let imageView = UIImageView()
         buttonView.addSubview(titleLabel)
         buttonView.addSubview(imageView)
