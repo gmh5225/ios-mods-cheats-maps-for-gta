@@ -16,7 +16,7 @@ public final class GTAModes_SearchBar: GTAModes_NiblessView {
     private lazy var cancelButton = UIButton()
     private lazy var leftImageView: UIImageView = {
         let imageView = UIImageView(
-            frame: CGRect(origin: .zero, size: CGSize(width: 16.0, height: 16.0))
+            frame: CGRect(origin: .zero, size: CGSize(width: 20.0, height: 20.0))
         )
         imageView.image = UIImage(named: "searchIcon")
         return imageView
@@ -228,8 +228,8 @@ extension GTAModes_SearchBar {
             $0.width.equal(to:42.0)
         }
         leftImageView.gta_layout {
-            $0.height.equal(to:16.0)
-            $0.width.equal(to: 16.0)
+            $0.height.equal(to:20.0)
+            $0.width.equal(to: 20.0)
             $0.centerX.equal(to: view.centerXAnchor)
             $0.centerY.equal(to: view.centerYAnchor)
         }
