@@ -152,7 +152,7 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
     }
     
     private func gta_showSpiner() {
-        alert = UIAlertController(title: nil, message: "Download Mode", preferredStyle: .alert)
+        alert = UIAlertController(title: nil, message: "Downloading mode", preferredStyle: .alert)
         
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
@@ -280,7 +280,7 @@ extension GTA_GameModesViewController: UIDocumentPickerDelegate, UINavigationCon
         if let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(urlPath) {
             DispatchQueue.main.async { [weak self] in
                 do {
-                    let documentPicker = UIDocumentPickerViewController(forExporting: [fileURL])
+                    let documentPicker = UIDocumentPickerViewController(forExporting: [fileURL], asCopy: true)
                     documentPicker.delegate = self
                     documentPicker.shouldShowFileExtensions = true
                     self?.present(documentPicker, animated: true, completion: nil)

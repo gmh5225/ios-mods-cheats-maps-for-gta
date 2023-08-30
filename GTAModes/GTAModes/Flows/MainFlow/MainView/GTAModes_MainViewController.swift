@@ -90,7 +90,7 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
                    print("it is trash")
                }
                //
-        alert = UIAlertController(title: nil, message: "Load Data", preferredStyle: .alert)
+        alert = UIAlertController(title: nil, message: "Loading Data", preferredStyle: .alert)
         
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
