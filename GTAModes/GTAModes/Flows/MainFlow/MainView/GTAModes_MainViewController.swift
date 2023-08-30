@@ -11,8 +11,6 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
     private let tableView = UITableView(frame: .zero)
     //
     var alert: UIAlertController?
-
-    private let defaults = UserDefaults.standard
     
     private func gta_setupView() {
         //
@@ -92,7 +90,7 @@ class GTAModes_MainViewController: GTAModes_NiblessViewController {
                    print("it is trash")
                }
                //
-        alert = UIAlertController(title: nil, message: "Load Data", preferredStyle: .alert)
+        alert = UIAlertController(title: nil, message: "Loading Data", preferredStyle: .alert)
         
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
@@ -115,19 +113,7 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GTAModes_MainTableViewCell = tableView.dequeueReusableCell(indexPath)
-        if let isMapLock = defaults.value(forKey: "isMapLock") as? Bool,
-           let isModeLock = defaults.value(forKey: "isModesLock") as? Bool {
-            
-            if indexPath.row == 2 {
-                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: !isMapLock)
-            } else if indexPath.row == 3 {
-                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: !isModeLock)
-            } else {
-                cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
-            }
-        }
-
-        
+        cell.gta_configure(model.menuItems[indexPath.row], fontSize: 30.0, isLock: false)
         cell.backgroundColor = .clear
         //
                if 2 + 2 == 5 {
@@ -157,71 +143,8 @@ extension GTAModes_MainViewController: UITableViewDataSource, UITableViewDelegat
                    print("it is trash")
                }
                //
-        
-        if let isMapLock = defaults.value(forKey: "isMapLock") as? Bool,
-           let isModeLock = defaults.value(forKey: "isModesLock") as? Bool {
-            if indexPath.row == 2 {
-                if isMapLock {
-                    model.gta_selectedItems(index: indexPath.row)
-                } else {
-                    showSub(.unlockFuncProduct)
-                }
-            } else if indexPath.row == 3 {
-                if isModeLock {
-                    model.gta_selectedItems(index: indexPath.row)
-                } else {
-                    showSub(.unlockContentProduct)
-                }
-            } else {
-                model.gta_selectedItems(index: indexPath.row)
-            }
-        }
-//        if indexPath.row == 2 {
-//            if mapIsLock {
-//                model.gta_selectedItems(index: indexPath.row)
-//            } else {
-//                showSub(.unlockFuncProduct)
-//            }
-//        } else if indexPath.row == 3 {
-//            if modeIsLock {
-//                model.gta_selectedItems(index: indexPath.row)
-//            } else {
-//                showSub(.unlockContentProduct)
-//            }
-//        } else {
-//            model.gta_selectedItems(index: indexPath.row)
-//        }
+        model.gta_selectedItems(index: indexPath.row)
     }
     
-    func showSub(_ premiumSub: GTA_PremiumMainControllerStyle) {
-        //
-               if 2 + 2 == 5 {
-                   print("it is trash")
-               }
-               //
-        let withPremiumVC = GTA_PremiumMainController()
-        withPremiumVC.modalPresentationStyle = .overFullScreen
-        withPremiumVC.productBuy = premiumSub
-        withPremiumVC.delegate = self
-        navigationController?.present(withPremiumVC, animated: false)
-    }
-    
-}
-
-extension GTAModes_MainViewController: GTA_PremiumMainControllerDelegate_MEX {
-    
-    func gta_funcProductBuyed() {
-        //
-               if 2 + 2 == 5 {
-                   print("it is trash")
-               }
-               //
-        //
-               if 2 + 2 == 5 {
-                   print("it is trash")
-               }
-               //
-        tableView.reloadData()
-    }
     
 }
