@@ -16,6 +16,9 @@ protocol GameModesModelNavigationHandler: AnyObject {
 
 final class GTAModes_GameModesModel {
     
+    public var hideSpiner: (() -> Void)?
+    
+    
     var reloadData: AnyPublisher<Void, Never> {
         reloadDataSubject
             .receive(on: DispatchQueue.main)
@@ -48,15 +51,20 @@ final class GTAModes_GameModesModel {
     var allModeItems: [ModItem] = []
     private var filterSelected: String = ""
     private var searchText: String = ""
+    private let defaults = UserDefaults.standard
     
     
     init(
         navigationHandler: GameModesModelNavigationHandler
     ) {
         self.navigationHandler = navigationHandler
-        gta_fetchData()
-        gta_showMods()
+        
         GTAModes_DBManager.shared.delegate = self
+        
+        if let isLoadedData = defaults.value(forKey: "gta_isReadyGTA5Mods") as? Bool, isLoadedData {
+            gta_fetchData()
+            gta_showMods()
+        }
     }
     
     func gta_backActionProceed() {
@@ -139,6 +147,7 @@ final class GTAModes_GameModesModel {
     func gta_showMods() {
         modeItems = allModeItems
         reloadDataSubject.send()
+        hideSpiner?()
     }
     
     func gta_searchAt(_ searchText: String) {
@@ -161,12 +170,19 @@ final class GTAModes_GameModesModel {
 
 extension GTAModes_GameModesModel: GTA_DropBoxManagerDelegate {
     
-    func gta_currentProgressOperation(progress: Progress) {
-        print("OK")
+    func gta_isReadyMain() {}
+    
+    func gta_isReadyGameList() {
+        
     }
     
-    func gta_isReadyAllContent() {
-        print("OK")
+    func gta_isReadyGameCodes() {
     }
     
+    func gta_isReadyMissions() { }
+    
+    func gta_isReadyGTA5Mods() {
+        gta_fetchData()
+        gta_showMods()
+    }
 }

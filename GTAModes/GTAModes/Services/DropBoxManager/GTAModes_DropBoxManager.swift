@@ -6,9 +6,12 @@ import RealmSwift
 
 protocol GTA_DropBoxManagerDelegate: AnyObject {
     
-    func gta_currentProgressOperation(progress : Progress)
-    func gta_isReadyAllContent()
-    
+//    func gta_currentProgressOperation(progress : Progress)
+    func gta_isReadyMain()
+    func gta_isReadyGameList()
+    func gta_isReadyGameCodes()
+    func gta_isReadyMissions()
+    func gta_isReadyGTA5Mods()
 }
 
 final class GTAModes_DBManager: NSObject {
@@ -32,13 +35,13 @@ final class GTAModes_DBManager: NSObject {
     // MARK: - Public
     
     func gta_setupDropBox() {
-        if let _ = defaults.value(forKey: "dataDidLoaded") as? Bool {
+        if let _ = defaults.value(forKey: "gta_isReadyMain") as? Bool {
             
         } else {
             gta_clearAllThings()
         }
         
-        if let isLoadedData = defaults.value(forKey: "dataDidLoaded") as? Bool, !isLoadedData {
+        if let isLoadedData = defaults.value(forKey: "gta_isReadyMain") as? Bool, !isLoadedData {
             gta_clearAllThings()
             
             if let refresh = defaults.value(forKey: GTA_DBKeys.RefreshTokenSaveVar) as? String {
@@ -57,7 +60,7 @@ final class GTAModes_DBManager: NSObject {
                 
             }
         } else {
-            delegate?.gta_isReadyAllContent()
+            delegate?.gta_isReadyMain()
             print(" ================== ALL DATA IS LOCALY OK =======================")
         }
     }
@@ -133,10 +136,11 @@ final class GTAModes_DBManager: NSObject {
 private extension GTAModes_DBManager {
     
     func gta_clearAllThings() {
-        defaults.set(false, forKey: "dataDidLoaded")
-        defaults.set(0, forKey: "json_categories_data_count")
-        defaults.set(0, forKey: "json_data_count")
-        defaults.set(0, forKey: "json_editor_data_count")
+        defaults.set(false, forKey: "gta_isReadyMain")
+        defaults.set(false, forKey: "gta_isReadyGameList")
+        defaults.set(false, forKey: "gta_isReadyGameCodes")
+        defaults.set(false, forKey: "gta_isReadyMissions")
+        defaults.set(false, forKey: "gta_isReadyGTA5Mods")
         //TODO: Clear CoreData if needed
     }
     
@@ -233,8 +237,16 @@ private extension GTAModes_DBManager {
         gta_fetchMainInfo { [ weak self] in
             print("============== MAIN INFO ALL OK =================")
             
+            self?.defaults.set(true, forKey: "gta_isReadyMain")
+            self?.delegate?.gta_isReadyMain()
+            
+            
             self?.fetchGameListInfo { [weak self] in
                 print("============== GAME LIST ALL OK =================")
+//                self?.delegate?.gta_isReadyGameList()
+                self?.defaults.set(true, forKey: "gta_isReadyGameList")
+                self?.delegate?.gta_isReadyGameList()
+                
                 self?.fetchGTA5Codes { [weak self] in
                     print("============== V5 ALL OK =================")
                     self?.fetchGTA6Codes { [weak self] in
@@ -243,11 +255,20 @@ private extension GTAModes_DBManager {
                             print("============== VC ALL OK =================")
                             self?.fetchGTASACodes { [weak self] in
                                 print("============== SA ALL OK =================")
+                                
+                                self?.defaults.set(true, forKey: "gta_isReadyGameCodes")
+                                self?.delegate?.gta_isReadyGameCodes()
+                                
                                 self?.fetchMissions { [weak self] in
+                                    
+                                    self?.defaults.set(true, forKey: "gta_isReadyMissions")
+                                    self?.delegate?.gta_isReadyMissions()
+                                    
                                     self?.fetchGTA5Mods { [weak self] in
                                         print("============== ALL OK ALL OK ALL OK =================")
-                                        self?.delegate?.gta_isReadyAllContent()
-                                        self?.defaults.set(true, forKey: "dataDidLoaded")
+                                        
+                                        self?.delegate?.gta_isReadyGTA5Mods()
+                                        self?.defaults.set(true, forKey: "gta_isReadyGTA5Mods")
                                     }
                                 }
                             }

@@ -80,12 +80,17 @@ final class GTAModes_MainModel {
 
 extension GTAModes_MainModel: GTA_DropBoxManagerDelegate {
     
-    func gta_currentProgressOperation(progress: Progress) {
-        print("OK")
-    }
-    
-    func gta_isReadyAllContent() {
+    func gta_isReadyMain() {
         gta_fetchData()
     }
+    
+    func gta_isReadyGameList() { }
+    
+    func gta_isReadyGameCodes() { }
+    
+    func gta_isReadyMissions() { }
+    
+    func gta_isReadyGTA5Mods() { }
+    
     
 }

@@ -4,6 +4,8 @@ import Combine
 
 class GSViewController: GTAModes_NiblessViewController {
     
+    var alert: UIAlertController?
+    
     private var subscriptions = Set<AnyCancellable>()
     private let model: GSModel
     private let tableView = UITableView(frame: .zero)
@@ -22,6 +24,9 @@ class GSViewController: GTAModes_NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if model.menuItems.isEmpty {
+            gta_showSpiner()
+        }
         gta_setupView()
         gs_setupBindings()
     }
@@ -33,6 +38,13 @@ class GSViewController: GTAModes_NiblessViewController {
             
             self.tableView.reloadData()
           }.store(in: &subscriptions)
+        
+        model.hideSpiner = { [weak self] in
+            guard let self = self else { return }
+            
+            self.tableView.reloadData()
+            self.gta_hideSpiner()
+        }
     }
     
     private func gta_setupView() {
@@ -58,7 +70,28 @@ class GSViewController: GTAModes_NiblessViewController {
         tableView.separatorStyle = .none
     }
     
+    private func gta_showSpiner() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
+        alert = UIAlertController(title: nil, message: "Loading Data", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = .medium
+        loadingIndicator.startAnimating()
+        
+        alert?.view.addSubview(loadingIndicator)
+        
+        present(alert!, animated: true, completion: nil)
+        
+    }
     
+    private func gta_hideSpiner() {
+        alert?.dismiss(animated: false)
+    }
     
 }
 
