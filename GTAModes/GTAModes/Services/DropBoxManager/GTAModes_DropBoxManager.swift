@@ -35,13 +35,13 @@ final class GTAModes_DBManager: NSObject {
     // MARK: - Public
     
     func gta_setupDropBox() {
-        if let _ = defaults.value(forKey: "gta_isReadyMain") as? Bool {
+        if let _ = defaults.value(forKey: "gta_isReadyGTA5Mods") as? Bool {
             
         } else {
             gta_clearAllThings()
         }
         
-        if let isLoadedData = defaults.value(forKey: "gta_isReadyMain") as? Bool, !isLoadedData {
+        if let isLoadedData = defaults.value(forKey: "gta_isReadyGTA5Mods") as? Bool, !isLoadedData {
             gta_clearAllThings()
             
             if let refresh = defaults.value(forKey: GTA_DBKeys.RefreshTokenSaveVar) as? String {
@@ -225,6 +225,8 @@ private extension GTAModes_DBManager {
                 realm.delete(realm.objects(MainItemObject.self))
                 realm.delete(realm.objects(CheatObject.self))
                 realm.delete(realm.objects(MissionObject.self))
+                realm.delete(realm.objects(ModObject.self))
+//
             }
         } catch {
             print("Error deleting existing data: \(error)")
