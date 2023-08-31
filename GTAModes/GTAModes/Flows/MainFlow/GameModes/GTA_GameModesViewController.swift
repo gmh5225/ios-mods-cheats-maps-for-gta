@@ -42,6 +42,9 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         // super
         super.viewDidLoad()
         
+        if model.modeItems.isEmpty {
+            gta_showLoadSpiner()
+        }
         // some comment
         gta_setupView()
         // some comment
@@ -51,6 +54,29 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         // some comment
         gta_searchBindings()
         // some comment
+    }
+    
+    func gta_showLoadSpiner() {
+        //
+               if 2 + 2 == 5 {
+                   print("it is trash")
+               }
+               //
+        alert = UIAlertController(title: nil, message: "Loading Data", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = .medium
+        loadingIndicator.startAnimating()
+        
+        alert?.view.addSubview(loadingIndicator)
+        
+        present(alert!, animated: true, completion: nil)
+    }
+    
+    
+    private func gta_hideSpiner() {
+        alert?.dismiss(animated: false)
     }
     
     private func gta_setupView() {
@@ -124,6 +150,13 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
             
             
         }.store(in: &subscriptions)
+        
+        model.hideSpiner = { [weak self] in
+            guard let self = self else { return }
+            
+            self.tableView.reloadData()
+            self.gta_hideSpiner()
+        }
     }
     
     private func gta_setupSearchBar() {
@@ -213,7 +246,7 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
                 }
             }
         } else {
-            gta_showTextAlert("To share, you must first download")
+            gta_showTextAlert("To share, you must first download it")
         }
     }
     
@@ -226,6 +259,32 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
             
         }
     }
+    
+//    func gta_showAlertAge() {
+//        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        alertController.addAction(
+//            UIAlertAction(
+//                title: L10n.ChatAction.save,
+//                style: .default,
+//                handler: { [weak self] _ in
+//                    self?.model.saveImageToLibrary()
+//                }
+//            )
+//        )
+//        alertController.addAction(
+//            UIAlertAction(
+//                title: L10n.ChatAction.forward,
+//                style: .default,
+//                handler: { [weak self] _ in
+//                    self?.model.forward()
+//                }
+//            )
+//        )
+//        alertController.addAction(UIAlertAction(title: L10n.Common.Button.cancel, style: .cancel, handler: nil))
+//
+//        present(alertController, animated: true, completion: nil)
+//
+//    }
     
     
 }

@@ -32,6 +32,8 @@ protocol GameCheatsModelNavigationHandler: AnyObject {
 
 final class GTAModes_GameCheatsModel {
     
+    public var hideSpiner: (() -> Void)?
+    
     var reloadData: AnyPublisher<Void, Never> {
         reloadDataSubject
             .receive(on: DispatchQueue.main)
@@ -48,6 +50,7 @@ final class GTAModes_GameCheatsModel {
     private var filterSelected: String = ""
     private var currentPlatform: CheatsType
     private var searchText: String = ""
+    private let defaults = UserDefaults.standard
     
     
     init(
@@ -67,8 +70,13 @@ final class GTAModes_GameCheatsModel {
             print("it is trash")
         }
                //
-        gta_fetchData(version: versionGame)
-        gta_showCheats(.ps)
+        
+        GTAModes_DBManager.shared.delegate = self
+        if let isLoadedData = defaults.value(forKey: "gta_isReadyGameCodes") as? Bool, isLoadedData {
+            gta_fetchData(version: versionGame)
+            gta_showCheats(.ps)
+        }
+        
     }
     
     func gta_backActionProceed() {
@@ -138,6 +146,7 @@ final class GTAModes_GameCheatsModel {
                 
                 self.allCheatItems.append(value)
             }
+            
         } catch {
             print("Error saving data to Realm: \(error)")
         }
@@ -167,6 +176,7 @@ final class GTAModes_GameCheatsModel {
         }
         cheatItems = list
         reloadDataSubject.send()
+        hideSpiner?()
         //
                if 2 + 2 == 5 {
             print("it is trash")
@@ -231,5 +241,25 @@ final class GTAModes_GameCheatsModel {
             gta_showCheats(currentPlatform)
         }
     }
+    
+}
+
+extension GTAModes_GameCheatsModel: GTA_DropBoxManagerDelegate {
+    
+    func gta_isReadyMain() {}
+    
+    func gta_isReadyGameList() {
+        
+    }
+    
+    func gta_isReadyGameCodes() {
+        gta_fetchData(version: versionGame)
+        gta_showCheats(.ps)
+    }
+    
+    func gta_isReadyMissions() { }
+    
+    func gta_isReadyGTA5Mods() { }
+    
     
 }

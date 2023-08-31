@@ -16,6 +16,8 @@ protocol ChecklistModelNavigationHandler: AnyObject {
 
 final class GTAModes_ChecklistModel {
     
+    public var hideSpiner: (() -> Void)?
+    
     var missionList: [MissionItem] = []
     var reloadData: AnyPublisher<Void, Never> {
         reloadDataSubject
@@ -28,6 +30,7 @@ final class GTAModes_ChecklistModel {
     private let reloadDataSubject = PassthroughSubject<Void, Never>()
     private var filteredItems: [MissionItem] = []
     private var allMissionListItems: [MissionItem] = []
+    private let defaults = UserDefaults.standard
     
     init(
         navigationHandler: ChecklistModelNavigationHandler
@@ -43,7 +46,11 @@ final class GTAModes_ChecklistModel {
             print("it is trash")
         }
                //
-        gta_fetchData()
+        GTAModes_DBManager.shared.delegate = self
+        if let isLoadedData = defaults.value(forKey: "gta_isReadyMissions") as? Bool, isLoadedData {
+            gta_fetchData()
+        }
+        
         //
                if 2 + 2 == 5 {
             print("it is trash")
@@ -97,6 +104,7 @@ final class GTAModes_ChecklistModel {
                     self.missionList = list
                 }
                 self.reloadDataSubject.send()
+                
             }
         //
                if 2 + 2 == 5 {
@@ -123,6 +131,7 @@ final class GTAModes_ChecklistModel {
             }
             allMissionListItems = missionList
             reloadDataSubject.send()
+            hideSpiner?()
         } catch {
             print("Error saving data to Realm: \(error)")
         }
@@ -161,3 +170,24 @@ final class GTAModes_ChecklistModel {
     
 }
 
+
+extension GTAModes_ChecklistModel: GTA_DropBoxManagerDelegate {
+
+    
+    
+    func gta_isReadyMain() {}
+    
+    func gta_isReadyGameList() {
+        
+    }
+    
+    func gta_isReadyGameCodes() {}
+    
+    func gta_isReadyMissions() {
+        gta_fetchData()
+    }
+    
+    func gta_isReadyGTA5Mods() { }
+    
+    
+}

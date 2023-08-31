@@ -21,6 +21,8 @@ protocol GSModelNavigationHandler: AnyObject {
 
 final class GSModel {
     
+    public var hideSpiner: (() -> Void)?
+    
     var reloadData: AnyPublisher<Void, Never> {
       reloadDataSubject
         .receive(on: DispatchQueue.main)
@@ -30,12 +32,17 @@ final class GSModel {
     
     private let navigationHandler: GSModelNavigationHandler
     private let reloadDataSubject = PassthroughSubject<Void, Never>()
+    private let defaults = UserDefaults.standard
     
     init(
         navigationHandler: GSModelNavigationHandler
     ) {
+        
         self.navigationHandler = navigationHandler
-        gta_fetchData()
+        GTAModes_DBManager.shared.delegate = self
+        if let isLoadedData = defaults.value(forKey: "gta_isReadyGameList") as? Bool, isLoadedData {
+            gta_fetchData()
+        }
     }
     
     public func gta_selectedItems(index: Int) {
@@ -65,10 +72,29 @@ final class GSModel {
                 self.menuItems.append(value)
             }
             reloadDataSubject.send()
+            hideSpiner?()
         } catch {
             print("Error saving data to Realm: \(error)")
         }
     }
+    
+}
+
+extension GSModel: GTA_DropBoxManagerDelegate {
+    
+    
+    func gta_isReadyMain() {}
+    
+    func gta_isReadyGameList() {
+        gta_fetchData()
+    }
+    
+    func gta_isReadyGameCodes() { }
+    
+    func gta_isReadyMissions() { }
+    
+    func gta_isReadyGTA5Mods() { }
+    
     
 }
 
