@@ -260,6 +260,32 @@ class GTA_GameModesViewController: GTAModes_NiblessViewController {
         }
     }
     
+//    func gta_showAlertAge() {
+//        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        alertController.addAction(
+//            UIAlertAction(
+//                title: L10n.ChatAction.save,
+//                style: .default,
+//                handler: { [weak self] _ in
+//                    self?.model.saveImageToLibrary()
+//                }
+//            )
+//        )
+//        alertController.addAction(
+//            UIAlertAction(
+//                title: L10n.ChatAction.forward,
+//                style: .default,
+//                handler: { [weak self] _ in
+//                    self?.model.forward()
+//                }
+//            )
+//        )
+//        alertController.addAction(UIAlertAction(title: L10n.Common.Button.cancel, style: .cancel, handler: nil))
+//
+//        present(alertController, animated: true, completion: nil)
+//        
+//    }
+    
     
 }
 
