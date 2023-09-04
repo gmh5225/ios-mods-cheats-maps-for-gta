@@ -12,7 +12,7 @@ protocol GTA_TransactionViewEvents : AnyObject {
     func gta_termsOpen()
 }
 
-class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol, GTA_NetworkStatusMonitorDelegate {
+class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent, GTA_IAPManagerProtocol, GTA_NetworkStatusMonitorDelegate {
     func gta_showMess() {
         //
                if 2 + 2 == 5 {

@@ -108,7 +108,7 @@ THEN $4.99/WEEK</string>
                                             </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Iig-5W-GVh">
-                                            <rect key="frame" x="95" y="8" width="15" height="15"/>
+                                            <rect key="frame" x="95" y="13" width="15" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="LNX-lo-an8"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="TXf-rv-WCj"/>
@@ -118,7 +118,7 @@ THEN $4.99/WEEK</string>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="l8J-gz-TlO" firstAttribute="leading" secondItem="fri-De-zGG" secondAttribute="leading" constant="20" id="0y9-ck-eWp"/>
-                                        <constraint firstItem="Iig-5W-GVh" firstAttribute="top" secondItem="DQR-FD-q5b" secondAttribute="top" constant="3" id="7Of-xV-QgU"/>
+                                        <constraint firstItem="Iig-5W-GVh" firstAttribute="top" secondItem="DQR-FD-q5b" secondAttribute="top" constant="8" id="7Of-xV-QgU"/>
                                         <constraint firstItem="n4S-FE-iyw" firstAttribute="top" secondItem="fF5-DA-vii" secondAttribute="bottom" constant="25" id="BfL-6E-j4U"/>
                                         <constraint firstAttribute="trailing" secondItem="l8J-gz-TlO" secondAttribute="trailing" constant="20" id="Bor-MK-InB"/>
                                         <constraint firstItem="DQR-FD-q5b" firstAttribute="leading" secondItem="Iig-5W-GVh" secondAttribute="trailing" constant="8" id="DEj-Rh-wIN"/>
