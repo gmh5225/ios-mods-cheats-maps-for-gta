@@ -38,7 +38,8 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
     @IBOutlet private weak var sliderTop: NSLayoutConstraint!
     @IBOutlet private weak var conteinerWidth: NSLayoutConstraint!
     @IBOutlet private weak var heightView: NSLayoutConstraint!
-    
+
+    @IBOutlet weak var starIcon_GTAA: UIImageView!
     
     private let currentFont = GTA_Configurations.fontName
     public let inapp = GTA_IAPManager.shared
@@ -170,6 +171,8 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
                    print("it is trash")
                }
                //
+
+        
         descriptLb.gta_setShadow()
         descriptLb.textColor = .white
         descriptLb.textAlignment = .center
@@ -235,8 +238,10 @@ class GTA_TransactionView: UIView,GTA_AnimatedButtonEvent,GTA_IAPManagerProtocol
                }
                //
         if locale == "en" {
+            starIcon_GTAA.isHidden = false
             trialLb.text = "Start 3-days for FREE\n Then \(localizedPrice)/week".uppercased()
         } else {
+            starIcon_GTAA.isHidden = true
             trialLb.text = ""
         }
         privacyBtn.titleLabel?.lineBreakMode = .byWordWrapping
