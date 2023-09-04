@@ -251,11 +251,12 @@ private extension GTAModes_DBManager {
         
         gta_fetchMainInfo { [ weak self] in
             print("============== MAIN INFO ALL OK =================")
+            self?.defaults.set(true, forKey: "gta_isReadyMain")
+            self?.delegate?.gta_isReadyMain()
             
             self?.fetchGameListInfo { [weak self] in
                 print("============== GAME LIST ALL OK =================")
-                self?.defaults.set(true, forKey: "gta_isReadyMain")
-                self?.delegate?.gta_isReadyMain()
+                
 //                self?.delegate?.gta_isReadyGameList()
                 self?.defaults.set(true, forKey: "gta_isReadyGameList")
                 self?.delegate?.gta_isReadyGameList()
