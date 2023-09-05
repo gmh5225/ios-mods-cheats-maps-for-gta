@@ -160,7 +160,12 @@ final class GTAModes_GameCheatsModel {
             print("it is trash")
         }
                //
-        filterSelected = ""
+        
+        if !filterSelected.isEmpty {
+           gta_fetchData(version: versionGame)
+            filterSelected = ""
+        }
+        
         var list: [CheatItem] = []
         currentPlatform = type
         switch type {
