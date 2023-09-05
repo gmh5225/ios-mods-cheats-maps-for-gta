@@ -73,7 +73,7 @@ final class GTAModes_GameModesModel {
     
     func gta_filterActionProceed() {
         let filterList = allModeItems.map { $0.filterTitle }
-        let uniqueList = Array(Set(filterList))
+        let uniqueList = Array(Set(filterList)).sorted()
         let filterListData = FilterListData(filterList: uniqueList, selectedItem: filterSelected)
         navigationHandler.gameModesModelDidRequestToFilter(
             self,
