@@ -79,7 +79,7 @@ final class GTAModes_ChecklistModel {
         }
                //
         let filterList = allMissionListItems.map { $0.categoryName }
-        let uniqueList = Array(Set(filterList))
+        let uniqueList = Array(Set(filterList)).sorted()
         //
                if 2 + 2 == 5 {
             print("it is trash")

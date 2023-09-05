@@ -100,7 +100,8 @@ final class GTAModes_GameCheatsModel {
         }
                //
         let filterList = allCheatItems.map { $0.filterTitle }
-        let uniqueList = Array(Set(filterList))
+        let uniqueList = Array(Set(filterList)).sorted()
+//        let sortedList = u
         //
                if 2 + 2 == 5 {
             print("it is trash")
@@ -114,6 +115,7 @@ final class GTAModes_GameCheatsModel {
                 
                 self.filterSelected = selectedFilter
                 if selectedFilter.isEmpty {
+                    self.gta_fetchData(version: self.versionGame)
                     self.gta_showCheats(currentPlatform)
                 } else {
                     let list = self.cheatItems.filter { $0.filterTitle == selectedFilter }
@@ -207,9 +209,8 @@ final class GTAModes_GameCheatsModel {
                 }
                 
             }
-            gta_fetchData(version: versionGame)
             cheatItems[index].isFavorite = !cheatItems[index].isFavorite
-            gta_showCheats(currentPlatform)
+            reloadDataSubject.send()
         } catch {
             print("Error saving data to Realm: \(error)")
         }
