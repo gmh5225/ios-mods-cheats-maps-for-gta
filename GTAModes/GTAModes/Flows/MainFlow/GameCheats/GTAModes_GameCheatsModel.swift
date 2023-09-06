@@ -114,13 +114,13 @@ final class GTAModes_GameCheatsModel {
                 guard let self = self else { return }
                 
                 self.filterSelected = selectedFilter
-                if selectedFilter.isEmpty {
+//                if selectedFilter.isEmpty {
                     self.gta_fetchData(version: self.versionGame)
                     self.gta_showCheats(currentPlatform)
-                } else {
-                    let list = self.cheatItems.filter { $0.filterTitle == selectedFilter }
-                    self.cheatItems = list
-                }
+//                } else {
+//                    let list = self.cheatItems.filter { $0.filterTitle == selectedFilter }
+//                    self.cheatItems = list
+//                }
                 self.reloadDataSubject.send()
             }
         //
@@ -163,7 +163,6 @@ final class GTAModes_GameCheatsModel {
         
         if !filterSelected.isEmpty {
            gta_fetchData(version: versionGame)
-            filterSelected = ""
         }
         
         var list: [CheatItem] = []
@@ -181,7 +180,13 @@ final class GTAModes_GameCheatsModel {
         case .favorite:
             list = allCheatItems.filter { $0.isFavorite == true }
         }
-        cheatItems = list
+        
+        if !filterSelected.isEmpty {
+            let listFiltered = list.filter { $0.filterTitle == filterSelected }
+            self.cheatItems = listFiltered
+        } else {
+            cheatItems = list
+        }
         reloadDataSubject.send()
         hideSpiner?()
         //
