@@ -160,10 +160,7 @@ final class GTAModes_GameCheatsModel {
             print("it is trash")
         }
                //
-        
-        if !filterSelected.isEmpty {
            gta_fetchData(version: versionGame)
-        }
         
         var list: [CheatItem] = []
         currentPlatform = type
@@ -219,7 +216,7 @@ final class GTAModes_GameCheatsModel {
                 }
                 
             }
-            cheatItems[index].isFavorite = !cheatItems[index].isFavorite
+            gta_showCheats(currentPlatform)
             reloadDataSubject.send()
         } catch {
             print("Error saving data to Realm: \(error)")
