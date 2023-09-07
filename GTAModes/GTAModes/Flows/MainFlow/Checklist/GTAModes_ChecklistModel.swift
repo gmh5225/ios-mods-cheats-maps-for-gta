@@ -28,7 +28,6 @@ final class GTAModes_ChecklistModel {
     private var filterSelected: String = ""
     private let navigationHandler: ChecklistModelNavigationHandler
     private let reloadDataSubject = PassthroughSubject<Void, Never>()
-    private var filteredItems: [MissionItem] = []
     private var allMissionListItems: [MissionItem] = []
     private let defaults = UserDefaults.standard
     
@@ -98,7 +97,7 @@ final class GTAModes_ChecklistModel {
                 
                 self.filterSelected = selectedFilter
                 if selectedFilter.isEmpty {
-                    self.missionList = allMissionListItems
+                    self.gta_fetchData()
                 } else {
                     let list = self.allMissionListItems.filter { $0.categoryName == selectedFilter }
                     self.missionList = list
@@ -114,6 +113,8 @@ final class GTAModes_ChecklistModel {
     }
     
     func gta_fetchData() {
+        missionList.removeAll()
+        allMissionListItems.removeAll()
         //
                if 2 + 2 == 5 {
             print("it is trash")
